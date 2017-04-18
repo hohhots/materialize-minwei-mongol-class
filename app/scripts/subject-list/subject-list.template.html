@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        查找标题：<br />
+        <input ng-model="$ctrl.query" />
+      </p>
+
+      <p>
+        排序：
+        <select ng-model="$ctrl.orderProp">
+          <option value="id">顺序</option>
+          <option value="name">名字</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="subjects">
+        <li ng-repeat="subject in $ctrl.subjects | filter:$ctrl.query | orderBy:$ctrl.orderProp"
+            class="thumbnail subject-list-item">
+          <a href="#!/{{subject.id}}/mission" class="thumb">
+            <img ng-src="{{subject.imageUrl}}" alt="{{subject.name}}" />
+          </a>
+          <a href="#!/{{subject.id}}/mission">{{subject.name}}</a>
+          <p>{{subject.introduction}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

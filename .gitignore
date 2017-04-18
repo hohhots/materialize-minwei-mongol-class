@@ -1,0 +1,11 @@
+bower_components
+node_modules
+docs
+libs
+dist
+.tmp
+app.yaml
+*.pyc
+*~
+#*
+*#

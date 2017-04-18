@@ -1,0 +1,19 @@
+{
+  "name": "minwei-angular",
+  "description": "A starter project for learning virtical mongol language.",
+  "version": "0.0.0",
+  "homepage": "http://www.nmgmzw.gov.cn/",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-aria": "1.6.4",
+    "angular-material": "1.1.3",
+    "angular-mocks": "1.6.4",
+    "angular-resource": "1.6.4",
+    "angular-ui-router": "0.4.2",
+    "jquery": "3.2.0",
+    "material-design-lite": "1.3.0"
+  }
+}
