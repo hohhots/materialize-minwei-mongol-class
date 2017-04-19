@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
+    <meta name="description" content="内蒙古民委传统蒙古文,teach traditional mongolian language online">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Starter Kit</title>
+    <title>内蒙古民委蒙古文</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -15,13 +15,13 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Web Starter Kit">
+    <meta name="application-name" content="内蒙古民委蒙古文">
     <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <meta name="apple-mobile-web-app-title" content="内蒙古民委蒙古文">
     <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -31,81 +31,30 @@
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2F3BA2">
 
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
+    <!--Import Google Icon Font-->
+    <link  rel="stylesheet" href="fonts/md-icon.css">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 
-    <!-- Material Design icons -->
-    <link rel="stylesheet" href="styles/md-icon.css">
-
-
-    <!-- Material Design Lite page styles:
-    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
-    Format: material.color1-color2.min.css, some examples:
-    material.red-teal.min.css
-    material.blue-orange.min.css
-    material.purple-indigo.min.css
-    -->
-    <link rel="stylesheet" href="styles/material.indego-pink.min.css">
-    <script src="bower_components/material-design-lite/material.js"></script>
     <!-- Your styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <style>
-      .graybox {
-        background-color:#ddd;
-      }
-    </style>
+    <link rel="stylesheet" href="styles/app.css">
   </head>
 
-  <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Material Design Tabs</span>
-         </div>
-      </header>
-      <main class="mdl-layout__content">
-         <footer class="mdl-mega-footer">
-            <div class="mdl-mega-footer__top-section">
-               <div class="mdl-mega-footer__left-section">
-                  <button class="mdl-mega-footer__social-btn">1</button>
-                  <button class="mdl-mega-footer__social-btn">2</button>
-                  <button class="mdl-mega-footer__social-btn">3</button>
-               </div>
-               <div class="mdl-mega-footer__right-section">
-                  <a href="">Link 1</a>
-                  <a href="">Link 2</a>
-                  <a href="">Link 3</a>
-               </div>
-            </div>
-            <div class="mdl-mega-footer__middle-section">
-               <div class="mdl-mega-footer__drop-down-section">
-                  <h1 class="mdl-mega-footer__heading">Heading </h1>
-                  <ul class="mdl-mega-footer__link-list">
-                     <li><a href="">Link A</a></li>
-                     <li><a href="">Link B</a></li>
-                  </ul>
-               </div>
-               <div class="mdl-mega-footer__drop-down-section">
-                  <h1 class="mdl-mega-footer__heading">Heading </h1>
-                  <ul class="mdl-mega-footer__link-list">
-                     <li><a href="">Link C</a></li>
-                     <li><a href="">Link D</a></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="mdl-mega-footer__bottom-section">
-               <div class="mdl-logo">
-                  Bottom Section
-               </div>
-               <ul class="mdl-mega-footer__link-list">
-                  <li><a href="">Link A</a></li>
-                  <li><a href="">Link B</a></li>
-               </ul>
-            </div>
-         </footer>
-      </main>
-    </div>
+  <body  ng-app="learnMongolApp">
+    
+    <ui-view></ui-view>
+
+    <!--Import jQuery before all other js-->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
+
+    <!--Import application js-->
+    <script type="text/javascript" src="scripts/serviceworker.js"></script>
+    <script type="text/javascript" src="scripts/app.module.js"></script>
+    <script type="text/javascript" src="scripts/app.config.js"></script>
   </body>
 </html>
