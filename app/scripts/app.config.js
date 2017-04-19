@@ -2,7 +2,6 @@
 
 angular.module('learnMongolApp').config(['$stateProvider','$urlRouterProvider',
   function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
 
     var appHeader = "<header></header>";
     var appFooter = "<footer></footer>";
@@ -42,6 +41,8 @@ angular.module('learnMongolApp').config(['$stateProvider','$urlRouterProvider',
       url: '/{categoryName}/{subjectName}/{className}/{lesson}',
       template: lessonT
     };
+
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state(home);
     $stateProvider.state(category);
