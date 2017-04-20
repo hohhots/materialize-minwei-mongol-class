@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="内蒙古民委传统蒙古文,teach traditional mongolian language online">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>内蒙古民委蒙古文</title>
+    <title>内蒙古民委蒙语教学</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -15,13 +15,13 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="内蒙古民委蒙古文">
+    <meta name="application-name" content="内蒙古民委蒙语教学">
     <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="内蒙古民委蒙古文">
+    <meta name="apple-mobile-web-app-title" content="内蒙古民委蒙语教学">
     <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -31,13 +31,14 @@
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2F3BA2">
 
-    <!--Import Google Icon Font-->
-    <link  rel="stylesheet" href="fonts/md-icon.css">
+    <!--Import Font Awesome-->
+    <link  rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
 
-    <!-- Your styles -->
-    <link rel="stylesheet" href="styles/app.css">
+    <!-- app styles -->
+    <link href="styles/app.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
   </head>
 
   <body ng-app="learnMongolApp">
@@ -59,5 +60,23 @@
 
     <script type="text/javascript" src="scripts/header/header.module.js"></script>
     <script type="text/javascript" src="scripts/header/header.component.js"></script>
+
+    <script type="text/javascript" src="scripts/home/home.module.js"></script>
+    <script type="text/javascript" src="scripts/home/home.component.js"></script>
+
+    <script type="text/javascript" src="scripts/category/category.module.js"></script>
+    <script type="text/javascript" src="scripts/category/category.component.js"></script>
+
+    <script type="text/javascript" src="scripts/subject/subject.module.js"></script>
+    <script type="text/javascript" src="scripts/subject/subject.component.js"></script>
+
+    <script type="text/javascript" src="scripts/class/class.module.js"></script>
+    <script type="text/javascript" src="scripts/class/class.component.js"></script>
+
+    <script type="text/javascript" src="scripts/lesson/lesson.module.js"></script>
+    <script type="text/javascript" src="scripts/lesson/lesson.component.js"></script>
+
+    <script type="text/javascript" src="scripts/footer/footer.module.js"></script>
+    <script type="text/javascript" src="scripts/footer/footer.component.js"></script>
   </body>
 </html>

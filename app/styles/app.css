@@ -1,3 +1,26 @@
+
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 宋体;
+}
+
+nav .brand-logo {
+  position: relative;
+  font-size: 22px;
+}
+
+#appHeader > nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  color: rgba(255,255,255,1);
+}
+
+.parallax-container .section {
+  width: 100%;
 }

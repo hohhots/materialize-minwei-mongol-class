@@ -3,14 +3,14 @@
 angular.module('learnMongolApp').config(['$stateProvider','$urlRouterProvider',
   function config($stateProvider, $urlRouterProvider) {
 
-    var appHeader = "<header></header>";
-    var appFooter = "<footer></footer>";
+    var appHeader = "<app-header></app-header>";
+    var appFooter = "<app-footer></app-footer>";
 
-    var homeT     =  appHeader + '<home></home>' + appFooter;
-    var categoryT =  appHeader + '<category></category>' + appFooter;
-    var subjectT  =  appHeader + '<subject></subject>' + appFooter;
-    var mclassT   =  appHeader + '<class></class>' + appFooter;
-    var lessonT   =  appHeader + '<lesson></lesson>' + appFooter;
+    var homeT     =  appHeader + '<app-home></app-home>' + appFooter;
+    var categoryT =  appHeader + '<app-category></app-category>' + appFooter;
+    var subjectT  =  appHeader + '<app-subject></app-subject>' + appFooter;
+    var mclassT   =  appHeader + '<app-class></app-class>' + appFooter;
+    var lessonT   =  appHeader + '<app-lesson></app-lesson>' + appFooter;
 
     var home = {
       name: 'home',
