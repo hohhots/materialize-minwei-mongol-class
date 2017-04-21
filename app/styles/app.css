@@ -4,8 +4,15 @@
   font-family: 宋体;
 }
 
-.container {
-  width: 100%;
+header {
+  min-height: 450px;
+  line-height: 0;
+  color: rgba(255,255,255,1);
+  background-image: url(../images/mountains.svg) !important;
+}
+
+header nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 nav i,
@@ -29,6 +36,7 @@ nav .brand-logo {
   min-height: 380px;
   line-height: 0;
   color: rgba(255,255,255,1);
+  height: 450px;
 }
 
 .parallax-container .section {
@@ -39,7 +47,13 @@ nav .brand-logo {
   margin-right: 20px;
 }
 
+.md-16 {font-size: 16px;}
+
 .md-18 {font-size: 18px;}
+
+.md-20 {font-size: 20px;}
+
+.md-22 {font-size: 22px;}
 
 .md-24 {font-size: 24px;}
 
