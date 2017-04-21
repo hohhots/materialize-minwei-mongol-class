@@ -5,9 +5,11 @@
 }
 
 header {
-  min-height: 450px;
+  min-height: 350px;
   line-height: 0;
   color: rgba(255,255,255,1);
+  background-position: center !important;
+  background-size: cover !important;
   background-image: url(../images/mountains.svg) !important;
 }
 
@@ -62,13 +64,19 @@ nav .brand-logo {
 .md-48 {font-size: 48px;}
 
 @media only screen and (min-width: 601px) {
+  header {
+    min-height: 450px;
+  }
+
   nav i,
   nav div,
   nav col {
     height: 64px;
     line-height: 64px !important;
   }
+}
 
+@media only screen and (min-width: 992px) {
   #appLogo {
     text-align: center;
   }
