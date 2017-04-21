@@ -4,50 +4,58 @@
   font-family: 宋体;
 }
 
+.container {
+  width: 100%;
+}
+
 nav i,
-nav .col {
+nav div,
+nav col {
   height: 55px;
-  line-height: 55px;
+  line-height: 55px !important;
 }
 
 nav .brand-logo {
-  position: relative !important;
-  font-size: 22px !important;
-  height: 56px !important;
+  position: relative;
+  font-size: 22px;
+  height: 55px;
 }
 
 #appHeader > nav {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .parallax-container {
-  min-height: 380px !important;
-  line-height: 0 !important;
-  color: rgba(255,255,255,1) !important;
+  min-height: 380px;
+  line-height: 0;
+  color: rgba(255,255,255,1);
 }
 
 .parallax-container .section {
-  width: 100% !important;
+  width: 100%;
 }
 
-.md-18 {font-size: 18px !important;}
+#headerMenuIcon {
+  margin-right: 20px;
+}
 
-.md-24 {font-size: 24px !important;}
+.md-18 {font-size: 18px;}
 
-.md-36 {font-size: 36px !important;}
+.md-24 {font-size: 24px;}
 
-.md-48 {font-size: 48px !important;}
+.md-36 {font-size: 36px;}
+
+.md-48 {font-size: 48px;}
 
 @media only screen and (min-width: 601px) {
   nav i,
-  nav .col {
+  nav div,
+  nav col {
     height: 64px;
-    line-height: 64px;
+    line-height: 64px !important;
   }
-}
 
-@media only screen and (max-width: 992px) {
   #appLogo {
-    text-align: left;
+    text-align: center;
   }
 }
