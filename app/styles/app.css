@@ -5,8 +5,13 @@
 }
 
 header {
-  min-height: 350px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
   line-height: 0;
+  min-height: 170px;
+  text-shadow: 0 0 10px #1499af !important;
+  text-align: center !important;
   color: rgba(255,255,255,1);
   background-position: center !important;
   background-size: cover !important;
@@ -14,7 +19,19 @@ header {
 }
 
 header nav {
+  position: absolute;
+  left: 0;
+  top: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+header .content {
+  margin-top: 50px;
+}
+
+header .content h5{
+  font-size: 18px;
+  line-height: 1.5em;
 }
 
 nav i,
@@ -24,25 +41,8 @@ nav col {
   line-height: 55px !important;
 }
 
-nav .brand-logo {
-  position: relative;
-  font-size: 22px;
-  height: 55px;
-}
-
-#appHeader > nav {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  color: rgba(255,255,255,1);
-  height: 450px;
-}
-
-.parallax-container .section {
-  width: 100%;
+#appLogo {
+  text-align: left;
 }
 
 #headerMenuIcon {
@@ -65,7 +65,16 @@ nav .brand-logo {
 
 @media only screen and (min-width: 601px) {
   header {
-    min-height: 450px;
+    min-height: 300px;
+  }
+
+  header .content {
+    margin-top: 10px;
+  }
+
+  header .content h5{
+    font-size: 24px;
+    line-height: 2em;
   }
 
   nav i,
@@ -77,6 +86,10 @@ nav .brand-logo {
 }
 
 @media only screen and (min-width: 992px) {
+  header {
+    min-height: 400px;
+  }
+
   #appLogo {
     text-align: center;
   }
