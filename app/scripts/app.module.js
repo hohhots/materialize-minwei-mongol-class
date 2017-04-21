@@ -16,7 +16,6 @@ angular.module('learnMongolApp', [
 (function($){
   $(window).on('load', function() {
 
-    $('.button-collapse').sideNav();
     $('.parallax').parallax();
     $('.dropdown-button').dropdown('close');
 
