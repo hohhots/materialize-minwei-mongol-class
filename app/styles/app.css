@@ -6,53 +6,108 @@
 
 body {
   color: #444;
+  background-color: #FFF;
 }
 
-#mainHeader {
+.navWrapper {
+  border-top: 1px solid transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-sizing: border-box !important;
+  height: 62px !important;
+  left: 0px !important;
+  position: absolute !important;
+  right: 0px !important;
+  z-index: 1060 !important;
+  background-color: #1499af;
+}
+
+nav {
+  display: block;
+  clear: both;
+  width: 100%;
+  margin: 0;
+}
+
+.mainNav {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mainNavContent {
   display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  line-height: 0;
-  min-height: 170px;
-  text-align: center !important;
-  color: #FFF !important;
-  background-position: center !important;
-  background-size: cover !important;
-  background-image: url(../images/mountains.svg) !important;
+  height: 100% !important;
 }
 
-#mainHeader nav {
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.mainNavContentLeft {
+  align-items: stretch !important;
+  display: flex !important;
+  height: 100% !important;
+  flex-grow: 1 !important;
+  width: 0px !important;
+  justify-content: flex-start !important;
+  padding-left: 20px !important;
 }
 
-#mainHeader .content {
-  margin-top: 50px;
-  text-shadow: 0 0 10px #1499af !important;
+.mainNavContentCenter {
+  align-items: stretch !important;
+  display: flex !important;
+  height: 100% !important;
 }
 
-#mainHeader .content h5{
-  font-size: 18px;
-  line-height: 1.5em;
+.mainNavContentRight {
+  align-items: stretch !important;
+  display: flex !important;
+  height: 100% !important;
+  flex-grow: 1 !important;
+  width: 0px !important;
+  justify-content: flex-end !important;
+  padding-right: 20px !important;
 }
 
-nav i,
-nav div,
-nav col {
-  height: 55px;
-  line-height: 54px !important;
-}
-
-#appLogo {
-  text-align: left;
+.subjectWrapper {
+  display: inline-block !important;
+  height: 100% !important;
   white-space: nowrap !important;
 }
 
-#headerMenuIcon {
-  margin-right: 20px;
+.subjectsDropDown {
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  height: 100% !important;
+  color: #FFF !important;
+  font-family: inherit !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
 }
+
+.appLogo {
+  align-items: center !important;
+  display: flex !important;
+  height: 100% !important;
+  color: #FFF !important;
+  font-family: inherit !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.register {
+  align-items: center !important;
+  display: flex !important;
+  height: 100% !important;
+  color: #FFF !important;
+  font-family: inherit !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+
 
 .md-16 {font-size: 16px;}
 
@@ -69,25 +124,8 @@ nav col {
 .md-48 {font-size: 48px;}
 
 @media only screen and (min-width: 601px) {
-  #mainHeader {
-    min-height: 300px;
-  }
 
-  #mainHeader .content {
-    margin-top: 10px;
-  }
 
-  #mainHeader .content h5{
-    font-size: 24px;
-    line-height: 2em;
-  }
-
-  nav i,
-  nav div,
-  nav col {
-    height: 64px;
-    line-height: 63px !important;
-  }
 }
 
 @media only screen and (min-width: 992px) {
