@@ -1,12 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 宋体;
+nav .fa-caret-down {
+  padding-left: 4px;
 }
 
-body {
-  color: #444;
-  background-color: #FFF;
+nav .fa-graduation-cap {
+  padding-right: 4px;
 }
 
 .navWrapper {
@@ -18,7 +15,6 @@ body {
   position: absolute !important;
   right: 0px !important;
   z-index: 1060 !important;
-  background-color: #1499af;
 }
 
 nav {
@@ -41,17 +37,8 @@ nav {
   height: 100% !important;
 }
 
-.mainNavContentLeft {
-  align-items: stretch !important;
-  display: flex !important;
-  height: 100% !important;
-  flex-grow: 1 !important;
-  width: 0px !important;
-  justify-content: flex-start !important;
-  padding-left: 20px !important;
-}
-
 .mainNavContentCenter {
+  padding-left: 16px !important;
   align-items: stretch !important;
   display: flex !important;
   height: 100% !important;
@@ -67,10 +54,8 @@ nav {
   padding-right: 20px !important;
 }
 
-.subjectWrapper {
-  display: inline-block !important;
-  height: 100% !important;
-  white-space: nowrap !important;
+.mainNavContentLeft {
+    display: none !important;
 }
 
 .subjectsDropDown {
@@ -78,54 +63,184 @@ nav {
   align-items: center !important;
   display: flex !important;
   height: 100% !important;
-  color: #FFF !important;
+  color: #FFF;
   font-family: inherit !important;
   font-size: 16px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
+}
+
+.subjectsDropDown:hover {
+  color: #71b307 !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
 }
 
 .appLogo {
   align-items: center !important;
   display: flex !important;
   height: 100% !important;
-  color: #FFF !important;
+  color: #FFF;
   font-family: inherit !important;
   font-size: 22px !important;
   font-weight: 700 !important;
   text-decoration: none !important;
 }
 
+.appLogo:hover {
+  color: #71b307 !important;
+  cursor: pointer !important;
+}
+
 .register {
   align-items: center !important;
   display: flex !important;
   height: 100% !important;
-  color: #FFF !important;
+  color: #FFF;
   font-family: inherit !important;
   font-size: 16px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
 }
 
+.register:hover {
+  color: #71b307 !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
 
+.root {
+  height: 166px !important;
+  padding-top: 62px !important;
+  background-position: center !important;
+  background-size: cover !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background-image: url(images/mountains.svg) !important;
+}
 
-.md-16 {font-size: 16px;}
+.root h1 {
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-bottom: 24px !important;
+}
 
-.md-18 {font-size: 18px;}
+.whiteBackColor {
+  background-color: #FFF;
+}
 
-.md-20 {font-size: 20px;}
+.blackTextColor {
+  color: #21242c !important;
+}
 
-.md-22 {font-size: 22px;}
+.displayBlock {
+  display: block !important;
+}
 
-.md-24 {font-size: 24px;}
-
-.md-36 {font-size: 36px;}
-
-.md-48 {font-size: 48px;}
+.transparent {
+  background-color: transparent;
+}
 
 @media only screen and (min-width: 601px) {
 
+}
 
+@media only screen and (min-width: 767px) {
+
+  .mainNavContentLeft {
+    align-items: stretch !important;
+    display: flex !important;
+    height: 100% !important;
+    flex-grow: 1 !important;
+    width: 0px !important;
+    justify-content: flex-start !important;
+    padding-left: 20px !important;
+  }
+
+  .mainNavContentCenter {
+    padding-left: 0px !important;
+  }
+
+  .subjectWrapper {
+    display: inline-block !important;
+    height: 100% !important;
+    white-space: nowrap !important;
+  }
+
+  .mainDropDownDiv {
+    display: none ;
+    opacity: 0.99 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background: #FAFAFA !important;
+    border-bottom: 1px solid #D6D8DA !important;
+    border-top: 1px solid #D6D8DA !important;
+  }
+
+  .mainDropDownUl {
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 1200px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 32px !important;
+    padding-bottom: 22px !important;
+    column-count: 3 !important;
+  }
+
+  .mainDropDownUlDiv {
+    display: inline-block !important;
+    margin-bottom: 26px !important;
+    word-wrap: break-word !important;
+    width: 95% !important;
+  }
+
+  .mainDropDownHeader {
+    color: #007d96 !important;
+    font-family: inherit !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    line-height: 1.75 !important;
+    padding-bottom: 8px !important;
+  }
+
+  .mainDropDownHeaderA {
+    color: #3B3E40 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    width: 100% !important;
+  }
+
+  .mainDropDownUlDivUl {
+    border-top: 1px solid #D6D8DA !important;
+    padding-top: 8px !important;
+  }
+
+  .mainDropDownUlDivUlA {
+    color: #007d96 !important;
+    font-family: inherit !important;
+    font-size: 15px !important;
+    line-height: 2 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    width: 100% !important;
+  }
+
+  .root {
+    line-height: 1.5 !important;
+    height: 300px !important;
+  }
+
+  .root h1 {
+    font-size: 25px !important;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -144,74 +259,19 @@ nav {
     white-space: nowrap !important;
   }
 
-  #mainDropDownDiv {
-    display: block !important;
-    opacity: 0.99 !important;
-    margin: 0 !important;
-    position: absolute !important;
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 1000 !important;
-    background: #FAFAFA !important;
-    border-bottom: 1px solid #D6D8DA !important;
-    border-top: 1px solid #D6D8DA !important;
-  }
-
-  #mainDropDownUl {
-    box-sizing: border-box !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 1200px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    padding-top: 32px !important;
-    padding-bottom: 22px !important;
-    column-count: 4 !important;
-  }
-
-
-  .mainDropDownUlDiv {
-    display: inline-block !important;
-    margin-bottom: 26px !important;
-    word-wrap: break-word !important;
-    width: 95% !important;
-  }
-
-  .mainDropDownUlDivHeader {
-    color: #007d96 !important;
-    font-family: inherit !important;
-    font-size: 15px !important;
-    font-weight: bold !important;
+  .root {
     line-height: 1.75 !important;
-    padding-bottom: 8px !important;
+    height: 400px !important;
   }
 
-  .mainDropDownUlDivHeaderA {
-      color: #3B3E40 !important;
-      text-decoration: none !important;
-      display: inline-block !important;
-      width: 100% !important;
-  }
-
-  .mainDropDownUlDivUl {
-      border-top: 1px solid #D6D8DA !important;
-      padding-top: 8px !important;
-  }
-
-  .mainDropDownUlDivUlA {
-    color: #007d96 !important;
-    font-family: inherit !important;
-    font-size: 15px !important;
-    line-height: 1.75 !important;
-    text-decoration: none !important;
-    display: inline-block !important;
-    width: 100% !important;
+  .root h1 {
+    font-size: 30px !important;
   }
 }
 
 @media only screen and (min-width: 1200px) {
 
-  #mainDropDownUl {
-    column-count: 5 !important;
+  .mainDropDownUl {
+    column-count: 4 !important;
   }
 }

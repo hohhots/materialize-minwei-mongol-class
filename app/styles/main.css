@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 宋体;
+}
+
+body {
+  color: #444;
+  line-height: 1.4;
+  background-color: #FFF;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.md-16 {font-size: 16px;}
+
+.md-18 {font-size: 18px;}
+
+.md-20 {font-size: 20px;}
+
+.md-22 {font-size: 22px;}
+
+.md-24 {font-size: 24px;}
+
+.md-36 {font-size: 36px;}
+
+.md-48 {font-size: 48px;}
+
+@media only screen and (min-width: 601px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
