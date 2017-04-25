@@ -120,6 +120,7 @@ nav {
 }
 
 .root {
+  box-sizing: border-box;
   height: 166px !important;
   padding-top: 62px !important;
   background-position: center !important;
@@ -132,10 +133,12 @@ nav {
 }
 
 .root h1 {
+  margin-bottom: 30px !important;
+  padding: 25px 20px 0 20px !important;
   color: #FFFFFF !important;
   font-size: 20px !important;
   font-weight: 600 !important;
-  margin-bottom: 24px !important;
+  text-shadow: 0 0 10px #1499af !important;
 }
 
 .whiteBackColor {
