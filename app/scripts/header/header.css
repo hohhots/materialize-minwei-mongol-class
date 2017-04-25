@@ -44,6 +44,10 @@ nav {
   height: 100% !important;
 }
 
+.mainNavContentLeft {
+    display: none !important;
+}
+
 .mainNavContentRight {
   align-items: stretch !important;
   display: flex !important;
@@ -51,11 +55,7 @@ nav {
   flex-grow: 1 !important;
   width: 0px !important;
   justify-content: flex-end !important;
-  padding-right: 20px !important;
-}
-
-.mainNavContentLeft {
-    display: none !important;
+  padding-right: 0px !important;
 }
 
 .subjectsDropDown {
@@ -93,20 +93,30 @@ nav {
 }
 
 .register {
-  align-items: center !important;
-  display: flex !important;
-  height: 100% !important;
-  color: #FFF;
-  font-family: inherit !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
+  display: none !important;
 }
 
 .register:hover {
   color: #71b307 !important;
   font-weight: bold !important;
   cursor: pointer !important;
+}
+
+.mainMenuIcon {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.mainMenuIconA {
+  align-items: center !important;
+  display: flex !important;
+  height: auto !important;
+  color: #FFFFFF !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  margin-right: 16px !important;
 }
 
 .root {
@@ -162,6 +172,26 @@ nav {
 
   .mainNavContentCenter {
     padding-left: 0px !important;
+  }
+
+  .mainNavContentRight {
+    padding-right: 20px !important;
+  }
+
+  .register {
+    align-items: center !important;
+    display: flex !important;
+    height: 100% !important;
+    color: #FFF;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    margin-left: 32px !important;
+  }
+
+  .mainMenuIcon {
+    display: none !important;
   }
 
   .subjectWrapper {

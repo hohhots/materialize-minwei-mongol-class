@@ -6,49 +6,22 @@ angular
   .component('appHeader', {
     templateUrl: 'scripts/header/header.template.html',
     controller: function appHeaderController() {
-      var self = this;
+      var self = this,
 
-      self.id = "#appHeader";
+          id = "#appHeader",
+          subjectsClicked = false,
+          mainNavOvered = false;
 
       // capture all relative elements
-      self.navWrapperElem = $(".navWrapper");
-      self.navElem = $(".mainNav");
-      self.subjectsDropDownElem = $(".subjectsDropDown");
-      self.mainDropDownDivElem = $(".mainDropDownDiv");
-      self.appLogoElem = $(".appLogo");
-      self.registerElem = $(".register");
+      var navWrapperElem = $(".navWrapper"),
+          navElem = $(".mainNav"),
+          subjectsDropDownElem = $(".subjectsDropDown"),
+          mainDropDownDivElem = $(".mainDropDownDiv"),
+          appLogoElem = $(".appLogo"),
+          registerElem = $(".register");
 
-      // For reference from html.
-      self.subjectsClicked = 0;
-      self.wraperBackColor = "transparent";
-      self.elemTextColor = "";
-      self.displayBlock = "";
 
-      self.subjectsDropDownClick = function () {
-        self.subjectsClicked = self.subjectsClicked == 0 ? 1 : 0;
-
-        self.dropDownEvent(self.subjectsClicked);
-        //self.changeState(self.subjectsClicked);
-     };
-
-      // Act for mouse over event on navbar
-      self.navMouseOverEvent = function(e) {
-        if(self.subjectsClicked){
-          return;
-        }
-
-        self.changeState(true);
-      };
-
-      self.navMouseLeaveEvent = function(e) {
-        if(self.subjectsClicked){
-          return;
-        }
-
-        self.changeState(false);
-      };
-
-      self.changeState = function(over) {
+      var changeOverState = function(over) {
         if(over) {
           self.wraperBackColor = "whiteBackColor";
           self.elemTextColor = "blackTextColor";
@@ -58,14 +31,41 @@ angular
         }
       };
 
-      self.dropDownEvent = function (change) {
-        if(change) {
-          //self.displayBlock = "displayBlock";
-          self.mainDropDownDivElem.slideDown();
+      var dropDownEffect = function () {
+        if(subjectsClicked) {
+          mainDropDownDivElem.slideDown();
         } else {
-          //self.displayBlock = "";
-          self.mainDropDownDivElem.slideUp();
+          mainDropDownDivElem.slideUp();
         }
+      };
+
+      // For reference from html.
+      self.wraperBackColor = "transparent";
+      self.elemTextColor = "";
+      self.displayBlock = "";
+
+      self.subjectsDropDownClick = function () {
+        subjectsClicked = subjectsClicked == false ? true : false;
+
+        dropDownEffect();
+        //self.changeState(self.subjectsClicked);
+     };
+
+      // Act for mouse over event on navbar
+      self.navMouseOverEvent = function($event) {
+        if(subjectsClicked){
+          return;
+        }
+
+        changeOverState(true);
+      };
+
+      self.navMouseLeaveEvent = function($event) {
+        if(subjectsClicked){
+          return;
+        }
+
+        changeOverState(false);
       };
     }
   });
