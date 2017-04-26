@@ -108,6 +108,9 @@ nav {
 }
 
 .mainMenuIconA {
+  margin-right: 16px !important;
+  padding-left: 13px;
+  padding-right: 13px;
   align-items: center !important;
   display: flex !important;
   height: auto !important;
@@ -116,7 +119,13 @@ nav {
   font-size: 15px !important;
   font-weight: bold !important;
   text-decoration: none !important;
-  margin-right: 16px !important;
+}
+
+.mobileDropDown {
+  background: #FFFFFF !important;
+  left: 0px !important;
+  position: absolute !important;
+  right: 0px !important;
 }
 
 .root {

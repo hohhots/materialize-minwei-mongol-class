@@ -82,10 +82,14 @@ angular
       };
 
       self.navBarsIconClick = function(e) {
-        var target = $(e.target);
+        var t = $(e.target);
 
-        target.toggleClass("fa-bars");
-        target.toggleClass("fa-times");
+        if(t.is("a")){
+          t = t.find("i");
+        }
+
+        t.toggleClass("fa-bars");
+        t.toggleClass("fa-times");
       }
     }
   });
