@@ -5,12 +5,14 @@ angular
   .module('header')
   .component('appHeader', {
     templateUrl: 'scripts/header/header.template.html',
-    controller: function appHeaderController() {
+    controller: function appHeaderController($scope, $compile) {
       var self = this,
 
           id = "#appHeader",
+          dropdownTemp = "<mobile-dropdown></mobile-dropdown>",
           subjectsClicked = false,
-          mainNavOvered = false;
+          mainNavOvered = false,
+          mobileDropDownClicked = false;
 
       // capture all relative elements
       var navWrapperElem = $(".navWrapper"),
@@ -18,7 +20,8 @@ angular
           subjectsDropDownElem = $(".subjectsDropDown"),
           mainDropDownDivElem = $(".mainDropDownDiv"),
           appLogoElem = $(".appLogo"),
-          registerElem = $(".register");
+          registerElem = $(".register"),
+          mobileDropDown = $(".mobileDropDown");
 
       var isMobile = function() {
         try{
@@ -29,10 +32,6 @@ angular
       }
 
       var changeOverState = function(over) {
-        if(isMobile()) {
-          return;
-        }
-
         if(over) {
           mainNavOvered = true;
           self.wraperBackColor = "whiteBackColor";
@@ -66,7 +65,7 @@ angular
 
       // Act for mouse over event on navbar
       self.navMouseOverEvent = function() {
-        if(subjectsClicked || mainNavOvered){
+        if(isMobile() || subjectsClicked || mobileDropDownClicked || mainNavOvered){
           return;
         }
 
@@ -74,7 +73,7 @@ angular
       };
 
       self.navMouseLeaveEvent = function() {
-        if(subjectsClicked){
+        if(isMobile() || subjectsClicked || mobileDropDownClicked){
           return;
         }
 
@@ -82,6 +81,8 @@ angular
       };
 
       self.navBarsIconClick = function(e) {
+        mobileDropDownClicked = mobileDropDownClicked == false ? true : false;
+
         var t = $(e.target);
 
         if(t.is("a")){
@@ -90,6 +91,14 @@ angular
 
         t.toggleClass("fa-bars");
         t.toggleClass("fa-times");
+
+        if(mobileDropDownClicked) {
+          mobileDropDown.html($compile( dropdownTemp )( $scope ));
+        } else {
+          mobileDropDown.html("");
+        }
+
+        changeOverState(mobileDropDownClicked);
       }
     }
   });

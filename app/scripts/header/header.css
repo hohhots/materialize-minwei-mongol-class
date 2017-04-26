@@ -109,8 +109,8 @@ nav {
 
 .mainMenuIconA {
   margin-right: 16px !important;
-  padding-left: 13px;
-  padding-right: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
   align-items: center !important;
   display: flex !important;
   height: auto !important;
@@ -122,10 +122,16 @@ nav {
 }
 
 .mobileDropDown {
-  background: #FFFFFF !important;
-  left: 0px !important;
   position: absolute !important;
+  left: 0px !important;
   right: 0px !important;
+  background: #FFFFFF !important;
+}
+
+.mobileContentContainer {
+  background: #FAFAFA !important;
+  height: calc(100vh - 61px) !important;
+  overflow-y: scroll !important;
 }
 
 .root {
