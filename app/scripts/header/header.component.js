@@ -5,100 +5,102 @@ angular
   .module('header')
   .component('appHeader', {
     templateUrl: 'scripts/header/header.template.html',
-    controller: function appHeaderController($scope, $compile) {
-      var self = this,
+    controller: appHeaderController
+  });
 
-          id = "#appHeader",
-          dropdownTemp = "<mobile-dropdown></mobile-dropdown>",
-          subjectsClicked = false,
-          mainNavOvered = false,
-          mobileDropDownClicked = false;
+function appHeaderController($scope, $compile) {
+  var self = this,
 
-      // capture all relative elements
-      var navWrapperElem = $(".navWrapper"),
-          navElem = $(".mainNav"),
-          subjectsDropDownElem = $(".subjectsDropDown"),
-          mainDropDownDivElem = $(".mainDropDownDiv"),
-          appLogoElem = $(".appLogo"),
-          registerElem = $(".register"),
-          mobileDropDown = $(".mobileDropDown");
+      id = "#appHeader",
+      dropdownTemp = "<mobile-dropdown></mobile-dropdown>",
+      subjectsClicked = false,
+      mainNavOvered = false,
+      mobileDropDownClicked = false;
 
-      var isMobile = function() {
-        try{
-          document.createEvent("TouchEvent");
-          return true;
-        }
-        catch(e){ return false; }
-      }
+  // capture all relative elements
+  var navWrapperElem = $(".navWrapper"),
+      navElem = $(".mainNav"),
+      subjectsDropDownElem = $(".subjectsDropDown"),
+      mainDropDownDivElem = $(".mainDropDownDiv"),
+      appLogoElem = $(".appLogo"),
+      registerElem = $(".register"),
+      mobileDropDown = $(".mobileDropDown");
 
-      var changeOverState = function(over) {
-        if(over) {
-          mainNavOvered = true;
-          self.wraperBackColor = "whiteBackColor";
-          self.elemTextColor = "blackTextColor";
-        } else {
-          mainNavOvered = false;
-          self.wraperBackColor = "transparent";
-          self.elemTextColor = "";
-        }
-      };
+  var isMobile = function() {
+    try{
+      document.createEvent("TouchEvent");
+      return true;
+    }
+    catch(e){ return false; }
+  }
 
-      var dropDownEffect = function () {
-        if(subjectsClicked) {
-          mainDropDownDivElem.slideDown();
-        } else {
-          mainDropDownDivElem.slideUp();
-        }
-      };
-
-      // For reference from html.
+  var changeOverState = function(over) {
+    if(over) {
+      mainNavOvered = true;
+      self.wraperBackColor = "whiteBackColor";
+      self.elemTextColor = "blackTextColor";
+    } else {
+      mainNavOvered = false;
       self.wraperBackColor = "transparent";
       self.elemTextColor = "";
-      self.displayBlock = "";
-
-      self.subjectsDropDownClick = function () {
-        subjectsClicked = subjectsClicked == false ? true : false;
-
-        dropDownEffect();
-        //self.changeState(self.subjectsClicked);
-      };
-
-      // Act for mouse over event on navbar
-      self.navMouseOverEvent = function() {
-        if(isMobile() || subjectsClicked || mobileDropDownClicked || mainNavOvered){
-          return;
-        }
-
-        changeOverState(true);
-      };
-
-      self.navMouseLeaveEvent = function() {
-        if(isMobile() || subjectsClicked || mobileDropDownClicked){
-          return;
-        }
-
-        changeOverState(false);
-      };
-
-      self.navBarsIconClick = function(e) {
-        mobileDropDownClicked = mobileDropDownClicked == false ? true : false;
-
-        var t = $(e.target);
-
-        if(t.is("a")){
-          t = t.find("i");
-        }
-
-        t.toggleClass("fa-bars");
-        t.toggleClass("fa-times");
-
-        if(mobileDropDownClicked) {
-          mobileDropDown.html($compile( dropdownTemp )( $scope ));
-        } else {
-          mobileDropDown.html("");
-        }
-
-        changeOverState(mobileDropDownClicked);
-      }
     }
-  });
+  };
+
+  var dropDownEffect = function () {
+    if(subjectsClicked) {
+      mainDropDownDivElem.slideDown();
+    } else {
+      mainDropDownDivElem.slideUp();
+    }
+  };
+
+  // For reference from html.
+  self.wraperBackColor = "transparent";
+  self.elemTextColor = "";
+  self.displayBlock = "";
+
+  self.subjectsDropDownClick = function () {
+  subjectsClicked = subjectsClicked == false ? true : false;
+
+    dropDownEffect();
+    //self.changeState(self.subjectsClicked);
+  };
+
+  // Act for mouse over event on navbar
+  self.navMouseOverEvent = function() {
+    if(isMobile() || subjectsClicked || mobileDropDownClicked || mainNavOvered){
+      return;
+    }
+
+    changeOverState(true);
+  };
+
+  self.navMouseLeaveEvent = function() {
+    if(isMobile() || subjectsClicked || mobileDropDownClicked){
+      return;
+    }
+
+    changeOverState(false);
+  };
+
+  self.navBarsIconClick = function(e) {
+    mobileDropDownClicked = mobileDropDownClicked == false ? true : false;
+
+    var t = $(e.target);
+
+    if(t.is("a")){
+      t = t.find("i");
+    }
+
+    t.toggleClass("fa-bars").toggleClass("fa-times");
+
+    if(mobileDropDownClicked) {
+      mobileDropDown.html(dropdownTemp);
+      $compile(mobileDropDown.children()[0])($scope);
+    } else {
+      mobileDropDown.html("");
+    }
+
+    changeOverState(mobileDropDownClicked);
+  }
+}
