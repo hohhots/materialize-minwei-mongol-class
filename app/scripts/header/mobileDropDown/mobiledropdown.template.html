@@ -1,33 +1,30 @@
 <div class="mobileContentContainer">
-  <ul ng-click="$ctrl.liItemClicked()">
+  <ul ng-click="$ctrl.liItemClicked($event)">
     <li class="mobileContentLi">
-      <a href="#" class="mobileContentLiA1">
+      <a subjectId="0" href="#" class="mobileContentLiA1">
         登录&nbsp;/&nbsp;注册
       </a>
     </li>
     <li class="mobileContentLi">
-      <a href="#" class="mobileContentLiA">
+      <a subjectId="1" href="#" class="mobileContentLiA">
         蒙语字根
         <div class="mobileContentLiDiv">
           <i class="fa fa-angle-down fa-lg" aria-hidden="true"></i>
         </div>
       </a>
-      <span></span>
     </li>
     <li class="mobileContentLi">
-      <a href="#" class="mobileContentLiA">
+      <a subjectId="2" href="#" class="mobileContentLiA">
         蒙语字根
         <div class="mobileContentLiDiv">
           <i class="fa fa-angle-down fa-lg" aria-hidden="true"></i>
         </div>
       </a>
-      <span></span>
     </li>
     <li class="mobileContentLi">
-      <a href="#" class="mobileContentAbout">
+      <a subjectId="-1" href="#" class="mobileContentAbout">
         关于我们
       </a>
-      <span></span>
     </li>
   </ul>
 </div>

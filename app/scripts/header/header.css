@@ -129,12 +129,13 @@ nav {
 }
 
 .mobileContentContainer {
-  background: #FAFAFA !important;
+  background: #EFEFEF !important;
   height: calc(100vh - 61px) !important;
   overflow-y: scroll !important;
 }
 
 .mobileContentLi {
+  background: #FAFAFA !important;
   border-bottom: 1px solid #DDDDDD !important;
 }
 
@@ -160,6 +161,25 @@ nav {
   text-decoration: none !important;
   align-items: center !important;
   justify-content: space-between !important;
+}
+
+.mobileSubjectList {}
+
+.mobileSubjectListA1 {
+  padding-top: 0px !important;
+}
+
+.mobileSubjectListA {
+  display: block !important;
+  font-size: 15px !important;
+  padding: 8px 16px;
+  color: #3B3E40 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.mobileSubjectListA:hover {
+  color: #007d96 !important;
 }
 
 .mobileContentAbout{

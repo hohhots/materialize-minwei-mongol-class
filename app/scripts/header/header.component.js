@@ -35,12 +35,14 @@ function appHeaderController($scope, $compile) {
   }
 
   var changeOverState = function(over) {
+    if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
+      return;
+    }
+
     if(over) {
-      mainNavOvered = true;
       self.wraperBackColor = "whiteBackColor";
       self.elemTextColor = "blackTextColor";
     } else {
-      mainNavOvered = false;
       self.wraperBackColor = "transparent";
       self.elemTextColor = "";
     }
@@ -68,24 +70,26 @@ function appHeaderController($scope, $compile) {
 
   // Act for mouse over event on navbar
   self.navMouseOverEvent = function() {
-    if(isMobile() || subjectsClicked || mobileDropDownClicked || mainNavOvered){
+    if(isMobile()){
       return;
     }
 
     changeOverState(true);
+
+    mainNavOvered = true;
   };
 
   self.navMouseLeaveEvent = function() {
-    if(isMobile() || subjectsClicked || mobileDropDownClicked){
+    if(isMobile()){
       return;
     }
+
+    mainNavOvered = false;
 
     changeOverState(false);
   };
 
   self.navBarsIconClick = function(e) {
-    mobileDropDownClicked = mobileDropDownClicked == false ? true : false;
-
     var t = $(e.target);
 
     if(t.is("a")){
@@ -94,13 +98,20 @@ function appHeaderController($scope, $compile) {
 
     t.toggleClass("fa-bars").toggleClass("fa-times");
 
-    if(mobileDropDownClicked) {
+    if(!mobileDropDownClicked) {
       mobileDropDown.html(dropdownTemp);
       $compile(mobileDropDown.children()[0])($scope);
     } else {
       mobileDropDown.html("");
     }
 
-    changeOverState(mobileDropDownClicked);
+    if(!mobileDropDownClicked) {
+      changeOverState(true);
+      mobileDropDownClicked = true;
+    } else {
+      mobileDropDownClicked = false;
+      changeOverState(false);
+    }
+
   }
 }
