@@ -24,6 +24,7 @@ function appHeaderController($scope, $compile) {
   var navWrapperElem = $(".navWrapper"),
       navElem = $(".mainNav"),
       subjectsDropDownElem = $(".subjectsDropDown"),
+      subjectsI = subjectsDropDownElem.find("i"),
       mainDropDownDivElem = $(".mainDropDownDiv"),
       appLogoElem = $(".appLogo"),
       registerElem = $(".register"),
@@ -61,22 +62,8 @@ function appHeaderController($scope, $compile) {
   };
 
   var dropDownEffect = function (elem, down) {
-    var tempH = false;
-
     if(down) {
-      if(!parseInt(elem.css("height"))) {
-        tempH = true;
-        elem.css("height","80vh");
-      }
-
       elem.slideDown();
-
-      if(tempH) {
-        tempH = false;
-        elem.promise().done(function() {
-          elem.css("height","");
-        });
-      }
     } else {
       elem.slideUp();
     }
@@ -99,8 +86,7 @@ function appHeaderController($scope, $compile) {
 
     var children = mainDropDownDivElem.children();
 
-    var i = subjectsDropDownElem.find("i");
-    i.toggleClass("fa-caret-down").toggleClass("fa-caret-up");
+    subjectsI.toggleClass("fa-caret-down").toggleClass("fa-caret-up");
 
     if(!subjectsClicked && !children.length) {
       mainDropDownDivElem.html(sDropdownTemp);
