@@ -1,12 +1,12 @@
 <section id="appHeader">
   <div class="navWrapper {{$ctrl.wraperBackColor}}">
-    <nav class="mainNav" ng-mouseover="$ctrl.navMouseOverEvent()"  ng-mouseleave="$ctrl.navMouseLeaveEvent()">
+    <nav class="mainNav" ng-mouseover="$ctrl.navMouseOverEvent()"  ng-mouseleave="$ctrl.navMouseOutEvent()">
       <div class="mainNavContent">
         <div class="mainNavContentLeft">
           <div class="subjectWrapper">
-            <a href="#" class="subjectsDropDown {{$ctrl.elemTextColor}}" ng-click="$ctrl.subjectsDropDownClick()">蒙语科目<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <a href="#" class="subjectsDropDown {{$ctrl.elemTextColor}}" ng-click="$ctrl.subjectsDropDownClick($event)">蒙语科目<i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <div class="mainDropDownDiv  {{$ctrl.displayBlock}}">
-              <ul class="mainDropDownUl">
+              <ul class="mainDropDownUl" ng-mouseover="$ctrl.mainDropDownUlMouseOver($event)"  ng-mouseout="$ctrl.mainDropDownUlMouseOut($event)">
                 <li>
                   <div class="mainDropDownUlDiv">
                     <header class="mainDropDownHeader">
@@ -128,6 +128,6 @@
   </div>
 
   <header class="root">
-    <h1>学优美蒙语<br>享蒙古文化</h1>
+    <h1>学 - 优美蒙语<br>享 - 蒙古文化</h1>
   </header>
 </section>
