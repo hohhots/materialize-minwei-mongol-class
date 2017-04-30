@@ -1,5 +1,10 @@
+nav .fa-caret-up,
 nav .fa-caret-down {
   padding-left: 4px;
+}
+
+nav .fa-caret-up {
+  padding-bottom: 5px;
 }
 
 nav .fa-graduation-cap {
@@ -122,8 +127,6 @@ nav {
 }
 
 .mobileDropDown {
-  height: 85vh;
-  overflow: auto !important;
   position: absolute !important;
   left: 0px !important;
   right: 0px !important;
@@ -295,7 +298,6 @@ nav {
   }
 
   .mainDropDownDiv {
-    display: none ;
     opacity: 0.99 !important;
     margin: 0 !important;
     position: absolute !important;

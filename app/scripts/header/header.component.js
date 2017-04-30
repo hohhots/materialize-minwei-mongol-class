@@ -12,6 +12,7 @@ function appHeaderController($scope, $compile) {
   var self = this,
 
       id = "#appHeader",
+      sDropdownTemp = "<subjects-dropdown></subjects-dropdown>",
       dropdownTemp = "<mobile-dropdown></mobile-dropdown>",
       subjectsClicked = false,
       mainNavOvered = false,
@@ -60,8 +61,22 @@ function appHeaderController($scope, $compile) {
   };
 
   var dropDownEffect = function (elem, down) {
+    var tempH = false;
+
     if(down) {
+      if(!parseInt(elem.css("height"))) {
+        tempH = true;
+        elem.css("height","80vh");
+      }
+
       elem.slideDown();
+
+      if(tempH) {
+        tempH = false;
+        elem.promise().done(function() {
+          elem.css("height","");
+        });
+      }
     } else {
       elem.slideUp();
     }
@@ -72,7 +87,6 @@ function appHeaderController($scope, $compile) {
   // For reference from html.
   self.wraperBackColor = "transparent";
   self.elemTextColor = "";
-  self.displayBlock = "";
 
   self.windowClick = function(e) {
     if(subjectsClicked == true){
@@ -80,48 +94,26 @@ function appHeaderController($scope, $compile) {
     }
   };
 
-  self.mainDropDownUlMouseOver = function(e) {
-    var stylesA = {
-      "text-decoration": "underline"
-    };
-    var stylesAH = {
-      "color": "#007d96"
-    };
-
-    var target = $(e.target);
-    if(target.is("a")){
-      // If is header element, just change text color.
-      if(target.hasClass("mainDropDownHeaderA")) {
-        originTextColor = target.css("color");
-        target.css(stylesAH);
-      } else {
-        target.css(stylesA);
-      }
-    }
-  }
-
-  self.mainDropDownUlMouseOut = function(e) {
-    var stylesA = {
-      "text-decoration": "none"
-    };
-    var stylesAH = {
-      "color": originTextColor
-    };
-
-    var target = $(e.target);
-    if(target.is("a")){
-      if(target.hasClass("mainDropDownHeaderA")) {
-        target.css(stylesAH);
-      } else {
-        target.css(stylesA);
-      }
-    }
-  }
-
   self.subjectsDropDownClick = function (e) {
     e.stopPropagation();
 
-    subjectsClicked = subjectsClicked == false ? true : false;
+    var children = mainDropDownDivElem.children();
+
+    var i = subjectsDropDownElem.find("i");
+    i.toggleClass("fa-caret-down").toggleClass("fa-caret-up");
+
+    if(!subjectsClicked && !children.length) {
+      mainDropDownDivElem.html(sDropdownTemp);
+      $compile(mainDropDownDivElem.children()[0])($scope);
+    }
+
+    if(!subjectsClicked) {
+      changeOverState(true);
+      subjectsClicked = true;
+    } else {
+      subjectsClicked = false;
+      changeOverState(false);
+    }
 
     dropDownEffect(mainDropDownDivElem, subjectsClicked);
   };
