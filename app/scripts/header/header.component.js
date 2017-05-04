@@ -30,9 +30,14 @@ function appHeaderController($scope, $compile) {
       registerElem = $(".register"),
       mobileDropDown = $(".mobileDropDown");
 
+  var parseHtml = function(elem, subElem) {
+    elem.html(subElem).hide();
+    $compile(elem.children()[0])($scope);
+  }
+
   var init = function() {
-    mainDropDownDivElem.hide();
-    mobileDropDown.hide();
+    parseHtml(mainDropDownDivElem, sDropdownTemp);
+    parseHtml(mobileDropDown, dropdownTemp);
 
     $(window).click(function(e){
       self.windowClick(e);
@@ -84,14 +89,7 @@ function appHeaderController($scope, $compile) {
   self.subjectsDropDownClick = function (e) {
     e.stopPropagation();
 
-    var children = mainDropDownDivElem.children();
-
     subjectsI.toggleClass("fa-caret-down").toggleClass("fa-caret-up");
-
-    if(!subjectsClicked && !children.length) {
-      mainDropDownDivElem.html(sDropdownTemp);
-      $compile(mainDropDownDivElem.children()[0])($scope);
-    }
 
     if(!subjectsClicked) {
       changeOverState(true);
@@ -128,8 +126,6 @@ function appHeaderController($scope, $compile) {
   self.navBarsIconClick = function(e) {
     e.stopPropagation();
 
-    var children = mobileDropDown.children();
-
     var t = $(e.target);
 
     if(t.is("a")){
@@ -137,11 +133,6 @@ function appHeaderController($scope, $compile) {
     }
 
     t.toggleClass("fa-bars").toggleClass("fa-times");
-
-    if(!mobileDropDownClicked && !children.length) {
-      mobileDropDown.html(dropdownTemp);
-      $compile(mobileDropDown.children()[0])($scope);
-    }
 
     if(!mobileDropDownClicked) {
       changeOverState(true);
