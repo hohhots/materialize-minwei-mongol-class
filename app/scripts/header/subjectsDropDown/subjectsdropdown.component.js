@@ -1,5 +1,5 @@
 angular
-  .module('header')
+  .module('subjectsdropdown')
   .component('subjectsDropdown', {
     templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
     controller: subjectsDropdownController

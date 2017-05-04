@@ -5,22 +5,23 @@
         登录&nbsp;/&nbsp;注册
       </a>
     </li>
-    <li class="mobileContentLi">
+
+    <li ng-repeat="category in $ctrl.categories" class="mobileContentLi">
       <a subjectId="1" href="#" class="mobileContentLiA">
-        蒙语字根
+        {{category.name}}
         <div class="mobileContentLiDiv">
           <i class="fa fa-angle-down fa-lg" aria-hidden="true"></i>
         </div>
       </a>
+      <span class="ng-hide">
+        <ul>
+          <li ng-repeat="subject in $ctrl.subjects[category.id]" class="mobileSubjectList">
+            <a  href="#" class="mobileSubjectListA">{{subject.name}}</a>
+          </li>
+        </ul>
+      </span>
     </li>
-    <li class="mobileContentLi">
-      <a subjectId="2" href="#" class="mobileContentLiA">
-        蒙语字根
-        <div class="mobileContentLiDiv">
-          <i class="fa fa-angle-down fa-lg" aria-hidden="true"></i>
-        </div>
-      </a>
-    </li>
+
     <li class="mobileContentLi">
       <a subjectId="-1" href="#" class="mobileContentAbout">
         关于我们

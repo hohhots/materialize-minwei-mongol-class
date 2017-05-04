@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "蒙文字母",
+    "introduction": "传统蒙古文字母学习。",
+    "dirName": "alphabet",
+    "imageUrl": "alphabet.png"
+  },
+  {
+    "id": 2,
+    "name": "蒙文单词",
+    "introduction": "传统蒙古文单词学习。",
+    "dirName": "word",
+    "imageUrl": "word.png"
+  },
+  {
+    "id": 3,
+    "name": "蒙文句子",
+    "introduction": "传统蒙古文句子学习。",
+    "dirName": "sentence",
+    "imageUrl": "sentence.png"
+  },
+  {
+    "id": 4,
+    "name": "蒙文会话",
+    "introduction": "传统蒙古文会话学习。",
+    "dirName": "conversation",
+    "imageUrl": "conversation.png"
+  }
+]

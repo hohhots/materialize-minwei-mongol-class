@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "根字母",
+    "introduction": "传统蒙古文根字母。",
+    "dirName": "origin",
+    "imageUrl": "data/1/1.png"
+  },
+  {
+    "id": 2,
+    "name": "根字母带元音",
+    "introduction": "传统蒙古文字母加元音。",
+    "dirName": "vowal",
+    "imageUrl": "data/1/2.png"
+  },
+  {
+    "id": 3,
+    "name": "字母变体",
+    "introduction": "传统蒙古文字母在字首、字中、字尾的变体。",
+    "dirName": "variant",
+    "imageUrl": "data/1/3.png"
+  }
+]

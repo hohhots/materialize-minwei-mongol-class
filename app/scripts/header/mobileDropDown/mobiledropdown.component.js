@@ -1,41 +1,36 @@
 angular
-  .module('header')
+  .module('mobiledropdown')
   .component('mobileDropdown', {
     templateUrl: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
-    controller: mobileDropdownController
+    controller: ['Json',mobileDropdownController]
   });
 
-  function mobileDropdownController() {
+  function mobileDropdownController(json) {
     var self = this;
 
     var id = 0,
         target,
         folderIcon,
         subjectId = "subjectId",
-        span = "<span></span>",
+        span,
         upIconColorOrigin,
         upIconColor = "#007d96";
 
-    var toggleSubjectList = function() {
-      var s = target.siblings("span");
-      if(s.length) {
-        s.remove();
-      } else {
-        var spanE = $(span);
-        spanE.html("<ul><li class=\"mobileSubjectList\"><a class=\"mobileSubjectListA1 mobileSubjectListA\">早期人类</a></li><li class=\"mobileSubjectList\"><a class=\"mobileSubjectListA\">中期人类</a></li></ul>");
+    self.categories = [];
+    self.subjects = {};
 
-        target.after(spanE);
-      }
+    var toggleSubjectList = function() {
+      span.toggleClass("ng-show").toggleClass("ng-hide");
     }
 
     var toggleFolderIcon = function() {
-      var tColor;
-
-      if(folderIcon.hasClass("fa-angle-down")) {
+      if(folderIcon.hasClass("fa-angle-down")){
         upIconColorOrigin = folderIcon.css("color");
       }
-
+      
       folderIcon.toggleClass("fa-angle-down").toggleClass("fa-angle-up");
+
+      var tColor;
 
       if(folderIcon.hasClass("fa-angle-up")) {
         tColor = upIconColor;
@@ -58,12 +53,26 @@ angular
 
       if(target.is("a")){
         id = target.attr(subjectId);
+        span = target.siblings("span");
         folderIcon = target.find("i");
       } else {
         console.error("In mobile menu list don't exist a link for click event.");
       }
-
     }
+
+    var init = function() {
+      json.query({}, function(data) {
+        self.categories = data;
+
+        $.each(data, function(i, val) {
+          json.query({path: val.dirName}, function(data1) {
+            self.subjects[val.id] = data1;
+          });
+        });
+      });
+    }
+
+    init();
 
     self.liItemClicked = function(e) {
       setTarget(e.target);
