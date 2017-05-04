@@ -1,102 +1,13 @@
 <ul class="mainDropDownUl" ng-mouseover="$ctrl.mainDropDownUlMouseOver($event)"  ng-mouseout="$ctrl.mainDropDownUlMouseOut($event)">
-  <li>
+  <li ng-repeat="category in $ctrl.categories">
     <div class="mainDropDownUlDiv">
       <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
+        <a href="#" class="mainDropDownHeaderA">{{category.name}}</a>
       </header>
       <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <div class="mainDropDownUlDiv">
-      <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
-      </header>
-      <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <div class="mainDropDownUlDiv">
-      <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
-      </header>
-      <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <div class="mainDropDownUlDiv">
-      <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
-      </header>
-      <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <div class="mainDropDownUlDiv">
-      <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
-      </header>
-      <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <div class="mainDropDownUlDiv">
-      <header class="mainDropDownHeader">
-        <a href="#" class="mainDropDownHeaderA">蒙语科目</a>
-      </header>
-      <ul class="mainDropDownUlDivUl">
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
-        <li><a href="#" class="mainDropDownUlDivUlA">蒙语科目</a></li>
+        <li  ng-repeat="subject in $ctrl.subjects[category.id]">
+          <a href="#" class="mainDropDownUlDivUlA">{{subject.name}}</a>
+        </li>
       </ul>
     </div>
   </li>

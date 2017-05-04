@@ -2,13 +2,30 @@ angular
   .module('subjectsdropdown')
   .component('subjectsDropdown', {
     templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
-    controller: subjectsDropdownController
+    controller: ['Json', subjectsDropdownController]
   });
 
-  function subjectsDropdownController() {
+  function subjectsDropdownController(json) {
     var self = this;
 
     var originTextColor;
+
+    self.categories = [];
+    self.subjects = {};
+
+    var init = function() {
+      json.query({}, function(data) {
+        self.categories = data;
+
+        $.each(data, function(i, val) {
+          json.query({path: val.dirName}, function(data1) {
+            self.subjects[val.id] = data1;
+          });
+        });
+      });
+    }
+
+    init();
 
     self.mainDropDownUlMouseOver = function(e) {
       var stylesA = {

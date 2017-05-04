@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `header` module
-angular.module('subjectsdropdown', []);
+angular.module('subjectsdropdown', ['core.json']);
