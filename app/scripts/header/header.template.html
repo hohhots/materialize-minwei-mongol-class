@@ -5,7 +5,9 @@
         <div class="mainNavContentLeft">
           <div class="subjectWrapper">
             <a href="#" class="subjectsDropDown {{$ctrl.elemTextColor}}" ng-click="$ctrl.subjectsDropDownClick($event)">蒙语科目<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-            <div class="mainDropDownDiv"></div>
+            <div class="mainDropDownDiv">
+              <subjects-dropdown></subjects-dropdown>
+            </div>
           </div>
         </div>
         <div class="mainNavContentCenter">
@@ -20,7 +22,9 @@
       </div>
     </nav>
 
-    <div class="mobileDropDown"></div>
+    <div class="mobileDropDown">
+      <mobile-dropdown></mobile-dropdown>
+    </div>
   </div>
 
   <header class="root">

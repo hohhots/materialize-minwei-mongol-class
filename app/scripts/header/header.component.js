@@ -36,11 +36,15 @@ function appHeaderController($scope, $compile) {
   }
 
   var init = function() {
-    parseHtml(mainDropDownDivElem, sDropdownTemp);
-    parseHtml(mobileDropDown, dropdownTemp);
+    //parseHtml(mainDropDownDivElem, sDropdownTemp);
+    //parseHtml(mobileDropDown, dropdownTemp);
+    mainDropDownDivElem.hide();
+    mobileDropDown.hide();
 
     $(window).click(function(e){
-      self.windowClick(e);
+      $scope.$apply(function(){
+        self.windowClick(e);
+      });
     });
   }
 
@@ -84,6 +88,8 @@ function appHeaderController($scope, $compile) {
     if(subjectsClicked == true){
       self.subjectsDropDownClick(e);
     }
+
+    self.navMouseOutEvent();
   };
 
   self.subjectsDropDownClick = function (e) {
