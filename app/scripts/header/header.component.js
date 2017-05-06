@@ -12,8 +12,6 @@ function appHeaderController($scope, $compile) {
   var self = this,
 
       id = "#appHeader",
-      sDropdownTemp = "<subjects-dropdown></subjects-dropdown>",
-      dropdownTemp = "<mobile-dropdown></mobile-dropdown>",
       subjectsClicked = false,
       mainNavOvered = false,
       mobileDropDownClicked = false,
@@ -30,14 +28,7 @@ function appHeaderController($scope, $compile) {
       registerElem = $(".register"),
       mobileDropDown = $(".mobileDropDown");
 
-  var parseHtml = function(elem, subElem) {
-    elem.html(subElem).hide();
-    $compile(elem.children()[0])($scope);
-  }
-
   var init = function() {
-    //parseHtml(mainDropDownDivElem, sDropdownTemp);
-    //parseHtml(mobileDropDown, dropdownTemp);
     mainDropDownDivElem.hide();
     mobileDropDown.hide();
 
