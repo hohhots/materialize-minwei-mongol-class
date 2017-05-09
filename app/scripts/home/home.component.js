@@ -5,5 +5,9 @@ angular
   .module('home')
   .component('appHome', {
     templateUrl: 'scripts/home/home.template.html',
-    controller: function appHomeController() {}
+    controller: appHomeController
   });
+
+function appHomeController() {
+
+}

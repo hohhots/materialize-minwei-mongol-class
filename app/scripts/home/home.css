@@ -1,0 +1,48 @@
+.divider {
+  border-top: 1px solid #D6D8DA !important;
+  width: 100% !important;
+}
+
+.homeNavbar {
+  display: none;
+  padding: 0px !important;
+}
+
+@media screen and (min-width: 767px) {
+  .homeNavbar {
+    padding: 12px 8px !important;
+    font-size: 15px !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 1200px !important;
+  }
+
+  .homeNavbarLi {
+    display: inline-block !important;
+    padding: 0 12px !important;
+  }
+
+  .homeNavbarLiA {
+    color: #626569 !important;
+    display: inline-block !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 48px !important;
+    text-decoration: none !important;
+  }
+}
+
+@media screen and (min-width: 1230px) {
+  .homeNavbar {
+    padding: 21px 20px !important;
+  }
+
+  .homeNavbarLi {
+    padding: 0 15px !important;
+  }
+
+  .homeNavbarLiA {
+    font-size: 19px !important;
+  }
+}

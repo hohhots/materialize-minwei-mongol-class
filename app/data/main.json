@@ -26,5 +26,12 @@
     "introduction": "传统蒙古文会话学习。",
     "dirName": "conversation",
     "imageUrl": "conversation.png"
+  },
+  {
+    "id": 5,
+    "name": "蒙文标准音",
+    "introduction": "传统蒙古文标准音学习。",
+    "dirName": "standard",
+    "imageUrl": "standard.png"
   }
 ]

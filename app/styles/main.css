@@ -28,14 +28,16 @@ ol, ul {
 
 .md-48 {font-size: 48px;}
 
-@media only screen and (min-width: 601px) {
-
+@media screen and (min-width: 767px) {
+  ul {
+    display: block !important;
+  }
 }
 
 @media only screen and (min-width: 992px) {
 
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1230px) {
 
 }
