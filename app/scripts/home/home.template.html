@@ -2,26 +2,16 @@
   <div class="">
     <nav>
       <ul class="homeNavbar">
-        <li class="homeNavbarLi">
-          <a class="homeNavbarLiA" href="#">蒙文单词</a>
-        </li>
-        <li class="homeNavbarLi">
-          <a class="homeNavbarLiA" href="#">蒙文单词</a>
-        </li>
-        <li class="homeNavbarLi">
-          <a class="homeNavbarLiA" href="#">蒙文单词</a>
-        </li>
-        <li class="homeNavbarLi">
-          <a class="homeNavbarLiA" href="#">蒙文单词</a>
-        </li>
-        <li class="homeNavbarLi">
-          <a class="homeNavbarLiA" href="#">蒙文单词</a>
+        <li class="homeNavbarLi" ng-repeat="category in $ctrl.jsons.categories">
+          <a class="homeNavbarLiA" href="#" ng-style="$ctrl.textStyle[category.id]"  ng-mouseenter="$ctrl.navMouseEnter(category.id)" ng-mouseleave="$ctrl.navMouseLeave(category.id)">
+            {{category.name}}
+          </a>
         </li>
       </ul>
     </nav>
   </div>
   <div class="divider"></div>
-  <div class="">
+  <div class="homeContainer">
 ss
   </div>
 </div>

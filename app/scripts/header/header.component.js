@@ -28,24 +28,13 @@ function appHeaderController($scope, $compile) {
       registerElem = $(".register"),
       mobileDropDown = $(".mobileDropDown");
 
-  var init = function() {
-    mainDropDownDivElem.hide();
-    mobileDropDown.hide();
-
-    $(window).click(function(e){
-      $scope.$apply(function(){
-        self.windowClick(e);
-      });
-    });
-  }
-
   var isMobile = function() {
     try{
       document.createEvent("TouchEvent");
       return true;
     }
     catch(e){ return false; }
-  }
+  };
 
   var changeOverState = function(over) {
     if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
@@ -67,6 +56,17 @@ function appHeaderController($scope, $compile) {
     } else {
       elem.slideUp();
     }
+  };
+
+  var init = function() {
+    mainDropDownDivElem.hide();
+    mobileDropDown.hide();
+
+    $(window).click(function(e){
+      $scope.$apply(function(){
+        self.windowClick(e);
+      });
+    });
   };
 
   init();

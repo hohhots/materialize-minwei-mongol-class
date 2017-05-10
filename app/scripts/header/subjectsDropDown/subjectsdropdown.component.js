@@ -10,22 +10,7 @@ angular
 
     var originTextColor;
 
-    self.categories = [];
-    self.subjects = {};
-
-    var init = function() {
-      json.query({}, function(data) {
-        self.categories = data;
-
-        $.each(data, function(i, val) {
-          json.query({path: val.dirName}, function(data1) {
-            self.subjects[val.id] = data1;
-          });
-        });
-      });
-    }
-
-    init();
+    self.jsons = json;
 
     self.mainDropDownUlMouseOver = function(e) {
       var stylesA = {

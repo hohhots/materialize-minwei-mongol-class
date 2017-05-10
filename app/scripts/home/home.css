@@ -8,6 +8,10 @@
   padding: 0px !important;
 }
 
+.homeContainer {
+  padding: 0px !important;
+}
+
 @media screen and (min-width: 767px) {
   .homeNavbar {
     padding: 12px 8px !important;
@@ -20,16 +24,24 @@
 
   .homeNavbarLi {
     display: inline-block !important;
-    padding: 0 12px !important;
+    padding: 0 20px !important;
   }
 
   .homeNavbarLiA {
-    color: #626569 !important;
+    color: #626569;
     display: inline-block !important;
     font-size: 15px !important;
     font-weight: 600 !important;
     line-height: 48px !important;
-    text-decoration: none !important;
+    text-decoration: none;
+  }
+
+  .homeContainer {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 1200px !important;
   }
 }
 
@@ -39,7 +51,7 @@
   }
 
   .homeNavbarLi {
-    padding: 0 15px !important;
+    padding: 0 25px !important;
   }
 
   .homeNavbarLiA {

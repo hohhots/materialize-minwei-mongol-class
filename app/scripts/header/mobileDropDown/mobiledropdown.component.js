@@ -16,8 +16,7 @@ angular
         upIconColorOrigin,
         upIconColor = "#007d96";
 
-    self.categories = [];
-    self.subjects = {};
+    self.jsons = json;
 
     var toggleSubjectList = function() {
       span.toggleClass("ng-show").toggleClass("ng-hide");
@@ -27,7 +26,7 @@ angular
       if(folderIcon.hasClass("fa-angle-down")){
         upIconColorOrigin = folderIcon.css("color");
       }
-      
+
       folderIcon.toggleClass("fa-angle-down").toggleClass("fa-angle-up");
 
       var tColor;
@@ -59,20 +58,6 @@ angular
         console.error("In mobile menu list don't exist a link for click event.");
       }
     }
-
-    var init = function() {
-      json.query({}, function(data) {
-        self.categories = data;
-
-        $.each(data, function(i, val) {
-          json.query({path: val.dirName}, function(data1) {
-            self.subjects[val.id] = data1;
-          });
-        });
-      });
-    }
-
-    init();
 
     self.liItemClicked = function(e) {
       setTarget(e.target);
