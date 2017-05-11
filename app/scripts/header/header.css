@@ -133,82 +133,6 @@ nav {
   background: #FFFFFF !important;
 }
 
-.mobileContentContainer {
-  background: #EFEFEF !important;
-  height: calc(100vh - 61px) !important;
-  overflow-y: scroll !important;
-}
-
-.mobileContentLi {
-  background: #FAFAFA !important;
-  border-bottom: 1px solid #DDDDDD !important;
-}
-
-.mobileContentLiA1 {
-  color: #FFFFFF !important;
-  cursor: pointer !important;
-  display: block !important;
-  font-size: 16px !important;
-  font-weight: normal !important;
-  padding: 13px 0 !important;
-  text-decoration: none !important;
-  background-color: #71B307 !important;
-  text-align: center !important;
-}
-
-.mobileContentLiA {
-  color: #007d96 !important;
-  cursor: pointer !important;
-  display: flex !important;
-  font-size: 16px !important;
-  font-weight: bold !important;
-  padding: 16px !important;
-  text-decoration: none !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-.mobileSubjectList {}
-
-.mobileSubjectListA1 {
-  padding-top: 0px !important;
-}
-
-.mobileSubjectListA {
-  display: block !important;
-  font-size: 15px !important;
-  padding: 13px 26px;
-  color: #3B3E40 !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-}
-
-.mobileSubjectListA:hover {
-  color: #007d96 !important;
-}
-
-.mobileContentAbout{
-  color: #444444 !important;
-  cursor: pointer !important;
-  display: block !important;
-  font-size: 16px !important;
-  font-weight: normal !important;
-  padding: 10px 20px !important;
-  text-decoration: none !important;
-  text-align: center !important;
-}
-
-.mobileContentLiA1:hover,
-.mobileContentLiA:hover,
-.mobileContentAbout:hover {
-  text-decoration: underline !important;
-}
-
-.mobileContentLiDiv {
-  color: #999 !important;
-  line-height: 1 !important;
-}
-
 .root {
   box-sizing: border-box;
   height: 166px !important;
@@ -309,25 +233,6 @@ nav {
     border-top: 1px solid #D6D8DA !important;
   }
 
-  .mainDropDownUl {
-    box-sizing: border-box !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 1200px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    padding-top: 32px !important;
-    padding-bottom: 22px !important;
-    column-count: 3 !important;
-  }
-
-  .mainDropDownUlDiv {
-    display: inline-block !important;
-    margin-bottom: 26px !important;
-    word-wrap: break-word !important;
-    width: 95% !important;
-  }
-
   .mainDropDownHeader {
     color: #007d96 !important;
     font-family: inherit !important;
@@ -342,22 +247,6 @@ nav {
     text-decoration: none !important;
     display: inline-block !important;
     width: 100% !important;
-  }
-
-  .mainDropDownUlDivUl {
-    border-top: 1px solid #D6D8DA !important;
-    padding-top: 8px !important;
-  }
-
-  .mainDropDownUlDivUlA {
-    color: #007d96 !important;
-    font-family: inherit !important;
-    font-size: 15px !important;
-    line-height: 2 !important;
-    text-decoration: none;
-    display: inline-block !important;
-    width: 100% !important;
-    padding: 5px 5px !important;
   }
 
   .mobileDropDown {
@@ -397,12 +286,5 @@ nav {
 
   .root h1 {
     font-size: 30px !important;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-
-  .mainDropDownUl {
-    column-count: 4 !important;
   }
 }

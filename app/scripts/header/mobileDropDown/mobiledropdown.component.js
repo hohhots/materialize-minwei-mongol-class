@@ -2,70 +2,92 @@ angular
   .module('mobiledropdown')
   .component('mobileDropdown', {
     templateUrl: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
-    controller: ['Json',mobileDropdownController]
+    controller: ['Json', '$scope', mobileDropdownController]
   });
 
-  function mobileDropdownController(json) {
+  function mobileDropdownController(json, scope) {
     var self = this;
-
-    var id = 0,
-        target,
-        folderIcon,
-        subjectId = "subjectId",
-        span,
-        upIconColorOrigin,
-        upIconColor = "#007d96";
 
     self.jsons = json;
 
-    var toggleSubjectList = function() {
-      span.toggleClass("ng-show").toggleClass("ng-hide");
-    }
+    self.registerHover = {};
+    self.aboutHover = {};
+    self.categoryHover = {};
+    self.subjectsHover = {};
+    self.folderIcon = {};
+    self.folderIconStyle = {};
+    self.subjectHover = {};
 
-    var toggleFolderIcon = function() {
-      if(folderIcon.hasClass("fa-angle-down")){
-        upIconColorOrigin = folderIcon.css("color");
-      }
+    self.registerMouseEnter = function() {
+      self.registerHover.textDecoration = "underline";
+    };
 
-      folderIcon.toggleClass("fa-angle-down").toggleClass("fa-angle-up");
+    self.registerMouseLeave = function() {
+      self.registerHover.textDecoration = "none";
+    };
 
-      var tColor;
+    self.aboutMouseEnter = function() {
+      self.aboutHover.textDecoration = "underline";
+    };
 
-      if(folderIcon.hasClass("fa-angle-up")) {
-        tColor = upIconColor;
+    self.aboutMouseLeave = function() {
+      self.aboutHover.textDecoration = "none";
+    };
+
+    self.categoryMouseEnter = function(id) {
+      self.categoryHover[id].textDecoration = "underline";
+    };
+
+    self.categoryMouseLeave = function(id) {
+      self.categoryHover[id].textDecoration = "none";
+    };
+
+    self.categoryClick = function(id) {
+      if(self.subjectsHover[id].display == "none") {
+        self.subjectsHover[id].display = "block";
+        self.folderIcon[id] = "fa-angle-up";
+        if(!self.folderIconStyle[id]){
+          self.folderIconStyle[id] = {};
+        }
+        self.folderIconStyle[id].color = json.categories[id].color;
       } else {
-        tColor = upIconColorOrigin;
+        self.subjectsHover[id].display = "none";
+        self.folderIcon[id] = "fa-angle-down";
+        self.folderIconStyle[id].color = "";
       }
+    };
 
-      folderIcon.css("color", tColor);
-    }
-
-    var setTarget = function(t) {
-      target = $(t);
-
-      if(target.is("li")){
-        target = target.find("a");
+    self.subjectMouseEnter = function(cid, sid) {
+      if(!self.subjectHover[cid]){
+        self.subjectHover[cid] = {};
       }
-      if(target.is("i")){
-        target = target.parents("a");
+      if(!self.subjectHover[cid][sid]){
+        self.subjectHover[cid][sid] = {};
       }
+      self.subjectHover[cid][sid].color = json.categories[cid].color;
+    };
 
-      if(target.is("a")){
-        id = target.attr(subjectId);
-        span = target.siblings("span");
-        folderIcon = target.find("i");
-      } else {
-        console.error("In mobile menu list don't exist a link for click event.");
-      }
-    }
+    self.subjectMouseLeave = function(cid, sid) {
+      self.subjectHover[cid][sid].color = "";
+    };
 
-    self.liItemClicked = function(e) {
-      setTarget(e.target);
+    var init = function(nval, oval) {
+      $.each(nval.categories, function(i, val) {
+        if(!self.categoryHover[val.id]){
+          self.categoryHover[val.id] = {};
+          self.categoryHover[val.id].color = val.color;
+        }
 
-      if(folderIcon.length) {
-        toggleSubjectList();
+        if(!self.subjectsHover[val.id]){
+          self.subjectsHover[val.id] = {};
+          self.subjectsHover[val.id].display = "none";
+        }
 
-        toggleFolderIcon();
-      }
-    }
+        if(!self.folderIcon[val.id]){
+          self.folderIcon[val.id] = "fa-angle-down";
+        }
+      });
+    };
+
+    scope.$watch(function(){return self.jsons;}, init, true);
   }

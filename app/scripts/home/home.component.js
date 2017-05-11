@@ -13,20 +13,16 @@ function appHomeController(json) {
 
   self.jsons = json;
 
-  self.textStyle = {};
+  self.navHover = {};
 
   self.navMouseEnter = function(id) {
-    if(!self.textStyle[id]) {
-      self.textStyle[id] = {};
-      self.textStyle[id].color = json.getCategoryColor(id);
-      self.textStyle[id].textDecoration = "underline";
-    }
+    self.navHover[id] = {};
+    self.navHover[id].color = json.categories[id].color;
+    self.navHover[id].textDecoration = "underline";
   };
 
   self.navMouseLeave = function(id) {
-    if(self.textStyle[id]) {
-      self.textStyle[id] = 0;
-    }
+    self.navHover[id] = 0;
   };
 
 }

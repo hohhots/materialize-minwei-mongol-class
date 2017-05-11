@@ -2,51 +2,48 @@ angular
   .module('subjectsdropdown')
   .component('subjectsDropdown', {
     templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
-    controller: ['Json', subjectsDropdownController]
+    controller: ['Json', '$scope', subjectsDropdownController]
   });
 
-  function subjectsDropdownController(json) {
+  function subjectsDropdownController(json, scope) {
     var self = this;
-
-    var originTextColor;
 
     self.jsons = json;
 
-    self.mainDropDownUlMouseOver = function(e) {
-      var stylesA = {
-        "text-decoration": "underline"
-      };
-      var stylesAH = {
-        "color": "#007d96"
-      };
+    self.categoryHover = {};
+    self.subjectHover = {};
 
-      var target = $(e.target);
-      if(target.is("a")){
-        // If is header element, just change text color.
-        if(target.hasClass("mainDropDownHeaderA")) {
-          originTextColor = target.css("color");
-          target.css(stylesAH);
-        } else {
-          target.css(stylesA);
-        }
-      }
-    }
+    self.categoryMouseEnter = function(id) {
+      self.categoryHover[id] = {};
+      self.categoryHover[id].color = json.categories[id].color;
+    };
 
-    self.mainDropDownUlMouseOut = function(e) {
-      var stylesA = {
-        "text-decoration": "none"
-      };
-      var stylesAH = {
-        "color": originTextColor
-      };
+    self.categoryMouseLeave = function(id) {
+      self.categoryHover[id] = {};
+    };
 
-      var target = $(e.target);
-      if(target.is("a")){
-        if(target.hasClass("mainDropDownHeaderA")) {
-          target.css(stylesAH);
-        } else {
-          target.css(stylesA);
-        }
-      }
-    }
+    self.liMouseEnter = function(cid, sid) {
+      self.subjectHover[cid][sid].color = json.categories[cid].color;
+      self.subjectHover[cid][sid].textDecoration = "underline";
+    };
+
+    self.liMouseLeave = function(cid, sid) {
+      self.subjectHover[cid][sid].textDecoration = "none";
+    };
+
+    var init = function(nval, oval) {
+      $.each(nval.categories, function(i, val) {
+        $.each(nval.subjects[val.id], function(j, val1) {
+          if(!self.subjectHover[val.id]){
+            self.subjectHover[val.id] = {};
+          }
+          if(!self.subjectHover[val.id][val1.id]){
+            self.subjectHover[val.id][val1.id] = {};
+            self.subjectHover[val.id][val1.id].color = json.categories[val.id].color;
+          }
+        });
+      });
+    };
+
+    scope.$watch(function(){return self.jsons;}, init, true);
   }

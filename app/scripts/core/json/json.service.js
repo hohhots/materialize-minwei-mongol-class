@@ -2,7 +2,7 @@
 
 angular.
   module('core.json').
-  factory('Json', ['$resource', function($resource) {
+  factory('Json', ['$resource', '$q', function($resource, $q) {
       var resource = $resource('data/:path/:jsonName.json', {}, {
         query: {
           method: 'GET',
@@ -14,33 +14,20 @@ angular.
         }
       });
 
-      var init = resource.query({}, function(data) {
-          jsons.categories = data;
+      var jsons = {
+        categories: {},
+        subjects: {}
+      };
 
+      resource.query({}, function(data) {
           $.each(data, function(i, val) {
             resource.query({path: val.dirName, jsonName: val.dirName}, function(data1) {
+              jsons.categories[val.id] = val;
               jsons.subjects[val.id] = data1;
             });
           });
-        });
-
-      var getCategoryColor = function(id) {
-        var color = "";
-
-        $.each(jsons.categories, function(i, val) {
-          if(id == val.id) {
-            color = val.color;
-          }
-        });
-
-        return color;
-      };
-
-      var jsons = {
-        categories: [],
-        subjects: {},
-        getCategoryColor: getCategoryColor
-      };
+        }
+      );
 
       return jsons;
     }
