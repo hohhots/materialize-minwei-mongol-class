@@ -4,7 +4,7 @@
     "name": "蒙文字母",
     "introduction": "传统蒙古文字母学习。",
     "dirName": "alphabet",
-    "imageUrl": "alphabet.png",
+    "imageName": "alphabet.png",
     "color": "#005987"
   },
   {
@@ -12,7 +12,7 @@
     "name": "蒙文单词",
     "introduction": "传统蒙古文单词学习。",
     "dirName": "word",
-    "imageUrl": "word.png",
+    "imageName": "word.png",
     "color": "#9e034e"
   },
   {
@@ -20,7 +20,7 @@
     "name": "蒙文句子",
     "introduction": "传统蒙古文句子学习。",
     "dirName": "sentence",
-    "imageUrl": "sentence.png",
+    "imageName": "sentence.png",
     "color": "#0d923f"
   },
   {
@@ -28,7 +28,7 @@
     "name": "蒙文会话",
     "introduction": "传统蒙古文会话学习。",
     "dirName": "conversation",
-    "imageUrl": "conversation.png",
+    "imageName": "conversation.jpeg",
     "color": "#be2612"
   },
   {
@@ -36,7 +36,7 @@
     "name": "蒙文标准音",
     "introduction": "传统蒙古文标准音学习。",
     "dirName": "standard",
-    "imageUrl": "standard.png",
+    "imageName": "standard.png",
     "color": "#a75a05"
   }
 ]

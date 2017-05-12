@@ -12,6 +12,100 @@
   padding: 0px !important;
 }
 
+.homeCategorys {
+  border: none !important;
+  display: inline-block !important;
+  margin-bottom: 0px !important;
+  padding: 0px !important;
+  width: 100% !important;
+  word-wrap: break-word !important;
+}
+
+.homeCategorys:first-child {
+  border-top: 0 !important;
+}
+
+.homePhoneCategories {
+  display: block !important;
+}
+
+.homePhoneButton {
+  background: none !important;
+  border: solid #D6D8DA !important;
+  border-width: 0 0 1px !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  padding: 0px !important;
+  width: 100% !important;
+}
+
+.homePhoneHeader {
+  display: flex !important;
+  padding: 16px !important;
+  align-items: center !important;
+  color: #007d96 !important;
+  line-height: 1.25 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.homePhoneImage{
+  border-radius: 20px !important;
+  height: 40px !important;
+  width: 40px !important;
+  margin-right: 16px !important;
+}
+
+.homePhoneSpan{
+  text-align: left !important;
+  padding-right: 20px !important;
+}
+
+.homePhoneDropDownIcon {
+  position: absolute !important;
+  line-height: 0 !important;
+  right: 16px !important;
+  color: #BABEC2 !important;
+}
+
+.homePhoneSubjects {
+  padding-left: 72px !important;
+  width: 100% !important;
+}
+
+.homePhoneSubject {
+  display: block !important;
+  padding-right: 0px !important;
+}
+
+.homePhoneSubjectA {
+  display: block !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  padding-right: 16px !important;
+  white-space: nowrap !important;
+  border-bottom: 1px solid #D6D8DA;
+  line-height: 50px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-overflow: ellipsis !important;
+  text-decoration: none;
+  color: #626569;
+}
+
+.homeSeparator{
+  border: solid #D6D8DA !important;
+  border-width: 0 0 1px !important;
+  box-shadow: none !important;
+  height: 0px !important;
+  margin: 0px !important;
+}
+
+.homeWebCategories {
+  display: none !important;
+}
+
 @media screen and (min-width: 767px) {
   .homeNavbar {
     padding: 12px 8px !important;
@@ -43,6 +137,20 @@
     padding-right: 20px !important;
     max-width: 1200px !important;
   }
+
+  .homeCategorys {
+    border-top: 1px solid #D6D8DA !important;
+    margin-bottom: 50px !important;
+    padding-top: 50px !important;
+  }
+
+  .homePhoneCategories {
+    display: none !important;
+  }
+
+  .homeWebCategories {
+    display: flex !important;
+  }
 }
 
 @media screen and (min-width: 1230px) {
@@ -56,5 +164,10 @@
 
   .homeNavbarLiA {
     font-size: 19px !important;
+  }
+
+  .homeCategorys {
+    margin-bottom: 50px !important;
+    padding-top: 50px !important;
   }
 }
