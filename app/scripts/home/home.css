@@ -154,7 +154,7 @@
 
   .homeWebCategoriesH2 {
     cursor: pointer !important;
-    min-width: 35% !important;
+    min-width: 40% !important;
     box-sizing: border-box !important;
     float: left !important;
     padding-right: 32px !important;
@@ -205,6 +205,16 @@
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .homeWebCategoriesH2 {
+    min-width: 28% !important;
+  }
+
+  .homeWebCategoriesLi{
+    width: 228px !important;
+  }
+}
+
 @media screen and (min-width: 1230px) {
   .homeNavbar {
     padding: 21px 20px !important;
@@ -227,11 +237,19 @@
     min-width: 25% !important;
   }
 
+  .homeWebCategoriesH2A {
+    font-size: 25px !important;
+  }
+
   .homeWebCategoriesH2AImg {
     border-radius: 36px !important;
     height: 72px !important;
     margin-right: 20px !important;
     width: 72px !important;
+  }
+
+  .homeWebCategoriesLi{
+    width: 273px !important;
   }
 
   .homeWebCategoriesLiA{
