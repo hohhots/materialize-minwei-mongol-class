@@ -17,6 +17,8 @@ function appHomeController(json, scope) {
   self.categories = {};
   self.subjects = {};
   self.folderIcon = {};
+  self.webCategories = {};
+  self.webSubjects = {};
 
   self.navMouseEnter = function(id) {
     if(!self.navText[id]) {
@@ -85,6 +87,30 @@ function appHomeController(json, scope) {
     return self.subjects[cid][sid].style;
   };
 
+  self.webCategoryMouseEnter = function(id) {
+    if(!self.webCategories[id]){
+      self.webCategories[id] = {};
+    }
+    if(!self.webCategories[id].style){
+      self.webCategories[id].style = {};
+    }
+    self.webCategories[id].style.color = json.categories[id].color;
+    self.webCategories[id].style.textDecoration = "underline";
+  };
+
+  self.webCategoryMouseLeave = function(id) {
+    self.webCategories[id].style.color =  "";
+    self.webCategories[id].style.textDecoration = "none";
+  };
+
+  self.webSubjectMouseEnter = function(cid, sid) {
+    self.webSubjects[cid][sid].style.textDecoration = "underline";
+  };
+
+  self.webSubjectMouseLeave = function(cid, sid) {
+      self.webSubjects[cid][sid].style.textDecoration = "none";
+  };
+
   var init = function(nval, oval) {
     $.each(nval.categories, function(i, val) {
       if(!self.categories[val.id]){
@@ -111,6 +137,19 @@ function appHomeController(json, scope) {
         self.folderIcon[val.id] = {};
         self.folderIcon[val.id].class = "fa-angle-down";
       }
+
+      $.each(nval.subjects[val.id], function(j, val1) {
+        if(!self.webSubjects[val.id]){
+          self.webSubjects[val.id] = {};
+        }
+        if(!self.webSubjects[val.id][val1.id]){
+          self.webSubjects[val.id][val1.id] = {};
+        }
+        if(!self.webSubjects[val.id][val1.id].style){
+          self.webSubjects[val.id][val1.id].style = {};
+          self.webSubjects[val.id][val1.id].style.color = json.categories[val.id].color;
+        }
+      });
     });
   };
 

@@ -85,7 +85,7 @@
   width: 100% !important;
   padding-right: 16px !important;
   white-space: nowrap !important;
-  border-bottom: 1px solid #D6D8DA;
+  border-bottom: 1px dashed #D6D8DA;
   line-height: 50px !important;
   font-size: 16px !important;
   font-weight: 600 !important;
@@ -151,6 +151,58 @@
   .homeWebCategories {
     display: flex !important;
   }
+
+  .homeWebCategoriesH2 {
+    cursor: pointer !important;
+    min-width: 35% !important;
+    box-sizing: border-box !important;
+    float: left !important;
+    padding-right: 32px !important;
+  }
+
+  .homeWebCategoriesH2A {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1.25 !important;
+    font-size: 21px !important;
+    color: #21242C !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+  }
+
+  .homeWebCategoriesH2AImg {
+    border-radius: 31px !important;
+    height: 62px !important;
+    width: 62px !important;
+    margin-right: 20px !important;
+  }
+
+  .homeWebCategoriesH2ASpan {
+    text-align: left !important;
+  }
+
+  .homeWebCategoriesUl {
+    flex-grow: 1 !important;
+  }
+
+  .homeWebCategoriesLi{
+    display: inline-block !important;
+    width: 204px !important;
+    padding-right: 32px !important;
+    vertical-align: top !important;
+  }
+
+  .homeWebCategoriesLiA{
+    display: inline-block !important;
+    width: 100% !important;
+    line-height: 48px !important;
+    font-size: 17px !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+  }
 }
 
 @media screen and (min-width: 1230px) {
@@ -169,5 +221,20 @@
   .homeCategorys {
     margin-bottom: 50px !important;
     padding-top: 50px !important;
+  }
+
+  .homeWebCategoriesH2 {
+    min-width: 25% !important;
+  }
+
+  .homeWebCategoriesH2AImg {
+    border-radius: 36px !important;
+    height: 72px !important;
+    margin-right: 20px !important;
+    width: 72px !important;
+  }
+
+  .homeWebCategoriesLiA{
+    font-size: 21px !important;
   }
 }

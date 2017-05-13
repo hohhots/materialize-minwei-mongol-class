@@ -34,7 +34,19 @@
         </div>
       </div>
       <div class="homeWebCategories">
-        aa
+        <h2 class="homeWebCategoriesH2" ng-mouseenter="$ctrl.webCategoryMouseEnter(category.id)" ng-mouseleave="$ctrl.webCategoryMouseLeave(category.id)">
+          <a class="homeWebCategoriesH2A" href="#">
+            <img class="homeWebCategoriesH2AImg" ng-src="{{$ctrl.categories[category.id].image.src}}" alt="">
+            <span class="homeWebCategoriesH2ASpan" ng-style="$ctrl.webCategories[category.id].style">{{category.name}}</span>
+          </a>
+        </h2>
+        <ul class="homeWebCategoriesUl">
+          <li class="homeWebCategoriesLi" ng-repeat="subject in $ctrl.jsons.subjects[category.id]">
+            <a class="homeWebCategoriesLiA" href="#" ng-style="$ctrl.webSubjects[category.id][subject.id].style" ng-mouseenter="$ctrl.webSubjectMouseEnter(category.id, subject.id)" ng-mouseleave="$ctrl.webSubjectMouseLeave(category.id, subject.id)">
+              {{subject.name}}
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
