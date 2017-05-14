@@ -5,10 +5,10 @@ angular
   .module('home')
   .component('appHome', {
     templateUrl: 'scripts/home/home.template.html',
-    controller: ['Json', '$scope', appHomeController]
+    controller: ['Util', 'Json', '$scope', appHomeController]
   });
 
-function appHomeController(json, scope) {
+function appHomeController(util, json, scope) {
   var self = this;
 
   self.jsons = json;
@@ -43,16 +43,18 @@ function appHomeController(json, scope) {
     self.categories[id].style.textDecoration = "none";
   };
 
-  self.categoryClick = function(id) {
-    if(self.categories[id].displaySubjects.display == "none") {
-      self.categories[id].displaySubjects.display = "block";
+  self.categoryClick = function(event, id) {
+    var target = $(event.currentTarget).next();
+
+    if(self.folderIcon[id].class == "fa-angle-down") {
+      util.slideDownUp(target, true);
       self.folderIcon[id].class = "fa-angle-up";
       if(!self.folderIcon[id].style){
         self.folderIcon[id].style = {};
       }
       self.folderIcon[id].style.color = json.categories[id].color;
     } else {
-      self.categories[id].displaySubjects.display = "none";
+      util.slideDownUp(target, false);
       self.folderIcon[id].class = "fa-angle-down";
       self.folderIcon[id].style.color = "";
     }

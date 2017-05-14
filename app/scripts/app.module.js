@@ -11,13 +11,3 @@ angular.module('learnMongolApp', [
   'lesson',
   'footer'
 ]);
-
-// For materialize
-(function($){
-  $(window).on('load', function() {
-
-    //$('.parallax').parallax();
-    //$('.dropdown-button').dropdown();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space

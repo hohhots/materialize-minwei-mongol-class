@@ -5,10 +5,10 @@ angular
   .module('header')
   .component('appHeader', {
     templateUrl: 'scripts/header/header.template.html',
-    controller: appHeaderController
+    controller: ['Util', '$scope', '$compile', appHeaderController]
   });
 
-function appHeaderController($scope, $compile) {
+function appHeaderController(util, $scope, $compile) {
   var self = this,
 
       id = "#appHeader",
@@ -50,14 +50,6 @@ function appHeaderController($scope, $compile) {
     }
   };
 
-  var dropDownEffect = function (elem, down) {
-    if(down) {
-      elem.slideDown();
-    } else {
-      elem.slideUp();
-    }
-  };
-
   var init = function() {
     mainDropDownDivElem.hide();
     mobileDropDown.hide();
@@ -96,7 +88,7 @@ function appHeaderController($scope, $compile) {
       changeOverState(false);
     }
 
-    dropDownEffect(mainDropDownDivElem, subjectsClicked);
+    util.slideDownUp(mainDropDownDivElem, subjectsClicked);
   };
 
   // Act for mouse over event on navbar
@@ -139,6 +131,6 @@ function appHeaderController($scope, $compile) {
       changeOverState(false);
     }
 
-    dropDownEffect(mobileDropDown, mobileDropDownClicked);
+    util.slideDownUp(mobileDropDown, mobileDropDownClicked);
   }
 }

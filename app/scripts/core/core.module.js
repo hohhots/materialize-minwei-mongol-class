@@ -1,4 +1,7 @@
 'use strict';
 
 // Define the `core` module
-angular.module('core', ['core.json']);
+angular.module('core', [
+  'core.json',
+  'core.util'
+]);

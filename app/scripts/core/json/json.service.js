@@ -2,7 +2,7 @@
 
 angular.
   module('core.json').
-  factory('Json', ['$resource', '$q', function($resource, $q) {
+  factory('Json', ['$resource', function($resource) {
       var resource = $resource('data/:path/:jsonName.json', {}, {
         query: {
           method: 'GET',

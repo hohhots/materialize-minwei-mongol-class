@@ -2,10 +2,10 @@ angular
   .module('mobiledropdown')
   .component('mobileDropdown', {
     templateUrl: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
-    controller: ['Json', '$scope', mobileDropdownController]
+    controller: ['Util', 'Json', '$scope', mobileDropdownController]
   });
 
-  function mobileDropdownController(json, scope) {
+  function mobileDropdownController(util, json, scope) {
     var self = this;
 
     self.jsons = json;
@@ -13,7 +13,6 @@ angular
     self.registerHover = {};
     self.aboutHover = {};
     self.categoryHover = {};
-    self.subjectsHover = {};
     self.folderIcon = {};
     self.folderIconStyle = {};
     self.subjectHover = {};
@@ -42,16 +41,18 @@ angular
       self.categoryHover[id].textDecoration = "none";
     };
 
-    self.categoryClick = function(id) {
-      if(self.subjectsHover[id].display == "none") {
-        self.subjectsHover[id].display = "block";
+    self.categoryClick = function(event, id) {
+      var target = $(event.currentTarget).next();
+
+      if(self.folderIcon[id] == "fa-angle-down") {
+        util.slideDownUp(target, true);
         self.folderIcon[id] = "fa-angle-up";
         if(!self.folderIconStyle[id]){
           self.folderIconStyle[id] = {};
         }
         self.folderIconStyle[id].color = json.categories[id].color;
       } else {
-        self.subjectsHover[id].display = "none";
+        util.slideDownUp(target, false);
         self.folderIcon[id] = "fa-angle-down";
         self.folderIconStyle[id].color = "";
       }
@@ -76,11 +77,6 @@ angular
         if(!self.categoryHover[val.id]){
           self.categoryHover[val.id] = {};
           self.categoryHover[val.id].color = val.color;
-        }
-
-        if(!self.subjectsHover[val.id]){
-          self.subjectsHover[val.id] = {};
-          self.subjectsHover[val.id].display = "none";
         }
 
         if(!self.folderIcon[val.id]){
