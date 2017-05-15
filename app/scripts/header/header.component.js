@@ -131,6 +131,9 @@ function appHeaderController(util, $scope, $compile) {
       changeOverState(false);
     }
 
+    // Hide document body overflow scroller
+    $scope.$parent.ctrl.toggleBodyStyle();
+
     util.slideDownUp(mobileDropDown, mobileDropDownClicked);
   }
 }

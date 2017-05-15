@@ -5,9 +5,8 @@ angular
   .module('footer')
   .component('appFooter', {
     templateUrl: 'scripts/footer/footer.template.html',
-    controller: appFooterController
+    controller: ['$scope', appFooterController]
   });
 
-  function appFooterController() {
-
+  function appFooterController($scope) {
   }

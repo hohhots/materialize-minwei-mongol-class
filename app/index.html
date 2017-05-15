@@ -1,11 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app="learnMongolApp" ng-controller="rootController as ctrl">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="内蒙古民委传统蒙古文,teach traditional mongolian language online">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>内蒙古民委蒙语教学</title>
+    <title>内蒙古民委蒙语学习</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -42,7 +42,7 @@
 
   </head>
 
-  <body ng-app="learnMongolApp">
+  <body ng-style="ctrl.getBodyStyle()">
 
     <ui-view></ui-view>
 
@@ -58,6 +58,8 @@
     <!--<script type="text/javascript" src="scripts/serviceworker.js"></script>-->
     <script type="text/javascript" src="scripts/app.module.js"></script>
     <script type="text/javascript" src="scripts/app.config.js"></script>
+
+    <script type="text/javascript" src="scripts/rootController.js"></script>
 
     <script type="text/javascript" src="scripts/core/json/json.module.js"></script>
     <script type="text/javascript" src="scripts/core/json/json.service.js"></script>

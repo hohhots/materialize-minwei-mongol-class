@@ -94,17 +94,13 @@
 
 .footerSocialMedia {
   margin-top: 20px !important;
+  padding-right: 0;
 }
 
 .footerSocialMediaA {
   color: #FFFFFF !important;
   opacity: 0.6 !important;
 }
-
-.footerSocialMediaA img {
-  background-color: #FFFFFF;
-}
-
 
 @media only screen and (min-width: 767px) {
   .footerContainer {
@@ -143,6 +139,7 @@
 
   .footerSocialMedia {
     margin-top: 0 !important;
+    padding-right: 6px;
   }
 }
 
