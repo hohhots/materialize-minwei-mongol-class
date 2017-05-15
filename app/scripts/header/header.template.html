@@ -4,7 +4,7 @@
       <div class="mainNavContent">
         <div class="mainNavContentLeft">
           <div class="subjectWrapper">
-            <a href="#" class="subjectsDropDown {{$ctrl.elemTextColor}}" ng-click="$ctrl.subjectsDropDownClick($event)">蒙语科目<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <a href="#" class="subjectsDropDown {{$ctrl.elemTextColor}}" ng-click="$ctrl.subjectsDropDownClick($event)">蒙语科目<i class="fa" ng-class="{'fa-caret-down': $ctrl.getSubjectsDownIconClass(), 'fa-caret-up': $ctrl.getSubjectsUpIconClass()}"  aria-hidden="true"></i></a>
             <div class="mainDropDownDiv">
               <subjects-dropdown></subjects-dropdown>
             </div>

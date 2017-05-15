@@ -14,6 +14,15 @@ angular.
           } else {
             elem.slideUp();
           }
+        },
+
+        // Determine if browse form touchable screen
+        isTouchScreen: function() {
+          try{
+            document.createEvent("TouchEvent");
+            return true;
+          }
+          catch(e){ return false; }
         }
       };
 

@@ -11,6 +11,9 @@ angular
 function appHeaderController(util, $scope, $compile) {
   var self = this,
 
+      subjectsDownIconClass = true,
+      subjectsUpIconClass = false,
+
       id = "#appHeader",
       subjectsClicked = false,
       mainNavOvered = false,
@@ -28,14 +31,6 @@ function appHeaderController(util, $scope, $compile) {
       registerElem = $(".register"),
       mobileDropDown = $(".mobileDropDown");
 
-  var isMobile = function() {
-    try{
-      document.createEvent("TouchEvent");
-      return true;
-    }
-    catch(e){ return false; }
-  };
-
   var changeOverState = function(over) {
     if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
       return;
@@ -47,6 +42,16 @@ function appHeaderController(util, $scope, $compile) {
     } else {
       self.wraperBackColor = "transparent";
       self.elemTextColor = "";
+    }
+  };
+
+  var toggleSubjectsIconClass = function () {
+    if(subjectsDownIconClass) {
+      subjectsDownIconClass = false;
+      subjectsUpIconClass = true;
+    } else {
+      subjectsDownIconClass = true;
+      subjectsUpIconClass = false;
     }
   };
 
@@ -67,6 +72,7 @@ function appHeaderController(util, $scope, $compile) {
   self.wraperBackColor = "transparent";
   self.elemTextColor = "";
 
+
   self.windowClick = function(e) {
     if(subjectsClicked == true){
       self.subjectsDropDownClick(e);
@@ -75,10 +81,18 @@ function appHeaderController(util, $scope, $compile) {
     self.navMouseOutEvent();
   };
 
+  self.getSubjectsDownIconClass = function() {
+    return subjectsDownIconClass;
+  };
+
+  self.getSubjectsUpIconClass = function() {
+    return subjectsUpIconClass;
+  };
+
   self.subjectsDropDownClick = function (e) {
     e.stopPropagation();
 
-    subjectsI.toggleClass("fa-caret-down").toggleClass("fa-caret-up");
+    toggleSubjectsIconClass();
 
     if(!subjectsClicked) {
       changeOverState(true);
@@ -93,7 +107,7 @@ function appHeaderController(util, $scope, $compile) {
 
   // Act for mouse over event on navbar
   self.navMouseOverEvent = function() {
-    if(isMobile()){
+    if(util.isTouchScreen()){
       return;
     }
 
@@ -103,7 +117,7 @@ function appHeaderController(util, $scope, $compile) {
   };
 
   self.navMouseOutEvent = function() {
-    if(isMobile()){
+    if(util.isTouchScreen()){
       return;
     }
 
