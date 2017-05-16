@@ -3,28 +3,22 @@
     <div class="footerContainer">
       <div class="footerMainBlock">
         <div class="footerMissionAndLanguage">
-          <p class="footerMissionParagraph">ission and language  mission and language  mission and language </p>
+          <p class="footerMissionParagraph">我们立志于创建面向全世界的免费在线“传统蒙古语”学习网站。</p>
           <p class="footerMissionSpacer"></p>
-          <p class="footerMissionParagraph">ission and language  mission and language  mission and language </p>
+          <p class="footerMissionParagraph">此蒙古语教育网站使用中国国家专款由“内蒙古自治区民族事物委员会”组织建设。</p>
         </div>
         <div class="footerMainLink">
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
+            <li class="footerMainLinkUlLiHeader">关于我们</li>
+            <li class="footerMainLinkUlLi" ng-repeat="item in $ctrl.jsons.about">{{item.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
+            <li class="footerMainLinkUlLiHeader">联系方式</li>
+            <li class="footerMainLinkUlLi" ng-repeat="cont in $ctrl.jsons.contacts">{{cont.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
-            <li class="footerMainLinkUlLi">sdf</li>
+            <li class="footerMainLinkUlLiHeader">蒙语科目</li>
+            <li class="footerMainLinkUlLi" ng-repeat="category in $ctrl.jsons.categories">{{category.name}}</li>
           </ul>
         </div>
       </div>

@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `header` module
-angular.module('footer', []);
+angular.module('footer', ['core.json']);

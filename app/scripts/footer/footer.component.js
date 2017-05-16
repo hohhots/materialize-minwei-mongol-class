@@ -5,8 +5,11 @@ angular
   .module('footer')
   .component('appFooter', {
     templateUrl: 'scripts/footer/footer.template.html',
-    controller: ['$scope', appFooterController]
+    controller: ['Json', '$scope', appFooterController]
   });
 
-  function appFooterController($scope) {
+  function appFooterController(json, scope) {
+    var self = this;
+
+    self.jsons = json;
   }
