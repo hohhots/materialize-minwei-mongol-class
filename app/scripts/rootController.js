@@ -10,6 +10,9 @@
 
       var bodyStyle = {overflowY: "auto"};
 
+      // body style change trigger element
+      var triggerElem = {};
+
       self.getBodyStyle = function() {
         return bodyStyle;
       };
@@ -18,11 +21,16 @@
         bodyStyle = style;
       };
 
-      self.toggleBodyStyle = function() {
+      self.toggleBodyStyle = function(e) {
         if(bodyStyle.overflowY == "auto") {
           bodyStyle.overflowY = "hidden";
+          triggerElem = e.currentTarget;
         } else {
-          bodyStyle.overflowY = "auto";
+          // If trigger is same dom element with previous trigger
+          if(triggerElem === e.currentTarget) {
+            bodyStyle.overflowY = "auto";
+            triggerElem = {};
+          }
         }
       };
     }

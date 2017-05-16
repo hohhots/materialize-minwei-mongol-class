@@ -9,121 +9,139 @@ angular
   });
 
 function appHeaderController(util, $scope, $compile) {
-  var self = this,
+  var self = this;
 
-      subjectsDownIconClass = true,
-      subjectsUpIconClass = false,
-
-      id = "#appHeader",
-      subjectsClicked = false,
-      mainNavOvered = false,
-      mobileDropDownClicked = false,
-      // Store text color for mouse oner/out
-      originTextColor;
-
-  // capture all relative elements
-  var navWrapperElem = $(".navWrapper"),
-      navElem = $(".mainNav"),
-      subjectsDropDownElem = $(".subjectsDropDown"),
-      subjectsI = subjectsDropDownElem.find("i"),
-      mainDropDownDivElem = $(".mainDropDownDiv"),
-      appLogoElem = $(".appLogo"),
-      registerElem = $(".register"),
-      mobileDropDown = $(".mobileDropDown");
-
-  var changeOverState = function(over) {
-    if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
-      return;
+  var changeOverState = function(elem, over) {
+    //if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
+    //  return;
+    //}
+    if(!elem.style){
+      elem.style = {};
     }
 
     if(over) {
-      self.wraperBackColor = "whiteBackColor";
-      self.elemTextColor = "blackTextColor";
+      elem.style.color = "#21242c";
+      elem.style.backgroundColor = "#FFFFFF";
     } else {
-      self.wraperBackColor = "transparent";
-      self.elemTextColor = "";
+      elem.style.color = "";
+      elem.style.backgroundColor = "transparent";
+    }
+
+  };
+
+  var changeSubjectsOverState = function(over) {
+    if(!self.subjects.style){
+      self.subjects.style = {};
+    }
+
+    if(over) {
+      self.subjects.style.color = "#21242c";
+    } else {
+      self.subjects.style.color = "";
     }
   };
 
   var toggleSubjectsIconClass = function () {
-    if(subjectsDownIconClass) {
-      subjectsDownIconClass = false;
-      subjectsUpIconClass = true;
+    if(self.subjectsDownIconClass) {
+      self.subjectsDownIconClass = false;
+      self.subjectsUpIconClass = true;
     } else {
-      subjectsDownIconClass = true;
-      subjectsUpIconClass = false;
+      self.subjectsDownIconClass = true;
+      self.subjectsUpIconClass = false;
     }
   };
 
-  var init = function() {
-    mainDropDownDivElem.hide();
-    mobileDropDown.hide();
-
-    $(window).click(function(e){
-      $scope.$apply(function(){
-        self.windowClick(e);
-      });
-    });
+  var toggleSubjectsClicked = function() {
+    if(!self.subjects.clicked) {
+      self.subjects.clicked = true;
+    } else {
+      self.subjects.clicked = false;
+    }
   };
 
-  init();
-
-  // For reference from html.
-  self.wraperBackColor = "transparent";
-  self.elemTextColor = "";
-
-
-  self.windowClick = function(e) {
-    if(subjectsClicked == true){
-      self.subjectsDropDownClick(e);
+  var changeLogoOverState = function(over) {
+    if(!self.logo.style){
+      self.logo.style = {};
     }
 
-    self.navMouseOutEvent();
+    if(over) {
+      self.logo.style.color = "#21242c";
+    } else {
+      self.logo.style.color = "";
+    }
   };
 
-  self.getSubjectsDownIconClass = function() {
-    return subjectsDownIconClass;
+  var changePhoneMenuOverState = function(over) {
+    if(!self.phoneMenu.style){
+      self.phoneMenu.style = {};
+    }
+
+    if(over) {
+      self.phoneMenu.style.color = "#21242c";
+    } else {
+      self.phoneMenu.style.color = "";
+    }
   };
 
-  self.getSubjectsUpIconClass = function() {
-    return subjectsUpIconClass;
+  var windowClick = function(e) {
+    if(self.subjects.clicked){
+      self.subjectsClicked();
+      self.navMouseLeave();
+    }
   };
 
-  self.subjectsDropDownClick = function (e) {
+  // data for header nav
+  self.subjectsDownIconClass = true;
+  self.subjectsUpIconClass = false;
+  self.navWrapperDiv = {};
+  self.nav = {};
+  self.subjects = {};
+  self.logo = {};
+  self.phoneMenu = {};
+
+  self.subjectsClicked = function (e) {
+    e = e || self.subjects.triggerEvent;
+
     e.stopPropagation();
+    self.subjects.triggerEvent = e;
+    self.subjects.dropDownElem = $(e.currentTarget).next();
 
     toggleSubjectsIconClass();
 
-    if(!subjectsClicked) {
-      changeOverState(true);
-      subjectsClicked = true;
-    } else {
-      subjectsClicked = false;
-      changeOverState(false);
-    }
+    toggleSubjectsClicked();
 
-    util.slideDownUp(mainDropDownDivElem, subjectsClicked);
+    // Hide document body overflow scroller
+    $scope.$parent.ctrl.toggleBodyStyle(e);
+
+    util.slideDownUp(self.subjects.dropDownElem, self.subjects.clicked);
   };
 
   // Act for mouse over event on navbar
-  self.navMouseOverEvent = function() {
+  self.navMouseEnter = function(e) {
     if(util.isTouchScreen()){
       return;
     }
 
-    changeOverState(true);
-
-    mainNavOvered = true;
+    if(!self.subjects.clicked) {
+      changeOverState(self.navWrapperDiv, true);
+      changeSubjectsOverState(true);
+      changeLogoOverState(true);
+      changePhoneMenuOverState(true);
+    }
   };
 
-  self.navMouseOutEvent = function() {
+  self.navMouseLeave = function(e) {
     if(util.isTouchScreen()){
       return;
     }
 
-    mainNavOvered = false;
-
-    changeOverState(false);
+    //changeOverState(self.nav, false);
+    if(!self.subjects.clicked) {
+      changeOverState(self.navWrapperDiv, false);
+      changeSubjectsOverState(false);
+      changeLogoOverState(false);
+      changePhoneMenuOverState(false);
+    }
   };
 
   self.navBarsIconClick = function(e) {
@@ -146,8 +164,18 @@ function appHeaderController(util, $scope, $compile) {
     }
 
     // Hide document body overflow scroller
-    $scope.$parent.ctrl.toggleBodyStyle();
+    $scope.$parent.ctrl.toggleBodyStyle(e);
 
     util.slideDownUp(mobileDropDown, mobileDropDownClicked);
   }
+
+  var init = function() {
+    $(window).click(function(e){
+      $scope.$apply(function(){
+        windowClick(e);
+      });
+    });
+  };
+
+  init();
 }
