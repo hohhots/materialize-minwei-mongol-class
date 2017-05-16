@@ -119,14 +119,14 @@ nav {
   align-items: center !important;
   display: flex !important;
   height: auto !important;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
   font-family: inherit !important;
   font-size: 15px !important;
   font-weight: bold !important;
   text-decoration: none !important;
 }
 
-.mobileDropDown {
+.phoneDropDown {
   display: none;
   position: absolute !important;
   left: 0px !important;

@@ -4,7 +4,7 @@
       <div class="mainNavContent">
         <div class="mainNavContentLeft">
           <div class="subjectWrapper">
-            <a href="#" class="subjectsDropDown" ng-style="$ctrl.subjects.style" ng-click="$ctrl.subjectsClicked($event)">蒙语科目<i class="fa" ng-class="{'fa-caret-down': $ctrl.subjectsDownIconClass, 'fa-caret-up': $ctrl.subjectsUpIconClass}"  aria-hidden="true"></i></a>
+            <a href="#" class="subjectsDropDown" ng-style="$ctrl.subjects.style" ng-click="$ctrl.subjectsClicked($event)">蒙语科目<i class="fa" ng-class="{'fa-caret-down': $ctrl.subjectsIconClass, 'fa-caret-up': !$ctrl.subjectsIconClass}"  aria-hidden="true"></i></a>
             <div class="mainDropDownDiv">
               <subjects-dropdown></subjects-dropdown>
             </div>
@@ -16,13 +16,13 @@
         <div class="mainNavContentRight">
           <a href="#" class="register" ng-style="$ctrl.phoneMenu.style">登录 / 注册</a>
           <div class="phoneMenuIconWrapper">
-            <a href="#" class="phoneMenuIconA" ng-style="$ctrl.phoneMenu.style" ng-click="$ctrl.navBarsIconClick($event)"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
+            <a href="#" class="phoneMenuIconA" ng-style="$ctrl.phoneMenu.style" ng-click="$ctrl.navBarsIconClick($event)"><i class="fa fa-lg"  ng-class="{'fa-bars': $ctrl.phoneIconClass, 'fa-times': !$ctrl.phoneIconClass}" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
     </nav>
 
-    <div class="mobileDropDown">
+    <div class="phoneDropDown">
       <mobile-dropdown></mobile-dropdown>
     </div>
   </div>

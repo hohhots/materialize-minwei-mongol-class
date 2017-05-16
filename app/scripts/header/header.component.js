@@ -41,24 +41,6 @@ function appHeaderController(util, $scope, $compile) {
     }
   };
 
-  var toggleSubjectsIconClass = function () {
-    if(self.subjectsDownIconClass) {
-      self.subjectsDownIconClass = false;
-      self.subjectsUpIconClass = true;
-    } else {
-      self.subjectsDownIconClass = true;
-      self.subjectsUpIconClass = false;
-    }
-  };
-
-  var toggleSubjectsClicked = function() {
-    if(!self.subjects.clicked) {
-      self.subjects.clicked = true;
-    } else {
-      self.subjects.clicked = false;
-    }
-  };
-
   var changeLogoOverState = function(over) {
     if(!self.logo.style){
       self.logo.style = {};
@@ -91,13 +73,18 @@ function appHeaderController(util, $scope, $compile) {
   };
 
   // data for header nav
-  self.subjectsDownIconClass = true;
-  self.subjectsUpIconClass = false;
   self.navWrapperDiv = {};
   self.nav = {};
+
+  self.subjectsIconClass = true;
   self.subjects = {};
+  self.subjects.clicked = false;
+
   self.logo = {};
+
+  self.phoneIconClass = true;
   self.phoneMenu = {};
+  self.phoneMenu.clicked = false;
 
   self.subjectsClicked = function (e) {
     e = e || self.subjects.triggerEvent;
@@ -106,9 +93,8 @@ function appHeaderController(util, $scope, $compile) {
     self.subjects.triggerEvent = e;
     self.subjects.dropDownElem = $(e.currentTarget).next();
 
-    toggleSubjectsIconClass();
-
-    toggleSubjectsClicked();
+    self.subjectsIconClass = !self.subjectsIconClass;
+    self.subjects.clicked = !self.subjects.clicked;
 
     // Hide document body overflow scroller
     $scope.$parent.ctrl.toggleBodyStyle(e);
@@ -122,7 +108,8 @@ function appHeaderController(util, $scope, $compile) {
       return;
     }
 
-    if(!self.subjects.clicked) {
+    if(!self.subjects.clicked &&
+       !self.phoneMenu.clicked) {
       changeOverState(self.navWrapperDiv, true);
       changeSubjectsOverState(true);
       changeLogoOverState(true);
@@ -136,7 +123,8 @@ function appHeaderController(util, $scope, $compile) {
     }
 
     //changeOverState(self.nav, false);
-    if(!self.subjects.clicked) {
+    if(!self.subjects.clicked &&
+       !self.phoneMenu.clicked) {
       changeOverState(self.navWrapperDiv, false);
       changeSubjectsOverState(false);
       changeLogoOverState(false);
@@ -145,28 +133,19 @@ function appHeaderController(util, $scope, $compile) {
   };
 
   self.navBarsIconClick = function(e) {
+    e = e || self.phoneMenu.triggerEvent;
+
     e.stopPropagation();
+    self.phoneMenu.triggerEvent = e;
+    self.phoneMenu.dropDownElem = $(e.currentTarget).parents("nav").next();
 
-    var t = $(e.target);
-
-    if(t.is("a")){
-      t = t.find("i");
-    }
-
-    t.toggleClass("fa-bars").toggleClass("fa-times");
-
-    if(!mobileDropDownClicked) {
-      changeOverState(true);
-      mobileDropDownClicked = true;
-    } else {
-      mobileDropDownClicked = false;
-      changeOverState(false);
-    }
+    self.phoneIconClass = !self.phoneIconClass;
+    self.phoneMenu.clicked = !self.phoneMenu.clicked;
 
     // Hide document body overflow scroller
     $scope.$parent.ctrl.toggleBodyStyle(e);
 
-    util.slideDownUp(mobileDropDown, mobileDropDownClicked);
+    util.slideDownUp(self.phoneMenu.dropDownElem, self.phoneMenu.clicked);
   }
 
   var init = function() {
