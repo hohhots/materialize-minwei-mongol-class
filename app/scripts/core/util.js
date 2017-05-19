@@ -1,5 +1,8 @@
 'use strict';
 
+// Define the `core.util` module
+angular.module('core.util', []);
+
 angular.
   module('core.util').
   factory('Util', function() {

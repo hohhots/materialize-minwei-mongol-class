@@ -1,5 +1,12 @@
 'use strict';
 
+// Define the `header` module
+angular.module('header', [
+  'core.util',
+  'subjectsdropdown',
+  'mobiledropdown'
+]);
+
 // Register `headerList` component, along with its associated controller and template
 angular
   .module('header')

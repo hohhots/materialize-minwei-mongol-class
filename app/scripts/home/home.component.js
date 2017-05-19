@@ -1,5 +1,11 @@
 'use strict';
 
+// Define the `header` module
+angular.module('home', [
+  'core.json',
+  'core.util'
+]);
+
 // Register `headerList` component, along with its associated controller and template
 angular
   .module('home')

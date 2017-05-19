@@ -1,5 +1,8 @@
 'use strict';
 
+// Define the `header` module
+angular.module('footer', ['core.json']);
+
 // Register `headerList` component, along with its associated controller and template
 angular
   .module('footer')
