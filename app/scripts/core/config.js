@@ -5,12 +5,15 @@ angular.module('core.config', []);
 
 angular.
   module('core.config').
-  factory('config', ['$http', appConfig]);
+  factory('Config',
+    function appConfig() {
+      var configData = {
+        rootDataPath: "data",
+        categoriesFile: "categories.json",
+        contactFile: "contact.json",
+        aboutFile: "contact.json",
+      };
 
-function appConfig($http) {
-  var service = {
-    rootDataPath: "data"
-  };
-
-  return service;
-};
+      return configData;
+    }
+  );
