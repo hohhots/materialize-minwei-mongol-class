@@ -10,21 +10,21 @@
         <div class="footerMainLink">
           <ul class="footerMainLinkUl">
             <li class="footerMainLinkUlLiHeader">关于我们</li>
-            <li class="footerMainLinkUlLi" ng-repeat="item in $ctrl.jsons.about">{{item.name}}</li>
+            <li class="footerMainLinkUlLi" ng-repeat="item in $ctrl.jsons.about">{{::item.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
             <li class="footerMainLinkUlLiHeader">联系方式</li>
-            <li class="footerMainLinkUlLi" ng-repeat="cont in $ctrl.jsons.contacts">{{cont.name}}</li>
+            <li class="footerMainLinkUlLi" ng-repeat="cont in $ctrl.jsons.contacts">{{::cont.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
             <li class="footerMainLinkUlLiHeader">蒙语科目</li>
-            <li class="footerMainLinkUlLi" ng-repeat="category in $ctrl.jsons.categories">{{category.name}}</li>
+            <li class="footerMainLinkUlLi" ng-repeat="category in $ctrl.jsons.categories">{{::category.name}}</li>
           </ul>
         </div>
       </div>
       <div class="footerBottomBlock">
         <div class="footerRights">
-          © 2017 内蒙古民委
+          © 2017 内蒙古自治区民族事务委员会
         </div>
         <div class="footerGrow"></div>
         <div class="footerSocialMedia">

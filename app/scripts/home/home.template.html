@@ -4,7 +4,7 @@
       <ul class="homeNavbar">
         <li class="homeNavbarLi" ng-repeat="category in $ctrl.jsons.categories">
           <a class="homeNavbarLiA" href="#" ng-style="$ctrl.navText[category.id].style"  ng-mouseenter="$ctrl.navMouseEnter(category.id)" ng-mouseleave="$ctrl.navMouseLeave(category.id)">
-            {{category.name}}
+            {{::category.name}}
           </a>
         </li>
       </ul>
@@ -18,7 +18,7 @@
         <button class="homePhoneButton" ng-mouseenter="$ctrl.categoryMouseEnter(category.id)" ng-mouseleave="$ctrl.categoryMouseLeave(category.id)" ng-click="$ctrl.categoryClick($event, category.id)">
           <a href="javascript:void(0)" class="homePhoneHeader">
             <img class="homePhoneImage" ng-src="{{$ctrl.categories[category.id].image.src}}">
-            <span class="homePhoneSpan" ng-style="$ctrl.categories[category.id].style">{{category.name}}</span>
+            <span class="homePhoneSpan" ng-style="$ctrl.categories[category.id].style">{{::category.name}}</span>
             <div class="homePhoneDropDownIcon">
               <i class="fa {{$ctrl.folderIcon[category.id].class}} fa-lg" aria-hidden="true"  ng-style="$ctrl.folderIcon[category.id].style"></i>
             </div>
@@ -27,7 +27,7 @@
         <div ng-style="$ctrl.categories[category.id].displaySubjects">
           <ul class="homePhoneSubjects">
             <li class="homePhoneSubject" ng-repeat="subject in $ctrl.jsons.subjects[category.id]">
-              <a class="homePhoneSubjectA" href="#" ng-style="$ctrl.getSubjectsStyle($last, category.id, subject.id)" ng-mouseenter="$ctrl.subjectMouseEnter(category.id, subject.id)" ng-mouseleave="$ctrl.subjectMouseLeave(category.id, subject.id)">{{subject.name}}</a>
+              <a class="homePhoneSubjectA" href="#" ng-style="$ctrl.getSubjectsStyle($last, category.id, subject.id)" ng-mouseenter="$ctrl.subjectMouseEnter(category.id, subject.id)" ng-mouseleave="$ctrl.subjectMouseLeave(category.id, subject.id)">{{::subject.name}}</a>
             </li>
           </ul>
           <hr class="homeSeparator">

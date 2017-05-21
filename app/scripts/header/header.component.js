@@ -72,6 +72,13 @@ function appHeaderController(util, $scope, $compile) {
     }
   };
 
+  var changeAllOverState = function(over) {
+    changeOverState(self.navWrapperDiv, over);
+    changeSubjectsOverState(over);
+    changeLogoOverState(over);
+    changePhoneMenuOverState(over);
+  };
+
   var windowClick = function(e) {
     if(self.subjects.clicked){
       self.subjectsClicked();
@@ -117,10 +124,7 @@ function appHeaderController(util, $scope, $compile) {
 
     if(!self.subjects.clicked &&
        !self.phoneMenu.clicked) {
-      changeOverState(self.navWrapperDiv, true);
-      changeSubjectsOverState(true);
-      changeLogoOverState(true);
-      changePhoneMenuOverState(true);
+      changeAllOverState(true);
     }
   };
 
@@ -132,10 +136,7 @@ function appHeaderController(util, $scope, $compile) {
     //changeOverState(self.nav, false);
     if(!self.subjects.clicked &&
        !self.phoneMenu.clicked) {
-      changeOverState(self.navWrapperDiv, false);
-      changeSubjectsOverState(false);
-      changeLogoOverState(false);
-      changePhoneMenuOverState(false);
+      changeAllOverState(false);
     }
   };
 
@@ -151,6 +152,14 @@ function appHeaderController(util, $scope, $compile) {
 
     // Hide document body overflow scroller
     $scope.$parent.ctrl.toggleBodyStyle(e);
+
+    if(util.isTouchScreen()){
+      if(self.phoneMenu.clicked){
+        changeAllOverState(true);
+      } else {
+        changeAllOverState(false);
+      }
+    }
 
     util.slideDownUp(self.phoneMenu.dropDownElem, self.phoneMenu.clicked);
   }

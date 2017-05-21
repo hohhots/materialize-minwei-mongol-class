@@ -6,6 +6,7 @@ angular.module('core.util', []);
 angular.
   module('core.util').
   factory('Util', function() {
+      var isTouchScreen = 'init';
 
       var utils = {
         //for slide down and up animation,
@@ -21,11 +22,19 @@ angular.
 
         // Determine if browse form touchable screen
         isTouchScreen: function() {
+          if(isTouchScreen != 'init'){
+            return isTouchScreen;
+          }
+
           try{
             document.createEvent("TouchEvent");
+            isTouchScreen = true;
             return true;
           }
-          catch(e){ return false; }
+          catch(e){
+            isTouchScreen = false;
+            return false;
+          }
         }
       };
 
