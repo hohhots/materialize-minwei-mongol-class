@@ -22,19 +22,17 @@ angular.
 
         // Determine if browse form touchable screen
         isTouchScreen: function() {
-          if(isTouchScreen != 'init'){
-            return isTouchScreen;
+          if(isTouchScreen == 'init'){
+            try{
+              document.createEvent("TouchEvent");
+              isTouchScreen = true;
+            }
+            catch(e){
+              isTouchScreen = false;
+            }
           }
 
-          try{
-            document.createEvent("TouchEvent");
-            isTouchScreen = true;
-            return true;
-          }
-          catch(e){
-            isTouchScreen = false;
-            return false;
-          }
+          return isTouchScreen;
         }
       };
 

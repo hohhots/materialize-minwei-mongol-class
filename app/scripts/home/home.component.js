@@ -3,7 +3,8 @@
 // Define the `header` module
 angular.module('home', [
   'core.json',
-  'core.util'
+  'core.util',
+  'core.anchorScroll'
 ]);
 
 // Register `headerList` component, along with its associated controller and template
@@ -11,10 +12,10 @@ angular
   .module('home')
   .component('appHome', {
     templateUrl: 'scripts/home/home.template.html',
-    controller: ['Util', 'Json', '$scope', appHomeController]
+    controller: ['Util', 'Json', 'anchorSmoothScroll', '$scope', appHomeController]
   });
 
-function appHomeController(util, json, scope) {
+function appHomeController(util, json, anchorScroll, scope) {
   var self = this;
 
   self.jsons = json;
@@ -117,6 +118,15 @@ function appHomeController(util, json, scope) {
 
   self.webSubjectMouseLeave = function(cid, sid) {
       self.webSubjects[cid][sid].style.textDecoration = "none";
+  };
+
+  self.gotoElement = function (eID){
+    // set the location.hash to the id of
+    // the element you wish to scroll to.
+    //$location.hash('bottom');
+
+    // call $anchorScroll()
+    anchorScroll.scrollTo(eID);
   };
 
   var init = function(nval, oval) {

@@ -154,11 +154,7 @@ function appHeaderController(util, $scope, $compile) {
     $scope.$parent.ctrl.toggleBodyStyle(e);
 
     if(util.isTouchScreen()){
-      if(self.phoneMenu.clicked){
-        changeAllOverState(true);
-      } else {
-        changeAllOverState(false);
-      }
+      changeAllOverState(self.phoneMenu.clicked);
     }
 
     util.slideDownUp(self.phoneMenu.dropDownElem, self.phoneMenu.clicked);
