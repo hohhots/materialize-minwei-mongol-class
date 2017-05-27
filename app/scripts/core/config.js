@@ -5,15 +5,19 @@ angular.module('core.config', []);
 
 angular.
   module('core.config').
-  factory('Config',
-    function appConfig() {
-      var configData = {
-        rootDataPath: "data",
-        categoriesFile: "categories.json",
-        contactFile: "contact.json",
-        aboutFile: "contact.json",
-      };
+  constant('Config',{
+        app: {
+          urlPrefix: "#!"
+        },
+        json: {
+          rootPath: "data",
+          categories: "categories.json",
+          contact: "contact.json",
+          about: "contact.json",
+        },
 
-      return configData;
-    }
+        home:{
+          welcome: "学 - 优美蒙语<br>享 - 蒙古文化"
+        }
+      }
   );

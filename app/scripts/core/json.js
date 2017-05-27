@@ -8,7 +8,7 @@ angular.
   factory('Json', ['$resource', 'Config', appJson]);
 
 function appJson($resource, config) {
-  var url = config.rootDataPath + '/:path/:fileName';
+  var url = config.json.rootPath + '/:path/:fileName';
 
   var resource = $resource(url, {}, {
     query: {
@@ -38,14 +38,14 @@ function appJson($resource, config) {
     }
   );
 
-  resource.query({fileName: config.contactFile}, function(data) {
+  resource.query({fileName: config.json.contact}, function(data) {
       $.each(data, function(i, val) {
         jsons.contacts[val.id] = val;
       });
     }
   );
 
-  resource.query({fileName: config.aboutFile}, function(data) {
+  resource.query({fileName: config.json.about}, function(data) {
       $.each(data, function(i, val) {
         jsons.about[val.id] = val;
       });

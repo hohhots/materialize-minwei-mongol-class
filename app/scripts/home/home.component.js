@@ -2,6 +2,7 @@
 
 // Define the `header` module
 angular.module('home', [
+  'core.config',
   'core.json',
   'core.util',
   'core.anchorScroll'
@@ -12,10 +13,17 @@ angular
   .module('home')
   .component('appHome', {
     templateUrl: 'scripts/home/home.template.html',
-    controller: ['Util', 'Json', 'anchorSmoothScroll', '$scope', appHomeController]
+    controller: [
+      '$scope',
+      '$sce',
+      'Config',
+      'Util',
+      'Json',
+      'anchorSmoothScroll',
+      appHomeController]
   });
 
-function appHomeController(util, json, anchorScroll, scope) {
+function appHomeController( $scope, $sce, config, util, json, anchorScroll) {
   var self = this;
 
   self.jsons = json;
@@ -26,6 +34,14 @@ function appHomeController(util, json, anchorScroll, scope) {
   self.folderIcon = {};
   self.webCategories = {};
   self.webSubjects = {};
+
+  self.getText = function(name) {
+    return $sce.trustAsHtml(config.home[name]);
+  };
+
+  self.getUrl = function(url) {
+    return util.getUrl(url);
+  };
 
   self.navMouseEnter = function(id) {
     if(!self.navText[id]) {
@@ -171,5 +187,5 @@ function appHomeController(util, json, anchorScroll, scope) {
     });
   };
 
-  scope.$watch(function(){return self.jsons;}, init, true);
+  $scope.$watch(function(){return self.jsons;}, init, true);
 }

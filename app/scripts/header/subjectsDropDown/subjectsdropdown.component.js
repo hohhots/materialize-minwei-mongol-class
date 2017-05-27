@@ -1,22 +1,26 @@
 'use strict';
 
 // Define the `header` module
-angular.module('subjectsdropdown', ['core.json']);
+angular.module('subjectsdropdown', ['core.json', 'core.util']);
 
 angular
   .module('subjectsdropdown')
   .component('subjectsDropdown', {
     templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
-    controller: ['Json', '$scope', subjectsDropdownController]
+    controller: ['Util', 'Json', '$scope', subjectsDropdownController]
   });
 
-  function subjectsDropdownController(json, scope) {
+  function subjectsDropdownController(util, json, scope) {
     var self = this;
 
     self.jsons = json;
 
     self.categoryHover = {};
     self.subjectHover = {};
+
+    self.getUrl = function(url) {
+      return util.getUrl(url);
+    };
 
     self.categoryMouseEnter = function(id) {
       self.categoryHover[id] = {};

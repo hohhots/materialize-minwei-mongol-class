@@ -52,6 +52,7 @@
 }
 
 .footerMainLinkUl {
+  padding-top: 2px !important;
   -moz-column-break-inside: avoid !important;
   -webkit-column-break-inside: avoid !important;
   padding-bottom: 32px !important;

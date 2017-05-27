@@ -134,28 +134,6 @@ nav {
   background: #FFFFFF !important;
 }
 
-.root {
-  box-sizing: border-box;
-  height: 166px !important;
-  padding-top: 62px !important;
-  background-position: center !important;
-  background-size: cover !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  text-align: center !important;
-  background-image: url(images/mountains.svg) !important;
-}
-
-.root h1 {
-  margin-bottom: 30px !important;
-  padding: 25px 20px 0 20px !important;
-  color: #FFFFFF !important;
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  text-shadow: 0 0 10px #1499af !important;
-}
-
 .whiteBackColor {
   background-color: #FFF;
 }
@@ -251,15 +229,7 @@ nav {
   .mobileDropDown {
     display: none !important;
   }
-
-  .root {
-    line-height: 1.5 !important;
-    height: 300px !important;
-  }
-
-  .root h1 {
-    font-size: 25px !important;
-  }
+  
 }
 
 @media only screen and (min-width: 992px) {

@@ -19,9 +19,6 @@ function appHeaderController(util, $scope, $compile) {
   var self = this;
 
   var changeOverState = function(elem, over) {
-    //if(subjectsClicked || mobileDropDownClicked || mainNavOvered){
-    //  return;
-    //}
     if(!elem.style){
       elem.style = {};
     }
@@ -99,6 +96,10 @@ function appHeaderController(util, $scope, $compile) {
   self.phoneIconClass = true;
   self.phoneMenu = {};
   self.phoneMenu.clicked = false;
+
+  self.getUrl = function(url) {
+    return util.getUrl(url);
+  };
 
   self.subjectsClicked = function (e) {
     e = e || self.subjects.triggerEvent;

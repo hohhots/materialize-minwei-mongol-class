@@ -1,3 +1,8 @@
+<header class="homeHeader">
+    <h1 ng-bind-html="$ctrl.getText('welcome')"></h1>
+  </div>
+</header>
+
 <div>
   <div>
     <nav>
@@ -35,7 +40,7 @@
       </div>
       <div class="homeWebCategories">
         <h2 class="homeWebCategoriesH2" ng-mouseenter="$ctrl.webCategoryMouseEnter(category.id)" ng-mouseleave="$ctrl.webCategoryMouseLeave(category.id)">
-          <a class="homeWebCategoriesH2A" href="#">
+          <a class="homeWebCategoriesH2A" ng-href="{{$ctrl.getUrl(category.dirName)}}">
             <img class="homeWebCategoriesH2AImg" ng-src="{{$ctrl.categories[category.id].image.src}}" alt="">
             <span class="homeWebCategoriesH2ASpan" ng-style="$ctrl.webCategories[category.id].style">{{category.name}}</span>
           </a>

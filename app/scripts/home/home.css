@@ -1,3 +1,25 @@
+.homeHeader {
+  box-sizing: border-box;
+  height: 166px !important;
+  padding-top: 62px !important;
+  background-position: center !important;
+  background-size: cover !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background-image: url(images/mountains.svg) !important;
+}
+
+.homeHeader h1 {
+  margin-bottom: 30px !important;
+  padding: 25px 20px 0 20px !important;
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px #1499af !important;
+}
+
 .divider {
   border-top: 1px solid #D6D8DA !important;
   width: 100% !important;
@@ -107,6 +129,15 @@
 }
 
 @media screen and (min-width: 767px) {
+  .homeHeader {
+    line-height: 1.5 !important;
+    height: 300px !important;
+  }
+
+  .homeHeader h1 {
+    font-size: 25px !important;
+  }
+
   .homeNavbar {
     padding: 12px 8px !important;
     font-size: 15px !important;
@@ -203,6 +234,17 @@
     font-family: inherit !important;
     font-weight: 600 !important;
     text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .homeHeader {
+    line-height: 1.75 !important;
+    height: 400px !important;
+  }
+
+  .homeHeader h1 {
+    font-size: 30px !important;
   }
 }
 

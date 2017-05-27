@@ -10,10 +10,10 @@ angular
   .module('mobiledropdown')
   .component('mobileDropdown', {
     templateUrl: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
-    controller: ['Util', 'Json', '$scope', mobileDropdownController]
+    controller: ['$scope', 'Util', 'Json', mobileDropdownController]
   });
 
-  function mobileDropdownController(util, json, scope) {
+  function mobileDropdownController($scope, util, json) {
     var self = this;
 
     self.jsons = json;
@@ -24,6 +24,10 @@ angular
     self.folderIcon = {};
     self.folderIconStyle = {};
     self.subjectHover = {};
+
+    self.getUrl = function(url) {
+      return util.getUrl(url);
+    };
 
     self.registerMouseEnter = function() {
       self.registerHover.textDecoration = "underline";
@@ -93,5 +97,5 @@ angular
       });
     };
 
-    scope.$watch(function(){return self.jsons;}, init, true);
+    $scope.$watch(function(){return self.jsons;}, init, true);
   }

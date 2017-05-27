@@ -1,11 +1,11 @@
 'use strict';
 
 // Define the `core.util` module
-angular.module('core.util', []);
+angular.module('core.util', ['core.config']);
 
 angular.
   module('core.util').
-  factory('Util', function() {
+  factory('Util', ['Config', function(config) {
       var isTouchScreen = 'init';
 
       var utils = {
@@ -33,9 +33,15 @@ angular.
           }
 
           return isTouchScreen;
+        },
+
+        getUrl: function(url) {
+          url = url ? url : '';
+          
+          return config.app.urlPrefix + "/" + url;
         }
       };
 
       return utils;
     }
-  );
+  ]);
