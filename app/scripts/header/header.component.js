@@ -12,10 +12,10 @@ angular
   .module('header')
   .component('appHeader', {
     templateUrl: 'scripts/header/header.template.html',
-    controller: ['Util', '$scope', '$compile', appHeaderController]
+    controller: ['$scope', '$compile', 'Util', appHeaderController]
   });
 
-function appHeaderController(util, $scope, $compile) {
+function appHeaderController($scope, $compile, util) {
   var self = this;
 
   var changeOverState = function(elem, over) {
