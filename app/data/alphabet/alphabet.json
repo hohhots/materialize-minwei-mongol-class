@@ -2,22 +2,22 @@
   {
     "id": 1,
     "name": "根字母",
-    "introduction": "传统蒙古文根字母。",
+    "introduction": "传统蒙古文和其它所有语言一样由最基本的字母组成整个语言，我们称之为“根字母”。",
     "dirName": "origin",
-    "imageUrl": "data/1/1.png"
+    "imageUrl": "origin.png"
   },
   {
     "id": 2,
-    "name": "根字母带元音",
-    "introduction": "传统蒙古文字母加元音。",
+    "name": "字母表",
+    "introduction": "传统蒙古文“根字母”加七个元音，构成了蒙古文独具个性的“字母表”。",
     "dirName": "vowal",
-    "imageUrl": "data/1/2.png"
+    "imageUrl": "vowal.png"
   },
   {
     "id": 3,
-    "name": "字母变体",
-    "introduction": "传统蒙古文字母在字首、字中、字尾的变体。",
+    "name": "字母变形",
+    "introduction": "传统蒙古文作为连写文字（书写每个单词时字母之间必须保持连续），“字母表”里的每一个字母在单词当中的位置，决定着它的书写形状。",
     "dirName": "variant",
-    "imageUrl": "data/1/3.png"
+    "imageUrl": "variant.png"
   }
 ]

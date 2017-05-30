@@ -30,6 +30,7 @@
 
 .categoryHeaderSticky{
   display: none;
+  background-color: #11accd !important;
   left: 0px !important;
   right: 0px !important;
   z-index: 1001 !important;
