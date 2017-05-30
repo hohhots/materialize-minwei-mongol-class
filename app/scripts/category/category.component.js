@@ -8,10 +8,14 @@ angular
   .module('category')
   .component('appCategory', {
     templateUrl: 'scripts/category/category.template.html',
-    controller: ['$scope', '$element', appCategoryController]
+    controller: [
+      '$scope',
+      'Util',
+      'Json',
+      appCategoryController]
   });
 
-function appCategoryController($scope, $element) {
+function appCategoryController($scope, util , json) {
   var self = this,
 
   elem = $(document.getElementById("categoryBeginSticky"));
