@@ -22,16 +22,28 @@ function appJson($resource, config) {
     }
   });
 
-  var getResource = function(path, fileName) {
-
-  };
-
   var getHomeJson = function(contact, about) {
     resource.query({}, function(data) {
         $.each(data, function(i, val) {
+          jsons.categories[val.id] = val;
+
           resource.query({path: val.dirName, fileName: val.dirName + ".json"}, function(data1) {
-            jsons.categories[val.id] = val;
-            jsons.subjects[val.id] = data1;
+            $.each(data1, function(j, val1) {
+              if(!jsons.subjects[val.id]){
+                jsons.subjects[val.id] = {};
+              }
+              jsons.subjects[val.id][val1.id] = val1;
+
+              resource.query({path: val.dirName + "/" +val1.dirName, fileName: val1.dirName + ".json"}, function(data2) {
+                $.each(data2, function(k, val2) {
+                  if(!jsons.classes[val.id]){
+                    jsons.classes[val.id] = {};
+                    jsons.classes[val.id][val1.id] = {};
+                  }
+                  jsons.classes[val.id][val1.id][val2.id] = val2;
+                })
+              });
+            })
           });
         });
       }
@@ -53,13 +65,31 @@ function appJson($resource, config) {
 
   };
 
+  var getCategoryJson = function(dirname) {
+    var ob = {};
+
+    $.each(jsons.categories, function(i, val) {
+      if(val.dirName == dirname) {
+        ob = val;
+      }
+    })
+
+    return ob;
+  };
+
+  var getClassesJson = function(dir, filename) {
+
+  };
 
   var jsons = {
     categories: {},
     subjects: {},
+    classes: {},
     contacts: {},
     about: {},
-    getHome: getHomeJson
+    getHome: getHomeJson,
+    getCategory: getCategoryJson,
+    getClasses: getClassesJson
   };
 
   return jsons;

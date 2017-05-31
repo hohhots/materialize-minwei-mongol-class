@@ -42,7 +42,7 @@ function appHomeController( $scope, $sce, config, util, json, anchorScroll) {
   };
 
   self.getUrl = function(url) {
-    return util.getUrl(url);
+    return util.convertUrl(url);
   };
 
   self.navMouseEnter = function(id) {

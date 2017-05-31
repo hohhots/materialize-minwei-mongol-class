@@ -98,7 +98,7 @@ function appHeaderController($scope, $compile, util) {
   self.phoneMenu.clicked = false;
 
   self.getUrl = function(url) {
-    return util.getUrl(url);
+    return util.convertUrl(url);
   };
 
   self.subjectsClicked = function (e) {

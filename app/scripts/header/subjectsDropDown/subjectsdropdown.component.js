@@ -7,10 +7,10 @@ angular
   .module('subjectsdropdown')
   .component('subjectsDropdown', {
     templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
-    controller: ['Util', 'Json', '$scope', subjectsDropdownController]
+    controller: ['$scope', 'Util', 'Json', subjectsDropdownController]
   });
 
-  function subjectsDropdownController(util, json, scope) {
+  function subjectsDropdownController($scope, util, json) {
     var self = this;
 
     self.jsons = json;
@@ -18,8 +18,8 @@ angular
     self.categoryHover = {};
     self.subjectHover = {};
 
-    self.getUrl = function(url) {
-      return util.getUrl(url);
+    self.convertUrl = function(url) {
+      return util.convertUrl(url);
     };
 
     self.categoryMouseEnter = function(id) {
@@ -54,5 +54,5 @@ angular
       });
     };
 
-    scope.$watch(function(){return self.jsons;}, init, true);
+    $scope.$watch(function(){return self.jsons;}, init, true);
   }

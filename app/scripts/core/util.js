@@ -1,11 +1,13 @@
 'use strict';
 
 // Define the `core.util` module
-angular.module('core.util', ['core.config']);
+angular.module('core.util', [
+  'core.config'
+]);
 
 angular.
   module('core.util').
-  factory('Util', ['Config', function(config) {
+  service('Util', ['$location', 'Config', function($location, config) {
       var isTouchScreen = 'init';
 
       var utils = {
@@ -35,10 +37,14 @@ angular.
           return isTouchScreen;
         },
 
-        getUrl: function(url) {
+        convertUrl: function(url) {
           url = url ? url : '';
-          
+
           return config.app.urlPrefix + "/" + url;
+        },
+
+        getUrlPath: function() {
+          return $location.path();
         }
       };
 

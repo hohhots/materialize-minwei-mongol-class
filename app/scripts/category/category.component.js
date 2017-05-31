@@ -18,34 +18,52 @@ angular
 function appCategoryController($scope, util , json) {
   var self = this,
 
-  elem = $(document.getElementById("categoryBeginSticky"));
+  elem = $(document.getElementById("categoryBeginSticky")),
+
+  path = util.getUrlPath().substring(1);
+
+  var displayHeaderSticky = function() {
+
+    var st = self.headerSticky.style = self.headerSticky.style ? self.headerSticky.style : {};
+
+    st.display = "block";
+    st.position = "fixed";
+    st.top = "0px";
+    st.overflowY = "auto";
+    st.overflowX = "visible";
+    st.maxHeight = "285px";
+  };
 
   var windowScroll = function(e) {
-    //var position = $(beginStickyId).position();
     if($(window).scrollTop() > elem.offset().top){
-      if(!self.headerSticky.style) {
-        self.headerSticky.style = {};
-      }
-      self.headerSticky.style.display = "block";
-      self.headerSticky.style.position = "fixed";
-      self.headerSticky.style.top = "0px";
-      self.headerSticky.style.overflowY = "auto";
-      self.headerSticky.style.overflowX = "visible";
-      self.headerSticky.style.maxHeight = "285px";
+      displayHeaderSticky();
     } else {
       self.headerSticky.style = {};
     }
   };
 
-  var init = function() {
-    $(window).scroll(function(e){
-      $scope.$apply(function(){
-        windowScroll(e);
-      });
+  $(window).scroll(function(e){
+    $scope.$apply(function(){
+      windowScroll(e);
     });
+  });
+
+  var init = function() {
+    self.category = json.getCategory(path);
+
+    $.each(json.subjects[self.category.id], function(i, val) {
+        self.subjects[val.id] = val;
+
+        //self.classes[val.id] = json.getClasses(self.category.dirName, val.dirName);
+      }
+    );
   };
 
+  self.jsons = json;
+  self.category = {};
+  self.subjects = {};
+  self.classes = {};
   self.headerSticky = {};
 
-  init();
+  $scope.$watch(function(){return self.jsons;}, init, true);
 }
