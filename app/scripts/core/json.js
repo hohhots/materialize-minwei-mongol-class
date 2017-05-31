@@ -8,21 +8,26 @@ angular.
   factory('Json', ['$resource', 'Config', appJson]);
 
 function appJson($resource, config) {
-  var url = config.json.rootPath + '/:path/:fileName';
+  var url = config.json.rootPath;
+  var resource;
 
-  var resource = $resource(url, {}, {
-    query: {
-      method: 'GET',
-      params: {
-        path: '.',
-        fileName: 'categories.json'
-      },
-      isArray: true,
-      cache: true
-    }
-  });
+  var getResource = function(turl){
+    resource = $resource(turl + '/:path/:fileName', {}, {
+      query: {
+        method: 'GET',
+        params: {
+          path: '.',
+          fileName: 'categories.json'
+        },
+        isArray: true,
+        cache: true
+      }
+    });
+  }
 
   var getHomeJson = function(contact, about) {
+    getResource(url);
+
     resource.query({}, function(data) {
         $.each(data, function(i, val) {
           jsons.categories[val.id] = val;
@@ -34,7 +39,8 @@ function appJson($resource, config) {
               }
               jsons.subjects[val.id][val1.id] = val1;
 
-              resource.query({path: val.dirName + "/" +val1.dirName, fileName: val1.dirName + ".json"}, function(data2) {
+              getResource(url + "/" + val.dirName);
+              resource.query({path: val1.dirName, fileName: val1.dirName + ".json"}, function(data2) {
                 $.each(data2, function(k, val2) {
                   if(!jsons.classes[val.id]){
                     jsons.classes[val.id] = {};
