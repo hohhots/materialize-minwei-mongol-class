@@ -9,24 +9,29 @@ angular.
 
 function appJson($resource, config) {
   var url = config.json.rootPath;
+  var resources = {};
   var resource;
 
-  var getResource = function(turl){
-    resource = $resource(turl + '/:path/:fileName', {}, {
-      query: {
-        method: 'GET',
-        params: {
-          path: '.',
-          fileName: 'categories.json'
-        },
-        isArray: true,
-        cache: true
-      }
-    });
+  var setResource = function(turl){
+    if(resources[turl]) {
+      resource = resources[turl];
+    } else {
+      resources[turl] = resource = $resource(turl + '/:path/:fileName', {}, {
+        query: {
+          method: 'GET',
+          params: {
+            path: '.',
+            fileName: 'categories.json'
+          },
+          isArray: true,
+          cache: true
+        }
+      });
+    }
   }
 
-  var getHomeJson = function(contact, about) {
-    getResource(url);
+  var getHomeJson = function() {
+    setResource(url);
 
     resource.query({}, function(data) {
         $.each(data, function(i, val) {
@@ -39,30 +44,35 @@ function appJson($resource, config) {
               }
               jsons.subjects[val.id][val1.id] = val1;
 
-              getResource(url + "/" + val.dirName);
-              resource.query({path: val1.dirName, fileName: val1.dirName + ".json"}, function(data2) {
+              if(!jsons.classes[val.id]){
+                jsons.classes[val.id] = {};
+              }
+              if(!jsons.classes[val.id][val1.id]){
+                jsons.classes[val.id][val1.id] = {};
+              }
+
+              if(val.id == 1){ //Just for data alphabet, MUST REMOVE AFTER DATA COMPLETE.
+                setResource(url + "/" + val.dirName);
+                resource.query({path: val1.dirName, fileName: val1.dirName + ".json"}, function(data2) {
                 $.each(data2, function(k, val2) {
-                  if(!jsons.classes[val.id]){
-                    jsons.classes[val.id] = {};
-                    jsons.classes[val.id][val1.id] = {};
-                  }
-                  jsons.classes[val.id][val1.id][val2.id] = val2;
-                })
-              });
+                    jsons.classes[val.id][val1.id][val2.id] = val2;
+                  })
+                });
+              }  //Just for data alphabet
             })
           });
         });
       }
     );
 
-    resource.query({fileName: contact}, function(data) {
+    resource.query({fileName: config.json.contact}, function(data) {
         $.each(data, function(i, val) {
           jsons.contacts[val.id] = val;
         });
       }
     );
 
-    resource.query({fileName: about}, function(data) {
+    resource.query({fileName: config.json.about}, function(data) {
         $.each(data, function(i, val) {
           jsons.about[val.id] = val;
         });
@@ -71,6 +81,8 @@ function appJson($resource, config) {
 
   };
 
+  //Use this get category data according to access url
+  //www.xxxx.com/#!/dirname
   var getCategoryJson = function(dirname) {
     var ob = {};
 
@@ -83,10 +95,6 @@ function appJson($resource, config) {
     return ob;
   };
 
-  var getClassesJson = function(dir, filename) {
-
-  };
-
   var jsons = {
     categories: {},
     subjects: {},
@@ -95,7 +103,6 @@ function appJson($resource, config) {
     about: {},
     getHome: getHomeJson,
     getCategory: getCategoryJson,
-    getClasses: getClassesJson
   };
 
   return jsons;

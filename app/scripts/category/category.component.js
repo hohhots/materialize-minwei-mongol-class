@@ -50,13 +50,6 @@ function appCategoryController($scope, util , json) {
 
   var init = function() {
     self.category = json.getCategory(path);
-
-    $.each(json.subjects[self.category.id], function(i, val) {
-        self.subjects[val.id] = val;
-
-        //self.classes[val.id] = json.getClasses(self.category.dirName, val.dirName);
-      }
-    );
   };
 
   self.jsons = json;

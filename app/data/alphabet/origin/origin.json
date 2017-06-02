@@ -1,5 +1,5 @@
-{
-  "a":{
+[
+  {
     "id": 1,
     "name": "a",
     "image": "a.png",
@@ -8,7 +8,7 @@
     "test": "aTest.json",
     "introduction": "传统蒙古文字母“a”。"
   },
-  "na":{
+  {
     "id": 2,
     "name": "na",
     "image": "na.png",
@@ -17,7 +17,7 @@
     "test": "naTest.json",
     "introduction": "传统蒙古文字母“na”。"
   },
-  "ba":{
+  {
     "id": 3,
     "name": "ba",
     "image": "ba.png",
@@ -26,7 +26,7 @@
     "test": "baTest.json",
     "introduction": "传统蒙古文字母“ba”。"
   },
-  "pa":{
+  {
     "id": 4,
     "name": "pa",
     "image": "pa.png",
@@ -35,7 +35,7 @@
     "test": "paTest.json",
     "introduction": "传统蒙古文字母“pa”。"
   },
-  "ha":{
+  {
     "id": 5,
     "name": "ha",
     "image": "ha.png",
@@ -44,7 +44,7 @@
     "test": "haTest.json",
     "introduction": "传统蒙古文字母“ha”。"
   },
-  "ga":{
+  {
     "id": 6,
     "name": "ga",
     "image": "ga.png",
@@ -53,7 +53,7 @@
     "test": "gaTest.json",
     "introduction": "传统蒙古文字母“ga”。"
   },
-  "ma":{
+  {
     "id": 7,
     "name": "ma",
     "image": "ma.png",
@@ -62,7 +62,7 @@
     "test": "maTest.json",
     "introduction": "传统蒙古文字母“ma”。"
   },
-  "la":{
+  {
     "id": 8,
     "name": "la",
     "image": "la.png",
@@ -71,7 +71,7 @@
     "test": "laTest.json",
     "introduction": "传统蒙古文字母“la”。"
   },
-  "sa":{
+  {
     "id": 9,
     "name": "sa",
     "image": "sa.png",
@@ -80,7 +80,7 @@
     "test": "saTest.json",
     "introduction": "传统蒙古文字母“sa”。"
   },
-  "sha":{
+  {
     "id": 10,
     "name": "sha",
     "image": "sha.png",
@@ -89,7 +89,7 @@
     "test": "shaTest.json",
     "introduction": "传统蒙古文字母“sha”。"
   },
-  "ta":{
+  {
     "id": 11,
     "name": "ta",
     "image": "ta.png",
@@ -98,7 +98,7 @@
     "test": "taTest.json",
     "introduction": "传统蒙古文字母“ta”。"
   },
-  "da":{
+  {
     "id": 12,
     "name": "da",
     "image": "da.png",
@@ -107,7 +107,7 @@
     "test": "daTest.json",
     "introduction": "传统蒙古文字母“da”。"
   },
-  "cha":{
+  {
     "id": 13,
     "name": "cha",
     "image": "cha.png",
@@ -116,7 +116,7 @@
     "test": "chaTest.json",
     "introduction": "传统蒙古文字母“cha”。"
   },
-  "zha":{
+  {
     "id": 14,
     "name": "zha",
     "image": "zha.png",
@@ -125,7 +125,7 @@
     "test": "zhaTest.json",
     "introduction": "传统蒙古文字母“zha”。"
   },
-  "ya":{
+  {
     "id": 15,
     "name": "ya",
     "image": "ya.png",
@@ -134,7 +134,7 @@
     "test": "yaTest.json",
     "introduction": "传统蒙古文字母“ya”。"
   },
-  "ra":{
+  {
     "id": 16,
     "name": "ra",
     "image": "ra.png",
@@ -143,4 +143,4 @@
     "test": "raTest.json",
     "introduction": "传统蒙古文字母“ra”。"
   }
-}
+]

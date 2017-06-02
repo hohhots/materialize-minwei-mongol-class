@@ -1,499 +1,562 @@
-{
-
-  "a":{
-    "a": {
-      "id": 1,
-      "name": "a"
-    },
-    "e": {
-      "id": 2,
-      "name": "e"
-    },
-    "i": {
-      "id": 3,
-      "name": "i"
-    },
-    "o": {
-      "id": 4,
-      "name": "o"
-    },
-    "o2": {
-      "id": 5,
-      "name": "o2"
-    },
-    "u": {
-      "id": 6,
-      "name": "u"
-    },
-    "u2": {
-      "id": 7,
-      "name": "u2"
+[
+  {
+    "id": 1,
+    "name": "a",
+    "vowal": {
+      "a": {
+        "id": 1,
+        "name": "a"
+      },
+      "e": {
+        "id": 2,
+        "name": "e"
+      },
+      "i": {
+        "id": 3,
+        "name": "i"
+      },
+      "o": {
+        "id": 4,
+        "name": "o"
+      },
+      "o2": {
+        "id": 5,
+        "name": "o2"
+      },
+      "u": {
+        "id": 6,
+        "name": "u"
+      },
+      "u2": {
+        "id": 7,
+        "name": "u2"
+      }
     }
   },
 
-  "na":{
-    "na": {
-      "id": 1,
-      "name": "na"
-    },
-    "ne": {
-      "id": 2,
-      "name": "ne"
-    },
-    "ni": {
-      "id": 3,
-      "name": "ni"
-    },
-    "no": {
-      "id": 4,
-      "name": "no"
-    },
-    "no2": {
-      "id": 5,
-      "name": "no2"
-    },
-    "nu": {
-      "id": 6,
-      "name": "nu"
-    },
-    "nu2": {
-      "id": 7,
-      "name": "nu2"
+  {
+    "id": 2,
+    "name": "na",
+    "vowal": {
+      "na": {
+        "id": 1,
+        "name": "na"
+      },
+      "ne": {
+        "id": 2,
+        "name": "ne"
+      },
+      "ni": {
+        "id": 3,
+        "name": "ni"
+      },
+      "no": {
+        "id": 4,
+        "name": "no"
+      },
+      "no2": {
+        "id": 5,
+        "name": "no2"
+      },
+      "nu": {
+        "id": 6,
+        "name": "nu"
+      },
+      "nu2": {
+        "id": 7,
+        "name": "nu2"
+      }
     }
   },
 
-  "ba":{
-    "ba": {
-      "id": 1,
-      "name": "ba"
-    },
-    "be": {
-      "id": 2,
-      "name": "be"
-    },
-    "bi": {
-      "id": 3,
-      "name": "bi"
-    },
-    "bo": {
-      "id": 4,
-      "name": "bo"
-    },
-    "bo2": {
-      "id": 5,
-      "name": "bo2"
-    },
-    "bu": {
-      "id": 6,
-      "name": "bu"
-    },
-    "bu2": {
-      "id": 7,
-      "name": "bu2"
+  {
+    "id": 3,
+    "name": "ba",
+    "vowal":{
+      "ba": {
+        "id": 1,
+        "name": "ba"
+      },
+      "be": {
+        "id": 2,
+        "name": "be"
+      },
+      "bi": {
+        "id": 3,
+        "name": "bi"
+      },
+      "bo": {
+        "id": 4,
+        "name": "bo"
+      },
+      "bo2": {
+        "id": 5,
+        "name": "bo2"
+      },
+      "bu": {
+        "id": 6,
+        "name": "bu"
+      },
+      "bu2": {
+        "id": 7,
+        "name": "bu2"
+      }
     }
   },
 
-  "pa":{
-    "pa": {
-      "id": 1,
-      "name": "pa"
-    },
-    "pe": {
-      "id": 2,
-      "name": "pe"
-    },
-    "pi": {
-      "id": 3,
-      "name": "pi"
-    },
-    "po": {
-      "id": 4,
-      "name": "po"
-    },
-    "po2": {
-      "id": 5,
-      "name": "po2"
-    },
-    "pu": {
-      "id": 6,
-      "name": "pu"
-    },
-    "pu2": {
-      "id": 7,
-      "name": "pu2"
+  {
+    "id": 4,
+    "name": "pa",
+    "vowal": {
+      "pa": {
+        "id": 1,
+        "name": "pa"
+      },
+      "pe": {
+        "id": 2,
+        "name": "pe"
+      },
+      "pi": {
+        "id": 3,
+        "name": "pi"
+      },
+      "po": {
+        "id": 4,
+        "name": "po"
+      },
+      "po2": {
+        "id": 5,
+        "name": "po2"
+      },
+      "pu": {
+        "id": 6,
+        "name": "pu"
+      },
+      "pu2": {
+        "id": 7,
+        "name": "pu2"
+      }
     }
   },
 
-  "ha":{
-    "ha": {
-      "id": 1,
-      "name": "ha"
-    },
-    "he": {
-      "id": 2,
-      "name": "he"
-    },
-    "hi": {
-      "id": 3,
-      "name": "hi"
-    },
-    "ho": {
-      "id": 4,
-      "name": "ho"
-    },
-    "ho2": {
-      "id": 5,
-      "name": "ho2"
-    },
-    "hu": {
-      "id": 6,
-      "name": "hu"
-    },
-    "hu2": {
-      "id": 7,
-      "name": "hu2"
+  {
+    "id": 5,
+    "name": "ha",
+    "vowal":{
+      "ha": {
+        "id": 1,
+        "name": "ha"
+      },
+      "he": {
+        "id": 2,
+        "name": "he"
+      },
+      "hi": {
+        "id": 3,
+        "name": "hi"
+      },
+      "ho": {
+        "id": 4,
+        "name": "ho"
+      },
+      "ho2": {
+        "id": 5,
+        "name": "ho2"
+      },
+      "hu": {
+        "id": 6,
+        "name": "hu"
+      },
+      "hu2": {
+        "id": 7,
+        "name": "hu2"
+      }
     }
   },
 
-  "ga":{
-    "ga": {
-      "id": 1,
-      "name": "ga"
-    },
-    "ge": {
-      "id": 2,
-      "name": "ge"
-    },
-    "gi": {
-      "id": 3,
-      "name": "gi"
-    },
-    "go": {
-      "id": 4,
-      "name": "go"
-    },
-    "go2": {
-      "id": 5,
-      "name": "go2"
-    },
-    "gu": {
-      "id": 6,
-      "name": "gu"
-    },
-    "gu2": {
-      "id": 7,
-      "name": "gu2"
+  {
+    "id": 6,
+    "name": "ga",
+    "vowal": {
+      "ga": {
+        "id": 1,
+        "name": "ga"
+      },
+      "ge": {
+        "id": 2,
+        "name": "ge"
+      },
+      "gi": {
+        "id": 3,
+        "name": "gi"
+      },
+      "go": {
+        "id": 4,
+        "name": "go"
+      },
+      "go2": {
+        "id": 5,
+        "name": "go2"
+      },
+      "gu": {
+        "id": 6,
+        "name": "gu"
+      },
+      "gu2": {
+        "id": 7,
+        "name": "gu2"
+      }
     }
   },
 
-  "ma":{
-    "ma": {
-      "id": 1,
-      "name": "ma"
-    },
-    "me": {
-      "id": 2,
-      "name": "me"
-    },
-    "mi": {
-      "id": 3,
-      "name": "mi"
-    },
-    "mo": {
-      "id": 4,
-      "name": "mo"
-    },
-    "mo2": {
-      "id": 5,
-      "name": "mo2"
-    },
-    "mu": {
-      "id": 6,
-      "name": "mu"
-    },
-    "mu2": {
-      "id": 7,
-      "name": "mu2"
+  {
+    "id": 7,
+    "name": "ma",
+    "vowal":{
+      "ma": {
+        "id": 1,
+        "name": "ma"
+      },
+      "me": {
+        "id": 2,
+        "name": "me"
+      },
+      "mi": {
+        "id": 3,
+        "name": "mi"
+      },
+      "mo": {
+        "id": 4,
+        "name": "mo"
+      },
+      "mo2": {
+        "id": 5,
+        "name": "mo2"
+      },
+      "mu": {
+        "id": 6,
+        "name": "mu"
+      },
+      "mu2": {
+        "id": 7,
+        "name": "mu2"
+      }
     }
   },
 
-  "la":{
-    "la": {
-      "id": 1,
-      "name": "la"
-    },
-    "le": {
-      "id": 2,
-      "name": "le"
-    },
-    "li": {
-      "id": 3,
-      "name": "li"
-    },
-    "lo": {
-      "id": 4,
-      "name": "lo"
-    },
-    "lo2": {
-      "id": 5,
-      "name": "lo2"
-    },
-    "lu": {
-      "id": 6,
-      "name": "lu"
-    },
-    "lu2": {
-      "id": 7,
-      "name": "lu2"
+  {
+    "id": 8,
+    "name": "la",
+    "vowal": {
+      "la": {
+        "id": 1,
+        "name": "la"
+      },
+      "le": {
+        "id": 2,
+        "name": "le"
+      },
+      "li": {
+        "id": 3,
+        "name": "li"
+      },
+      "lo": {
+        "id": 4,
+        "name": "lo"
+      },
+      "lo2": {
+        "id": 5,
+        "name": "lo2"
+      },
+      "lu": {
+        "id": 6,
+        "name": "lu"
+      },
+      "lu2": {
+        "id": 7,
+        "name": "lu2"
+      }
     }
   },
 
-  "sa":{
-    "sa": {
-      "id": 1,
-      "name": "sa"
-    },
-    "se": {
-      "id": 2,
-      "name": "se"
-    },
-    "si": {
-      "id": 3,
-      "name": "si"
-    },
-    "so": {
-      "id": 4,
-      "name": "so"
-    },
-    "so2": {
-      "id": 5,
-      "name": "so2"
-    },
-    "su": {
-      "id": 6,
-      "name": "su"
-    },
-    "su2": {
-      "id": 7,
-      "name": "su2"
+  {
+    "id": 9,
+    "name": "sa",
+    "vowal": {
+      "sa": {
+        "id": 1,
+        "name": "sa"
+      },
+      "se": {
+        "id": 2,
+        "name": "se"
+      },
+      "si": {
+        "id": 3,
+        "name": "si"
+      },
+      "so": {
+        "id": 4,
+        "name": "so"
+      },
+      "so2": {
+        "id": 5,
+        "name": "so2"
+      },
+      "su": {
+        "id": 6,
+        "name": "su"
+      },
+      "su2": {
+        "id": 7,
+        "name": "su2"
+      }
     }
   },
 
-  "sha":{
-    "sha": {
-      "id": 1,
-      "name": "sha"
-    },
-    "she": {
-      "id": 2,
-      "name": "she"
-    },
-    "shi": {
-      "id": 3,
-      "name": "shi"
-    },
-    "sho": {
-      "id": 4,
-      "name": "sho"
-    },
-    "sho2": {
-      "id": 5,
-      "name": "sho2"
-    },
-    "shu": {
-      "id": 6,
-      "name": "shu"
-    },
-    "shu2": {
-      "id": 7,
-      "name": "shu2"
+  {
+    "id": 10,
+    "name": "sha",
+    "vowal": {
+      "sha": {
+        "id": 1,
+        "name": "sha"
+      },
+      "she": {
+        "id": 2,
+        "name": "she"
+      },
+      "shi": {
+        "id": 3,
+        "name": "shi"
+      },
+      "sho": {
+        "id": 4,
+        "name": "sho"
+      },
+      "sho2": {
+        "id": 5,
+        "name": "sho2"
+      },
+      "shu": {
+        "id": 6,
+        "name": "shu"
+      },
+      "shu2": {
+        "id": 7,
+        "name": "shu2"
+      }
     }
   },
 
-  "ta":{
-    "ta": {
-      "id": 1,
-      "name": "ta"
-    },
-    "te": {
-      "id": 2,
-      "name": "te"
-    },
-    "ti": {
-      "id": 3,
-      "name": "ti"
-    },
-    "to": {
-      "id": 4,
-      "name": "to"
-    },
-    "to2": {
-      "id": 5,
-      "name": "to2"
-    },
-    "tu": {
-      "id": 6,
-      "name": "tu"
-    },
-    "tu2": {
-      "id": 7,
-      "name": "tu2"
+  {
+    "id": 11,
+    "name": "ta",
+    "vowal": {
+      "ta": {
+        "id": 1,
+        "name": "ta"
+      },
+      "te": {
+        "id": 2,
+        "name": "te"
+      },
+      "ti": {
+        "id": 3,
+        "name": "ti"
+      },
+      "to": {
+        "id": 4,
+        "name": "to"
+      },
+      "to2": {
+        "id": 5,
+        "name": "to2"
+      },
+      "tu": {
+        "id": 6,
+        "name": "tu"
+      },
+      "tu2": {
+        "id": 7,
+        "name": "tu2"
+      }
     }
   },
 
-  "da":{
-    "da": {
-      "id": 1,
-      "name": "da"
-    },
-    "de": {
-      "id": 2,
-      "name": "de"
-    },
-    "di": {
-      "id": 3,
-      "name": "di"
-    },
-    "do": {
-      "id": 4,
-      "name": "do"
-    },
-    "do2": {
-      "id": 5,
-      "name": "do2"
-    },
-    "du": {
-      "id": 6,
-      "name": "du"
-    },
-    "du2": {
-      "id": 7,
-      "name": "du2"
+  {
+    "id": 12,
+    "name": "da",
+    "vowal": {
+      "da": {
+        "id": 1,
+        "name": "da"
+      },
+      "de": {
+        "id": 2,
+        "name": "de"
+      },
+      "di": {
+        "id": 3,
+        "name": "di"
+      },
+      "do": {
+        "id": 4,
+        "name": "do"
+      },
+      "do2": {
+        "id": 5,
+        "name": "do2"
+      },
+      "du": {
+        "id": 6,
+        "name": "du"
+      },
+      "du2": {
+        "id": 7,
+        "name": "du2"
+      }
     }
   },
 
-  "cha":{
-    "cha": {
-      "id": 1,
-      "name": "cha"
-    },
-    "che": {
-      "id": 2,
-      "name": "che"
-    },
-    "chi": {
-      "id": 3,
-      "name": "chi"
-    },
-    "cho": {
-      "id": 4,
-      "name": "cho"
-    },
-    "cho2": {
-      "id": 5,
-      "name": "cho2"
-    },
-    "chu": {
-      "id": 6,
-      "name": "chu"
-    },
-    "chu2": {
-      "id": 7,
-      "name": "chu2"
+  {
+    "id": 13,
+    "name": "cha",
+    "vowal": {
+      "cha": {
+        "id": 1,
+        "name": "cha"
+      },
+      "che": {
+        "id": 2,
+        "name": "che"
+      },
+      "chi": {
+        "id": 3,
+        "name": "chi"
+      },
+      "cho": {
+        "id": 4,
+        "name": "cho"
+      },
+      "cho2": {
+        "id": 5,
+        "name": "cho2"
+      },
+      "chu": {
+        "id": 6,
+        "name": "chu"
+      },
+      "chu2": {
+        "id": 7,
+        "name": "chu2"
+      }
     }
   },
 
-  "zha":{
-    "zha": {
-      "id": 1,
-      "name": "zha"
-    },
-    "zhe": {
-      "id": 2,
-      "name": "zhe"
-    },
-    "zhi": {
-      "id": 3,
-      "name": "zhi"
-    },
-    "zho": {
-      "id": 4,
-      "name": "zho"
-    },
-    "zho2": {
-      "id": 5,
-      "name": "zho2"
-    },
-    "zhu": {
-      "id": 6,
-      "name": "zhu"
-    },
-    "zhu2": {
-      "id": 7,
-      "name": "zhu2"
+  {
+    "id": 14,
+    "name": "zha",
+    "vowal": {
+      "zha": {
+        "id": 1,
+        "name": "zha"
+      },
+      "zhe": {
+        "id": 2,
+        "name": "zhe"
+      },
+      "zhi": {
+        "id": 3,
+        "name": "zhi"
+      },
+      "zho": {
+        "id": 4,
+        "name": "zho"
+      },
+      "zho2": {
+        "id": 5,
+        "name": "zho2"
+      },
+      "zhu": {
+        "id": 6,
+        "name": "zhu"
+      },
+      "zhu2": {
+        "id": 7,
+        "name": "zhu2"
+      }
     }
   },
 
-  "ya":{
-    "ya": {
-      "id": 1,
-      "name": "ya"
-    },
-    "ye": {
-      "id": 2,
-      "name": "ye"
-    },
-    "yi": {
-      "id": 3,
-      "name": "yi"
-    },
-    "yo": {
-      "id": 4,
-      "name": "yo"
-    },
-    "yo2": {
-      "id": 5,
-      "name": "yo2"
-    },
-    "yu": {
-      "id": 6,
-      "name": "yu"
-    },
-    "yu2": {
-      "id": 7,
-      "name": "yu2"
+  {
+    "id": 15,
+    "name": "ya",
+    "vowal": {
+      "ya": {
+        "id": 1,
+        "name": "ya"
+      },
+      "ye": {
+        "id": 2,
+        "name": "ye"
+      },
+      "yi": {
+        "id": 3,
+        "name": "yi"
+      },
+      "yo": {
+        "id": 4,
+        "name": "yo"
+      },
+      "yo2": {
+        "id": 5,
+        "name": "yo2"
+      },
+      "yu": {
+        "id": 6,
+        "name": "yu"
+      },
+      "yu2": {
+        "id": 7,
+        "name": "yu2"
+      }
     }
   },
 
-  "ra":{
-    "ra": {
-      "id": 1,
-      "name": "ra"
-    },
-    "re": {
-      "id": 2,
-      "name": "re"
-    },
-    "ri": {
-      "id": 3,
-      "name": "ri"
-    },
-    "ro": {
-      "id": 4,
-      "name": "ro"
-    },
-    "ro2": {
-      "id": 5,
-      "name": "ro2"
-    },
-    "ru": {
-      "id": 6,
-      "name": "ru"
-    },
-    "ru2": {
-      "id": 7,
-      "name": "ru2"
+  {
+    "id": 16,
+    "name": "ra",
+    "vowal": {
+      "ra": {
+        "id": 1,
+        "name": "ra"
+      },
+      "re": {
+        "id": 2,
+        "name": "re"
+      },
+      "ri": {
+        "id": 3,
+        "name": "ri"
+      },
+      "ro": {
+        "id": 4,
+        "name": "ro"
+      },
+      "ro2": {
+        "id": 5,
+        "name": "ro2"
+      },
+      "ru": {
+        "id": 6,
+        "name": "ru"
+      },
+      "ru2": {
+        "id": 7,
+        "name": "ru2"
+      }
     }
   }
 
-}
+]
