@@ -22,23 +22,11 @@ function appCategoryController($scope, util , json) {
 
   path = util.getUrlPath().substring(1);
 
-  var displayHeaderSticky = function() {
-
-    var st = self.headerSticky.style = self.headerSticky.style ? self.headerSticky.style : {};
-
-    st.display = "block";
-    st.position = "fixed";
-    st.top = "0px";
-    st.overflowY = "auto";
-    st.overflowX = "visible";
-    st.maxHeight = "285px";
-  };
-
   var windowScroll = function(e) {
     if($(window).scrollTop() > elem.offset().top){
-      displayHeaderSticky();
+      self.headerStickyHide = false;
     } else {
-      self.headerSticky.style = {};
+      self.headerStickyHide = true;
     }
   };
 
@@ -50,13 +38,15 @@ function appCategoryController($scope, util , json) {
 
   var init = function() {
     self.category = json.getCategory(path);
+    self.subjects = self.jsons.subjects[self.category.id];
+    self.classes = self.jsons.classes[self.category.id];
   };
 
   self.jsons = json;
   self.category = {};
   self.subjects = {};
   self.classes = {};
-  self.headerSticky = {};
+  self.headerStickyHide = true;
 
   $scope.$watch(function(){return self.jsons;}, init, true);
 }

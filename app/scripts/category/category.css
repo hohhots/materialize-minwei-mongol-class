@@ -28,12 +28,21 @@
   width: 100% !important;
 }
 
+.categoryHeaderNormal{
+  display: none !important;
+}
+
 .categoryHeaderSticky{
-  display: none;
+  display: block;
   background-color: #11accd !important;
   left: 0px !important;
   right: 0px !important;
   z-index: 1001 !important;
+  position: fixed !important;
+  top: 0px !important;
+  overflow-y: auto !important;
+  overflow-x: visible !important;
+  max-height: 285px !important;
 }
 
 .categoryHeaderStickyTitleContainer {
