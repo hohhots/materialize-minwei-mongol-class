@@ -2,7 +2,7 @@
 
   {
     "id": 1,
-    "name": "a",
+    "name": "字母组“a”",
     "variant":{
       "a": {
         "top":{
@@ -86,7 +86,7 @@
 
   {
     "id": 2,
-    "name": "na",
+    "name": "字母组“na”",
     "variant": {
       "na": {
         "top":{
@@ -170,7 +170,7 @@
 
   {
     "id": 3,
-    "name": "ba",
+    "name": "字母组“ba”",
     "variant": {
       "ba": {
         "top":{
@@ -254,7 +254,7 @@
 
   {
     "id": 4,
-    "name": "pa",
+    "name": "字母组“pa”",
     "variant": {
       "pa": {
         "top":{
@@ -338,7 +338,7 @@
 
   {
     "id": 5,
-    "name": "ha",
+    "name": "字母组“ha”",
     "variant": {
       "ha": {
         "top":{
@@ -422,7 +422,7 @@
 
   {
     "id": 6,
-    "name": "ga",
+    "name": "字母组“ga”",
     "variant": {
       "ga": {
         "top":{
@@ -506,7 +506,7 @@
 
   {
     "id": 7,
-    "name": "ma",
+    "name": "字母组“ma”",
     "variant": {
       "ma": {
         "top":{
@@ -590,7 +590,7 @@
 
   {
     "id": 8,
-    "name": "la",
+    "name": "字母组“la”",
     "variant": {
       "la": {
         "top":{
@@ -674,7 +674,7 @@
 
   {
     "id": 9,
-    "name": "sa",
+    "name": "字母组“sa”",
     "variant": {
       "sa": {
         "top":{
@@ -758,7 +758,7 @@
 
   {
     "id": 10,
-    "name": "sha",
+    "name": "字母组“sha”",
     "variant": {
       "sha": {
         "top":{
@@ -842,7 +842,7 @@
 
   {
     "id": 11,
-    "name": "ta",
+    "name": "字母组“ta”",
     "variant": {
       "ta": {
         "top":{
@@ -926,7 +926,7 @@
 
   {
     "id": 12,
-    "name": "da",
+    "name": "字母组“da”",
     "variant": {
       "da": {
         "top":{
@@ -1010,7 +1010,7 @@
 
   {
     "id": 13,
-    "name": "cha",
+    "name": "字母组“cha”",
     "variant": {
       "cha": {
         "top":{
@@ -1094,7 +1094,7 @@
 
   {
     "id": 14,
-    "name": "zha",
+    "name": "字母组“zha”",
     "variant": {
       "zha": {
         "top":{
@@ -1178,7 +1178,7 @@
 
   {
     "id": 15,
-    "name": "ya",
+    "name": "字母组“ya”",
     "variant": {
       "ya": {
         "top":{
@@ -1262,7 +1262,7 @@
 
   {
     "id": 16,
-    "name": "ra",
+    "name": "字母组“ra”",
     "variant": {
       "ra": {
         "top":{

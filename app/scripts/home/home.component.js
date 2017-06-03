@@ -26,8 +26,6 @@ angular
 function appHomeController( $scope, $sce, config, util, json, anchorScroll) {
   var self = this;
 
-  json.getHome();
-
   self.jsons = json;
 
   self.navText = {};

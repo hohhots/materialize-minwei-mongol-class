@@ -1,7 +1,7 @@
 <header class="categoryHeaderWrapper">
   <div class="categoryHeader">
     <h1 class="categoryHeaderTitle">
-      蒙语字根
+      {{$ctrl.category.name}}
     </h1>
   </div>
   <div class="categoryHeaderStickyContainer">
@@ -9,7 +9,7 @@
     <div class="categoryHeaderSticky" ng-hide="$ctrl.headerStickyHide">
       <div class="categoryHeaderStickyTitleContainer">
         <div class="categoryHeaderStickyTitle">
-          蒙语字根
+          {{$ctrl.category.name}}
         </div>
       </div>
     </div>
@@ -17,46 +17,38 @@
 </header>
 
 <div>
-  <div class="categoryListContainer">
-    <div class="categoryListContent">
-      <a href="#" class="categoryListContentLink">
-        <div class="categoryListIconWrapper">
-          <svg class="categoryProgressContainer" height="128%" version="1.1" width="128%">
-            <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" stroke="#F0F1F2" data-reactid="77"></circle>
-            <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" class="categoryProgressRing" stroke="#63d9ea" stroke-dasharray="268.6061718819273%" style="stroke-dashoffset:268.6061718819273%;" data-reactid="78">
-            </circle>
-          </svg>
-          <div class="categoryListIcon" style="background-image: url('../../data/alphabet/alphabet.png')"></div>
-        </div>
-        <div class="categoryListInfo">
-          <h3 class="categoryListTitle">蒙语根字母</h3>
-          <div class="categoryListInfoContent"> 蒙语根字母蒙语根字母 蒙语根字母蒙语根字 母蒙语根字母蒙语根字母蒙语根字母 蒙语根字母蒙语根字母蒙语根字母蒙语根 字母蒙语根字母蒙语根字母蒙语 根字母蒙语根字母 蒙语根字母蒙语根字母</div>
-        </div>
-      </a>
-      <div class="categoryListSpacer"></div>
-      <div class="categoryListItemLink">
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙语1</a>
-        </div>
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙语2</a>
-        </div>
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙蒙语根字母蒙语3</a>
-        </div>
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙语4</a>
-        </div>
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙语5</a>
-        </div>
-        <div class="categoryAContainer">
-          <a href="#" class="categoryA">蒙语根字母蒙语6</a>
+  <div ng-repeat="subject in $ctrl.subjects">
+    <div class="categoryListContainer">
+      <div class="categoryListContent">
+        <a href="#" class="categoryListContentLink">
+          <div class="categoryListIconWrapper">
+            <svg class="categoryProgressContainer" height="128%" version="1.1" width="128%">
+              <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" stroke="#F0F1F2" data-reactid="77"></circle>
+              <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" class="categoryProgressRing" stroke="#63d9ea" stroke-dasharray="268.6061718819273%" style="stroke-dashoffset:268.6061718819273%;" data-reactid="78">
+              </circle>
+            </svg>
+            <div class="categoryListIcon" ng-style="$ctrl.subjectsStyle[subject.id]"></div>
+          </div>
+          <div class="categoryListInfo">
+            <h3 class="categoryListTitle">{{subject.name}}</h3>
+            <div class="categoryListInfoContent">{{subject.introduction}}</div>
+          </div>
+        </a>
+        <div class="categoryListSpacer"></div>
+        <div class="categoryListItemLink">
+          <div class="categoryAContainer" ng-repeat="class in $ctrl.classes[subject.id]">
+            <a href="#" class="categoryA">
+              <span class="categoryListNumber">
+                {{class.id}}、
+              </span>
+              {{class.name}}
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="categoryCenteredContainer">
-    <div class="categoryCentered"></div>
+    <div class="categoryCenteredContainer">
+      <div class="categoryCentered"></div>
+    </div>
   </div>
 </div>

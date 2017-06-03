@@ -147,7 +147,7 @@
 }
 
 .categoryListItemLink {
-  color: #727579 !important;
+  color: #626569 !important;
   display: none !important;
   column-count: 2 !important;
   column-gap: 24px !important;
@@ -169,6 +169,13 @@
   background-color: transparent !important;
   color: inherit !important;
   text-decoration: none !important;
+}
+
+.categoryListNumber {
+  display: block;
+  float:left;
+  width: 40px !important;
+  text-align: right !important;
 }
 
 .categoryCenteredContainer {

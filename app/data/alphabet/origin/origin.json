@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "a",
+    "name": "根字母“a”",
     "image": "a.png",
     "audio": "a.mp3",
     "video": "a.mp4",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "name": "na",
+    "name": "根字母“na”",
     "image": "na.png",
     "audio": "na.mp3",
     "video": "na.mp4",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "name": "ba",
+    "name": "根字母“ba”",
     "image": "ba.png",
     "audio": "ba.mp3",
     "video": "ba.mp4",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "name": "pa",
+    "name": "根字母“pa”",
     "image": "pa.png",
     "audio": "pa.mp3",
     "video": "pa.mp4",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "name": "ha",
+    "name": "根字母“ha”",
     "image": "ha.png",
     "audio": "ha.mp3",
     "video": "ha.mp4",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "name": "ga",
+    "name": "根字母“ga”",
     "image": "ga.png",
     "audio": "ga.mp3",
     "video": "ga.mp4",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "name": "ma",
+    "name": "根字母“ma”",
     "image": "ma.png",
     "audio": "ma.mp3",
     "video": "ma.mp4",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "name": "la",
+    "name": "根字母“la”",
     "image": "la.png",
     "audio": "la.mp3",
     "video": "la.mp4",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "name": "sa",
+    "name": "根字母“sa”",
     "image": "sa.png",
     "audio": "sa.mp3",
     "video": "sa.mp4",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "name": "sha",
+    "name": "根字母“sha”",
     "image": "sha.png",
     "audio": "sha.mp3",
     "video": "sha.mp4",
@@ -91,7 +91,7 @@
   },
   {
     "id": 11,
-    "name": "ta",
+    "name": "根字母“ta”",
     "image": "ta.png",
     "audio": "ta.mp3",
     "video": "ta.mp4",
@@ -100,7 +100,7 @@
   },
   {
     "id": 12,
-    "name": "da",
+    "name": "根字母“da”",
     "image": "da.png",
     "audio": "da.mp3",
     "video": "da.mp4",
@@ -109,7 +109,7 @@
   },
   {
     "id": 13,
-    "name": "cha",
+    "name": "根字母“cha”",
     "image": "cha.png",
     "audio": "cha.mp3",
     "video": "cha.mp4",
@@ -118,7 +118,7 @@
   },
   {
     "id": 14,
-    "name": "zha",
+    "name": "根字母“zha”",
     "image": "zha.png",
     "audio": "zha.mp3",
     "video": "zha.mp4",
@@ -127,7 +127,7 @@
   },
   {
     "id": 15,
-    "name": "ya",
+    "name": "根字母“ya”",
     "image": "ya.png",
     "audio": "ya.mp3",
     "video": "ya.mp4",
@@ -136,7 +136,7 @@
   },
   {
     "id": 16,
-    "name": "ra",
+    "name": "根字母“ra”",
     "image": "ra.png",
     "audio": "ra.mp3",
     "video": "ra.mp4",

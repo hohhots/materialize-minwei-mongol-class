@@ -30,7 +30,7 @@ function appJson($resource, config) {
     }
   }
 
-  var getHomeJson = function() {
+  var getJsonData = function() {
     setResource(url);
 
     resource.query({}, function(data) {
@@ -101,9 +101,10 @@ function appJson($resource, config) {
     classes: {},
     contacts: {},
     about: {},
-    getHome: getHomeJson,
     getCategory: getCategoryJson,
   };
+
+  getJsonData();
 
   return jsons;
 };
