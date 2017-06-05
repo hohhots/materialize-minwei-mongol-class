@@ -8,14 +8,14 @@
     .module('subjectsdropdown')
     .component('subjectsDropdown', {
       templateUrl: template,
-      controller: ['$scope', 'Util', 'Json', subjectsDropdownController]
+      controller: ['$scope', 'Util', 'Json', controller]
     });
 
     function template() {
       return 'scripts/header/subjectsDropDown/subjectsdropdown.template.html';
     }
 
-    function subjectsDropdownController($scope, util, json) {
+    function controller($scope, util, json) {
       var self = this;
 
       self.jsons = json;

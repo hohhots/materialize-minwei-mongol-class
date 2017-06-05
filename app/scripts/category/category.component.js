@@ -64,12 +64,45 @@
       self.classes = self.jsons.classes[self.category.id];
     };
 
+    self.listMouseEnter = function(id) {
+      if(!self.ListItemLinkStyle[id]){
+        self.ListItemLinkStyle[id] = {};
+      }
+      self.ListItemLinkStyle[id].color = self.category.color;
+    };
+
+    self.listMouseLeave = function(id) {
+      self.ListItemLinkStyle[id].color = "";
+    };
+
+    self.linkMouseEnter = function(event) {
+      $(event.currentTarget).css({"text-decoration": "underline"});
+    };
+
+    self.linkMouseLeave = function(event) {
+      $(event.currentTarget).css({"text-decoration": "none"});
+    };
+
+    self.subjectMouseEnter = function(id) {
+      if(!self.subjectItemStyle[id]){
+        self.subjectItemStyle[id] = {};
+      }
+      self.subjectItemStyle[id].textDecoration = "underline";
+    };
+
+    self.subjectMouseLeave = function(id) {
+      self.subjectItemStyle[id].textDecoration = "none";
+    };
+
+
     self.jsons = json;
     self.category = {};
     self.subjects = {};
     self.subjectsStyle = {};
     self.classes = {};
     self.classesStyle = {};
+    self.ListItemLinkStyle = {};
+    self.subjectItemStyle = {};
     self.headerStickyHide = true;
 
     $scope.$watch(function(){return self.jsons;}, init, true);

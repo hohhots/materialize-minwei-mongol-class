@@ -90,6 +90,12 @@
       }
     };
 
+    $(window).click(function(e){
+      $scope.$apply(function(){
+        windowClick(e);
+      });
+    });
+
     // data for header nav
     self.navWrapperDiv = {};
     self.nav = {};
@@ -167,16 +173,6 @@
 
       util.slideDownUp(self.phoneMenu.dropDownElem, self.phoneMenu.clicked);
     }
-
-    var init = function() {
-      $(window).click(function(e){
-        $scope.$apply(function(){
-          windowClick(e);
-        });
-      });
-    };
-
-    init();
   }
 
 })(jQuery, window.angular);

@@ -19,21 +19,20 @@
 <div>
   <div ng-repeat="subject in $ctrl.subjects">
     <div class="categoryListContainer">
-      <div class="categoryListContent">
-        <a href="#" class="categoryListContentLink">
+      <div class="categoryListContent" ng-mouseenter="$ctrl.listMouseEnter(subject.id)"  ng-mouseleave="$ctrl.listMouseLeave(subject.id)">
+        <a href="#" class="categoryListContentLink" ng-mouseenter="$ctrl.subjectMouseEnter(subject.id)"  ng-mouseleave="$ctrl.subjectMouseLeave(subject.id)">
           <div class="categoryListIconWrapper">
-
             <div class="categoryListIcon" ng-style="$ctrl.subjectsStyle[subject.id]"></div>
           </div>
           <div class="categoryListInfo">
-            <h3 class="categoryListTitle">{{::subject.name}}</h3>
+            <h3 class="categoryListTitle" ng-style="$ctrl.subjectItemStyle[subject.id]">{{::subject.name}}</h3>
             <div class="categoryListInfoContent">{{::subject.introduction}}</div>
           </div>
         </a>
         <div class="categoryListSpacer"></div>
         <div class="categoryListItemLink">
           <div class="categoryAContainer" ng-repeat="class in $ctrl.classes[subject.id]">
-            <a href="#" class="categoryA">
+            <a href="#" class="categoryA" ng-mouseenter="$ctrl.linkMouseEnter($event)"  ng-mouseleave="$ctrl.linkMouseLeave($event)" ng-style="$ctrl.ListItemLinkStyle[subject.id]">
               <span class="categoryListNumber">
                 {{::class.id}}、
               </span>
