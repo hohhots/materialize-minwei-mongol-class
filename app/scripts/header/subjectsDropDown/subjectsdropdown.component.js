@@ -1,58 +1,65 @@
 'use strict';
 
-// Define the `header` module
-angular.module('subjectsdropdown', ['core.json', 'core.util']);
+(function($, angular){
+  // Define the `header` module
+  angular.module('subjectsdropdown', ['core.json', 'core.util']);
 
-angular
-  .module('subjectsdropdown')
-  .component('subjectsDropdown', {
-    templateUrl: 'scripts/header/subjectsDropDown/subjectsdropdown.template.html',
-    controller: ['$scope', 'Util', 'Json', subjectsDropdownController]
-  });
+  angular
+    .module('subjectsdropdown')
+    .component('subjectsDropdown', {
+      templateUrl: template,
+      controller: ['$scope', 'Util', 'Json', subjectsDropdownController]
+    });
 
-  function subjectsDropdownController($scope, util, json) {
-    var self = this;
+    function template() {
+      return 'scripts/header/subjectsDropDown/subjectsdropdown.template.html';
+    }
 
-    self.jsons = json;
+    function subjectsDropdownController($scope, util, json) {
+      var self = this;
 
-    self.categoryHover = {};
-    self.subjectHover = {};
+      self.jsons = json;
 
-    self.convertUrl = function(url) {
-      return util.convertUrl(url);
-    };
+      self.categoryHover = {};
+      self.subjectHover = {};
 
-    self.categoryMouseEnter = function(id) {
-      self.categoryHover[id] = {};
-      self.categoryHover[id].color = json.categories[id].color;
-    };
+      self.convertUrl = function(url) {
+        return util.convertUrl(url);
+      };
 
-    self.categoryMouseLeave = function(id) {
-      self.categoryHover[id] = {};
-    };
+      self.categoryMouseEnter = function(id) {
+        self.categoryHover[id] = {};
+        self.categoryHover[id].color = json.categories[id].color;
+      };
 
-    self.liMouseEnter = function(cid, sid) {
-      self.subjectHover[cid][sid].color = json.categories[cid].color;
-      self.subjectHover[cid][sid].textDecoration = "underline";
-    };
+      self.categoryMouseLeave = function(id) {
+        self.categoryHover[id] = {};
+      };
 
-    self.liMouseLeave = function(cid, sid) {
-      self.subjectHover[cid][sid].textDecoration = "none";
-    };
+      self.liMouseEnter = function(cid, sid) {
+        self.subjectHover[cid][sid].color = json.categories[cid].color;
+        self.subjectHover[cid][sid].textDecoration = "underline";
+      };
 
-    var init = function(nval, oval) {
-      $.each(nval.categories, function(i, val) {
-        $.each(nval.subjects[val.id], function(j, val1) {
-          if(!self.subjectHover[val.id]){
-            self.subjectHover[val.id] = {};
-          }
-          if(!self.subjectHover[val.id][val1.id]){
-            self.subjectHover[val.id][val1.id] = {};
-            self.subjectHover[val.id][val1.id].color = json.categories[val.id].color;
-          }
+      self.liMouseLeave = function(cid, sid) {
+        self.subjectHover[cid][sid].textDecoration = "none";
+      };
+
+      var init = function(nval, oval) {
+        $.each(nval.categories, function(i, val) {
+          $.each(nval.subjects[val.id], function(j, val1) {
+            if(!self.subjectHover[val.id]){
+              self.subjectHover[val.id] = {};
+            }
+            if(!self.subjectHover[val.id][val1.id]){
+              self.subjectHover[val.id][val1.id] = {};
+              self.subjectHover[val.id][val1.id].color = json.categories[val.id].color;
+            }
+          });
         });
-      });
-    };
+      };
 
-    $scope.$watch(function(){return self.jsons;}, init, true);
-  }
+      $scope.$watch(function(){return self.jsons;}, init, true);
+    }
+
+})(jQuery, window.angular);

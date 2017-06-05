@@ -1,18 +1,25 @@
 'use strict';
 
-// Define the `header` module
-angular.module('footer', ['core.json']);
+(function($, angular) {
+  // Define the `header` module
+  angular.module('footer', ['core.json']);
 
-// Register `headerList` component, along with its associated controller and template
-angular
-  .module('footer')
-  .component('appFooter', {
-    templateUrl: 'scripts/footer/footer.template.html',
-    controller: ['Json', '$scope', appFooterController]
-  });
+  // Register `headerList` component, along with its associated controller and template
+  angular
+    .module('footer')
+    .component('appFooter', {
+      templateUrl: template,
+      controller: ['Json', '$scope', appFooterController]
+    });
 
-  function appFooterController(json, scope) {
-    var self = this;
+    function template() {
+      return 'scripts/footer/footer.template.html';
+    }
 
-    self.jsons = json;
-  }
+    function appFooterController(json, scope) {
+      var self = this;
+
+      self.jsons = json;
+    }
+
+})(jQuery, window.angular);

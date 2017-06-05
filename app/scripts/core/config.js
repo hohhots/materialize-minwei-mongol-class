@@ -9,6 +9,7 @@ angular.
         app: {
           urlPrefix: "#!"
         },
+
         json: {
           rootPath: "data",
           categories: "categories.json",
@@ -18,6 +19,7 @@ angular.
 
         home:{
           welcome: "学 - 优美蒙语<br>享 - 蒙古文化"
-        }
+        },
+
       }
   );

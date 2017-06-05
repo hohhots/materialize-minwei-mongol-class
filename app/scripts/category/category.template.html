@@ -1,7 +1,7 @@
 <header class="categoryHeaderWrapper">
   <div class="categoryHeader">
     <h1 class="categoryHeaderTitle">
-      {{$ctrl.category.name}}
+      {{::$ctrl.category.name}}
     </h1>
   </div>
   <div class="categoryHeaderStickyContainer">
@@ -9,7 +9,7 @@
     <div class="categoryHeaderSticky" ng-hide="$ctrl.headerStickyHide">
       <div class="categoryHeaderStickyTitleContainer">
         <div class="categoryHeaderStickyTitle">
-          {{$ctrl.category.name}}
+          {{::$ctrl.category.name}}
         </div>
       </div>
     </div>
@@ -22,16 +22,12 @@
       <div class="categoryListContent">
         <a href="#" class="categoryListContentLink">
           <div class="categoryListIconWrapper">
-            <svg class="categoryProgressContainer" height="128%" version="1.1" width="128%">
-              <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" stroke="#F0F1F2" data-reactid="77"></circle>
-              <circle cx="50%" cy="50%" fill="transparent" r="42.75%" stroke-width="14%" class="categoryProgressRing" stroke="#63d9ea" stroke-dasharray="268.6061718819273%" style="stroke-dashoffset:268.6061718819273%;" data-reactid="78">
-              </circle>
-            </svg>
+
             <div class="categoryListIcon" ng-style="$ctrl.subjectsStyle[subject.id]"></div>
           </div>
           <div class="categoryListInfo">
-            <h3 class="categoryListTitle">{{subject.name}}</h3>
-            <div class="categoryListInfoContent">{{subject.introduction}}</div>
+            <h3 class="categoryListTitle">{{::subject.name}}</h3>
+            <div class="categoryListInfoContent">{{::subject.introduction}}</div>
           </div>
         </a>
         <div class="categoryListSpacer"></div>
@@ -39,9 +35,9 @@
           <div class="categoryAContainer" ng-repeat="class in $ctrl.classes[subject.id]">
             <a href="#" class="categoryA">
               <span class="categoryListNumber">
-                {{class.id}}、
+                {{::class.id}}、
               </span>
-              {{class.name}}
+              {{::class.name}}
             </a>
           </div>
         </div>

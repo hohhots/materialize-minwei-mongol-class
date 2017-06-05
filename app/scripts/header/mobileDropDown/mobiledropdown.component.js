@@ -1,101 +1,108 @@
 'use strict';
 
-// Define the `header` module
-angular.module('mobiledropdown', [
-  'core.json',
-  'core.util'
-]);
+(function($, angular){
+  // Define the `header` module
+  angular.module('mobiledropdown', [
+    'core.json',
+    'core.util'
+  ]);
 
-angular
-  .module('mobiledropdown')
-  .component('mobileDropdown', {
-    templateUrl: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
-    controller: ['$scope', 'Util', 'Json', mobileDropdownController]
-  });
+  angular
+    .module('mobiledropdown')
+    .component('mobileDropdown', {
+      templateUrl: template,
+      controller: ['$scope', 'Util', 'Json', controller]
+    });
 
-  function mobileDropdownController($scope, util, json) {
-    var self = this;
+    function template() {
+      return 'scripts/header/mobileDropDown/mobiledropdown.template.html';
+    }
 
-    self.jsons = json;
+    function controller($scope, util, json) {
+      var self = this;
 
-    self.registerHover = {};
-    self.aboutHover = {};
-    self.categoryHover = {};
-    self.folderIcon = {};
-    self.folderIconStyle = {};
-    self.subjectHover = {};
+      self.jsons = json;
 
-    self.getUrl = function(url) {
-      return util.getUrl(url);
-    };
+      self.registerHover = {};
+      self.aboutHover = {};
+      self.categoryHover = {};
+      self.folderIcon = {};
+      self.folderIconStyle = {};
+      self.subjectHover = {};
 
-    self.registerMouseEnter = function() {
-      self.registerHover.textDecoration = "underline";
-    };
+      self.getUrl = function(url) {
+        return util.getUrl(url);
+      };
 
-    self.registerMouseLeave = function() {
-      self.registerHover.textDecoration = "none";
-    };
+      self.registerMouseEnter = function() {
+        self.registerHover.textDecoration = "underline";
+      };
 
-    self.aboutMouseEnter = function() {
-      self.aboutHover.textDecoration = "underline";
-    };
+      self.registerMouseLeave = function() {
+        self.registerHover.textDecoration = "none";
+      };
 
-    self.aboutMouseLeave = function() {
-      self.aboutHover.textDecoration = "none";
-    };
+      self.aboutMouseEnter = function() {
+        self.aboutHover.textDecoration = "underline";
+      };
 
-    self.categoryMouseEnter = function(id) {
-      self.categoryHover[id].textDecoration = "underline";
-    };
+      self.aboutMouseLeave = function() {
+        self.aboutHover.textDecoration = "none";
+      };
 
-    self.categoryMouseLeave = function(id) {
-      self.categoryHover[id].textDecoration = "none";
-    };
+      self.categoryMouseEnter = function(id) {
+        self.categoryHover[id].textDecoration = "underline";
+      };
 
-    self.categoryClick = function(event, id) {
-      var target = $(event.currentTarget).next();
+      self.categoryMouseLeave = function(id) {
+        self.categoryHover[id].textDecoration = "none";
+      };
 
-      if(self.folderIcon[id] == "fa-angle-down") {
-        util.slideDownUp(target, true);
-        self.folderIcon[id] = "fa-angle-up";
-        if(!self.folderIconStyle[id]){
-          self.folderIconStyle[id] = {};
+      self.categoryClick = function(event, id) {
+        var target = $(event.currentTarget).next();
+
+        if(self.folderIcon[id] == "fa-angle-down") {
+          util.slideDownUp(target, true);
+          self.folderIcon[id] = "fa-angle-up";
+          if(!self.folderIconStyle[id]){
+            self.folderIconStyle[id] = {};
+          }
+          self.folderIconStyle[id].color = json.categories[id].color;
+        } else {
+          util.slideDownUp(target, false);
+          self.folderIcon[id] = "fa-angle-down";
+          self.folderIconStyle[id].color = "";
         }
-        self.folderIconStyle[id].color = json.categories[id].color;
-      } else {
-        util.slideDownUp(target, false);
-        self.folderIcon[id] = "fa-angle-down";
-        self.folderIconStyle[id].color = "";
-      }
-    };
+      };
 
-    self.subjectMouseEnter = function(cid, sid) {
-      if(!self.subjectHover[cid]){
-        self.subjectHover[cid] = {};
-      }
-      if(!self.subjectHover[cid][sid]){
-        self.subjectHover[cid][sid] = {};
-      }
-      self.subjectHover[cid][sid].color = json.categories[cid].color;
-    };
-
-    self.subjectMouseLeave = function(cid, sid) {
-      self.subjectHover[cid][sid].color = "";
-    };
-
-    var init = function(nval, oval) {
-      $.each(nval.categories, function(i, val) {
-        if(!self.categoryHover[val.id]){
-          self.categoryHover[val.id] = {};
-          self.categoryHover[val.id].color = val.color;
+      self.subjectMouseEnter = function(cid, sid) {
+        if(!self.subjectHover[cid]){
+          self.subjectHover[cid] = {};
         }
-
-        if(!self.folderIcon[val.id]){
-          self.folderIcon[val.id] = "fa-angle-down";
+        if(!self.subjectHover[cid][sid]){
+          self.subjectHover[cid][sid] = {};
         }
-      });
-    };
+        self.subjectHover[cid][sid].color = json.categories[cid].color;
+      };
 
-    $scope.$watch(function(){return self.jsons;}, init, true);
-  }
+      self.subjectMouseLeave = function(cid, sid) {
+        self.subjectHover[cid][sid].color = "";
+      };
+
+      var init = function(nval, oval) {
+        $.each(nval.categories, function(i, val) {
+          if(!self.categoryHover[val.id]){
+            self.categoryHover[val.id] = {};
+            self.categoryHover[val.id].color = val.color;
+          }
+
+          if(!self.folderIcon[val.id]){
+            self.folderIcon[val.id] = "fa-angle-down";
+          }
+        });
+      };
+
+      $scope.$watch(function(){return self.jsons;}, init, true);
+    }
+
+})(jQuery, window.angular);
