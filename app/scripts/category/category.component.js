@@ -94,6 +94,9 @@
       self.subjectItemStyle[id].textDecoration = "none";
     };
 
+    self.getUrl = function(url) {
+      return util.convertUrl(self.category.dirName + "/" + url);
+    };
 
     self.jsons = json;
     self.category = {};

@@ -3,33 +3,31 @@
     <div class="footerContainer">
       <div class="footerMainBlock">
         <div class="footerMissionAndLanguage">
-          <p class="footerMissionParagraph">我们立志于创建面向全世界的“传统蒙古语”免费学习网站。</p>
+          <p class="footerMissionParagraph">{{::$ctrl.jsons.footer[4].content}}</p>
           <p class="footerMissionSpacer"></p>
-          <p class="footerMissionParagraph">此蒙古语教育网站使用中国国家专款由“内蒙古自治区民族事务委员会”组织建设。</p>
+          <p class="footerMissionParagraph">{{::$ctrl.jsons.footer[5].content}}</p>
         </div>
         <div class="footerMainLink">
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">关于我们</li>
+            <li class="footerMainLinkUlLiHeader">{{::$ctrl.jsons.footer[1].content}}</li>
             <li class="footerMainLinkUlLi" ng-repeat="item in $ctrl.jsons.about">{{::item.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">联系方式</li>
+            <li class="footerMainLinkUlLiHeader">{{::$ctrl.jsons.footer[2].content}}</li>
             <li class="footerMainLinkUlLi" ng-repeat="cont in $ctrl.jsons.contacts">{{::cont.name}}</li>
           </ul>
           <ul class="footerMainLinkUl">
-            <li class="footerMainLinkUlLiHeader">蒙语科目</li>
+            <li class="footerMainLinkUlLiHeader">{{::$ctrl.jsons.footer[3].content}}</li>
             <li class="footerMainLinkUlLi" ng-repeat="category in $ctrl.jsons.categories">{{::category.name}}</li>
           </ul>
         </div>
       </div>
       <div class="footerBottomBlock">
-        <div class="footerRights">
-          © 2017 内蒙古自治区民族事务委员会
-        </div>
+        <div class="footerRights">{{::$ctrl.jsons.footer[6].content}}</div>
         <div class="footerGrow"></div>
         <div class="footerSocialMedia">
           <a href="#" class="footerSocialMediaA">
-            <img src="images/weixin.png" alt="微信公众号"　title="微信公众号" width="28px" height="20px">
+            <img src="images/weixin.png" alt="{{::$ctrl.jsons.footer[7].content}}"　title="{{::$ctrl.jsons.footer[7].content}}" width="28px" height="20px">
           </a>
         </div>
       </div>

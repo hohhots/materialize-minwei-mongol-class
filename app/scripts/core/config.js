@@ -13,8 +13,9 @@ angular.
         json: {
           rootPath: "data",
           categories: "categories.json",
+          footer: "footer.json",
           contact: "contact.json",
-          about: "contact.json",
+          about: "about.json",
         },
 
         home:{

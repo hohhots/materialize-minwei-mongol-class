@@ -20,7 +20,7 @@
   <div ng-repeat="subject in $ctrl.subjects">
     <div class="categoryListContainer">
       <div class="categoryListContent" ng-mouseenter="$ctrl.listMouseEnter(subject.id)"  ng-mouseleave="$ctrl.listMouseLeave(subject.id)">
-        <a href="#" class="categoryListContentLink" ng-mouseenter="$ctrl.subjectMouseEnter(subject.id)"  ng-mouseleave="$ctrl.subjectMouseLeave(subject.id)">
+        <a href="#" class="categoryListContentLink" ng-mouseenter="$ctrl.subjectMouseEnter(subject.id)"  ng-mouseleave="$ctrl.subjectMouseLeave(subject.id)" ng-href="{{$ctrl.getUrl(subject.dirName)}}">
           <div class="categoryListIconWrapper">
             <div class="categoryListIcon" ng-style="$ctrl.subjectsStyle[subject.id]"></div>
           </div>

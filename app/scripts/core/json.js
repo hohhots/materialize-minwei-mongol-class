@@ -65,6 +65,13 @@ function appJson($resource, config) {
       }
     );
 
+    resource.query({fileName: config.json.footer}, function(data) {
+        $.each(data, function(i, val) {
+          jsons.footer[val.id] = val;
+        });
+      }
+    );
+
     resource.query({fileName: config.json.contact}, function(data) {
         $.each(data, function(i, val) {
           jsons.contacts[val.id] = val;
@@ -99,6 +106,7 @@ function appJson($resource, config) {
     categories: {},
     subjects: {},
     classes: {},
+    footer: {},
     contacts: {},
     about: {},
     getCategory: getCategoryJson,
