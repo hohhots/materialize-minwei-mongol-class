@@ -5,6 +5,7 @@
     "introduction": "传统蒙古文字母学习。",
     "dirName": "alphabet",
     "imageName": "alphabet.png",
+    "backgroundColor": "#11accd",
     "color": "#007d96"
   },
   {

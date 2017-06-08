@@ -43,6 +43,11 @@
   </head>
 
   <body ng-style="ctrl.getBodyStyle()">
+    <noscript>
+      <div class="noscript-warning">
+        <p><i class="icon-warning-sign"></i>为了正确使用本网站，请开启浏览器的JavaScript。</p>
+      </div>
+    </noscript>
 
     <ui-view></ui-view>
 
@@ -81,6 +86,7 @@
     <link type="text/css" href="scripts/category/category.css"  rel="stylesheet" media="screen,projection"/>
 
     <script type="text/javascript" src="scripts/subject/subject.component.js"></script>
+    <link type="text/css" href="scripts/subject/subject.css" rel="stylesheet" media="screen,projection"/>
 
     <script type="text/javascript" src="scripts/class/class.component.js"></script>
 

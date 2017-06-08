@@ -1,0 +1,124 @@
+.subjectHeader {
+  background-color: #11accd;
+  padding-top: 62px !important;
+}
+
+.subjectContent {
+  min-height: 570px;
+  position: relative;
+}
+
+.subjectDashBoardContainer {
+  position: relative;
+}
+
+.subjectHeaderDivider {
+  border-top: 1px solid #D6D8DA !important;
+  width: 100% !important;
+}
+
+.subjectDashBoardController {
+  background-color: #f7f7f7;
+}
+
+.subjectDashBoardRoot {
+  background-color: #f7f7f7;
+  background-image: linear-gradient(to right,#f7f7f7 0,#f7f7f7 50%,#fff 50%,#fff);
+  background-repeat: no-repeat;
+}
+
+.subjectMissionContentContainer {
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #f7f7f7;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+
+.pure-g {
+  text-rendering: optimizespeed;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.subjectDashBoardLeft {
+  width: 100% !important;
+  padding-top: 20px !important;
+}
+
+.subjectTaskList {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 20px 20px 0;
+  background-color: #fff;
+}
+
+.subjectDashboardTutorialLink{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.subjectMissionTitle{
+  margin-left: 20px;
+  line-height: 1;
+  text-align: center;
+  color: #555;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.subjectDashboardSectionContainer {
+  margin-top: 20px;
+}
+
+.subjectSectionHeader{
+  margin-left: 20px;
+  border-top: 1px solid #ddd;
+  padding: 10px 20px 10px 0;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.subjectMissionProgressContainer　{
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-bottom: 0;
+  border: 0;
+  background: #f7f7f7;
+}
+
+.subjectMissionProgressInfo {
+  position: relative;
+  border: 0;
+}
+
+.subjectMissionProgressIconContainer {
+  text-align: center;
+}
+
+@media only screen and (min-width: 767px) {
+
+  .subjectDashBoardLeft {
+    width: 33.3333% !important;
+  }
+
+  .subjectTaskList {
+    width: 66.6667% !important;
+  }
+
+}
+
+@media only screen and (min-width:1024px) {
+
+  .subjectMissionContentContainer {
+    background-image: linear-gradient(to right,#f7f7f7 0,#f7f7f7 50%,#fff 50%,#fff);
+  }
+
+  .subjectTaskList {
+    padding: 0;
+    padding-top: 20px;
+  }
+
+}
