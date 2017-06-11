@@ -46,11 +46,21 @@
   padding-top: 20px !important;
 }
 
-.subjectTaskList {
+.subjectTaskListContainer {
   box-sizing: border-box;
   width: 100%;
-  padding: 20px 20px 20px 0;
+  padding: 20px 20px 0 20px;
   background-color: #fff;
+}
+
+.subjectTaskList {
+  margin: 10px 0 0 auto;
+  max-width: 700px;
+  padding: 0;
+}
+
+.subjectDashBoardSectionContainer2 {
+  margin-top: 0;
 }
 
 .subjectDashboardTutorialLink{
@@ -98,14 +108,113 @@
   text-align: center;
 }
 
+#subjectMasteryChallengeContainer {
+  border: 0;
+  height: auto;
+}
+
+.subjectTaskEntryContainer {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  opacity: 1;
+  position: relative;
+  transition: max-height 500ms ease;
+  max-height: 200px;
+}
+
+#subjectMasteryChallenge{
+  box-sizing: border-box;
+  position: relative;
+  transition: all ease-in-out 50ms;
+}
+
+.subjectTaskLink {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.subjectInfoContainer {
+  box-sizing: border-box;
+  padding: 0 0 10px;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 4px;
+  background-color: #1c758a;
+  color: #fdfdfd;
+}
+
+.subjectTaskPreviewContainer {
+  box-sizing: border-box;
+  width: 33.3333%;
+  padding: 25px 0;
+}
+
+.subjectTaskPreview {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  height: 62px;
+  width: 62px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.subjectTaskPreviewMaster {
+  background: #1c758a;
+  border-color: #29abca;
+  text-align: center;
+}
+
+.subjectTaskPreviewMaster i {
+  position: relative;
+  line-height: 60px;
+  font-size: 48px;
+}
+
+.subjectMasteryTaskInfo {
+  box-sizing: border-box;
+  width: 66.6667%;
+  padding: 0;
+}
+
+.subjectAnnotationContainer {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 72px;
+}
+
+@media only screen and (min-width: 567px) {
+
+  .subjectTaskPreviewContainer {
+    width: 16.6667%;
+  }
+
+  .subjectMasteryTaskInfo {
+    width: 58.3333%;
+  }
+
+  .subjectAnnotationContainer {
+    width: 25%;
+  }
+
+}
+
 @media only screen and (min-width: 767px) {
 
   .subjectDashBoardLeft {
     width: 33.3333% !important;
   }
 
-  .subjectTaskList {
+  .subjectTaskListContainer {
     width: 66.6667% !important;
+  }
+
+  .subjectMasteryTaskInfo {
+    padding: 0 20px 0 0;
   }
 
 }
@@ -116,9 +225,13 @@
     background-image: linear-gradient(to right,#f7f7f7 0,#f7f7f7 50%,#fff 50%,#fff);
   }
 
-  .subjectTaskList {
+  .subjectTaskListContainer {
     padding: 0;
     padding-top: 20px;
+  }
+
+  .subjectTaskList {
+    padding: 0 0 0 20px;
   }
 
 }
