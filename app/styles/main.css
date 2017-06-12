@@ -28,6 +28,23 @@ hr {
   width: 100%;
 }
 
+.accentButton {
+  border: 1px solid #196a7d;
+  color: #fff;
+  text-shadow: none;
+  background-color: #1a6b7e;
+  background-image: linear-gradient(to bottom,#1c758a,#165c6c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1c758a',endColorstr='#ff165c6c',GradientType=0);
+  border-color: #165c6c #165c6c #09262d;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff!important;
+  font-family: inherit;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
 .md-16 {font-size: 16px;}
 
 .md-18 {font-size: 18px;}
