@@ -168,13 +168,15 @@
   text-align: center;
 }
 
-.subjectTaskPreviewMaster i {
+.subjectTaskPreviewMaster i,
+.subjectTaskPreviewOther i {
   position: relative;
   line-height: 60px;
   font-size: 48px;
 }
 
-.subjectMasteryTaskInfo {
+.subjectMasteryTaskInfo,
+.subjectOtherTaskInfo {
   box-sizing: border-box;
   width: 66.6667%;
   padding: 0;
@@ -215,13 +217,84 @@
   height: 72px;
 }
 
+.subjectUpNextOuterContainer {
+  position: relative;
+}
+
+.subjectUpNextContainer {
+  position: relative;
+  border: 0;
+}
+
+.subjectExercise {
+  position: relative;
+  transition: max-height 500ms ease;
+  opacity: 1;
+  box-sizing: border-box;
+  max-height: 200px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  background: transparent;
+}
+
+.subjectTaskPreviewOther {
+  background: #ccc;
+  border-color: #ddd;
+  text-align: center;
+  color: #fff;
+}
+
+.subjectRecommendationInfo {
+  color: #bf4f04;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 3px;
+  text-transform: uppercase;
+}
+
+.subjectOtherTaskInfo {
+  padding: 20px 0;
+}
+
+.subjectOtherTaskTitle {
+  color: #444;
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+.subjectOtherTaskDescription {
+  color: #aaa;
+}
+
+.subjectTaskBadge {
+  margin-top: 20px;
+  background-color: #fff;
+  display: block;
+  border-radius: 15px;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: .05em;
+  line-height: 30px;
+  margin-left: 10%;
+  min-height: 30px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 80%;
+  cursor: pointer;
+  border: 1px solid #4fbad4;
+  color: #4fbad4;
+}
+
 @media only screen and (min-width: 567px) {
 
   .subjectTaskPreviewContainer {
     width: 16.6667%;
   }
 
-  .subjectMasteryTaskInfo {
+  .subjectMasteryTaskInfo,
+  .subjectOtherTaskInfo {
     width: 58.3333%;
   }
 
