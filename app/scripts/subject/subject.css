@@ -231,7 +231,7 @@
   transition: max-height 500ms ease;
   opacity: 1;
   box-sizing: border-box;
-  max-height: 200px;
+  max-height: none;
   border: 0;
   border-bottom: 1px solid #eee;
   background: transparent;
@@ -268,22 +268,22 @@
 }
 
 .subjectTaskBadge {
-  margin-top: 20px;
-  background-color: #fff;
+  position: relative;
   display: block;
+  margin-top: 20px;
+  margin-left: 10%;
+  width: 80%;
+  padding: 0;
+  min-height: 30px;
+  border: 1px solid #4fbad4;
   border-radius: 15px;
+  background-color: #fff;
   font-family: inherit;
   font-size: 14px;
   letter-spacing: .05em;
   line-height: 30px;
-  margin-left: 10%;
-  min-height: 30px;
-  padding: 0;
-  position: relative;
   text-align: center;
-  width: 80%;
   cursor: pointer;
-  border: 1px solid #4fbad4;
   color: #4fbad4;
 }
 
@@ -296,6 +296,10 @@
   .subjectMasteryTaskInfo,
   .subjectOtherTaskInfo {
     width: 58.3333%;
+  }
+
+  .subjectExercise {
+    max-height: 200px;
   }
 
   .subjectAnnotationContainer {
