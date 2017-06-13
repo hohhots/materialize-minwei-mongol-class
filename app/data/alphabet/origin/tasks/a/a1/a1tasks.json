@@ -2,10 +2,42 @@
   {
     "id": 1,
     "name": "test1",
-    "dirName": "test1",
-    "html":  ".html",
-    "css": ".css",
-    "javascript": ".js",
+    "dirName": "a1-1",
+    "answer": "a"
+  },
+
+  {
+    "id": 2,
+    "name": "test2",
+    "dirName": "a1-2",
+    "answer": "c"
+  },
+
+  {
+    "id": 3,
+    "name": "test3",
+    "dirName": "a1-3",
+    "answer": "b"
+  },
+
+  {
+    "id": 4,
+    "name": "test4",
+    "dirName": "a1-4",
+    "answer": "a"
+  },
+
+  {
+    "id": 5,
+    "name": "test5",
+    "dirName": "a1-5",
+    "answer": "b"
+  },
+
+  {
+    "id": 6,
+    "name": "test6",
+    "dirName": "a1-6",
     "answer": "a"
   }
 ]

@@ -1,13 +1,13 @@
 'use strict';
 
 // Define the `core.json` module
-angular.module('core.json', ['ngResource', 'core.config']);
+angular.module('core.json', ['ngResource', 'core.config', 'core.util']);
 
 angular.
   module('core.json').
-  factory('Json', ['$resource', 'Config', appJson]);
+  factory('Json', ['$resource', 'Config', 'Util', appJson]);
 
-function appJson($resource, config) {
+function appJson($resource, config, util) {
   var url = config.json.rootPath;
   var resources = {};
   var resource;
@@ -102,14 +102,75 @@ function appJson($resource, config) {
     return ob;
   };
 
+  var getSubjectJson = function(catId, dirname) {
+    var ob = {};
+
+    $.each(jsons.subjects[catId], function(i, val) {
+      if(val.dirName == dirname) {
+        ob = val;
+      }
+    })
+
+    return ob;
+  };
+
+  var getSubjectTasksJson = function(cat, sub) {
+    if(!cat.dirName || !sub.dirName) {
+      return;
+    }
+
+    if(!jsons.tasks[cat.id]){
+      jsons.tasks[cat.id] = {};
+    }
+
+    if(!jsons.tasks[cat.id][sub.id]){
+      jsons.tasks[cat.id][sub.id] = {};
+    }
+
+    //if(jsons.tasks[cat.id][sub.id] != {}){
+    //  return jsons.tasks[cat.id][sub.id];
+    //}
+
+    var catPath = cat.dirName;
+    var subPath = sub.dirName;
+    var path = catPath + "/" + subPath + "/" + config.json.taskDir;
+    var fileEnd = util.upperFirstLetter(config.json.taskDir) + ".json";
+
+    setResource(url + "/" + path);
+    resource.query({fileName: subPath + fileEnd}, function(data) {
+        $.each(data, function(i, val) {
+
+            setResource(url + "/"+ path + "/" + val.dirName);
+            resource.query({fileName: val.dirName + fileEnd}, function(data2) {console.log(data2);
+                $.each(data2, function(j, val1) {
+                    if(!jsons.tasks[cat.id][sub.id][val.id]){
+                      jsons.tasks[cat.id][sub.id][val.id] = {};
+                    }
+                    jsons.tasks[cat.id][sub.id][val.id][val1.id] = val1;
+                  }
+                )
+              }
+            );
+
+          }
+        )
+      }
+    );
+
+    return jsons.tasks[cat.id][sub.id];
+  }
+
   var jsons = {
     categories: {},
     subjects: {},
     classes: {},
+    tasks: {},
     footer: {},
     contacts: {},
     about: {},
     getCategory: getCategoryJson,
+    getSubject: getSubjectJson,
+    getSubjectTasks: getSubjectTasksJson
   };
 
   getJsonData();

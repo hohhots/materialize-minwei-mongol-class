@@ -25,25 +25,30 @@
   function controller($scope, $element, config, util, json) {
 
     var self = this,
-        beginStickyElemId = "categoryBeginSticky",
-        elem = $element.find("#" + beginStickyElemId),
         path = util.getUrlPath().substring(1),
+        categoryPath = path.substring(0,path.indexOf('/')),
+        subjectPath = path.substring(path.indexOf('/') + 1),
         rootPath = config.json.rootPath;
-console.log(path);
-    var init = function() {
-      //self.category = json.getCategory(path);
 
+    var init = function() {
+      self.category = json.getCategory(categoryPath);
+      self.subject = json.getSubject(self.category.id, subjectPath);
+      self.tasks = json.getSubjectTasks(self.category, self.subject);
+console.log(self.tasks);
+    };
+
+    self.getCategoryUrl = function() {
+      return util.convertUrl(categoryPath);
     };
 
     self.jsons = json;
+    self.pageLang = {},
     self.category = {};
-    self.subjects = {};
-    self.subjectsStyle = {};
-    self.classes = {};
-    self.classesStyle = {};
-    self.ListItemLinkStyle = {};
-    self.subjectItemStyle = {};
-    self.headerStickyHide = true;
+    self.subject = {};
+    self.tasks = {};
+
+    self.pageLang.targetProgress = config.subject.targetProgress;
+    self.pageLang.progress = config.subject.progress;
 
     $scope.$watch(function(){return self.jsons;}, init, true);
   }

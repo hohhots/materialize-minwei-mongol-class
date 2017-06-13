@@ -45,6 +45,11 @@ angular.
 
         getUrlPath: function() {
           return $location.path();
+        },
+
+        upperFirstLetter: function(str) {
+          var f = str.substring(0,1);
+          return str.replace(f,f.toUpperCase());
         }
       };
 

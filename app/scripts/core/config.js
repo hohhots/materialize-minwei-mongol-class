@@ -12,6 +12,7 @@ angular.
 
         json: {
           rootPath: "data",
+          taskDir: "tasks",
           categories: "categories.json",
           footer: "footer.json",
           contact: "contact.json",
@@ -20,6 +21,11 @@ angular.
 
         home:{
           welcome: "学 - 优美蒙语<br>享 - 蒙古文化"
+        },
+
+        subject:{
+          progress: "进度",
+          targetProgress: "目标进度"
         },
 
       }

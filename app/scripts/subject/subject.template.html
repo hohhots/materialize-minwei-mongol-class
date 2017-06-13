@@ -1,7 +1,7 @@
-<header class="subjectHeader"></header>
+<header class="subjectHeader" ng-style="{'backgroundColor': $ctrl.category.backgroundColor}"></header>
 <div class="subjectHeaderDivider"></div>
-<div class="subjectPageContainer"  ng-style="{'backgroundColor': $ctrl.category.backgroundColor}">
-  <article class="">
+<div class="subjectPageContainer">
+  <article>
     <section class="subjectContent">
       <div class="subjectDashBoardContainer">
         <div class="subjectDashBoardController">
@@ -10,12 +10,12 @@
               <div class="pure-g">
                 <aside class="subjectDashBoardLeft">
                   <div style="margin: 20px;">
-                    <a href="#" class="subjectDashboardTutorialLink" style="color: #4fbad4;"><i class="fa fa-angle-left fa-lg" aria-hidden="true" style="font-size:1.5em;font-weight:bold;"></i> 蒙文字母</a>
+                    <a href="#" class="subjectDashboardTutorialLink" ng-style="{'color': $ctrl.category.color}"  ng-href="{{::$ctrl.getCategoryUrl()}}"><i class="fa fa-angle-left fa-lg" aria-hidden="true" style="font-size:1.5em;font-weight:bold;"></i> {{::$ctrl.category.name}}</a>
                   </div>
-                  <div class="subjectMissionTitle">根字母</div>
+                  <div class="subjectMissionTitle">{{::$ctrl.subject.name}}</div>
                   <div class="subjectDashBoardSectionContainer">
                     <div class="subjectSectionHeader">
-                      目标进度
+                      {{::$ctrl.pageLang.targetProgress}}
                     </div>
                     <div class="subjectMissionProgressContainer">
                       <div class="subjectMissionProgressInfo">
@@ -33,7 +33,7 @@
                                   <path fill="none" stroke="#1c758a" stroke-width="10" d="M 3.67394039744206e-15 -60 A 60 60 0 1 1 -30.661120766826613 51.57417641923208"></path>
                                 </g>
                                 <text x="0" font-family="'Proxima Nova', sans-serif" fill="#1c758a" text-anchor="middle" y="4" font-size="32">59%</text>
-                                <text x="0" font-family="'Proxima Nova', sans-serif" fill="#1c758a" text-anchor="middle" y="20" font-size="12.8">进度</text>
+                                <text x="0" font-family="'Proxima Nova', sans-serif" fill="#1c758a" text-anchor="middle" y="20" font-size="12.8">{{::$ctrl.pageLang.progress}}</text>
                               </g>
                             </svg>
                           </div>
