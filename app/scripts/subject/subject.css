@@ -286,6 +286,51 @@
   color: #4fbad4;
 }
 
+#subjectModalBackDrop {
+  position: fixed;
+  z-index: 1040;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #314453;
+  opacity: .85;
+}
+
+.subjectZoomedTask {
+  position: absolute !important;
+  z-index: 1050;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  max-width: 1200px;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: auto;
+
+}
+
+.subjectFocusModeClose {
+  position: absolute;
+  z-index: 1051;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.subjectIconRemoveSign {
+  margin: 0 5px;
+  font-size: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #314453;
+}
+
+#subjectTaskContainer {
+  background: #fff;
+}
+
 @media only screen and (min-width: 567px) {
 
   .subjectTaskPreviewContainer {

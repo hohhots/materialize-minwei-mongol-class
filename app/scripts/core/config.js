@@ -26,7 +26,8 @@ angular.
         subject:{
           progress: "进度",
           targetProgress: "目标进度",
-          practice: "练习"
+          practice: "练习",
+          close: "关闭"
         },
 
       }

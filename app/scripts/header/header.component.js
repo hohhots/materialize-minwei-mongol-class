@@ -15,14 +15,14 @@
     .component('appHeader', {
       templateUrl: ['Config', template],
       //'scripts/header/header.template.html',
-      controller: ['$scope', '$compile', 'Util', controller]
+      controller: ['$scope', 'Util', controller]
     });
 
   function template(config){
     return 'scripts/header/header.template.html';
   }
 
-  function controller($scope, $compile, util) {
+  function controller($scope, util) {
     var self = this;
 
     var changeOverState = function(elem, over) {

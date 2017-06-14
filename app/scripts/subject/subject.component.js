@@ -11,6 +11,8 @@
       templateUrl: 'scripts/subject/subject.template.html',
       controller: [
         '$scope',
+        '$http',
+        '$templateCache',
         '$element',
         'Config',
         'Util',
@@ -22,7 +24,7 @@
     return 'scripts/subject/subject.template.html';
   }
 
-  function controller($scope, $element, config, util, json) {
+  function controller($scope, $http, $templateCache, $element, config, util, json) {
 
     var self = this,
         path = util.getUrlPath().substring(1),
@@ -30,15 +32,30 @@
         subjectPath = path.substring(path.indexOf('/') + 1),
         rootPath = config.json.rootPath;
 
+    //$templateCache.put('task-tpl', 'cvb.gfhj');
+
     var init = function() {
       self.category = json.getCategory(categoryPath);
       self.subject = json.getSubject(self.category.id, subjectPath);
       self.tasks = json.getSubjectTasks(self.category, self.subject);
-console.log(self.tasks);
+
     };
 
     self.getCategoryUrl = function() {
       return util.convertUrl(categoryPath);
+    };
+
+    self.tasksClick = function(event, taskid) {console.log(taskid);
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+      self.dropBackStyle.display = "block";
+      self.displayTaskStyle.display = "block";
+
+      //$http().then(function (result) {
+      //  $templateCache.put('task-tpl', '<br>');//result);
+      //});
+
+      //subjectTaskContainer
     };
 
     self.jsons = json;
@@ -46,10 +63,14 @@ console.log(self.tasks);
     self.category = {};
     self.subject = {};
     self.tasks = {};
+    self.dropBackStyle = {display: "none"};
+    self.displayTaskStyle = {display: "none"};
+    self.taskTpl = "ff.html";
 
     self.pageLang.targetProgress = config.subject.targetProgress;
     self.pageLang.progress = config.subject.progress;
     self.pageLang.practice = config.subject.practice;
+    self.pageLang.close = config.subject.close;
 
     self.taskMouseEnter = function(event) {
       $(event.currentTarget).css({"background-color": "#eee"});
