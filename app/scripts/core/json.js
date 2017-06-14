@@ -141,7 +141,7 @@ function appJson($resource, config, util) {
         $.each(data, function(i, val) {
 
             setResource(url + "/"+ path + "/" + val.dirName);
-            resource.query({fileName: val.dirName + fileEnd}, function(data2) {console.log(data2);
+            resource.query({fileName: val.dirName + fileEnd}, function(data2) {
                 $.each(data2, function(j, val1) {
                     if(!jsons.tasks[cat.id][sub.id][val.id]){
                       jsons.tasks[cat.id][sub.id][val.id] = {};

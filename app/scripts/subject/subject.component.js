@@ -49,6 +49,15 @@ console.log(self.tasks);
 
     self.pageLang.targetProgress = config.subject.targetProgress;
     self.pageLang.progress = config.subject.progress;
+    self.pageLang.practice = config.subject.practice;
+
+    self.taskMouseEnter = function(event) {
+      $(event.currentTarget).css({"background-color": "#eee"});
+    };
+
+    self.taskMouseLeave = function(event) {
+      $(event.currentTarget).css({"background-color": "#fff"});
+    };
 
     $scope.$watch(function(){return self.jsons;}, init, true);
   }

@@ -14,9 +14,7 @@
                   </div>
                   <div class="subjectMissionTitle">{{::$ctrl.subject.name}}</div>
                   <div class="subjectDashBoardSectionContainer">
-                    <div class="subjectSectionHeader">
-                      {{::$ctrl.pageLang.targetProgress}}
-                    </div>
+                    <div class="subjectSectionHeader">{{::$ctrl.pageLang.targetProgress}}</div>
                     <div class="subjectMissionProgressContainer">
                       <div class="subjectMissionProgressInfo">
                         <div class="subjectMissionProgressIconContainer">
@@ -72,7 +70,8 @@
                       </div>
                       <div class="subjectUpNextOuterContainer">
                         <div class="subjectUpNextContainer">
-                          <div class="subjectExercise">
+                          <span ng-repeat="subjectTasks in $ctrl.tasks">
+                            <div class="subjectExercise" ng-repeat="task in subjectTasks"  ng-mouseenter="$ctrl.taskMouseEnter($event)"  ng-mouseleave="$ctrl.taskMouseLeave($event)">
                             <a href="#" class="subjectTaskLink">
                               <div class="pure-g">
                                 <div class="subjectTaskPreviewContainer">
@@ -82,19 +81,16 @@
                                 </div>
                                 <div class="subjectOtherTaskInfo">
                                   <div class="subjectRecommendationInfo"></div>
-                                  <div class="subjectOtherTaskTitle">
-                                    jhg
-                                  </div>
-                                  <div class="subjectOtherTaskDescription">
-                                    jhg asdfklj sdfkiej asdfjieo asjdfihg asdfklj sdfkiej asdfjieo asjdfiuf ewjk;dif fkal;sjdf
-                                  </div>
+                                  <div class="subjectOtherTaskTitle">{{::task.name}}</div>
+                                  <div class="subjectOtherTaskDescription">{{::task.introduction}}</div>
                                 </div>
                                 <div class="subjectAnnotationContainer">
-                                  <button type="button" name="button" class="subjectTaskBadge">练习</button>
+                                  <button type="button" name="button" class="subjectTaskBadge">{{::$ctrl.pageLang.practice}}</button>
                                 </div>
                               </div>
                             </a>
                           </div>
+                          </span>
                         </div>
                       </div>
                     </div>
