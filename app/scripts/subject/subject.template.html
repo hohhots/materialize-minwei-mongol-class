@@ -70,9 +70,9 @@
                       </div>
                       <div class="subjectUpNextOuterContainer">
                         <div class="subjectUpNextContainer">
-                          <span ng-repeat="subjectTasks in $ctrl.tasks">
-                            <div class="subjectExercise" ng-repeat="task in subjectTasks"  ng-mouseenter="$ctrl.taskMouseEnter($event)"  ng-mouseleave="$ctrl.taskMouseLeave($event)">
-                            <a href="javascript:void(0)" class="subjectTaskLink" ng-click="$ctrl.tasksClick($event, task.id)">
+                          <span ng-repeat="subject in $ctrl.tasksCategory">
+                            <div class="subjectExercise" ng-repeat="task in $ctrl.tasks[subject.id]"  ng-mouseenter="$ctrl.taskMouseEnter($event)"  ng-mouseleave="$ctrl.taskMouseLeave($event)">
+                            <a href="javascript:void(0)" class="subjectTaskLink" ng-click="$ctrl.tasksClick($event, subject, task)">
                               <div class="pure-g">
                                 <div class="subjectTaskPreviewContainer">
                                   <div class="subjectTaskPreview subjectTaskPreviewOther">
@@ -99,10 +99,14 @@
               </div>
             </div>
             <div class="subjectZoomedTask" ng-style="$ctrl.displayTaskStyle">
-              <a href="javascript:void(0)" class="subjectFocusModeClose">
+              <a href="javascript:void(0)" class="subjectFocusModeClose"  ng-click="$ctrl.tasksClose()">
                 <i class="fa fa-times-circle fa-lg subjectIconRemoveSign" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
               </a>
-              <div id="subjectTaskContainer" ng-include="$ctrl.taskTpl"></div>
+              <div id="subjectTaskContainer">
+                <div class="subjectIconWaitSignContainer">
+                  <i class="fa fa-cog fa-spin subjectIconWaitSign" aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>

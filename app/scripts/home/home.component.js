@@ -13,7 +13,7 @@
   angular
     .module('home')
     .component('appHome', {
-      templateUrl: template,
+      template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$scope',
         '$sce',
@@ -24,12 +24,10 @@
         appHomeController]
     });
 
-  function template() {
-    return 'scripts/home/home.template.html';
-  }
-
   function appHomeController( $scope, $sce, config, util, json, anchorScroll) {
     var self = this;
+
+    self.templateUrl = config.templateUrl.home;
 
     self.jsons = json;
 

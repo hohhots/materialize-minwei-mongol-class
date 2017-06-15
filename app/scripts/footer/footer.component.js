@@ -8,16 +8,18 @@
   angular
     .module('footer')
     .component('appFooter', {
-      templateUrl: template,
-      controller: ['Json', '$scope', appFooterController]
+      template: '<div ng-include="$ctrl.templateUrl"></div>',
+      controller: ['Config', 'Json', appFooterController]
     });
 
     function template() {
       return 'scripts/footer/footer.template.html';
     }
 
-    function appFooterController(json, scope) {
+    function appFooterController(config, json) {
       var self = this;
+
+      self.templateUrl = config.templateUrl.footer;
 
       self.jsons = json;
     }

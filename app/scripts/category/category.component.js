@@ -8,7 +8,7 @@
   angular
     .module('category')
     .component('appCategory', {
-      templateUrl: template,
+      template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$scope',
         '$element',
@@ -18,18 +18,17 @@
         controller]
     });
 
-  function template() {
-    return 'scripts/category/category.template.html';
-  }
-
   function controller($scope, $element, config, util, json) {
     var self = this,
         beginStickyElemId = "categoryBeginSticky",
-        elem = $element.find("#" + beginStickyElemId),
+        elem = false,
         path = util.getUrlPath().substring(1),
         rootPath = config.json.rootPath;
 
     var windowScroll = function(e) {
+      if(!elem) {
+        elem = $element.find("#" + beginStickyElemId);
+      }
       if($(window).scrollTop() > elem.offset().top){
         self.headerStickyHide = false;
       } else {
@@ -97,6 +96,8 @@
     self.getUrl = function(url) {
       return util.convertUrl(self.category.dirName + "/" + url);
     };
+
+    self.templateUrl = config.templateUrl.category;
 
     self.jsons = json;
     self.category = {};

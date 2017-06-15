@@ -120,10 +120,12 @@ function appJson($resource, config, util) {
     }
 
     if(!jsons.tasks[cat.id]){
+      jsons.subjectTasks[cat.id] = {};
       jsons.tasks[cat.id] = {};
     }
 
     if(!jsons.tasks[cat.id][sub.id]){
+      jsons.subjectTasks[cat.id][sub.id] = {};
       jsons.tasks[cat.id][sub.id] = {};
     }
 
@@ -133,12 +135,13 @@ function appJson($resource, config, util) {
 
     var catPath = cat.dirName;
     var subPath = sub.dirName;
-    var path = catPath + "/" + subPath + "/" + config.json.taskDir;
-    var fileEnd = util.upperFirstLetter(config.json.taskDir) + ".json";
+    var path = catPath + "/" + subPath + "/" + config.json.tasksDir;
+    var fileEnd = util.upperFirstLetter(config.json.tasksDir) + ".json";
 
     setResource(url + "/" + path);
     resource.query({fileName: subPath + fileEnd}, function(data) {
         $.each(data, function(i, val) {
+            jsons.subjectTasks[cat.id][sub.id][val.id] = val;
 
             setResource(url + "/"+ path + "/" + val.dirName);
             resource.query({fileName: val.dirName + fileEnd}, function(data2) {
@@ -157,20 +160,29 @@ function appJson($resource, config, util) {
       }
     );
 
-    return jsons.tasks[cat.id][sub.id];
+    return jsons.subjectTasks[cat.id][sub.id];
   }
+
+  var getTasksJson = function(catid, subid) {
+    if(!catid || !subid) {
+      return;
+    }
+    return jsons.tasks[catid][subid];
+  };
 
   var jsons = {
     categories: {},
     subjects: {},
     classes: {},
+    subjectTasks: {},
     tasks: {},
     footer: {},
     contacts: {},
     about: {},
     getCategory: getCategoryJson,
     getSubject: getSubjectJson,
-    getSubjectTasks: getSubjectTasksJson
+    getSubjectTasks: getSubjectTasksJson,
+    getTasks: getTasksJson
   };
 
   getJsonData();

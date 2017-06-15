@@ -13,16 +13,12 @@
   angular
     .module('header')
     .component('appHeader', {
-      templateUrl: ['Config', template],
+      template: '<div ng-include="$ctrl.templateUrl"></div>',
       //'scripts/header/header.template.html',
-      controller: ['$scope', 'Util', controller]
+      controller: ['$scope', 'Config', 'Util', controller]
     });
 
-  function template(config){
-    return 'scripts/header/header.template.html';
-  }
-
-  function controller($scope, util) {
+  function controller($scope, config, util) {
     var self = this;
 
     var changeOverState = function(elem, over) {
@@ -95,6 +91,8 @@
         windowClick(e);
       });
     });
+
+    self.templateUrl = config.templateUrl.header;
 
     // data for header nav
     self.navWrapperDiv = {};

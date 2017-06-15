@@ -12,7 +12,7 @@ angular.
 
         json: {
           rootPath: "data",
-          taskDir: "tasks",
+          tasksDir: "tasks",
           categories: "categories.json",
           footer: "footer.json",
           contact: "contact.json",
@@ -29,6 +29,14 @@ angular.
           practice: "练习",
           close: "关闭"
         },
+
+        templateUrl: {
+          header: 'scripts/header/header.template.html',
+          home: 'scripts/home/home.template.html',
+          category: 'scripts/category/category.template.html',
+          subject: 'scripts/subject/subject.template.html',
+          footer: 'scripts/footer/footer.template.html'
+        }
 
       }
   );

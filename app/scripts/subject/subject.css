@@ -327,6 +327,20 @@
   color: #314453;
 }
 
+.subjectIconWaitSignContainer {
+  width: 100%;
+  padding-top: 10px ;
+  text-align: center;
+}
+
+.subjectIconWaitSign {
+  margin: 0 5px;
+  font-size: 100px;
+  line-height: 100px;
+  text-decoration: none;
+  color: #314453;
+}
+
 #subjectTaskContainer {
   background: #fff;
 }
