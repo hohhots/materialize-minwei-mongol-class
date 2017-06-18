@@ -37,10 +37,11 @@
     };
 
     var loadComponentFiles =function(subject, task) {
-      //var elem = $element.find("#subjectTaskContainer");
-      //elem.html("dffd");
-      console.log(self.category.dirName + "/" + self.subject.dirName + "/" + config.json.tasksDir + "/" + subject.dirName + "/" + task.dirName);
+      var elem = $element.find("#subjectTaskContainer");
+      //elem.append("dffd");
 
+      var path = config.json.rootPath + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.json.tasksDir + "/" + subject.dirName + "/" + task.dirName;
+      console.log(path);
     //  console.log(self.category);
       //console.log(self.subject);
       //console.log(self.tasks);

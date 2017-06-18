@@ -300,7 +300,10 @@
 .subjectZoomedTask {
   position: absolute !important;
   z-index: 1050;
-  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   max-width: 1200px;
   right: 0;
@@ -313,10 +316,20 @@
 .subjectFocusModeClose {
   position: absolute;
   z-index: 1051;
-  right: 0;
-  top: 0;
+  right: -20px;
+  top: -20px;
   cursor: pointer;
   text-align: center;
+}
+
+.subjectfocusModeCloseBackground {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 23px;
+  height: 23px;
+  background-color: #fdfdfd;
+  z-index: -1;
 }
 
 .subjectIconRemoveSign {
@@ -343,6 +356,287 @@
 
 #subjectTaskContainer {
   background: #fff;
+}
+
+.subjectTaskHeaderContainer {
+  background: #0b0f13;
+  background: linear-gradient(180deg,#0b0f13,#3a5163);
+}
+
+.subjectTaskHeader {
+  color: #fff;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.subjectCompletionProgressContainer {
+  float: right;
+  width: 567.5px;
+  padding-right: 3px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.subjectTaskTitle {
+  margin-bottom: 22px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.subjectTaskIntroduction {
+  margin-top: 3px;
+  max-width: 45%;
+  white-space: normal;
+  line-height: 18px;
+  color: #eee;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.subjectTasksTitle {
+  padding-right: 38px;
+  vertical-align: 12px;
+  font-family: inherit;
+  text-align: right;
+  font-size: 18px;
+  color: #fdfdfd;
+}
+
+.subjectProblemHistory {
+  height: 37px;
+  padding-right: 3px;
+  position: relative;
+}
+
+.subjectTaskGrid {
+  position: relative;
+  float: right;
+  box-sizing: content-box;
+  margin-left: 9px;
+  margin-right: -3px;
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  border: 3px solid #999;
+  border-radius: 100%;
+  transition: opacity 1s;
+  background-color: transparent;
+  text-align: center;
+  z-index: 3;
+}
+
+.subjectExcerciseContent {
+  position: relative;
+  display: block;
+  border-top: 0;
+  padding: 0;
+}
+
+.subjectExcerciseBody {
+  min-height: 380px;
+}
+
+.subjectExcerciseCard {
+  width: 100%;
+  margin: 0;
+}
+
+.subjectCurrentCardContainerInner {
+  border-color: #ddd;
+  border-width: 0 0 1px 0;
+  box-shadow: none;
+}
+
+.subjectAnswerForm {
+  display: inline;
+}
+
+.subjectProblemArea {
+  position: relative;
+  float: left;
+  margin-top: 20px;
+  width: 70%;
+  min-height: 378px;
+  padding-bottom: 38px;
+  font-size: 14px;
+}
+
+.subjectAnswerAreaWrap {
+  float: right;
+  margin: 20px 10px 0 0;
+  width: 27%;
+}
+
+.subjectHiddenSubmit {
+  position: absolute !important;
+  /*visibility: hidden !important;*/
+}
+
+.subjectExcerciseInfoBox {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #aaa;
+  color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 2px #ccc;
+}
+
+.subjectInfoBoxHeader {
+  color: #777;
+  display: block;
+  font-size: 18px;
+  line-height: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.subjectSolutionArea {
+  box-sizing: content-box;
+  overflow: visible;
+  margin: 0 -10px;
+  min-height: 35px;
+  padding: 10px;
+  border-bottom: 1px solid #c3c3c3;
+}
+
+.subjectAnswerButtons {
+  position: relative;
+  margin: 0 -10px;
+  padding: 10px 10px 0;
+}
+
+.subjectCheckAnserWrapper {
+
+}
+
+.subjectSimpleButtonGreen {
+  width: 100%;
+  top: 0;
+  padding: 3px 10px;
+  border: 1px solid #7fab07;
+  border-radius: 3px;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  background-color: #80ac07;
+  background-image: linear-gradient(to bottom,#8aba08,#719807);
+  background-repeat: repeat-x;
+  text-shadow: none;
+  color: #fff;
+}
+
+.subjectRelatedVideo {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #aaa;
+  box-shadow: 0 1px 2px #ccc;
+  background: #eee;
+  color: #333;
+  z-index: 10;
+}
+
+.subjectRelatedVideoContent {
+
+}
+
+.subjectVideoBoxHeader{
+  color: #777;
+  display: block;
+  font-size: 18px;
+  line-height: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.subjectRelatedVideoListContainer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subjectRelatedVideoList {
+  list-style: none;
+}
+
+.subjectRelatedVideoList li{
+  display: block;
+  margin: 0 0 5px 0;
+}
+
+.subjectRelatedVideoList a {
+  display: block;
+  float: left;
+  margin: 0;
+  width: 98%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subjectThumbnail {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  margin-left: 14px;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #aaa;
+  box-shadow: 0 0 3px #ccc;
+  background-size: 200px 150px;
+  background-position: 0 -25px;
+}
+
+.subjectThumbnailLabel {
+  margin: 0;
+  margin-top: 67px;
+  padding: 5px 0 5px 10px;
+  max-width: 198px;
+  overflow: hidden;
+  background-color: rgba(30,30,30,0.9);
+  background: #333;
+  text-align: left;
+  color: #fff;
+  text-overflow: ellipsis;
+}
+
+.subjectThumbnailDescription {
+  display: block;
+  position: relative;
+  width: 180px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.subjectVideoIcon {
+  display: table-cell;
+  width: auto;
+  line-height: 20px;
+  color: #ddd;
+  font-size: 14px;
+  text-indent: 0;
+}
+
+.subjectVideoTitle {
+  display: table-cell;
+  padding-left: 5px;
+  line-height: 20px;
+}
+
+.subjectClear {
+  visibility: hidden;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
 }
 
 @media only screen and (min-width: 567px) {
