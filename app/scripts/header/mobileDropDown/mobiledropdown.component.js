@@ -3,6 +3,7 @@
 (function($, angular){
   // Define the `header` module
   angular.module('mobiledropdown', [
+    'core.config',
     'core.json',
     'core.util'
   ]);
@@ -10,15 +11,11 @@
   angular
     .module('mobiledropdown')
     .component('mobileDropdown', {
-      templateUrl: template,
-      controller: ['$scope', 'Util', 'Json', controller]
+      template: '<div ng-include="$ctrl.templateUrl"></div>',
+      controller: ['$scope', 'Config', 'Util', 'Json', controller]
     });
 
-    function template() {
-      return 'scripts/header/mobileDropDown/mobiledropdown.template.html';
-    }
-
-    function controller($scope, util, json) {
+    function controller($scope, config, util, json) {
       var self = this;
 
       self.jsons = json;
@@ -29,6 +26,8 @@
       self.folderIcon = {};
       self.folderIconStyle = {};
       self.subjectHover = {};
+
+      self.templateUrl = config.templateUrl.mobileDropDown;
 
       self.getUrl = function(url) {
         return util.getUrl(url);

@@ -2,7 +2,10 @@
 
 (function($, angular){
   // Define the `header` module
-  angular.module('subjectsdropdown', ['core.json', 'core.util']);
+  angular.module('subjectsdropdown', [
+    'core.json',
+    'core.util'
+  ]);
 
   angular
     .module('subjectsdropdown')
