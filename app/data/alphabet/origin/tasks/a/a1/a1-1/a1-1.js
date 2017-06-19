@@ -15,9 +15,11 @@
     function controller($scope) {
       var self = this;
 
-      self.templateUrl = '';
+      self.templateUrl = $scope.$parent.$ctrl.excerciseHtmlUrl;
 
-      console.log('brgd');
+      self.$onInit = function() {
+        console.log(self.templateUrl);
+      };
 
     }
 

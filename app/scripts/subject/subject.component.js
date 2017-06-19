@@ -53,7 +53,6 @@
         categoryPath = path.substring(0,path.indexOf('/')),
         subjectPath = path.substring(path.indexOf('/') + 1),
         excerciseCssElem = '',
-        excerciseHtmlUrl = '',
         rootPath = config.json.rootPath;
 
     var init = function() {
@@ -79,22 +78,18 @@
       var path = self.taskPath + "/" + name + "/" + name;
 
       //get css file for excercise
+      if(excerciseCssElem != ''){
+        excerciseCssElem.remove();
+      }
       excerciseCssElem = $('<link/>', {
         rel: 'stylesheet',
         type: 'text/css',
         href: path + '.css'
       }).appendTo('head');
 
-      //get html file for excercise
-      /**$.get( path + ".html")
-        .done(function( cont, textStatus ) {
-          excerciseHtmlElem = cont;
-        })
-        .fail(function( jqxhr, settings, exception ) {
-          $( "#" + config.subject.workArea ).text( config.subject.loadFileFail + " - " + path + ".html");
-        });
-        **/
-      excerciseHtmlUrl = path + ".html";
+      //set html file url for excercise
+      self.excerciseHtmlUrl = path + ".html";
+
       //js file for excercise
       $.getScript( path + ".js")
         .done(function( script, textStatus ) {
@@ -160,6 +155,7 @@
     self.task = {};
     self.taskPath = '';
     self.exercises = {};
+    self.excerciseHtmlUrl = '',
 
     // trigger to load excercise page,
     //0 indicate nothing, 1 indicate excercise 1.
