@@ -62,7 +62,7 @@
       self.tasksCategory = json.getSubjectTasks(self.category, self.subject);
       self.tasks = json.getTasks(self.category.id, self.subject.id);
       self.excercises = json.excercises;
-      self.excerciseConfig = json.excerciseConfig;console.log(self.excerciseConfig);
+      self.excerciseConfig = json.excerciseConfig;
     };
 
     var createExcerciseHtml = function() {

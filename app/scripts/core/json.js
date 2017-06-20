@@ -173,7 +173,7 @@
       return jsons.tasks[catid][subid];
     };
 
-    var setExcerciseConfigJson = function(path, file) {console.log(path);
+    var setExcerciseConfigJson = function(path, file) {
       setResource(path);
 
       resource.query({fileName: file}, function(data) {
