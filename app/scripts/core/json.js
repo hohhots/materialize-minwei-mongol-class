@@ -173,6 +173,14 @@
       return jsons.tasks[catid][subid];
     };
 
+    var setExcerciseConfigJson = function(path, file) {console.log(path);
+      setResource(path);
+
+      resource.query({fileName: file}, function(data) {
+        jsons.excerciseConfig = data[0];
+      });
+    };
+
     var setExercisesJson = function(path, prefix) {
       setResource(path);
 
@@ -190,6 +198,7 @@
       subjectTasks: {},
       tasks: {},
       excercises: {},
+      excerciseConfig: {},
       footer: {},
       contacts: {},
       about: {},
@@ -197,6 +206,7 @@
       getSubject: getSubjectJson,
       getSubjectTasks: getSubjectTasksJson,
       getTasks: getTasksJson,
+      setExcerciseConfig: setExcerciseConfigJson,
       setExercises: setExercisesJson
     };
 

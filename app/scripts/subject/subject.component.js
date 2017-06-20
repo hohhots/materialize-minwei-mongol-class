@@ -53,6 +53,7 @@
         categoryPath = path.substring(0,path.indexOf('/')),
         subjectPath = path.substring(path.indexOf('/') + 1),
         excerciseCssElem = '',
+        excerciseHtmlElem = '',
         rootPath = config.json.rootPath;
 
     var init = function() {
@@ -61,11 +62,13 @@
       self.tasksCategory = json.getSubjectTasks(self.category, self.subject);
       self.tasks = json.getTasks(self.category.id, self.subject.id);
       self.excercises = json.excercises;
+      self.excerciseConfig = json.excerciseConfig;console.log(self.excerciseConfig);
     };
 
     var createExcerciseHtml = function() {
       var elem = $( "#" + config.subject.workArea ).html(config.subject.excerciseTag);
-      $compile(elem.contents())($scope);
+      excerciseHtmlElem = elem.children()[0];
+      $compile(excerciseHtmlElem)($scope);
     };
 
     // Execute by self.currentExerciseId change.
@@ -75,6 +78,11 @@
       }
 
       var name = self.task.dirName + "-" + self.currentExerciseId;
+
+      //get config json file for excercise
+      var cPath = self.taskPath + "/" + name;
+      json.setExcerciseConfig(cPath.substring(cPath.indexOf('/') + 1), name + ".json");
+
       var path = self.taskPath + "/" + name + "/" + name;
 
       //get css file for excercise
@@ -87,8 +95,8 @@
         href: path + '.css'
       }).appendTo('head');
 
-      //set html file url for excercise
-      self.excerciseHtmlUrl = path + ".html";
+      //set html template file url for excercise
+      self.excerciseTemplateUrl = path + ".html";
 
       //js file for excercise
       $.getScript( path + ".js")
@@ -123,6 +131,11 @@
       //});
     };
 
+    var excerciseRendered = function(event, data) {
+      self.exerciseStyle.display = "block";
+      self.waitSignContainer.display = "none";
+    };
+
     self.getCategoryUrl = function() {
       return util.convertUrl(categoryPath);
     };
@@ -144,6 +157,13 @@
     self.tasksClose = function() {
       self.dropBackStyle.display = "none";
       self.displayTaskStyle.display = "none";
+
+      self.exerciseStyle.display = "none";
+      self.waitSignContainer.display = "bock";
+
+      excerciseCssElem.remove();
+      excerciseHtmlElem.remove();
+      self.currentExerciseId = 0;
     };
 
     self.jsons = json;
@@ -154,8 +174,11 @@
     self.tasks = {};
     self.task = {};
     self.taskPath = '';
-    self.exercises = {};
-    self.excerciseHtmlUrl = '',
+    self.exercise = {};
+    self.excerciseConfig = {},
+    self.exerciseStyle = {display: "none"};
+    self.excerciseTemplateUrl = '';
+    self.waitSignContainer = {display: "block"};
 
     // trigger to load excercise page,
     //0 indicate nothing, 1 indicate excercise 1.
@@ -180,6 +203,8 @@
     $scope.$watch(function(){return self.jsons;}, init, true);
 
     $scope.$watch(function(){return self.currentExerciseId;}, loadExcerciseFiles, true);
+
+    $scope.$on('excerciseRendered', excerciseRendered);
   }
 
 })(jQuery, window.angular);

@@ -105,10 +105,10 @@
                 <span class="subjectfocusModeCloseBackground"></span>
               </a>
               <div id="subjectTaskContainer">
-                <div class="subjectIconWaitSignContainer">
+                <div class="subjectIconWaitSignContainer" ng-style="$ctrl.waitSignContainer">
                   <i class="fa fa-cog fa-spin subjectIconWaitSign" aria-hidden="true"></i>
                 </div>
-                <div class="subjectTaskHeaderContainer">
+                <div class="subjectTaskHeaderContainer" ng-style="$ctrl.exerciseStyle">
                   <div class="subjectTaskHeader">
                     <div>
                       <div class="subjectCompletionProgressContainer">
@@ -135,7 +135,7 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div ng-style="$ctrl.exerciseStyle">
                   <article class="subjectExcerciseContent">
                     <div class="subjectExcerciseBody">
                       <div class="subjectExcerciseCard">

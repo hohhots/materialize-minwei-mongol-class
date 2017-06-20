@@ -2,42 +2,37 @@
   {
     "id": 1,
     "name": "test1",
-    "dirName": "a1-1",
-    "answer": "a"
+    "dirName": "a1-1"
   },
 
   {
     "id": 2,
     "name": "test2",
-    "dirName": "a1-2",
-    "answer": "c"
+    "dirName": "a1-2"
+
   },
 
   {
     "id": 3,
     "name": "test3",
-    "dirName": "a1-3",
-    "answer": "b"
+    "dirName": "a1-3"
   },
 
   {
     "id": 4,
     "name": "test4",
-    "dirName": "a1-4",
-    "answer": "a"
+    "dirName": "a1-4"
   },
 
   {
     "id": 5,
     "name": "test5",
-    "dirName": "a1-5",
-    "answer": "b"
+    "dirName": "a1-5"
   },
 
   {
     "id": 6,
     "name": "test6",
-    "dirName": "a1-6",
-    "answer": "a"
+    "dirName": "a1-6"
   }
 ]

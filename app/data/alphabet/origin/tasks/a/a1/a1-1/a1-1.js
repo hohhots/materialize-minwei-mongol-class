@@ -9,17 +9,22 @@
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$scope',
+        '$timeout',
         controller]
     });
 
-    function controller($scope) {
+    function controller($scope, $timeout) {
       var self = this;
 
-      self.templateUrl = $scope.$parent.$ctrl.excerciseHtmlUrl;
-
-      self.$onInit = function() {
-        console.log(self.templateUrl);
+      var emitEvent = function() {
+        $scope.$emit('excerciseRendered');
       };
+
+      self.templateUrl = $scope.$parent.$ctrl.excerciseTemplateUrl;
+
+      self.brgd = "srgl";
+
+      $timeout(emitEvent);
 
     }
 
