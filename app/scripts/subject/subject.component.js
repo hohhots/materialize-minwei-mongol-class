@@ -54,7 +54,7 @@
         subjectPath = path.substring(path.indexOf('/') + 1),
         excerciseCssElem = '',
         excerciseHtmlElem = '',
-        rootPath = config.json.rootPath;
+        rootPath = config.data.data;
 
     var init = function() {
       self.category = json.getCategory(categoryPath);
@@ -115,10 +115,9 @@
 
       //var elem = $element.find("#" + config.subject.taskContainer);
       //elem.append("dffd");
-      //config.json.rootPath + "/" +
-      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.json.tasksDir + "/" + subject.dirName + "/" + task.dirName;
+      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.data.tasks + "/" + subject.dirName + "/" + task.dirName;
 
-      self.taskPath = config.json.rootPath + "/" + path;
+      self.taskPath = config.data.data + "/" + path;
 
       json.setExercises(path, task.dirName, self);
 

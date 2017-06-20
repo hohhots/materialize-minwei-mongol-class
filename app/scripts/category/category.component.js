@@ -23,7 +23,7 @@
         beginStickyElemId = "categoryBeginSticky",
         elem = false,
         path = util.getUrlPath().substring(1),
-        rootPath = config.json.rootPath;
+        rootPath = config.data.data;
 
     var windowScroll = function(e) {
       if(!elem) {

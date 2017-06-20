@@ -9,10 +9,10 @@
     factory('Json', ['$resource', 'Config', 'Util', appJson]);
 
   function appJson($resource, config, util) {
-    var url = config.json.rootPath;
+    var url = config.data.data;
     var resources = {};
     var resource;
-    var postFix = util.upperFirstLetter(config.json.tasksDir) + ".json";
+    var postFix = util.upperFirstLetter(config.data.tasks) + ".json";
 
     var setResource = function(turl){
       turl = turl?(url + "/" + turl):url;
@@ -139,7 +139,7 @@
 
       var catPath = cat.dirName;
       var subPath = sub.dirName;
-      var path = catPath + "/" + subPath + "/" + config.json.tasksDir;
+      var path = catPath + "/" + subPath + "/" + config.data.tasks;
 
       setResource(path);
       resource.query({fileName: subPath + postFix}, function(data) {

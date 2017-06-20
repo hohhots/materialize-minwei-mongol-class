@@ -14,8 +14,6 @@
       },
 
       json: {
-        rootPath: "data",
-        tasksDir: "tasks",
         categories: "categories.json",
         footer: "footer.json",
         contact: "contact.json",
@@ -44,6 +42,14 @@
         category: 'scripts/category/category.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html'
+      },
+
+      data: {
+        data: "data",
+        images: "images",
+        audios: "audios",
+        videos: "videos",
+        tasks: "tasks"
       }
     };
 
