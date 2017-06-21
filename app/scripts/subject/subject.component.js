@@ -58,11 +58,14 @@
 
     var init = function() {
       self.category = json.getCategory(categoryPath);
-      self.subject = json.getSubject(self.category.id, subjectPath);
+      self.subject = json.getSubject(self.category.id, subjectPath);//console.log(subjectPath);
+      self.imagesConfig = json.getResourcesConfig(self.category, self.subject);
+      self.audiosConfig = json.getResourcesConfig(self.category, self.subject);
+      self.videosConfig = json.getResourcesConfig(self.category, self.subject);
       self.tasksCategory = json.getSubjectTasks(self.category, self.subject);
       self.tasks = json.getTasks(self.category.id, self.subject.id);
       self.excercises = json.excercises;
-      self.excerciseConfig = json.excerciseConfig;
+      self.excerciseConfig = json.excerciseConfig;//console.log(self.excerciseConfig);
     };
 
     var createExcerciseHtml = function() {
@@ -151,8 +154,6 @@
       //subjectTaskContainer
     };
 
-    self.templateUrl = config.templateUrl.subject;
-
     self.tasksClose = function() {
       self.dropBackStyle.display = "none";
       self.displayTaskStyle.display = "none";
@@ -166,9 +167,13 @@
     };
 
     self.jsons = json;
+    self.templateUrl = config.templateUrl.subject;
     self.pageLang = {},
     self.category = {};
     self.subject = {};
+    self.imagesConfig = {};
+    self.audiosConfig = {};
+    self.videosConfig = {};
     self.tasksCategory = {};
     self.tasks = {};
     self.task = {};

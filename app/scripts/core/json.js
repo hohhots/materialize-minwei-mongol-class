@@ -2,13 +2,17 @@
 
 (function($, angular) {
   // Define the `core.json` module
-  angular.module('core.json', ['ngResource', 'core.config', 'core.util']);
+  angular.module('core.json', [
+    'ngResource',
+    'core.config',
+    'core.util'
+  ]);
 
   angular.
     module('core.json').
-    factory('Json', ['$resource', 'Config', 'Util', appJson]);
+    factory('Json', ['$resource', 'Config', 'Util', json]);
 
-  function appJson($resource, config, util) {
+  function json($resource, config, util) {
     var url = config.data.data;
     var resources = {};
     var resource;
@@ -107,6 +111,10 @@
     };
 
     var getSubjectJson = function(catId, dirname) {
+      if(!jsons.categories[catId]){
+        return {};
+      }
+
       var ob = {};
 
       $.each(jsons.subjects[catId], function(i, val) {
@@ -116,6 +124,63 @@
       })
 
       return ob;
+    };
+
+    var getResourcesConfigJson = function(category, subject) {
+      if(category.dirName && subject.dirName) {
+        var path = category.dirName + "/" + subject.dirName + "/";
+        setImagesConfig(path + config.data.images, subject.dirName, category.id, subject.id);
+        setAudiosConfig(path + config.data.audios, subject.dirName, category.id, subject.id);
+        setVideosConfig(path + config.data.videos, subject.dirName, category.id, subject.id2);
+      }
+    };
+
+    var setImagesConfig = function(path, filePrefix, catid, subid) {
+      if(!jsons.images[catid]){
+        jsons.images[catid] = {};
+      }
+
+      if(!jsons.images[catid][subid]){
+        setResource(path);
+
+        var file = filePrefix + util.upperFirstLetter(config.data.images) + ".json";
+        resource.query({fileName: file}, function(data) {
+            jsons.images[catid][subid] = data[0];
+          });
+      }
+
+    };
+
+    var setAudiosConfig = function(path, filePrefix, catid, subid) {
+      if(!jsons.audios[catid]){
+        jsons.audios[catid] = {};
+      }
+
+      if(!jsons.audios[catid][subid]){
+        setResource(path);
+
+        var file = filePrefix + util.upperFirstLetter(config.data.audios) + ".json";
+        resource.query({fileName: file}, function(data) {
+            jsons.audios[catid][subid] = data[0];
+          });
+      }
+
+    };
+
+    var setVideosConfig = function(path, filePrefix, catid, subid) {
+      if(!jsons.videos[catid]){
+        jsons.videos[catid] = {};
+      }
+
+      if(!jsons.videos[catid][subid]){
+        setResource(path);
+
+        var file = filePrefix + util.upperFirstLetter(config.data.videos) + ".json";
+        resource.query({fileName: file}, function(data) {
+            jsons.videos[catid][subid] = data[0];
+          });
+      }
+
     };
 
     var getSubjectTasksJson = function(cat, sub) {
@@ -198,13 +263,21 @@
       subjectTasks: {},
       tasks: {},
       excercises: {},
+
       excerciseConfig: {},
+      // images,audios,videos for excercise material
+      images: {},
+      audios: {},
+      videos: {},
+
       footer: {},
       contacts: {},
       about: {},
+
       getCategory: getCategoryJson,
       getSubject: getSubjectJson,
       getSubjectTasks: getSubjectTasksJson,
+      getResourcesConfig: getResourcesConfigJson,
       getTasks: getTasksJson,
       setExcerciseConfig: setExcerciseConfigJson,
       setExercises: setExercisesJson

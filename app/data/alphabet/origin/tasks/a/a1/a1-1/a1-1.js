@@ -2,7 +2,6 @@
 
 (function($, angular) {
 
-  //angular.module('excercise', []);
   angular
     .module('subject')
     .component('appExcercise', {

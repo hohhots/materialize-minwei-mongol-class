@@ -1,17 +1,17 @@
 [
   {
-    "videoProfix":
+    "audioProfix":
     {
-      "1": "ogv",
-      "2": "webm"
+      "1": "mp3"
     },
 
-    "thumbProfix":
+    "genderProfix":
     {
-      "1": "jpg"
+      "1": "m",
+      "2": "w"
     },
 
-    "videos":
+    "audios":
     [
       {
         "id": 1,

@@ -1,17 +1,11 @@
 [
   {
-    "videoProfix":
+    "imageProfix":
     {
-      "1": "ogv",
-      "2": "webm"
+      "1": "svg"
     },
 
-    "thumbProfix":
-    {
-      "1": "jpg"
-    },
-
-    "videos":
+    "images":
     [
       {
         "id": 1,
