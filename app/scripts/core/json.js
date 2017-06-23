@@ -111,7 +111,7 @@
     };
 
     var getSubjectJson = function(catId, dirname) {
-      if(!jsons.categories[catId]){
+      if(!jsons.subjects[catId]){
         return {};
       }
 
@@ -126,12 +126,12 @@
       return ob;
     };
 
-    var getResourcesConfigJson = function(category, subject) {
+    var setResourcesConfigJson = function(category, subject) {
       if(category.dirName && subject.dirName) {
         var path = category.dirName + "/" + subject.dirName + "/";
         setImagesConfig(path + config.data.images, subject.dirName, category.id, subject.id);
         setAudiosConfig(path + config.data.audios, subject.dirName, category.id, subject.id);
-        setVideosConfig(path + config.data.videos, subject.dirName, category.id, subject.id2);
+        setVideosConfig(path + config.data.videos, subject.dirName, category.id, subject.id);
       }
     };
 
@@ -183,7 +183,7 @@
 
     };
 
-    var getSubjectTasksJson = function(cat, sub) {
+    var setSubjectTasksJson = function(cat, sub) {
       if(!cat.dirName || !sub.dirName) {
         return;
       }
@@ -228,7 +228,7 @@
         }
       );
 
-      return jsons.subjectTasks[cat.id][sub.id];
+      //return jsons.subjectTasks[cat.id][sub.id];
     }
 
     var getTasksJson = function(catid, subid) {
@@ -276,8 +276,8 @@
 
       getCategory: getCategoryJson,
       getSubject: getSubjectJson,
-      getSubjectTasks: getSubjectTasksJson,
-      getResourcesConfig: getResourcesConfigJson,
+      setSubjectTasks: setSubjectTasksJson,
+      setResourcesConfig: setResourcesConfigJson,
       getTasks: getTasksJson,
       setExcerciseConfig: setExcerciseConfigJson,
       setExercises: setExercisesJson

@@ -6,28 +6,28 @@
 
   app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider) {
     // Register directives handler
-    app.component = function(name, object) {
-        $compileProvider.component(name, object);
-    return (this);
+    app.component = function( name, object) {
+        $compileProvider.component( name, object );
+        return (this);
     };
     // Register controller handler
     app.controller = function( name, constructor ) {
         $controllerProvider.register( name, constructor );
-    return( this );
+        return( this );
     };
     // Register services handlers
     app.service = function( name, constructor ) {
         $provide.service( name, constructor );
-    return( this );
+        return( this );
     };
     app.factory = function( name, factory ) {
         $provide.factory( name, factory );
-    return( this );
+        return( this );
     };
     // Register filters handler
     app.filter = function( name, factory ) {
         $filterProvider.register( name, factory );
-    return( this );
+        return( this );
     };
   });
 
@@ -35,10 +35,11 @@
   app.component('appSubject', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
+        '$rootScope',
         '$scope',
         '$compile',
         '$http',
-        '$templateCache',
+        '$timeout',
         '$element',
         'Config',
         'Util',
@@ -46,7 +47,7 @@
         controller]
     });
 
-  function controller($scope, $compile, $http, $templateCache, $element, config, util, json) {
+  function controller($rootScope, $scope, $compile, $http, $timeout, $element, config, util, json) {
 
     var self = this,
         path = util.getUrlPath().substring(1),
@@ -54,24 +55,44 @@
         subjectPath = path.substring(path.indexOf('/') + 1),
         excerciseCssElem = '',
         excerciseHtmlElem = '',
+        excerciseConfig = {},
+        excerciseScope = {},
         rootPath = config.data.data;
 
     var init = function() {
-      self.category = json.getCategory(categoryPath);
-      self.subject = json.getSubject(self.category.id, subjectPath);//console.log(subjectPath);
-      self.imagesConfig = json.getResourcesConfig(self.category, self.subject);
-      self.audiosConfig = json.getResourcesConfig(self.category, self.subject);
-      self.videosConfig = json.getResourcesConfig(self.category, self.subject);
-      self.tasksCategory = json.getSubjectTasks(self.category, self.subject);
-      self.tasks = json.getTasks(self.category.id, self.subject.id);
-      self.excercises = json.excercises;
-      self.excerciseConfig = json.excerciseConfig;//console.log(self.excerciseConfig);
+      try {
+        self.category = json.getCategory(categoryPath);
+        self.subject = json.getSubject(self.category.id, subjectPath);
+
+        json.setResourcesConfig(self.category, self.subject);
+        self.imagesConfig = json.images[self.category.id][self.subject.id];
+        self.audiosConfig = json.audios[self.category.id][self.subject.id];
+        self.videosConfig = json.videos[self.category.id][self.subject.id];
+
+        json.setSubjectTasks(self.category, self.subject);
+        self.tasksCategory = json.subjectTasks[self.category.id][self.subject.id];
+        self.tasks = json.getTasks(self.category.id, self.subject.id);
+        self.excercises = json.excercises;
+        excerciseConfig = json.excerciseConfig;
+      } catch (err){} ;
+    };
+
+    var excerciseCompiled = function(elem) {
+      //In jquery an element called with remove(), trigger $destroy event.
+      excerciseHtmlElem.on('$destroy', function () {
+        excerciseScope.$destroy();
+      });
+
+      $scope.$broadcast('hi', 'hi!');
     };
 
     var createExcerciseHtml = function() {
       var elem = $( "#" + config.subject.workArea ).html(config.subject.excerciseTag);
-      excerciseHtmlElem = elem.children()[0];
-      $compile(excerciseHtmlElem)($scope);
+
+      excerciseScope = $scope.$new();
+      excerciseHtmlElem = $compile(elem.children()[0])(excerciseScope);
+      $timeout(excerciseCompiled);
+
     };
 
     // Execute by self.currentExerciseId change.
@@ -161,8 +182,13 @@
       self.exerciseStyle.display = "none";
       self.waitSignContainer.display = "bock";
 
+      // remove all event listeners created with ""$on" in angular
+      //excerciseScope.$destroy();
+
+      // remove elements and all event listeners in jquery
       excerciseCssElem.remove();
       excerciseHtmlElem.remove();
+
       self.currentExerciseId = 0;
     };
 
@@ -179,7 +205,6 @@
     self.task = {};
     self.taskPath = '';
     self.exercise = {};
-    self.excerciseConfig = {},
     self.exerciseStyle = {display: "none"};
     self.excerciseTemplateUrl = '';
     self.waitSignContainer = {display: "block"};
