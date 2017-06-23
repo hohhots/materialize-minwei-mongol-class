@@ -4,7 +4,7 @@
 
   angular
     .module('subject')
-    .component('appExcercise', {
+    .component('appExercise', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$rootScope',
@@ -17,14 +17,14 @@
       var self = this;
 
       var emitEvent = function() {
-        $scope.$emit('excerciseRendered');
+        $scope.$emit('exerciseRendered');
       };
 
       var hi = function(event, data) {
-        console.log('excercise :  I got it! ' + data);
+        console.log('exercise :  I got it! ' + data);
       };
 
-      self.templateUrl = $scope.$parent.$ctrl.excerciseTemplateUrl;
+      self.templateUrl = $scope.$parent.$ctrl.exerciseTemplateUrl;
 
       self.brgd = "srgl";
 
@@ -33,7 +33,7 @@
       $scope.$on('hi', hi);
 
       self.$onDestroy = function(){
-        console.log('excercise : I am destroyed!');
+        console.log('exercise : I am destroyed!');
       };
 
     }

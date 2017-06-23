@@ -427,18 +427,18 @@
   z-index: 3;
 }
 
-.subjectExcerciseContent {
+.subjectExerciseContent {
   position: relative;
   display: block;
   border-top: 0;
   padding: 0;
 }
 
-.subjectExcerciseBody {
+.subjectExerciseBody {
   min-height: 380px;
 }
 
-.subjectExcerciseCard {
+.subjectExerciseCard {
   width: 100%;
   margin: 0;
 }
@@ -474,7 +474,7 @@
   /*visibility: hidden !important;*/
 }
 
-.subjectExcerciseInfoBox {
+.subjectExerciseInfoBox {
   position: relative;
   z-index: 2;
   overflow: visible;

@@ -113,7 +113,7 @@
                     <div>
                       <div class="subjectCompletionProgressContainer">
                         <div>
-                          <span class="subjectTasksTitle">请做６个练习</span>
+                          <span class="subjectTasksTitle">{{$ctrl.getTasksTitle()}}</span>
                         </div>
                         <div class="subjectProblemHistory">
                           <div>
@@ -136,9 +136,9 @@
                   </div>
                 </div>
                 <div ng-style="$ctrl.exerciseStyle">
-                  <article class="subjectExcerciseContent">
-                    <div class="subjectExcerciseBody">
-                      <div class="subjectExcerciseCard">
+                  <article class="subjectExerciseContent">
+                    <div class="subjectExerciseBody">
+                      <div class="subjectExerciseCard">
                         <div class="subjectCurrentCardContainer">
                           <div class="subjectCurrentCardContainerInner">
                             <div class="subjectCurrentCardContent">
@@ -150,7 +150,7 @@
                                   <div class="subjectAnswerAreaWrap">
                                     <input type="submit" aria-hidden="true" tabindex="-1" class="subjectHiddenSubmit">
                                     <div id="subjectAnswerArea">
-                                      <div class="subjectExcerciseInfoBox">
+                                      <div class="subjectExerciseInfoBox">
                                         <h4 class="subjectInfoBoxHeader">答案</h4>
                                         <div class="subjectSolutionArea"></div>
                                         <div class="subjectAnswerButtons">

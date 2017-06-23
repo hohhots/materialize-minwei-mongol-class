@@ -238,11 +238,11 @@
       return jsons.tasks[catid][subid];
     };
 
-    var setExcerciseConfigJson = function(path, file) {
+    var setExerciseConfigJson = function(path, file) {
       setResource(path);
 
       resource.query({fileName: file}, function(data) {
-        jsons.excerciseConfig = data[0];
+        jsons.exerciseConfig = data[0];
       });
     };
 
@@ -251,7 +251,7 @@
 
       resource.query({fileName: prefix + postFix}, function(data) {
         $.each(data, function(i, val) {
-            jsons.excercises[val.id] = val;
+            jsons.exercises[val.id] = val;
           });
       });
     }
@@ -262,10 +262,10 @@
       classes: {},
       subjectTasks: {},
       tasks: {},
-      excercises: {},
+      exercises: {},
 
-      excerciseConfig: {},
-      // images,audios,videos for excercise material
+      exerciseConfig: {},
+      // images,audios,videos for exercise material
       images: {},
       audios: {},
       videos: {},
@@ -279,7 +279,7 @@
       setSubjectTasks: setSubjectTasksJson,
       setResourcesConfig: setResourcesConfigJson,
       getTasks: getTasksJson,
-      setExcerciseConfig: setExcerciseConfigJson,
+      setExerciseConfig: setExerciseConfigJson,
       setExercises: setExercisesJson
     };
 
