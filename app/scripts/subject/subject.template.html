@@ -118,21 +118,14 @@
                         <div class="subjectProblemHistory">
                           <div>
                             <span>
-                              <span class="subjectTaskGrid"></span>
-                              <span class="subjectTaskGrid"></span>
-                              <span class="subjectTaskGrid"></span>
-                              <span class="subjectTaskGrid"></span>
-                              <span class="subjectTaskGrid"></span>
-                              <span class="subjectTaskGrid"></span>
+                              <span id="{{$ctrl.getExerciseHtmlId(exercise.id)}}" class="subjectTaskGrid" ng-repeat="exercise in $ctrl.exercises"></span>
                             </span>
                           </div>
                         </div>
                       </div>
-                      <h2 class="subjectTaskTitle">根字母“a”练习１</h2>
+                      <h2 class="subjectTaskTitle">{{$ctrl.task.name}}</h2>
                     </div>
-                    <div class="subjectTaskIntroduction">
-                      学习并练习蒙古文根字母第一个字母“a”的读音、写法。
-                    </div>
+                    <div class="subjectTaskIntroduction">{{$ctrl.task.introduction}}</div>
                   </div>
                 </div>
                 <div ng-style="$ctrl.exerciseStyle">
@@ -151,20 +144,20 @@
                                     <input type="submit" aria-hidden="true" tabindex="-1" class="subjectHiddenSubmit">
                                     <div id="subjectAnswerArea">
                                       <div class="subjectExerciseInfoBox">
-                                        <h4 class="subjectInfoBoxHeader">答案</h4>
+                                        <h4 class="subjectInfoBoxHeader">{{::$ctrl.pageLang.answer}}</h4>
                                         <div class="subjectSolutionArea"></div>
                                         <div class="subjectAnswerButtons">
                                           <div class="subjectCheckAnserWrapper">
-                                            <input type="button" class="subjectSimpleButtonGreen" value="检查答案">
+                                            <input type="button" class="subjectSimpleButtonGreen" value="{{::$ctrl.pageLang.checkAnswer}}">
                                           </div>
                                         </div>
                                       </div>
                                       <div class="subjectRelatedVideo">
                                         <div class="subjectRelatedVideoContent">
-                                          <h4 class="subjectVideoBoxHeader">有困难？看视频学习</h4>
+                                          <h4 class="subjectVideoBoxHeader">{{::$ctrl.pageLang.watchVideo}}</h4>
                                           <div class="subjectRelatedVideoListContainer">
                                             <ul class="subjectRelatedVideoList">
-                                              <li>
+                                              <li ng-repeat="video in $ctrl.exerciseVideos">
                                                 <div>
                                                   <a href="#">
                                                     <div class="subjectThumbnail">
@@ -173,7 +166,7 @@
                                                           <span class="subjectVideoIcon">
                                                               <i class="fa fa-video-camera" aria-hidden="true"></i>
                                                           </span>
-                                                          <span class="subjectVideoTitle">根字母“a”</span>
+                                                          <span class="subjectVideoTitle">{{video.introduction}}</span>
                                                         </div>
                                                       </div>
                                                     </div>

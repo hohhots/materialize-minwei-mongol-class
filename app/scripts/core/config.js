@@ -33,7 +33,11 @@
         workArea: "subjectWorkArea",
         loadFileFail: "下载文件错误！",
         exerciseTag: "<app-exercise></app-exercise>",
-        tasksTitle: {1: "请做", 2: "个练习！"}
+        tasksTitle: {1: "请做", 2: "个练习！"},
+        excerciseHtmlId: "exercise",
+        answer: "答案",
+        checkAnswer: "检查答案",
+        watchVideo: "有困难？看视频学习"
       },
 
       templateUrl: {

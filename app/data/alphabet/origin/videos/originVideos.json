@@ -15,67 +15,83 @@
     [
       {
         "id": 1,
-        "name": "a"
+        "name": "a",
+        "introduction": "根字母“a”"
       },
       {
         "id": 2,
-        "name": "na"
+        "name": "na",
+        "introduction": "根字母“na”"
       },
       {
         "id": 3,
-        "name": "ba"
+        "name": "ba",
+        "introduction": "根字母“ba”"
       },
       {
         "id": 4,
-        "name": "pa"
+        "name": "pa",
+        "introduction": "根字母“pa”"
       },
       {
         "id": 5,
-        "name": "ha"
+        "name": "ha",
+        "introduction": "根字母“ha”"
       },
       {
         "id": 6,
-        "name": "ga"
+        "name": "ga",
+        "introduction": "根字母“ga”"
       },
       {
         "id": 7,
-        "name": "ma"
+        "name": "ma",
+        "introduction": "根字母“ma”"
       },
       {
         "id": 8,
-        "name": "la"
+        "name": "la",
+        "introduction": "根字母“la”"
       },
       {
         "id": 9,
-        "name": "sa"
+        "name": "sa",
+        "introduction": "根字母“sa”"
       },
       {
         "id": 10,
-        "name": "sha"
+        "name": "sha",
+        "introduction": "根字母“sha”"
       },
       {
         "id": 11,
-        "name": "ta"
+        "name": "ta",
+        "introduction": "根字母“ta”"
       },
       {
         "id": 12,
-        "name": "da"
+        "name": "da",
+        "introduction": "根字母“da”"
       },
       {
         "id": 13,
-        "name": "cha"
+        "name": "cha",
+        "introduction": "根字母“cha”"
       },
       {
         "id": 14,
-        "name": "zha"
+        "name": "zha",
+        "introduction": "根字母“zha”"
       },
       {
         "id": 15,
-        "name": "ya"
+        "name": "ya",
+        "introduction": "根字母“ya”"
       },
       {
         "id": 16,
-        "name": "ra"
+        "name": "ra",
+        "introduction": "根字母“ra”"
       }
     ]
 

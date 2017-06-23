@@ -56,6 +56,9 @@
         exerciseCssElem = '',
         exerciseHtmlElem = '',
         exerciseConfig = {},
+        imagesConfig = {},
+        audiosConfig = {},
+        videosConfig = {},
         exerciseScope = {},
         rootPath = config.data.data;
 
@@ -65,15 +68,16 @@
         self.subject = json.getSubject(self.category.id, subjectPath);
 
         json.setResourcesConfig(self.category, self.subject);
-        self.imagesConfig = json.images[self.category.id][self.subject.id];
-        self.audiosConfig = json.audios[self.category.id][self.subject.id];
-        self.videosConfig = json.videos[self.category.id][self.subject.id];
+        imagesConfig = json.images[self.category.id][self.subject.id];
+        audiosConfig = json.audios[self.category.id][self.subject.id];
+        videosConfig = json.videos[self.category.id][self.subject.id];
 
         json.setSubjectTasks(self.category, self.subject);
         self.tasksCategory = json.subjectTasks[self.category.id][self.subject.id];
         self.tasks = json.getTasks(self.category.id, self.subject.id);
         self.exercises = json.exercises;
         exerciseConfig = json.exerciseConfig;
+        setExerciseVideos();
       } catch (err) {}
     };
 
@@ -93,6 +97,22 @@
       exerciseHtmlElem = $compile(elem.children()[0])(exerciseScope);
       $timeout(exerciseCompiled);
 
+    };
+
+    var setExerciseVideos = function() {
+      $.each(exerciseConfig.videos, function(i, v){
+        $.each(videosConfig.videos, function(j, v1) {console.log(videosConfig);
+          if(v == v1.id) {
+            var video = {};
+            video.introduction = v1.introduction;
+
+            var path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + "." + videosConfig.thumbProfix[1];
+            video.path = path;
+
+            self.exerciseVideos[i] = video;console.log(video);
+          }
+        });
+      });
     };
 
     // Execute by self.currentExerciseId change.
@@ -163,8 +183,16 @@
       return util.convertUrl(categoryPath);
     };
 
-    self.getTasksTitle = function() {console.log();
-      return config.subject.tasksTitle[1] + "brgd" + config.subject.tasksTitle[2];
+    self.getTasksTitle = function() {
+      var exerCount = 0;
+      $.each(self.exercises, function(i, val) {
+        exerCount++;
+      });
+      return config.subject.tasksTitle[1] + exerCount + config.subject.tasksTitle[2];
+    };
+
+    self.getExerciseHtmlId = function(exerciseId) {
+      return config.subject.excerciseHtmlId + exerciseId;
     };
 
     self.tasksClick = function(event, subject, task) {
@@ -201,15 +229,12 @@
     self.pageLang = {};
     self.category = {};
     self.subject = {};
-    self.imagesConfig = {};
-    self.audiosConfig = {};
-    self.videosConfig = {};
     self.tasksCategory = {};
     self.tasks = {};
     self.task = {};
     self.taskPath = '';
     self.exercises = {};
-    self.exercise = {};
+    self.exerciseVideos = {};
     self.exerciseStyle = {display: "none"};
     self.exerciseTemplateUrl = '';
     self.waitSignContainer = {display: "block"};
@@ -225,6 +250,9 @@
     self.pageLang.progress = config.subject.progress;
     self.pageLang.practice = config.subject.practice;
     self.pageLang.close = config.subject.close;
+    self.pageLang.answer = config.subject.answer;
+    self.pageLang.checkAnswer = config.subject.checkAnswer;
+    self.pageLang.watchVideo = config.subject.watchVideo;
 
     self.taskMouseEnter = function(event) {
       $(event.currentTarget).css({"background-color": "#eee"});
