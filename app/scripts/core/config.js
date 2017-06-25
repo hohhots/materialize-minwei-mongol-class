@@ -49,6 +49,11 @@
         footer: 'scripts/footer/footer.template.html'
       },
 
+      events: {
+        exerciseRendered: 'exerciseRenderedEvent',
+        displayVideoPlayer: 'displayVideoPlayerEvent'
+      },
+
       data: {
         data: "data",
         images: "images",

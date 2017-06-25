@@ -6,6 +6,7 @@
       <div class="subjectDashBoardContainer">
         <div class="subjectDashBoardController">
           <div class="subjectDashBoardRoot">
+
             <div class="subjectMissionContentContainer">
               <div class="pure-g">
                 <aside class="subjectDashBoardLeft">
@@ -100,7 +101,7 @@
             </div>
 
             <div class="subjectZoomedTask" ng-style="$ctrl.displayTaskStyle">
-              <a href="javascript:void(0)" class="subjectFocusModeClose"  ng-click="$ctrl.tasksClose()">
+              <a href="javascript:void(0)" class="subjectFocusModeClose" ng-click="$ctrl.tasksClose()">
                 <i class="fa fa-times-circle fa-lg subjectIconRemoveSign" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
                 <span class="subjectfocusModeCloseBackground"></span>
               </a>
@@ -159,8 +160,8 @@
                                             <ul class="subjectRelatedVideoList">
                                               <li ng-repeat="video in $ctrl.exerciseVideos">
                                                 <div>
-                                                  <a href="#">
-                                                    <div class="subjectThumbnail">
+                                                  <a href="javascript:void(0)" ng-click="$ctrl.videoTitleClick(video)">
+                                                    <div class="subjectThumbnail" style="background-image: {{video.style.backgroundImage}}">
                                                       <div class="subjectThumbnailLabel">
                                                         <div class="subjectThumbnailDescription">
                                                           <span class="subjectVideoIcon">
@@ -189,6 +190,29 @@
                       </div>
                     </div>
                   </article>
+                </div>
+              </div>
+            </div>
+
+            <div class="subjectVideoPlayContainer" ng-style="$ctrl.displayVideoStyle">
+              <div class="subjectVideoHeader">
+                <span class="subjectVideoPlayerClose">
+                  <i class="fa fa-window-close" aria-hidden="true"></i>
+                </span>
+                <div class="">
+                  <h2 class="subjectVideoHeaderTitle">{{$ctrl.videoPlayerTitle}}</h2>
+                </div>
+              </div>
+              <div class="subjectVideoBody">
+                <div class="subjectPlayVideo" ng-click="$ctrl.playVideo()"  ng-style="$ctrl.playVideoStyle">
+                  <div class="subjectVideoFrame">
+
+                  </div>
+                  <button name="play video" class="playVideoButton">
+                    <span style="position:absolute; top: -11px; left: 1px">
+                      <i class="fa fa-play-circle" aria-hidden="true"></i>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -10,14 +10,15 @@
         '$rootScope',
         '$scope',
         '$timeout',
+        'Config',
         controller]
     });
 
-    function controller($rootScope, $scope, $timeout) {
+    function controller($rootScope, $scope, $timeout, config) {
       var self = this;
 
       var emitEvent = function() {
-        $scope.$emit('exerciseRendered');
+        $scope.$emit(config.events.exerciseRendered);
       };
 
       var hi = function(event, data) {

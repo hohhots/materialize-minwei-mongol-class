@@ -101,15 +101,24 @@
 
     var setExerciseVideos = function() {
       $.each(exerciseConfig.videos, function(i, v){
-        $.each(videosConfig.videos, function(j, v1) {console.log(videosConfig);
+        $.each(videosConfig.videos, function(j, v1) {
           if(v == v1.id) {
             var video = {};
             video.introduction = v1.introduction;
 
-            var path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + "." + videosConfig.thumbProfix[1];
-            video.path = path;
+            var path = 'url(' + config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + "." + videosConfig.thumbProfix[1] + ")";
+            var style = {};
+            style.backgroundImage = path;
+            video.style = style;
 
-            self.exerciseVideos[i] = video;console.log(video);
+            path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + ".";
+            var videos = {};
+            $.each(videosConfig.videoProfix, function(k, v2) {
+              videos[v2] = path + v2;
+            });
+            video.videos = videos;
+
+            self.exerciseVideos[i] = video;
           }
         });
       });
@@ -179,6 +188,13 @@
       self.waitSignContainer.display = "none";
     };
 
+    var displayVideoPlayer = function(event, video) {console.log(video);
+      self.videoPlayerTitle = video.introduction;
+      self.dropBackStyle.zIndex = 1060;
+      self.displayVideoStyle.display = "block";
+      self.playVideoStyle.backgroundImage = video.style.backgroundImage;
+    };
+
     self.getCategoryUrl = function() {
       return util.convertUrl(categoryPath);
     };
@@ -224,6 +240,14 @@
       self.currentExerciseId = 0;
     };
 
+    self.videoTitleClick = function(video) {
+      $scope.$emit(config.events.displayVideoPlayer, video);
+    };
+
+    self.playVideo = function() {
+      console.log("play");
+    };
+
     self.jsons = json;
     self.templateUrl = config.templateUrl.subject;
     self.pageLang = {};
@@ -238,6 +262,7 @@
     self.exerciseStyle = {display: "none"};
     self.exerciseTemplateUrl = '';
     self.waitSignContainer = {display: "block"};
+    self.videoPlayerTitle = '';
 
     // trigger to load exercise page,
     //0 indicate nothing, 1 indicate exercise 1.
@@ -245,6 +270,8 @@
 
     self.dropBackStyle = {display: "none"};
     self.displayTaskStyle = {display: "none"};
+    self.displayVideoStyle = {display: "none"};
+    self.playVideoStyle = {};
 
     self.pageLang.targetProgress = config.subject.targetProgress;
     self.pageLang.progress = config.subject.progress;
@@ -266,7 +293,9 @@
 
     $scope.$watch(function(){return self.currentExerciseId;}, loadExerciseFiles, true);
 
-    $scope.$on('exerciseRendered', exerciseRendered);
+    $scope.$on(config.events.displayVideoPlayer, displayVideoPlayer);
+
+    $scope.$on(config.events.exerciseRendered, exerciseRendered);
   }
 
 })(jQuery, window.angular);

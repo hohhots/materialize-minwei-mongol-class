@@ -293,8 +293,8 @@
   right: 0;
   bottom: 0;
   left: 0;
+  opacity: .98;
   background: #314453;
-  opacity: .85;
 }
 
 .subjectZoomedTask {
@@ -512,9 +512,7 @@
   padding: 10px 10px 0;
 }
 
-.subjectCheckAnserWrapper {
-
-}
+.subjectCheckAnserWrapper {}
 
 .subjectSimpleButtonGreen {
   width: 100%;
@@ -528,6 +526,7 @@
   background-repeat: repeat-x;
   text-shadow: none;
   color: #fff;
+  cursor: pointer !important;
 }
 
 .subjectRelatedVideo {
@@ -543,9 +542,7 @@
   z-index: 10;
 }
 
-.subjectRelatedVideoContent {
-
-}
+.subjectRelatedVideoContent {}
 
 .subjectVideoBoxHeader{
   color: #777;
@@ -591,7 +588,7 @@
   border: 1px solid #aaa;
   box-shadow: 0 0 3px #ccc;
   background-size: 200px 150px;
-  background-position: 0 -25px;
+  background-position: 0 -40px;
 }
 
 .subjectThumbnailLabel {
@@ -638,6 +635,105 @@
   overflow: hidden;
   width: 1px;
   height: 1px;
+}
+
+.subjectVideoPlayContainer {
+  position: absolute;
+  margin: 0;
+  margin-left: -415px;
+  padding: 15px;
+  left: 50%;
+  overflow: visible;
+  top: 0;
+  width: 830px;
+  z-index: 1070;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+  background-color: #fff;
+  background-clip: padding-box;
+  color: #555;
+}
+
+.subjectVideoHeader {
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 9px 0;
+}
+
+.subjectVideoHeaderTitle {
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #555;
+}
+
+.subjectVideoPlayerClose {
+  margin-top: 2px;
+  float: right;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 26px;
+  text-shadow: 0 1px 0 #fff;
+  color: #000;
+  opacity: .5;
+}
+
+.subjectVideoBody {
+  position: relative;
+  margin: 0;
+  padding: 0 0 9px 0;
+  max-height: none;
+  overflow: visible;
+  background-image: linear-gradient(#111,#333);
+  background-repeat: no-repeat;
+}
+
+.subjectPlayVideo {
+  position: relative;
+  padding-bottom: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.subjectVideoFrame {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 800px;
+  height: 480px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.playVideoButton {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: 154px;
+  height: 154px;
+  opacity: 1;
+  margin-top: -77px;
+  margin-left: -77px;
+  padding-top: 3px;
+  background: #fff;
+  border: 6px solid #fff;
+  border-radius: 100%;
+  font-size: 165px;
+  line-height: 165px;
+  color: #1c758a;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 567px) {
