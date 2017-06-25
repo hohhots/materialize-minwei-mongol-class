@@ -37,7 +37,8 @@
         excerciseHtmlId: "exercise",
         answer: "答案",
         checkAnswer: "检查答案",
-        watchVideo: "有困难？看视频学习"
+        watchVideo: "有困难？看视频学习",
+        notSupportHtml5Video: "您的浏览器不支持HTML5视频播放。"
       },
 
       templateUrl: {
@@ -50,8 +51,12 @@
       },
 
       events: {
+        displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',
-        displayVideoPlayer: 'displayVideoPlayerEvent'
+        displayVideoPlayer: 'displayVideoPlayerEvent',
+        closeVideoPlayer:'closeVideoPlayerEvent',
+        closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',
+        closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent'
       },
 
       data: {

@@ -4,6 +4,12 @@
   // Define the `header` module
   var app = angular.module('subject', ['core.config']);
 
+  app.filter("trustUrl", ['$sce', function ($sce) {
+        return function (recordingUrl) {
+            return $sce.trustAsResourceUrl(recordingUrl);
+        };
+    }]);
+
   app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider) {
     // Register directives handler
     app.component = function(name, object) {
@@ -60,6 +66,8 @@
         audiosConfig = {},
         videosConfig = {},
         exerciseScope = {},
+        videoPlayer = '',
+        videoPlayed = false,
         rootPath = config.data.data;
 
     var init = function() {
@@ -163,7 +171,10 @@
 
     };
 
-    var loadTaskComponentFiles =function(subject, task) {
+    var loadTaskComponentFiles =function(data) {
+      var subject = data[0];
+      var task = data[1];
+
       self.task = task;
 
       //var elem = $element.find("#" + config.subject.taskContainer);
@@ -175,12 +186,15 @@
       json.setExercises(path, task.dirName, self);
 
       self.currentExerciseId = 1;
-      //console.log(self.category);
-      //console.log(self.subject);
-      //console.log(self.tasks);
-      //$http().then(function (result) {
-      //  $templateCache.put('task-tpl', '<br>');//result);
-      //});
+    };
+
+    var displayExercise = function(event, data) {
+      util.scrollToTop();
+
+      self.dropBackStyle.display = "block";
+      self.displayTaskStyle.display = "block";
+
+      loadTaskComponentFiles(data);
     };
 
     var exerciseRendered = function(event, data) {
@@ -188,11 +202,31 @@
       self.waitSignContainer.display = "none";
     };
 
-    var displayVideoPlayer = function(event, video) {console.log(video);
+    var displayVideoPlayer = function(event, video) {
+      util.scrollToTop();
+
       self.videoPlayerTitle = video.introduction;
       self.dropBackStyle.zIndex = 1060;
       self.displayVideoStyle.display = "block";
       self.playVideoStyle.backgroundImage = video.style.backgroundImage;
+      self.videoOgvUrl = video.videos.ogv;
+      self.videoWebmUrl = video.videos.webm;
+
+      videoPlayer = document.getElementsByTagName('video')[0];
+      videoPlayer.load();
+    };
+
+    var closeVideoPlayerMouseEnter = function(event, data) {
+      self.videoPlayerCloseStyle.opacity = 0.8;
+    };
+
+    var closeVideoPlayerMouseLeave = function(event, data) {
+      self.videoPlayerCloseStyle = {};
+    };
+
+    var closeVideoPlayer = function(event, data) {
+      self.displayVideoStyle.display = "none";
+      self.dropBackStyle.zIndex = 1040;
     };
 
     self.getCategoryUrl = function() {
@@ -211,16 +245,8 @@
       return config.subject.excerciseHtmlId + exerciseId;
     };
 
-    self.tasksClick = function(event, subject, task) {
-      $('html, body').animate({ scrollTop: 0 }, 'fast');
-
-      self.dropBackStyle.display = "block";
-      self.displayTaskStyle.display = "block";
-
-      loadTaskComponentFiles(subject, task);
-
-
-      //subjectTaskContainer
+    self.tasksClick = function(event, data) {
+      $scope.$emit(config.events.displayExercise, data);
     };
 
     self.tasksClose = function() {
@@ -244,8 +270,25 @@
       $scope.$emit(config.events.displayVideoPlayer, video);
     };
 
+    self.videoPlayerCloseClick = function(video) {
+      $scope.$emit(config.events.closeVideoPlayer, video);
+    };
+
+    self.videoPlayerCloseMouseEnter = function() {
+      $scope.$emit(config.events.closeVideoPlayerMouseEnter, '');
+    };
+
+    self.videoPlayerCloseMouseLeave = function() {
+      $scope.$emit(config.events.closeVideoPlayerMouseLeave, '');
+    };
+
     self.playVideo = function() {
-      console.log("play");
+      if(!videoPlayed){
+        videoPlayer.play();
+      } else {
+        videoPlayer.pause();
+      }
+      videoPlayed = !videoPlayed;
     };
 
     self.jsons = json;
@@ -272,6 +315,9 @@
     self.displayTaskStyle = {display: "none"};
     self.displayVideoStyle = {display: "none"};
     self.playVideoStyle = {};
+    self.videoPlayerCloseStyle = {};
+    self.videoOgvUrl = '';
+    self.videoWebmUrl = '';
 
     self.pageLang.targetProgress = config.subject.targetProgress;
     self.pageLang.progress = config.subject.progress;
@@ -280,6 +326,7 @@
     self.pageLang.answer = config.subject.answer;
     self.pageLang.checkAnswer = config.subject.checkAnswer;
     self.pageLang.watchVideo = config.subject.watchVideo;
+    self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
     self.taskMouseEnter = function(event) {
       $(event.currentTarget).css({"background-color": "#eee"});
@@ -289,11 +336,20 @@
       $(event.currentTarget).css({"background-color": "#fff"});
     };
 
+    // Set event watcher or litsner
     $scope.$watch(function(){return self.jsons;}, init, true);
 
     $scope.$watch(function(){return self.currentExerciseId;}, loadExerciseFiles, true);
 
+    $scope.$on(config.events.displayExercise, displayExercise);
+
     $scope.$on(config.events.displayVideoPlayer, displayVideoPlayer);
+
+    $scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter);
+
+    $scope.$on(config.events.closeVideoPlayerMouseLeave, closeVideoPlayerMouseLeave);
+
+    $scope.$on(config.events.closeVideoPlayer, closeVideoPlayer);
 
     $scope.$on(config.events.exerciseRendered, exerciseRendered);
   }

@@ -593,7 +593,7 @@
 
 .subjectThumbnailLabel {
   margin: 0;
-  margin-top: 67px;
+  margin-top: 70px;
   padding: 5px 0 5px 10px;
   max-width: 198px;
   overflow: hidden;
@@ -626,6 +626,7 @@
   display: table-cell;
   padding-left: 5px;
   line-height: 20px;
+  font-size: 14px;
 }
 
 .subjectClear {
@@ -676,12 +677,13 @@
   text-shadow: 0 1px 0 #fff;
   color: #000;
   opacity: .5;
+  cursor: pointer;
 }
 
 .subjectVideoBody {
   position: relative;
   margin: 0;
-  padding: 0 0 9px 0;
+  padding: 0;
   max-height: none;
   overflow: visible;
   background-image: linear-gradient(#111,#333);
@@ -690,7 +692,6 @@
 
 .subjectPlayVideo {
   position: relative;
-  padding-bottom: 10px;
   top: 0;
   left: 0;
   right: 0;
@@ -712,27 +713,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  cursor: pointer;
-}
-
-.playVideoButton {
-  position: absolute;
-  top: 50%;
-  right: auto;
-  bottom: auto;
-  left: 50%;
-  width: 154px;
-  height: 154px;
-  opacity: 1;
-  margin-top: -77px;
-  margin-left: -77px;
-  padding-top: 3px;
-  background: #fff;
-  border: 6px solid #fff;
-  border-radius: 100%;
-  font-size: 165px;
-  line-height: 165px;
-  color: #1c758a;
   cursor: pointer;
 }
 

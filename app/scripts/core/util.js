@@ -12,6 +12,10 @@
         var isTouchScreen = 'init';
 
         var utils = {
+          scrollToTop: function() {
+            $('html, body').animate({ scrollTop: 0 }, 'fast');
+          },
+          
           //for slide down and up animation,
           //elem is jquery element.
           //down, if down or up
