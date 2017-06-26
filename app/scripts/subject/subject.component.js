@@ -4,12 +4,6 @@
   // Define the `header` module
   var app = angular.module('subject', ['core.config']);
 
-  app.filter("trustUrl", ['$sce', function ($sce) {
-        return function (recordingUrl) {
-            return $sce.trustAsResourceUrl(recordingUrl);
-        };
-    }]);
-
   app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider) {
     // Register directives handler
     app.component = function(name, object) {
@@ -118,6 +112,18 @@
             style.backgroundImage = path;
             video.style = style;
 
+            path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.audios + "/"  + v1.name + "-";
+            var audios = {};
+            $.each(audiosConfig.genderProfix, function(k, v2) {
+              if(!audios[v2]){
+                audios[v2] = {};
+              }
+              $.each(audiosConfig.audioProfix, function(l, v3) {
+                audios[v2][v3] = path + v2 + "." + v3;
+              });
+            });
+            video.audios = audios;
+
             path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + ".";
             var videos = {};
             $.each(videosConfig.videoProfix, function(k, v2) {
@@ -201,7 +207,7 @@
       self.waitSignContainer.display = "none";
     };
 
-    var displayVideoPlayer = function(event, video) {
+    var displayVideoPlayer = function(event, video) {console.log(audiosConfig);
       util.scrollToTop();
 
       self.videoPlayerTitle = video.introduction;
@@ -209,8 +215,11 @@
       self.displayVideoStyle.display = "block";
       self.playVideoStyle.backgroundImage = video.style.backgroundImage;
       self.videoOgvUrl = video.videos.ogv;
-      self.videoWebmUrl = video.videos.webm;
+      self.videoWebmUrl = video.videos.webm;console.log(video);
+      self.audioOgvUrl = video.audios.ogv;
+      self.audioMp3Url = video.audios.mp3;
       self.playVideoButtonStyle.display = "block";
+
 
       videoPlayer = $('video')[0];
       videoPlayer.load();
@@ -335,6 +344,8 @@
     self.videoPlayerCloseStyle = {};
     self.videoOgvUrl = '';
     self.videoWebmUrl = '';
+    self.audioOgvUrl = '';
+    self.audioMp3Url = '';
 
     self.pageLang.targetProgress = config.subject.targetProgress;
     self.pageLang.progress = config.subject.progress;

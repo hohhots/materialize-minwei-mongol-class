@@ -2,7 +2,8 @@
   {
     "audioProfix":
     {
-      "1": "mp3"
+      "1": "ogv",
+      "2": "mp3"
     },
 
     "genderProfix":
@@ -15,67 +16,83 @@
     [
       {
         "id": 1,
-        "name": "a"
+        "name": "a",
+        "videoId": 1
       },
       {
         "id": 2,
-        "name": "na"
+        "name": "na",
+        "videoId": 2
       },
       {
         "id": 3,
-        "name": "ba"
+        "name": "ba",
+        "videoId": 3
       },
       {
         "id": 4,
-        "name": "pa"
+        "name": "pa",
+        "videoId": 4
       },
       {
         "id": 5,
-        "name": "ha"
+        "name": "ha",
+        "videoId": 5
       },
       {
         "id": 6,
-        "name": "ga"
+        "name": "ga",
+        "videoId": 6
       },
       {
         "id": 7,
-        "name": "ma"
+        "name": "ma",
+        "videoId": 7
       },
       {
         "id": 8,
-        "name": "la"
+        "name": "la",
+        "videoId": 8
       },
       {
         "id": 9,
-        "name": "sa"
+        "name": "sa",
+        "videoId": 9
       },
       {
         "id": 10,
-        "name": "sha"
+        "name": "sha",
+        "videoId": 10
       },
       {
         "id": 11,
-        "name": "ta"
+        "name": "ta",
+        "videoId": 11
       },
       {
         "id": 12,
-        "name": "da"
+        "name": "da",
+        "videoId": 12
       },
       {
         "id": 13,
-        "name": "cha"
+        "name": "cha",
+        "videoId": 13
       },
       {
         "id": 14,
-        "name": "zha"
+        "name": "zha",
+        "videoId": 14
       },
       {
         "id": 15,
-        "name": "ya"
+        "name": "ya",
+        "videoId": 15
       },
       {
         "id": 16,
-        "name": "ra"
+        "name": "ra",
+        "videoId": 16
       }
     ]
 

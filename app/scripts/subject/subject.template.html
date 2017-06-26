@@ -208,21 +208,21 @@
                 <div class="subjectPlayVideo" ng-click="$ctrl.playVideo()">
                   <div class="subjectVideoFrame">
                     <video width="798px" height="100%" name="Video Name">
-                      <source src="{{$ctrl.videoOgvUrl | trustUrl}}" type="video/ogg">
-                      <source src="{{$ctrl.videoWebmUrl | trustUrl}}" type="video/webm">
+                      <source src="{{$ctrl.videoOgvUrl}}" type="video/ogg">
+                      <source src="{{$ctrl.videoWebmUrl}}" type="video/webm">
                       {{::$ctrl.pageLang.notSupportHtml5Video}}
                     </video>
                     <audio controls>
-                      <source src="horse.ogg" type="audio/ogg">
-                      <source src="horse.mp3" type="audio/mpeg">
+                      <source src="{{$ctrl.audioOgvUrl}}" type="audio/ogg">
+                      <source src="{{$ctrl.audioMp3Url}}" type="audio/mpeg">
                       {{::$ctrl.pageLang.notSupportHtml5Audio}}
                     </audio>
                   </div>
-                  <button name="play video" class="playVideoButton" ng-style="$ctrl.playVideoButtonStyle">
+                  <div class="playVideoButton" ng-style="$ctrl.playVideoButtonStyle">
                     <span style="position:absolute; top: -30px; left: -30px">
                       <i class="fa fa-youtube-play" aria-hidden="true"></i>
                     </span>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
