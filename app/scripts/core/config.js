@@ -38,8 +38,8 @@
         answer: "答案",
         checkAnswer: "检查答案",
         watchVideo: "有困难？看视频学习",
-        notSupportHtml5Audio: "您的浏览器不支持HTML5播放音频。",
-        notSupportHtml5Video: "您的浏览器不支持HTML5播放视频。"
+        notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
+        notSupportHtml5Video: "您的浏览器不支持 HTML5 播放视频。"
       },
 
       templateUrl: {

@@ -61,6 +61,7 @@
         videosConfig = {},
         exerciseScope = {},
         videoPlayer = '',
+        audioPlayer = '',
         rootPath = config.data.data;
 
     var init = function() {
@@ -122,7 +123,7 @@
                 audios[v2][v3] = path + v2 + "." + v3;
               });
             });
-            video.audios = audios;
+            video.audios = audios;console.log(audios);
 
             path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + ".";
             var videos = {};
@@ -207,7 +208,7 @@
       self.waitSignContainer.display = "none";
     };
 
-    var displayVideoPlayer = function(event, video) {console.log(audiosConfig);
+    var displayVideoPlayer = function(event, video) {
       util.scrollToTop();
 
       self.videoPlayerTitle = video.introduction;
@@ -215,15 +216,20 @@
       self.displayVideoStyle.display = "block";
       self.playVideoStyle.backgroundImage = video.style.backgroundImage;
       self.videoOgvUrl = video.videos.ogv;
-      self.videoWebmUrl = video.videos.webm;console.log(video);
-      self.audioOgvUrl = video.audios.ogv;
-      self.audioMp3Url = video.audios.mp3;
-      self.playVideoButtonStyle.display = "block";
+      self.videoWebmUrl = video.videos.webm;
 
+      var gender = (Math.random() > 0.5)?'m':'w';
+      self.audioOggUrl = video.audios[gender].ogg;
+      self.audioMp3Url = video.audios[gender].mp3;
+
+      self.playVideoButtonStyle.display = "block";
 
       videoPlayer = $('video')[0];
       videoPlayer.load();
       $(videoPlayer).on("ended", videoEnded);
+
+      audioPlayer = $('audio')[0];
+      audioPlayer.load();
     };
 
     var closeVideoPlayerMouseEnter = function(event, data) {
@@ -310,8 +316,10 @@
       if(videoPlayer.paused) {
         self.playVideoButtonStyle.display = "none";
         videoPlayer.play();
+        audioPlayer.play();
       } else {
         videoPlayer.pause();
+        audioPlayer.pause();
         self.playVideoButtonStyle.display = "block";
       }
     };
@@ -344,7 +352,7 @@
     self.videoPlayerCloseStyle = {};
     self.videoOgvUrl = '';
     self.videoWebmUrl = '';
-    self.audioOgvUrl = '';
+    self.audioOggUrl = '';
     self.audioMp3Url = '';
 
     self.pageLang.targetProgress = config.subject.targetProgress;
