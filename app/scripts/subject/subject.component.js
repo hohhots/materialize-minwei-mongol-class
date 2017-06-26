@@ -67,7 +67,6 @@
         videosConfig = {},
         exerciseScope = {},
         videoPlayer = '',
-        videoPlayed = false,
         rootPath = config.data.data;
 
     var init = function() {
@@ -211,9 +210,11 @@
       self.playVideoStyle.backgroundImage = video.style.backgroundImage;
       self.videoOgvUrl = video.videos.ogv;
       self.videoWebmUrl = video.videos.webm;
+      self.playVideoButtonStyle.display = "block";
 
-      videoPlayer = document.getElementsByTagName('video')[0];
+      videoPlayer = $('video')[0];
       videoPlayer.load();
+      $(videoPlayer).on("ended", videoEnded);
     };
 
     var closeVideoPlayerMouseEnter = function(event, data) {
@@ -227,6 +228,12 @@
     var closeVideoPlayer = function(event, data) {
       self.displayVideoStyle.display = "none";
       self.dropBackStyle.zIndex = 1040;
+    };
+
+    var videoEnded = function(event) {
+      self.playVideoButtonStyle.display = "block";
+      // Must run $digest(), because thie event fired by html video, out of angular $scope.
+      $scope.$digest();
     };
 
     self.getCategoryUrl = function() {
@@ -243,6 +250,14 @@
 
     self.getExerciseHtmlId = function(exerciseId) {
       return config.subject.excerciseHtmlId + exerciseId;
+    };
+
+    self.taskMouseEnter = function(event) {
+      $(event.currentTarget).css({"background-color": "#eee"});
+    };
+
+    self.taskMouseLeave = function(event) {
+      $(event.currentTarget).css({"background-color": "#fff"});
     };
 
     self.tasksClick = function(event, data) {
@@ -283,12 +298,13 @@
     };
 
     self.playVideo = function() {
-      if(!videoPlayed){
+      if(videoPlayer.paused) {
+        self.playVideoButtonStyle.display = "none";
         videoPlayer.play();
       } else {
         videoPlayer.pause();
+        self.playVideoButtonStyle.display = "block";
       }
-      videoPlayed = !videoPlayed;
     };
 
     self.jsons = json;
@@ -314,6 +330,7 @@
     self.dropBackStyle = {display: "none"};
     self.displayTaskStyle = {display: "none"};
     self.displayVideoStyle = {display: "none"};
+    self.playVideoButtonStyle = {};
     self.playVideoStyle = {};
     self.videoPlayerCloseStyle = {};
     self.videoOgvUrl = '';
@@ -327,14 +344,6 @@
     self.pageLang.checkAnswer = config.subject.checkAnswer;
     self.pageLang.watchVideo = config.subject.watchVideo;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
-
-    self.taskMouseEnter = function(event) {
-      $(event.currentTarget).css({"background-color": "#eee"});
-    };
-
-    self.taskMouseLeave = function(event) {
-      $(event.currentTarget).css({"background-color": "#fff"});
-    };
 
     // Set event watcher or litsner
     $scope.$watch(function(){return self.jsons;}, init, true);

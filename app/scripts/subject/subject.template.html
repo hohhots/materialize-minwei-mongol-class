@@ -204,15 +204,20 @@
                 </div>
               </div>
               <div class="subjectVideoBody">
-                <!-- div class="subjectPlayVideo" ng-click="$ctrl.playVideo()" ng-style="$ctrl.playVideoStyle" -->
-                <div class="subjectPlayVideo">
+                <!-- div class="subjectPlayVideo" ng-style="$ctrl.playVideoStyle" -->
+                <div class="subjectPlayVideo" ng-click="$ctrl.playVideo()">
                   <div class="subjectVideoFrame">
-                    <video width="100%" height="100%" controls name="Video Name" ng-click="$ctrl.playVideo()">
+                    <video width="798px" height="100%" name="Video Name">
                       <source src="{{$ctrl.videoOgvUrl | trustUrl}}" type="video/ogg">
                       <source src="{{$ctrl.videoWebmUrl | trustUrl}}" type="video/webm">
                       {{::$ctrl.pageLang.notSupportHtml5Video}}
                     </video>
                   </div>
+                  <button name="play video" class="playVideoButton" ng-style="$ctrl.playVideoButtonStyle">
+                    <span style="position:absolute; top: -30px; left: -30px">
+                      <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -716,6 +716,29 @@
   cursor: pointer;
 }
 
+.playVideoButton {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  margin-top: -50px;
+  margin-left: -50px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  background-size: 154px 154px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: #eee;
+  font-size: 160px;
+  line-height: 160px;
+  color: #1c758a;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 567px) {
 
   .subjectTaskPreviewContainer {
