@@ -212,6 +212,11 @@
                       <source src="{{$ctrl.videoWebmUrl | trustUrl}}" type="video/webm">
                       {{::$ctrl.pageLang.notSupportHtml5Video}}
                     </video>
+                    <audio controls>
+                      <source src="horse.ogg" type="audio/ogg">
+                      <source src="horse.mp3" type="audio/mpeg">
+                      {{::$ctrl.pageLang.notSupportHtml5Audio}}
+                    </audio>
                   </div>
                   <button name="play video" class="playVideoButton" ng-style="$ctrl.playVideoButtonStyle">
                     <span style="position:absolute; top: -30px; left: -30px">

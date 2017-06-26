@@ -343,6 +343,7 @@
     self.pageLang.answer = config.subject.answer;
     self.pageLang.checkAnswer = config.subject.checkAnswer;
     self.pageLang.watchVideo = config.subject.watchVideo;
+    self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
     // Set event watcher or litsner
