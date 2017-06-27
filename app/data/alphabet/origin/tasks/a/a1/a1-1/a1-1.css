@@ -1,5 +1,22 @@
-.brgd {
-  width: 100px;
-  height: 100px;
-  background-color: #ff0;
+.exerciseTextContent {
+  width: 100%;
+}
+
+.exerciseBodyContainer {
+  margin: 50px;
+}
+
+.exerciseBody {
+  position: relative;
+  float: left;
+  left: 50%;
+  margin-left: -15px;
+  opacity: 1;
+  border: 1px solid #333;
+}
+
+.exerciseProblem {
+  position: relative;
+  float: left;
+  left: 50%;
 }
