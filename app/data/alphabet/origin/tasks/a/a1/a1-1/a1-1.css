@@ -4,19 +4,31 @@
 
 .exerciseBodyContainer {
   margin: 50px;
+  min-height: 300px;
 }
 
-.exerciseBody {
-  position: relative;
-  float: left;
-  left: 50%;
-  margin-left: -15px;
-  opacity: 1;
-  border: 1px solid #333;
-}
-
+.exerciseTitle,
 .exerciseProblem {
   position: relative;
   float: left;
-  left: 50%;
+  border: 1px solid #300;
+}
+
+.exercisePlay {
+  position: relative;
+  float: left;
+  border: 1px solid #030;
+}
+
+.exerciseCenterContainer {
+  display: table-cell;
+  vertical-align: middle;
+  height: 400px;
+  text-align: center;
+}
+
+.exerciseCenter {
+  display: inline-block;
+  margin: 0 70px;
+  background: red;
 }
