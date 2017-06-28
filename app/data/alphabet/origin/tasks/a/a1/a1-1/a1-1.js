@@ -16,6 +16,7 @@
 
     function controller($rootScope, $scope, $timeout, config) {
       var self = this;
+      var parent = $scope.$parent.$ctrl;
 
       var emitEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
@@ -25,9 +26,7 @@
         console.log('exercise :  I got it! ' + data);
       };
 
-      self.templateUrl = $scope.$parent.$ctrl.exerciseTemplateUrl;
-
-      self.brgd = "srgl";
+      self.templateUrl = parent.exerciseTemplateUrl;
 
       $timeout(emitEvent);
 
@@ -36,6 +35,8 @@
       self.$onDestroy = function(){
         console.log('exercise : I am destroyed!');
       };
+
+      self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
 
     }
 

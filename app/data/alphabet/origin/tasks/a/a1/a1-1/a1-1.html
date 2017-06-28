@@ -1,25 +1,35 @@
 <div class="exerciseTextContent">
-  根据下面显示字母选择其正确的读音。
+  根据下面左边显示字母从右边选择其正确的读音。(点击中间的播放按钮听读音)
 </div>
 <div class="exerciseBodyContainer">
   <div class="exerciseTitle">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
-        left
+        <img ng-src="{{::$ctrl.leftImageUrl}}" width="50px" height="100px" title="{{::$ctrl.howToRead}}">
       </div>
     </div>
   </div>
   <div class="exercisePlay">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
-        play
+        <span class="exercisePlayIconWrapper">
+          <div class="exercisePlayIconBack" ng-style="$ctrl.playIconBackStyle">
+            <div class="exercisePlayIcon">
+              <i class="fa fa fa-play-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </span>
       </div>
     </div>
   </div>
   <div class="exerciseProblem">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
-        right
+        <ul class="exerciseQuestionUl">
+          <li class="exerciseQuestionLi" ng-repeat="question in $ctrl.questions">
+
+          </li>
+        </ul>
       </div>
     </div>
   </div>
