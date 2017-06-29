@@ -1,7 +1,9 @@
 <div class="exerciseTextContent">
   根据下面左边显示字母从右边选择其正确的读音。(点击中间的播放按钮听读音)
 </div>
+
 <div class="exerciseBodyContainer">
+
   <div class="exerciseTitle">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
@@ -9,7 +11,8 @@
       </div>
     </div>
   </div>
-  <div class="exercisePlay">
+
+  <div class="exercisePlay" ng-mouseenter="$ctrl.playMouseEnter()" ng-mouseleave="$ctrl.playMouseLeave()" ng-click="$ctrl.playClick()">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
         <span class="exercisePlayIconWrapper">
@@ -22,6 +25,7 @@
       </div>
     </div>
   </div>
+
   <div class="exerciseProblem">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
@@ -38,4 +42,5 @@
       </div>
     </div>
   </div>
+
 </div>

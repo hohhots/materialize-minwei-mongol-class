@@ -16,13 +16,14 @@
 .exerciseProblem {
   position: relative;
   float: left;
-  border-left: 1px solid #999;
+  border-left: 1px dashed #999;
 }
 
 .exercisePlay {
   position: relative;
   float: left;
-  border-left: 1px solid #999;
+  border-left: 1px dashed #999;
+  cursor: pointer;
 }
 
 .exerciseCenterContainer {

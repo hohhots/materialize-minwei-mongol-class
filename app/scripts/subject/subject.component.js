@@ -123,7 +123,7 @@
                 audios[v2][v3] = path + v2 + "." + v3;
               });
             });
-            video.audios = audios;console.log(audios);
+            video.audios = audios;
 
             path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + ".";
             var videos = {};
@@ -218,15 +218,19 @@
       self.videoOgvUrl = video.videos.ogv;
       self.videoWebmUrl = video.videos.webm;
 
-      var gender = (Math.random() > 0.5)?'m':'w';
-      self.audioOggUrl = video.audios[gender].ogg;
-      self.audioMp3Url = video.audios[gender].mp3;
-
       self.playVideoButtonStyle.display = "block";
 
       videoPlayer = $('video')[0];
       videoPlayer.load();
       $(videoPlayer).on("ended", videoEnded);
+
+      setAudioPlayer(video.audios);
+    };
+
+    var setAudioPlayer = function(audio) {console.log(audio);
+      var gender = (Math.random() > 0.5)?'m':'w';
+      self.audioOggUrl = audio[gender].ogg;
+      self.audioMp3Url = audio[gender].mp3;
 
       audioPlayer = $('audio')[0];
       audioPlayer.load();

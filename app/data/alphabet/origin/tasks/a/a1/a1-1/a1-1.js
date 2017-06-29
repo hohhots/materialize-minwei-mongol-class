@@ -15,8 +15,9 @@
     });
 
     function controller($rootScope, $scope, $timeout, config) {
-      var self = this;
-      var parent = $scope.$parent.$ctrl;
+      var self = this,
+          parent = $scope.$parent.$ctrl,
+          playClicked = false;
 
       var emitEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
@@ -36,26 +37,47 @@
         console.log('exercise : I am destroyed!');
       };
 
-      self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
+      self.playMouseEnter = function() {
+        if(playClicked){return;}
+        self.playIconBackStyle.color = "#80ac07";
+      };
 
+      self.playMouseLeave = function() {
+        if(playClicked){return;}
+        self.playIconBackStyle = {};
+      };
+
+      self.playClick = function() {
+        playClicked = true;
+
+        $scope.$emit(config.events.exercisePlayed, self.questions);
+      };
+
+      self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
+      self.playIconBackStyle = {};
       self.questions = [
         {
           id: 1,
-          name: "a"
-        },
-        {
-          id: 4,
-          name: "b"
-        },
-        {
-          id: 3,
-          name: "c"
+          name: "a",
+          audio: 1
         },
         {
           id: 2,
-          name: "d"
+          name: "b",
+          audio: 2
+        },
+        {
+          id: 3,
+          name: "c",
+          audio: 3
+        },
+        {
+          id: 4,
+          name: "d",
+          audio: 4
         }
       ];
+
 
     }
 
