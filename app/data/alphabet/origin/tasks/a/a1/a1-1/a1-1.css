@@ -22,6 +22,7 @@
 .exercisePlay {
   position: relative;
   float: left;
+  border-left: 1px solid #999;
 }
 
 .exerciseCenterContainer {
@@ -53,4 +54,23 @@
   margin-top: -21px;
   margin-left: -10px;
   cursor: pointer;
+}
+
+.exerciseCheckAndOption {
+  display: flex !important;
+  padding: 16px 16px !important;
+}
+
+.exerciseCheckBox {
+  position: relative !important;
+  display: flex !important;
+  margin-right: 16px !important;
+  padding: 3px;
+  font-size: 28px;
+}
+
+.exerciseCheckLabel {
+  font-size: 24px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
 }

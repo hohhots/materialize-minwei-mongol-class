@@ -27,7 +27,12 @@
       <div class="exerciseCenter">
         <ul class="exerciseQuestionUl">
           <li class="exerciseQuestionLi" ng-repeat="question in $ctrl.questions">
-
+            <div class="exerciseCheckAndOption">
+              <span class="exerciseCheckBox">
+                <i class="fa fa-circle-thin" aria-hidden="true"></i>
+              </span>
+              <span class="exerciseCheckLabel">{{::question.name}}</span>
+            </div>
           </li>
         </ul>
       </div>

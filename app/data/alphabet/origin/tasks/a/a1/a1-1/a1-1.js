@@ -38,6 +38,25 @@
 
       self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
 
+      self.questions = [
+        {
+          id: 1,
+          name: "a"
+        },
+        {
+          id: 4,
+          name: "b"
+        },
+        {
+          id: 3,
+          name: "c"
+        },
+        {
+          id: 2,
+          name: "d"
+        }
+      ];
+
     }
 
 
