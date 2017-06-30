@@ -56,6 +56,8 @@
         exerciseCssElem = '',
         exerciseHtmlElem = '',
         exerciseConfig = {},
+        exerciseAudios = [],
+        exercisePlayedAudioId = -1,
         imagesConfig = {},
         audiosConfig = {},
         videosConfig = {},
@@ -101,6 +103,24 @@
 
     };
 
+    var setExerciseAudios = function(questions) {
+      if(exercisePlayedAudioId == -1) {
+        $.each(questions, function(i, v){
+          $.each(audiosConfig.audios, function(j, v1) {
+            if(v.audio == v1.id) {
+              var audio = {};
+
+              var path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.audios + "/"  + v1.name + "-";
+
+              exerciseAudios[i] = util.setAudio(path, audiosConfig);
+            }
+          });
+        });
+
+        exercisePlayedAudioId = 0;
+      }
+    };
+
     var setExerciseVideos = function() {
       $.each(exerciseConfig.videos, function(i, v){
         $.each(videosConfig.videos, function(j, v1) {
@@ -108,24 +128,17 @@
             var video = {};
             video.introduction = v1.introduction;
 
-            var path = 'url(' + config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + "." + videosConfig.thumbProfix[1] + ")";
+            var parentPath = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/";
+
+            var path = 'url(' + parentPath + config.data.videos + "/"  + v1.name + "." + videosConfig.thumbProfix[1] + ")";
             var style = {};
             style.backgroundImage = path;
             video.style = style;
 
-            path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.audios + "/"  + v1.name + "-";
-            var audios = {};
-            $.each(audiosConfig.genderProfix, function(k, v2) {
-              if(!audios[v2]){
-                audios[v2] = {};
-              }
-              $.each(audiosConfig.audioProfix, function(l, v3) {
-                audios[v2][v3] = path + v2 + "." + v3;
-              });
-            });
-            video.audios = audios;
+            path = parentPath + config.data.audios + "/"  + v1.name + "-";
+            video.audios = util.setAudio(path, audiosConfig);
 
-            path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" + config.data.videos + "/"  + v1.name + ".";
+            path = parentPath + config.data.videos + "/"  + v1.name + ".";
             var videos = {};
             $.each(videosConfig.videoProfix, function(k, v2) {
               videos[v2] = path + v2;
@@ -227,13 +240,17 @@
       setAudioPlayer(video.audios);
     };
 
-    var setAudioPlayer = function(audio) {console.log(audio);
+    var setAudioPlayer = function(audio) {
       var gender = (Math.random() > 0.5)?'m':'w';
       self.audioOggUrl = audio[gender].ogg;
       self.audioMp3Url = audio[gender].mp3;
 
       audioPlayer = $('audio')[0];
       audioPlayer.load();
+    };
+
+    var playExerciseAudios = function() {console.log(exercisePlayedAudioId);
+      setAudioPlayer(exerciseAudios[exercisePlayedAudioId]);
     };
 
     var closeVideoPlayerMouseEnter = function(event, data) {
@@ -253,6 +270,25 @@
       self.playVideoButtonStyle.display = "block";
       // Must run $digest(), because thie event fired by html video, out of angular $scope.
       $scope.$digest();
+    };
+
+    var exercisePlay = function(event, questions) {
+      setExerciseAudios(questions);
+
+      if(exercisePlayedAudioId == exerciseAudios.length) {
+        exercisePlayedAudioId = -1;
+        audioPlayer.removeEventListener("ended", exercisePlay);
+        return;
+      }
+
+      $timeout(playExerciseAudios());
+      audioPlayer.addEventListener("ended", exercisePlay);
+      $timeout(function(){
+        audioPlayer.load();
+        audioPlayer.play();
+      });
+      exercisePlayedAudioId += 1;
+
     };
 
     self.getCategoryUrl = function() {
@@ -385,6 +421,8 @@
     $scope.$on(config.events.closeVideoPlayer, closeVideoPlayer);
 
     $scope.$on(config.events.exerciseRendered, exerciseRendered);
+
+    $scope.$on(config.events.exercisePlayed, exercisePlay);
   }
 
 })(jQuery, window.angular);

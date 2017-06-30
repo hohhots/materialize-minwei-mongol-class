@@ -31,8 +31,6 @@
 
       $timeout(emitEvent);
 
-      $scope.$on('hi', hi);
-
       self.$onDestroy = function(){
         console.log('exercise : I am destroyed!');
       };
@@ -78,7 +76,8 @@
         }
       ];
 
-
+      $scope.$on('hi', hi);
+      
     }
 
 

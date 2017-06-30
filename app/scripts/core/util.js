@@ -15,7 +15,7 @@
           scrollToTop: function() {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
           },
-          
+
           //for slide down and up animation,
           //elem is jquery element.
           //down, if down or up
@@ -42,12 +42,6 @@
             return isTouchScreen;
           },
 
-          convertUrl: function(url) {
-            url = url ? url : '';
-
-            return config.app.urlPrefix + "/" + url;
-          },
-
           getUrlPath: function() {
             return $location.path();
           },
@@ -55,7 +49,29 @@
           upperFirstLetter: function(str) {
             var f = str.substring(0,1);
             return str.replace(f,f.toUpperCase());
+          },
+
+          convertUrl: function(url) {
+            url = url ? url : '';
+
+            return config.app.urlPrefix + "/" + url;
+          },
+
+          setAudio: function(path, audiosConfig) {
+            var audios = {};
+
+            $.each(audiosConfig.genderProfix, function(i, val) {
+              if(!audios[val]){
+                audios[val] = {};
+              }
+              $.each(audiosConfig.audioProfix, function(j, v1) {
+                audios[val][v1] = path + val + "." + v1;
+              });
+            });
+
+            return audios;
           }
+
         };
 
         return utils;
