@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="exercisePlay" ng-mouseenter="$ctrl.playMouseEnter()" ng-mouseleave="$ctrl.playMouseLeave()" ng-click="$ctrl.playClick()">
+  <div class="exercisePlay" ng-mousemove="$ctrl.playMouseMove()" ng-mouseenter="$ctrl.playMouseEnter()" ng-mouseleave="$ctrl.playMouseLeave()" ng-click="$ctrl.playClick()">
     <div class="exerciseCenterContainer">
       <div class="exerciseCenter">
         <span class="exercisePlayIconWrapper">
@@ -31,9 +31,9 @@
       <div class="exerciseCenter">
         <ul class="exerciseQuestionUl">
           <li class="exerciseQuestionLi" ng-repeat="question in $ctrl.questions">
-            <div class="exerciseCheckAndOption">
+            <div class="exerciseCheckAndOption" ng-style="$ctrl.exerciseCheckStyle[question.id]" ng-mouseenter="$ctrl.exerciseCheckMouseEnter(question.id)" ng-mouseleave="$ctrl.exerciseCheckMouseLeave(question.id)" ng-click="$ctrl.exerciseCheckClick(question.id)">
               <span class="exerciseCheckBox">
-                <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                <i class="fa {{$ctrl.exerciseCheckIcon[question.id]}}" aria-hidden="true"></i>
               </span>
               <span class="exerciseCheckLabel">{{::question.name}}</span>
             </div>

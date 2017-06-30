@@ -55,6 +55,8 @@
         displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',
         exercisePlayed: 'exercisePlayedEvent',
+        exerciseNowPlaying: 'exerciseNowPlayingEvent',
+        exercisePlayEnd: 'exercisePlayEndEvent',
         displayVideoPlayer: 'displayVideoPlayerEvent',
         closeVideoPlayer:'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',

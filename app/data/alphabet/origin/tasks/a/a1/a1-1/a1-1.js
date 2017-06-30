@@ -17,7 +17,8 @@
     function controller($rootScope, $scope, $timeout, config) {
       var self = this,
           parent = $scope.$parent.$ctrl,
-          playClicked = false;
+          playClicked = false,
+          exerciseQuestionClicked = 0;
 
       var emitEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
@@ -25,6 +26,25 @@
 
       var hi = function(event, data) {
         console.log('exercise :  I got it! ' + data);
+      };
+
+      var exerciseNowPlaying = function(event, id) {
+        self.exerciseCheckIcon[id] = "fa-circle";
+        self.exerciseCheckStyle[id].color = "#80ac07";
+      };
+
+      var exercisePlayEnd = function(event, data) {
+        playClicked = false;
+        self.playMouseLeave();
+        $scope.$digest();
+      };
+
+      var init = function() {
+        $.each(self.questions, function(i, val){
+            self.exerciseCheckIcon[val.id] = "fa-circle-thin";
+            self.exerciseCheckStyle[val.id] = {};
+          }
+        );
       };
 
       self.templateUrl = parent.exerciseTemplateUrl;
@@ -37,7 +57,9 @@
 
       self.playMouseEnter = function() {
         if(playClicked){return;}
-        self.playIconBackStyle.color = "#80ac07";
+        if(self.playIconBackStyle.color != "#80ac07") {
+          self.playIconBackStyle.color = "#80ac07";
+        }
       };
 
       self.playMouseLeave = function() {
@@ -45,14 +67,51 @@
         self.playIconBackStyle = {};
       };
 
+      self.playMouseMove = function() {
+        self.playMouseEnter();
+      };
+
       self.playClick = function() {
+        self.playMouseEnter();
         playClicked = true;
 
         $scope.$emit(config.events.exercisePlayed, self.questions);
       };
 
+      self.exerciseCheckMouseEnter = function(id, otherClicked = false) {
+        if((exerciseQuestionClicked == id) && !otherClicked){return;}
+
+        if(!self.exerciseCheckStyle[id]){
+          self.exerciseCheckStyle[id] = {};
+        }
+        self.exerciseCheckStyle[id].color = "#80ac07";
+      };
+
+      self.exerciseCheckMouseLeave = function(id, otherClicked = false) {
+        if((exerciseQuestionClicked == id) && !otherClicked){return;}
+
+        self.exerciseCheckStyle[id] = {};
+      };
+
+      self.exerciseCheckClick = function(id) {
+        if(exerciseQuestionClicked == id){
+          exerciseQuestionClicked = 0;
+          self.exerciseCheckIcon[id] = "fa-circle-thin";
+          return;
+        } else {
+          if(exerciseQuestionClicked != 0) {
+            self.exerciseCheckMouseLeave(exerciseQuestionClicked, true);
+          }
+        }
+        exerciseQuestionClicked = id;
+        init();
+        self.exerciseCheckIcon[id] = "fa-circle";
+      };
+
       self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
+      self.exerciseCheckIcon = [];
       self.playIconBackStyle = {};
+      self.exerciseCheckStyle = {};
       self.questions = [
         {
           id: 1,
@@ -77,7 +136,10 @@
       ];
 
       $scope.$on('hi', hi);
-      
+      $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
+      $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
+
+      init();
     }
 
 

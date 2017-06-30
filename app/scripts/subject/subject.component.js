@@ -249,7 +249,7 @@
       audioPlayer.load();
     };
 
-    var playExerciseAudios = function() {console.log(exercisePlayedAudioId);
+    var playExerciseAudios = function() {
       setAudioPlayer(exerciseAudios[exercisePlayedAudioId]);
     };
 
@@ -278,6 +278,7 @@
       if(exercisePlayedAudioId == exerciseAudios.length) {
         exercisePlayedAudioId = -1;
         audioPlayer.removeEventListener("ended", exercisePlay);
+        $scope.$broadcast(config.events.exercisePlayEnd);
         return;
       }
 
@@ -286,6 +287,7 @@
       $timeout(function(){
         audioPlayer.load();
         audioPlayer.play();
+        $scope.$broadcast(config.events.exerciseNowPlaying, exercisePlayedAudioId);
       });
       exercisePlayedAudioId += 1;
 

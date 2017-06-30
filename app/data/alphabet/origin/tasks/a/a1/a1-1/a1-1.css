@@ -60,6 +60,7 @@
 .exerciseCheckAndOption {
   display: flex !important;
   padding: 16px 16px !important;
+  cursor: pointer;
 }
 
 .exerciseCheckBox {
