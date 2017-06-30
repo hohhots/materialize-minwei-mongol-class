@@ -29,6 +29,7 @@
       };
 
       var exerciseNowPlaying = function(event, id) {
+        init();
         self.exerciseCheckIcon[id] = "fa-circle";
         self.exerciseCheckStyle[id].color = "#80ac07";
       };
@@ -36,10 +37,15 @@
       var exercisePlayEnd = function(event, data) {
         playClicked = false;
         self.playMouseLeave();
+
+        init();
+
         $scope.$digest();
       };
 
       var init = function() {
+        exerciseQuestionClicked = 0;
+
         $.each(self.questions, function(i, val){
             self.exerciseCheckIcon[val.id] = "fa-circle-thin";
             self.exerciseCheckStyle[val.id] = {};
@@ -81,31 +87,32 @@
       self.exerciseCheckMouseEnter = function(id, otherClicked = false) {
         if((exerciseQuestionClicked == id) && !otherClicked){return;}
 
-        if(!self.exerciseCheckStyle[id]){
-          self.exerciseCheckStyle[id] = {};
-        }
-        self.exerciseCheckStyle[id].color = "#80ac07";
+        self.exerciseCheckIcon[id] = "fa-check-circle";
+        //self.exerciseCheckStyle[id].color = "#80ac07";
       };
 
       self.exerciseCheckMouseLeave = function(id, otherClicked = false) {
         if((exerciseQuestionClicked == id) && !otherClicked){return;}
 
-        self.exerciseCheckStyle[id] = {};
+        self.exerciseCheckIcon[id] = "fa-circle-thin";
       };
 
-      self.exerciseCheckClick = function(id) {
+      self.exerciseCheckClick = function(id) {console.log(id);
         if(exerciseQuestionClicked == id){
-          exerciseQuestionClicked = 0;
-          self.exerciseCheckIcon[id] = "fa-circle-thin";
+          init();
           return;
         } else {
           if(exerciseQuestionClicked != 0) {
             self.exerciseCheckMouseLeave(exerciseQuestionClicked, true);
+            self.exerciseCheckIcon[exerciseQuestionClicked] = "fa-circle-thin";
+            self.exerciseCheckStyle[exerciseQuestionClicked] = {};
           }
         }
+
         exerciseQuestionClicked = id;
-        init();
-        self.exerciseCheckIcon[id] = "fa-circle";
+
+        self.exerciseCheckIcon[id] = "fa-check-circle";
+        self.exerciseCheckStyle[id].color = "#80ac07";
       };
 
       self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
