@@ -18,7 +18,8 @@
       var self = this,
           parent = $scope.$parent.$ctrl,
           playClicked = false,
-          exerciseQuestionClicked = 0;
+          exerciseQuestionClicked = 0,
+          exerciseCheckedName = '';
 
       var emitEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
@@ -41,6 +42,10 @@
         init();
 
         $scope.$digest();
+      };
+
+      var exerciseCheck = function() {
+        $scope.$emit(config.events.exerciseCheckAnswer, exerciseCheckedName);
       };
 
       var init = function() {
@@ -97,7 +102,7 @@
         self.exerciseCheckIcon[id] = "fa-circle-thin";
       };
 
-      self.exerciseCheckClick = function(id) {console.log(id);
+      self.exerciseCheckClick = function(id) {
         if(exerciseQuestionClicked == id){
           init();
           return;
@@ -145,6 +150,7 @@
       $scope.$on('hi', hi);
       $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
       $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
+      $scope.$on(config.events.exerciseCheck, exerciseCheck);
 
       init();
     }

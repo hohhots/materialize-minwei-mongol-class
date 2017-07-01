@@ -293,6 +293,10 @@
 
     };
 
+    var exerciseChecked = function(event, checkedName) {
+      console.log(checkedName);
+    };
+
     self.getCategoryUrl = function() {
       return util.convertUrl(categoryPath);
     };
@@ -366,6 +370,10 @@
       }
     };
 
+    self.checkButtonClick = function() {
+      $scope.$broadcast(config.events.exerciseCheck);
+    };
+
     self.jsons = json;
     self.templateUrl = config.templateUrl.subject;
     self.pageLang = {};
@@ -425,6 +433,8 @@
     $scope.$on(config.events.exerciseRendered, exerciseRendered);
 
     $scope.$on(config.events.exercisePlayed, exercisePlay);
+
+    $scope.$on(config.events.exerciseCheckAnswer, exerciseChecked);
   }
 
 })(jQuery, window.angular);
