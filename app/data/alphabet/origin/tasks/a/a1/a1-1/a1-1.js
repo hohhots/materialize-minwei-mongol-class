@@ -18,10 +18,9 @@
       var self = this,
           parent = $scope.$parent.$ctrl,
           playClicked = false,
-          exerciseQuestionClicked = 0,
-          exerciseCheckedName = '';
+          exerciseQuestionClicked = 0;
 
-      var emitEvent = function() {
+      var emitRenderedEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
       };
 
@@ -45,7 +44,11 @@
       };
 
       var exerciseCheck = function() {
-        $scope.$emit(config.events.exerciseCheckAnswer, exerciseCheckedName);
+        $scope.$emit(config.events.exerciseCheckAnswer, exerciseQuestionClicked);
+      };
+
+      var exerciseCheckedRight = function() {
+        self.exerciseCover = true;
       };
 
       var init = function() {
@@ -60,7 +63,7 @@
 
       self.templateUrl = parent.exerciseTemplateUrl;
 
-      $timeout(emitEvent);
+      $timeout(emitRenderedEvent);
 
       self.$onDestroy = function(){
         console.log('exercise : I am destroyed!');
@@ -124,6 +127,7 @@
       self.exerciseCheckIcon = [];
       self.playIconBackStyle = {};
       self.exerciseCheckStyle = {};
+      self.exerciseCover = false;
       self.questions = [
         {
           id: 1,
@@ -151,6 +155,7 @@
       $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
       $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
       $scope.$on(config.events.exerciseCheck, exerciseCheck);
+      $scope.$on(config.events.exerciseCheckedRight, exerciseCheckedRight);
 
       init();
     }

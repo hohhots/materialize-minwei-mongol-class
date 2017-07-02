@@ -37,6 +37,10 @@
         excerciseHtmlId: "exercise",
         answer: "答案",
         checkAnswer: "检查答案",
+        noAnswerSelected: "您必须选择一个答案！",
+        answerSelectedWrong: "选择不正确！",
+        answerSequenceWrong: "您在重复答题或还没有做前一个练习！",
+        exerciseNext: "正确！下一个练习。",
         watchVideo: "有困难？看视频学习",
         notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
         notSupportHtml5Video: "您的浏览器不支持 HTML5 播放视频。"
@@ -58,6 +62,7 @@
         exerciseNowPlaying: 'exerciseNowPlayingEvent',
         exercisePlayEnd: 'exercisePlayEndEvent',
         exerciseCheck: 'exerciseCheckEvent',
+        exerciseCheckedRight: 'exerciseCheckedRightEvent',
         displayVideoPlayer: 'displayVideoPlayerEvent',
         closeVideoPlayer:'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',

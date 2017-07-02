@@ -53,11 +53,14 @@
         path = util.getUrlPath().substring(1),
         categoryPath = path.substring(0, path.indexOf('/')),
         subjectPath = path.substring(path.indexOf('/') + 1),
+        subject = {},
+        task = {},
         exerciseCssElem = '',
         exerciseHtmlElem = '',
         exerciseConfig = {},
         exerciseAudios = [],
         exercisePlayedAudioId = -1,
+        exerciseFinishedId = 0,
         imagesConfig = {},
         audiosConfig = {},
         videosConfig = {},
@@ -81,7 +84,8 @@
         self.tasks = json.getTasks(self.category.id, self.subject.id);
         self.exercises = json.exercises;
         exerciseConfig = json.exerciseConfig;
-        setExerciseVideos();
+        initExerciseHistoryIcons();
+        initExerciseVideos();
       } catch (err) {}
     };
 
@@ -103,6 +107,13 @@
 
     };
 
+    var initExerciseHistoryIcons = function() {
+      $.each(self.exercises, function(i, val) {
+        self.exerciseHistoryIcons[val.id] = "fa-circle-thin";
+        self.exerciseHistoryStyle[val.id] = {};
+      });
+    };
+
     var setExerciseAudios = function(questions) {
       if(exercisePlayedAudioId == -1) {
         $.each(questions, function(i, v){
@@ -121,7 +132,7 @@
       }
     };
 
-    var setExerciseVideos = function() {
+    var initExerciseVideos = function() {
       $.each(exerciseConfig.videos, function(i, v){
         $.each(videosConfig.videos, function(j, v1) {
           if(v == v1.id) {
@@ -191,8 +202,10 @@
     };
 
     var loadTaskComponentFiles =function(data) {
-      var subject = data[0];
-      var task = data[1];
+      if (data) {
+        subject = data[0];
+        task = data[1];
+      }
 
       self.task = task;
 
@@ -293,8 +306,41 @@
 
     };
 
-    var exerciseChecked = function(event, checkedName) {
-      console.log(checkedName);
+    var exerciseChecked = function(event, checkedId) {
+      // On second click, do next exercise.
+      if(exerciseFinishedId == exerciseConfig.id){
+        self.currentExerciseId += 1;
+        return;
+      }
+
+      self.exerciseWrong = false;
+
+      if(!checkedId){
+        self.exerciseWrong = true;
+        self.pageLang.exerciseWrong = config.subject.noAnswerSelected;
+        return;
+      }
+
+      if(exerciseConfig.answer != checkedId) {
+        self.exerciseWrong = true;
+        self.pageLang.exerciseWrong = config.subject.answerSelectedWrong;
+        return;
+      }
+
+      var id = exerciseConfig.id;
+
+      if(exerciseFinishedId != (id - 1)) {
+        self.exerciseWrong = true;
+        self.pageLang.exerciseWrong = config.subject.answerSequenceWrong;
+        return;
+      }
+      exerciseFinishedId = exerciseConfig.id;
+      self.exerciseHistoryIcons[id] = "fa-check-circle";
+      self.exerciseHistoryStyle[id].color = "#80ac07";
+
+      self.checkAnswerLabel = config.subject.exerciseNext;
+
+      $scope.$broadcast(config.events.exerciseCheckedRight);
     };
 
     self.getCategoryUrl = function() {
@@ -384,9 +430,13 @@
     self.task = {};
     self.taskPath = '';
     self.exercises = {};
+    self.exerciseHistoryIcons = {};
+    self.exerciseHistoryStyle = {};
     self.exerciseVideos = {};
     self.exerciseStyle = {display: "none"};
     self.exerciseTemplateUrl = '';
+    self.exerciseWrong = false;
+    self.checkAnswerLabel = config.subject.checkAnswer;
     self.waitSignContainer = {display: "block"};
     self.videoPlayerTitle = '';
 
@@ -411,6 +461,7 @@
     self.pageLang.close = config.subject.close;
     self.pageLang.answer = config.subject.answer;
     self.pageLang.checkAnswer = config.subject.checkAnswer;
+    self.pageLang.exerciseWrong = '';
     self.pageLang.watchVideo = config.subject.watchVideo;
     self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;

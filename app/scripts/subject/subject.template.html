@@ -119,7 +119,9 @@
                         <div class="subjectProblemHistory">
                           <div>
                             <span>
-                              <span id="{{$ctrl.getExerciseHtmlId(exercise.id)}}" class="subjectTaskGrid" ng-repeat="exercise in $ctrl.exercises"></span>
+                              <span id="{{::$ctrl.getExerciseHtmlId(exercise.id)}}" class="subjectTaskGrid" ng-style="$ctrl.exerciseHistoryStyle[exercise.id]" ng-repeat="exercise in $ctrl.exercises">
+                                <i class="fa {{$ctrl.exerciseHistoryIcons[exercise.id]}}" aria-hidden="true"></i>
+                              </span>
                             </span>
                           </div>
                         </div>
@@ -146,10 +148,12 @@
                                     <div id="subjectAnswerArea">
                                       <div class="subjectExerciseInfoBox">
                                         <h4 class="subjectInfoBoxHeader">{{::$ctrl.pageLang.answer}}</h4>
-                                        <div class="subjectSolutionArea"></div>
+                                        <div class="subjectSolutionArea">
+                                          <span ng-show="$ctrl.exerciseWrong">{{$ctrl.pageLang.exerciseWrong}}</span>
+                                        </div>
                                         <div class="subjectAnswerButtons">
                                           <div class="subjectCheckAnserWrapper">
-                    <button type="button" name="checkButton" class="subjectSimpleButtonGreen" ng-click="$ctrl.checkButtonClick()">{{::$ctrl.pageLang.checkAnswer}}</button>
+                                            <button type="button" name="checkButton" class="subjectSimpleButtonGreen" ng-click="$ctrl.checkButtonClick()">{{$ctrl.checkAnswerLabel}}</button>
                                           </div>
                                         </div>
                                       </div>
