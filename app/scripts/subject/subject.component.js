@@ -53,7 +53,7 @@
         path = util.getUrlPath().substring(1),
         categoryPath = path.substring(0, path.indexOf('/')),
         subjectPath = path.substring(path.indexOf('/') + 1),
-        subject = {},
+        taskCategory = {},
         exerciseCssElem = '',
         exerciseHtmlElem = '',
         exerciseConfig = {},
@@ -70,6 +70,8 @@
 
     var init = function() {
       try {
+        exerciseFinishedId = 0;
+
         self.category = json.getCategory(categoryPath);
         self.subject = json.getSubject(self.category.id, subjectPath);
 
@@ -133,6 +135,10 @@
 
         exercisePlayedAudioId = 0;
       }
+    };
+
+    var setCurrentExerciseId = function(exerciseId) {
+      self.currentExerciseId = util.setCurrentExerciseId(self.category.id, self.subject.id, taskCategory.id, self.task.id, exerciseId);
     };
 
     var initExerciseVideos = function() {
@@ -206,20 +212,20 @@
 
     var loadTaskComponentFiles =function(data) {
       if (data) {
-        subject = data[0];
+        taskCategory = data[0];
         self.task = data[1];
       }
 
       //var elem = $element.find("#" + config.subject.taskContainer);
       //elem.append("dffd");
-      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.data.tasks + "/" + subject.dirName + "/" + self.task.dirName;
+      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.data.tasks + "/" + taskCategory.dirName + "/" + self.task.dirName;
 
       self.taskPath = config.data.data + "/" + path;
 
       json.setExercises(path, self.task.dirName, self);
       // If same task selected, restore previous exercise progress.
       if(!self.currentExerciseId){
-        self.currentExerciseId = 1;
+        setCurrentExerciseId(1);
       } else {
         // reload previous exercise
         loadExerciseFiles();
@@ -228,6 +234,8 @@
 
     var displayExercise = function(event, data) {
       util.scrollToTop();
+
+      init();
 
       self.dropBackStyle.display = "block";
       self.displayTaskStyle.display = "block";
@@ -315,7 +323,7 @@
     var exerciseChecked = function(event, checkedId) {
       // On second click, do next exercise.
       if(exerciseFinishedId == exerciseConfig.id){
-        self.currentExerciseId += 1;
+        setCurrentExerciseId(self.currentExerciseId + 1);
         return;
       }
 
@@ -391,7 +399,6 @@
       exerciseCssElem.remove();
       exerciseHtmlElem.remove();
 
-      //self.currentExerciseId = 0;
     };
 
     self.videoTitleClick = function(video) {
@@ -448,7 +455,7 @@
 
     // trigger to load exercise page,
     //0 indicate nothing, 1 indicate exercise 1.
-    self.currentExerciseId = 0;
+    self.currentExerciseId = util.getCurrentExerciseId();
 
     self.dropBackStyle = {display: "none"};
     self.displayTaskStyle = {display: "none"};

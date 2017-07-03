@@ -11,6 +11,8 @@
     service('Util', ['$location', 'Config', function($location, config) {
         var isTouchScreen = 'init';
 
+        var currentExerciseId = {};
+
         var utils = {
           scrollToTop: function() {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
@@ -70,7 +72,36 @@
             });
 
             return audios;
-          }
+          },
+
+          setCurrentExerciseId: function(categoryId, subjectId, taskCategoryId, taskId, exerciseId) {
+            if(!currentExerciseId[categoryId]) {
+              currentExerciseId[categoryId] = {};
+            }
+            if(!currentExerciseId[categoryId][subjectId]) {
+              currentExerciseId[categoryId][subjectId] = {};
+            }
+            if(!currentExerciseId[categoryId][subjectId][taskCategoryId]) {
+              currentExerciseId[categoryId][subjectId][taskCategoryId] = {};
+            }
+            if(!currentExerciseId[categoryId][subjectId][taskCategoryId][taskId]) {
+              currentExerciseId[categoryId][subjectId][taskCategoryId][taskId] = exerciseId;
+            }
+
+            return exerciseId;
+          },
+
+          getCurrentExerciseId: function(categoryId, subjectId, taskCategoryId, taskId) {
+            try {
+              if(!currentExerciseId[categoryId][subjectId][taskCategoryId][taskId]) {
+                return 0;
+              }
+            } catch (err) {
+              return 0;
+            }
+
+            return currentExerciseId[categoryId][subjectId][taskCategoryId][taskId];
+          },
 
         };
 
