@@ -54,7 +54,6 @@
         categoryPath = path.substring(0, path.indexOf('/')),
         subjectPath = path.substring(path.indexOf('/') + 1),
         subject = {},
-        task = {},
         exerciseCssElem = '',
         exerciseHtmlElem = '',
         exerciseConfig = {},
@@ -83,6 +82,7 @@
         self.tasksCategory = json.subjectTasks[self.category.id][self.subject.id];
         self.tasks = json.getTasks(self.category.id, self.subject.id);
         self.exercises = json.exercises;
+        self.checkAnswerLabel = config.subject.checkAnswer;
         exerciseConfig = json.exerciseConfig;
         initExerciseHistoryIcons();
         initExerciseVideos();
@@ -207,20 +207,23 @@
     var loadTaskComponentFiles =function(data) {
       if (data) {
         subject = data[0];
-        task = data[1];
+        self.task = data[1];
       }
-
-      self.task = task;
 
       //var elem = $element.find("#" + config.subject.taskContainer);
       //elem.append("dffd");
-      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.data.tasks + "/" + subject.dirName + "/" + task.dirName;
+      var path = self.category.dirName + "/" + self.subject.dirName + "/" + config.data.tasks + "/" + subject.dirName + "/" + self.task.dirName;
 
       self.taskPath = config.data.data + "/" + path;
 
-      json.setExercises(path, task.dirName, self);
-
-      self.currentExerciseId = 1;
+      json.setExercises(path, self.task.dirName, self);
+      // If same task selected, restore previous exercise progress.
+      if(!self.currentExerciseId){
+        self.currentExerciseId = 1;
+      } else {
+        // reload previous exercise
+        loadExerciseFiles();
+      }
     };
 
     var displayExercise = function(event, data) {
@@ -388,7 +391,7 @@
       exerciseCssElem.remove();
       exerciseHtmlElem.remove();
 
-      self.currentExerciseId = 0;
+      //self.currentExerciseId = 0;
     };
 
     self.videoTitleClick = function(video) {
@@ -439,7 +442,7 @@
     self.exerciseStyle = {display: "none"};
     self.exerciseTemplateUrl = '';
     self.exerciseWrong = false;
-    self.checkAnswerLabel = config.subject.checkAnswer;
+    self.checkAnswerLabel = '';
     self.waitSignContainer = {display: "block"};
     self.videoPlayerTitle = '';
 

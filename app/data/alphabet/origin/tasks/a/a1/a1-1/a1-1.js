@@ -25,7 +25,7 @@
       };
 
       var hi = function(event, data) {
-        console.log('exercise :  I got it! ' + data);
+        //console.log('exercise :  I got it! ' + data);
       };
 
       var exerciseNowPlaying = function(event, id) {
@@ -66,7 +66,7 @@
       $timeout(emitRenderedEvent);
 
       self.$onDestroy = function(){
-        console.log('exercise : I am destroyed!');
+        //console.log('exercise : I am destroyed!');
       };
 
       self.playMouseEnter = function() {
