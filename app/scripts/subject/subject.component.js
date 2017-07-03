@@ -85,6 +85,7 @@
         self.tasks = json.getTasks(self.category.id, self.subject.id);
         self.exercises = json.exercises;
         self.checkAnswerLabel = config.subject.checkAnswer;
+        self.exerciseCover = false;
         exerciseConfig = json.exerciseConfig;
         initExerciseHistoryIcons();
         initExerciseVideos();
@@ -101,10 +102,10 @@
     };
 
     var createExerciseHtml = function() {
-      var elem = $('#' + config.subject.workArea).html(config.subject.exerciseTag);
+      var elem = $('#' + config.subject.workArea).append(config.subject.exerciseTag);
 
       exerciseScope = $scope.$new();
-      exerciseHtmlElem = $compile(elem.children()[0])(exerciseScope);
+      exerciseHtmlElem = $compile(elem.children()[1])(exerciseScope);
       $timeout(exerciseCompiled);
 
     };
@@ -354,7 +355,7 @@
 
       self.checkAnswerLabel = config.subject.exerciseNext;
 
-      $scope.$broadcast(config.events.exerciseCheckedRight);
+      self.exerciseCover = true;
     };
 
     self.getCategoryUrl = function() {
@@ -452,6 +453,7 @@
     self.checkAnswerLabel = '';
     self.waitSignContainer = {display: "block"};
     self.videoPlayerTitle = '';
+    self.exerciseCover = false;
 
     // trigger to load exercise page,
     //0 indicate nothing, 1 indicate exercise 1.

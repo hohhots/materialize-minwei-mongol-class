@@ -47,10 +47,6 @@
         $scope.$emit(config.events.exerciseCheckAnswer, exerciseQuestionClicked);
       };
 
-      var exerciseCheckedRight = function() {
-        self.exerciseCover = true;
-      };
-
       var init = function() {
         exerciseQuestionClicked = 0;
 
@@ -127,7 +123,6 @@
       self.exerciseCheckIcon = [];
       self.playIconBackStyle = {};
       self.exerciseCheckStyle = {};
-      self.exerciseCover = false;
       self.questions = [
         {
           id: 1,
@@ -155,7 +150,6 @@
       $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
       $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
       $scope.$on(config.events.exerciseCheck, exerciseCheck);
-      $scope.$on(config.events.exerciseCheckedRight, exerciseCheckedRight);
 
       init();
     }
