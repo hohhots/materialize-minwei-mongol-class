@@ -40,7 +40,7 @@
         noAnswerSelected: "您必须选择一个答案！",
         answerSelectedWrong: "选择不正确！",
         answerSequenceWrong: "您在重复答题或还没有做前一个练习！",
-        exerciseNext: "正确！下一个练习。",
+        exerciseNext: "正确！转到下一个",
         watchVideo: "有困难？看视频学习",
         notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
         notSupportHtml5Video: "您的浏览器不支持 HTML5 播放视频。"

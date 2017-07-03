@@ -109,8 +109,11 @@
 
     var initExerciseHistoryIcons = function() {
       $.each(self.exercises, function(i, val) {
-        self.exerciseHistoryIcons[val.id] = "fa-circle-thin";
-        self.exerciseHistoryStyle[val.id] = {};
+        // Previous excercises display anwser state
+        if(i > (self.currentExerciseId - 1)) {
+          self.exerciseHistoryIcons[val.id] = "fa-circle-thin";
+          self.exerciseHistoryStyle[val.id] = {};
+        }
       });
     };
 
