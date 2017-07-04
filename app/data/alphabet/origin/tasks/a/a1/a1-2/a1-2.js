@@ -3,7 +3,7 @@
 (function($, angular) {
 
   angular
-    .module('subject')
+    .module('app.subject')
     .component('appExercise', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [

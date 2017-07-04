@@ -2,11 +2,9 @@
 
 (function($, angular) {
   // Define the `core.config` module
-  angular.module('core.anchorScroll', []);
+  var app = angular.module('core.anchorScroll', []);
 
-  angular.
-    module('core.anchorScroll').
-    service('anchorSmoothScroll', function(){
+  app.service('anchorSmoothScroll', function(){
 
       this.scrollTo = function(eID) {
 

@@ -2,7 +2,7 @@
 
 (function($, angular) {
   // Define the `header` module
-  var app = angular.module('subject', ['core.config']);
+  var app = angular.module('app.subject', ['core.config']);
 
   app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider) {
     // Register directives handler

@@ -2,15 +2,13 @@
 
 (function($, angular){
   // Define the `header` module
-  angular.module('mobiledropdown', [
+  var app = angular.module('app.mobiledropdown', [
     'core.config',
     'core.json',
     'core.util'
   ]);
 
-  angular
-    .module('mobiledropdown')
-    .component('mobileDropdown', {
+  app.component('mobileDropdown', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: ['$scope', 'Config', 'Util', 'Json', controller]
     });

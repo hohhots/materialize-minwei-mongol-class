@@ -2,12 +2,10 @@
 
 (function($, angular) {
   // Define the `header` module
-  angular.module('footer', ['core.json']);
+  var app = angular.module('app.footer', ['core.json']);
 
   // Register `headerList` component, along with its associated controller and template
-  angular
-    .module('footer')
-    .component('appFooter', {
+  app.component('appFooter', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: ['Config', 'Json', appFooterController]
     });

@@ -2,15 +2,13 @@
 
 (function($, angular) {
   // Define the `core.json` module
-  angular.module('core.json', [
+  var app = angular.module('core.json', [
     'ngResource',
     'core.config',
     'core.util'
   ]);
 
-  angular.
-    module('core.json').
-    factory('Json', ['$resource', 'Config', 'Util', json]);
+  app.factory('Json', ['$resource', 'Config', 'Util', json]);
 
   function json($resource, config, util) {
     var url = config.data.data;

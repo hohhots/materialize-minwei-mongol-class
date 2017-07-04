@@ -1,12 +1,10 @@
 'use strict';
 
 // Define the `header` module
-angular.module('lesson', []);
+var app = angular.module('app.lesson', []);
 
 // Register `headerList` component, along with its associated controller and template
-angular
-  .module('lesson')
-  .component('appLesson', {
+app.component('appLesson', {
     templateUrl: 'scripts/lesson/lesson.template.html',
     controller: function appLessonController() {}
   });

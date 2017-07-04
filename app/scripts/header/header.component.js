@@ -2,17 +2,15 @@
 
 (function($, angular){
   // Define the `header` module
-  angular.module('header', [
+  var app = angular.module('app.header', [
     'core.config',
     'core.util',
-    'subjectsdropdown',
-    'mobiledropdown'
+    'app.subjectsDropdown',
+    'app.mobiledropdown'
   ]);
 
   // Register `headerList` component, along with its associated controller and template
-  angular
-    .module('header')
-    .component('appHeader', {
+  app.component('appHeader', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       //'scripts/header/header.template.html',
       controller: ['$scope', 'Config', 'Util', controller]

@@ -2,13 +2,11 @@
 
 (function($, angular) {
   // Define the `core.util` module
-  angular.module('core.util', [
+  var app = angular.module('core.util', [
     'core.config'
   ]);
 
-  angular.
-    module('core.util').
-    service('Util', ['$location', 'Config', function($location, config) {
+  app.service('Util', ['$location', 'Config', function($location, config) {
         var isTouchScreen = 'init';
 
         var currentExerciseId = {};

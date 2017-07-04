@@ -3,7 +3,7 @@
 
   angular.
     module('learnMongolApp').
-    controller('rootController', ['$scope', rootController]);
+    controller('RootController', ['$scope', rootController]);
 
     function rootController($scope) {
       var self = this;

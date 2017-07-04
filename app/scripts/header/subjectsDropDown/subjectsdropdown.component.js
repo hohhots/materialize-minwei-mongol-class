@@ -2,14 +2,12 @@
 
 (function($, angular){
   // Define the `header` module
-  angular.module('subjectsdropdown', [
+  var app = angular.module('app.subjectsDropdown', [
     'core.json',
     'core.util'
   ]);
 
-  angular
-    .module('subjectsdropdown')
-    .component('subjectsDropdown', {
+  app.component('subjectsDropdown', {
       templateUrl: template,
       controller: ['$scope', 'Util', 'Json', controller]
     });

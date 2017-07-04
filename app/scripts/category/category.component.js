@@ -2,12 +2,10 @@
 
 (function($, angular) {
   // Define the `header` module
-  angular.module('category', []);
+  var app = angular.module('app.category', []);
 
   // Register `headerList` component, along with its associated controller and template
-  angular
-    .module('category')
-    .component('appCategory', {
+  app.component('appCategory', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$scope',

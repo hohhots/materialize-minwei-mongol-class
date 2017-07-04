@@ -2,7 +2,7 @@
 
 (function($, angular) {
   // Define the `header` module
-  angular.module('home', [
+  var app = angular.module('app.home', [
     'core.config',
     'core.json',
     'core.util',
@@ -10,9 +10,7 @@
   ]);
 
   // Register `headerList` component, along with its associated controller and template
-  angular
-    .module('home')
-    .component('appHome', {
+  app.component('appHome', {
       template: '<div ng-include="$ctrl.templateUrl"></div>',
       controller: [
         '$scope',
