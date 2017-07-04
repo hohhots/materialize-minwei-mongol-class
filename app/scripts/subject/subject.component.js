@@ -172,6 +172,15 @@
       });
     };
 
+    var removeExerciseHtml = function() {
+      if(exerciseCssElem) {
+        exerciseCssElem.remove();
+      }
+      if(exerciseHtmlElem) {
+        exerciseHtmlElem.remove();
+      }
+    };
+
     // Execute by self.currentExerciseId change.
     var loadExerciseFiles = function() {
       if(!self.currentExerciseId) {
@@ -208,7 +217,6 @@
           $( "#" + config.subject.workArea ).text(  config.subject.loadFileFail + " - " + path + ".js" );
         });
 
-
     };
 
     var loadTaskComponentFiles =function(data) {
@@ -240,6 +248,8 @@
 
       self.dropBackStyle.display = "block";
       self.displayTaskStyle.display = "block";
+
+      removeExerciseHtml();
 
       loadTaskComponentFiles(data);
     };
@@ -397,9 +407,7 @@
       //exerciseScope.$destroy();
 
       // remove elements and all event listeners in jquery
-      exerciseCssElem.remove();
-      exerciseHtmlElem.remove();
-
+      removeExerciseHtml();
     };
 
     self.videoTitleClick = function(video) {

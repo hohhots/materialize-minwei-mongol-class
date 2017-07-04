@@ -47,7 +47,7 @@
         $scope.$emit(config.events.exerciseCheckAnswer, exerciseQuestionClicked);
       };
 
-      var init = function() {
+      var init = function() {console.log('1');
         exerciseQuestionClicked = 0;
 
         $.each(self.questions, function(i, val){
@@ -62,7 +62,7 @@
       $timeout(emitRenderedEvent);
 
       self.$onDestroy = function(){
-        //console.log('exercise : I am destroyed!');
+        console.log('exercise : I am destroyed!');
       };
 
       self.playMouseEnter = function() {

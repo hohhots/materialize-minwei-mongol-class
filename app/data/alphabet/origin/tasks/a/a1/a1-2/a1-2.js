@@ -14,19 +14,19 @@
         controller]
     });
 
-    function controller($rootScope, $scope, $timeout, config) {
+    function controller($rootScope, $scope, $timeout, config) {console.log('222');
       var self = this,
-          parent = $scope.$parent.$ctrl,
+          parent = $scope.$parent.$ctrl;
 
       var emitRenderedEvent = function() {
         $scope.$emit(config.events.exerciseRendered);
       };
 
       var hi = function(event, data) {
-        //console.log('exercise :  I got it! ' + data);
+        console.log('exercise :  I got it! ' + data);
       };
 
-      var init = function() {
+      var init = function() {console.log('2');
         exerciseQuestionClicked = 0;
 
         $.each(self.questions, function(i, val){
@@ -44,8 +44,9 @@
         //console.log('exercise : I am destroyed!');
       };
 
-
-
+      self.playMouseEnter = function() {
+        console.log('enter');
+      };
 
       self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
       self.exerciseCheckIcon = [];
@@ -83,6 +84,5 @@
 
       init();
     }
-
 
 })(jQuery, window.angular);
