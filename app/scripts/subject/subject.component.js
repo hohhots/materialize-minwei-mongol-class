@@ -59,6 +59,7 @@
         exerciseConfig = {},
         exerciseAudios = [],
         exercisePlayedAudioId = -1,
+        // Now checked and right exercise id.
         exerciseFinishedId = 0,
         imagesConfig = {},
         audiosConfig = {},
@@ -176,8 +177,12 @@
       if(exerciseCssElem) {
         exerciseCssElem.remove();
       }
-      if(exerciseHtmlElem) {
-        exerciseHtmlElem.remove();
+      if(exerciseHtmlElem) {console.log(exerciseHtmlElem);
+        exerciseHtmlElem.remove();console.log($('#' + config.subject.workArea).children()[1]);
+      }
+
+      if(exerciseScope == {}) {
+        exerciseScope.$destroy();
       }
     };
 
@@ -186,6 +191,8 @@
       if(!self.currentExerciseId) {
         return;
       }
+
+      removeExerciseHtml();
 
       var name = self.task.dirName + "-" + self.currentExerciseId;
 
@@ -248,8 +255,6 @@
 
       self.dropBackStyle.display = "block";
       self.displayTaskStyle.display = "block";
-
-      removeExerciseHtml();
 
       loadTaskComponentFiles(data);
     };
@@ -465,6 +470,7 @@
 
     // trigger to load exercise page,
     //0 indicate nothing, 1 indicate exercise 1.
+    // Now displaying exercise id.
     self.currentExerciseId = util.getCurrentExerciseId();
 
     self.dropBackStyle = {display: "none"};
