@@ -500,21 +500,35 @@
 
     $scope.$watch(function(){return self.currentExerciseId;}, loadExerciseFiles, true);
 
-    $scope.$on(config.events.displayExercise, displayExercise);
+    // add listener and hold on to deregister function
+    var deregister = [];
+    deregister[0] = $scope.$on(config.events.displayExercise, displayExercise);
+    deregister[1] = $scope.$on(config.events.displayVideoPlayer, displayVideoPlayer);
+    deregister[2] = $scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter);
+    deregister[3] = $scope.$on(config.events.closeVideoPlayer, closeVideoPlayer);
+    deregister[4] = $scope.$on(config.events.exerciseRendered, exerciseRendered);
+    deregister[5] = $scope.$on(config.events.exercisePlayed, exercisePlay);
+    deregister[6] = $scope.$on(config.events.exerciseCheckAnswer, exerciseChecked);
+    // clean up listener when directive's scope is destroyed
+    $.each(deregister, function(i, val){
+      $scope.$on('$destroy', val);
+    });
 
-    $scope.$on(config.events.displayVideoPlayer, displayVideoPlayer);
 
-    $scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter);
 
-    $scope.$on(config.events.closeVideoPlayerMouseLeave, closeVideoPlayerMouseLeave);
 
-    $scope.$on(config.events.closeVideoPlayer, closeVideoPlayer);
 
-    $scope.$on(config.events.exerciseRendered, exerciseRendered);
 
-    $scope.$on(config.events.exercisePlayed, exercisePlay);
 
-    $scope.$on(config.events.exerciseCheckAnswer, exerciseChecked);
+
+
+
+
+
+
+
+
+
   }
 
 })(jQuery, window.angular);

@@ -120,7 +120,7 @@
       };
 
       self.leftImageUrl = config.data.data + "/" + parent.category.dirName + "/" + parent.subject.dirName + "/" + config.data.images + "/" + "a.png";
-      self.exerciseCheckIcon = [];
+      self.exerciseCheckIcon = {};
       self.playIconBackStyle = {};
       self.exerciseCheckStyle = {};
       self.questions = [
@@ -146,10 +146,16 @@
         }
       ];
 
-      $scope.$on('hi', hi);
-      $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
-      $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
-      $scope.$on(config.events.exerciseCheck, exerciseCheck);
+      // add listener and hold on to deregister function
+      var deregister = [];
+      deregister[0] = $scope.$on('hi', hi);
+      deregister[1] = $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
+      deregister[2] = $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
+      deregister[3] = $scope.$on(config.events.exerciseCheck, exerciseCheck);
+      // clean up listener when directive's scope is destroyed
+      $.each(deregister, function(i, val){
+        $scope.$on('$destroy', val);
+      });
 
       init();
     }

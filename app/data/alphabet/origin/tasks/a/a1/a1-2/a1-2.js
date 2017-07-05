@@ -76,12 +76,6 @@
         }
       ];
 
-      $scope.$on('hi', hi);
-      $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
-      $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
-      $scope.$on(config.events.exerciseCheck, exerciseCheck);
-      $scope.$on(config.events.exerciseCheckedRight, exerciseCheckedRight);
-
       init();
     }
 
