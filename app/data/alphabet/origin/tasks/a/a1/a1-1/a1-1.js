@@ -160,5 +160,4 @@
       init();
     }
 
-
 })(jQuery, window.angular);
