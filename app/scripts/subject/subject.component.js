@@ -4,12 +4,15 @@
   // Define the `header` module
   var app = angular.module('app.subject', []);
 
+  // Because once the config phase has ended,
+  // angular’s component method doesn’t use the same $compileProvider to register new components.
   app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider) {
     // Register directives handler
     app.component = function(name, object) {
       $compileProvider.component(name, object);
       return (this);
     };
+    /**
     // Register controller handler
     app.controller = function(name, constructor) {
       $controllerProvider.register(name, constructor);
@@ -29,6 +32,7 @@
       $filterProvider.register(name, factory);
       return (this);
     };
+    **/
   });
 
   // Register `headerList` component, along with its associated controller and template
@@ -56,10 +60,11 @@
         taskCategory = {},
         exerciseCssElem = '',
         exerciseHtmlElem = '',
+        exerciseController = {},
         exerciseConfig = {},
         exerciseAudios = [],
         exercisePlayedAudioId = -1,
-        // Now checked and right exercise id.
+        // Previous exercise id.
         exerciseFinishedId = 0,
         imagesConfig = {},
         audiosConfig = {},
@@ -103,12 +108,23 @@
     };
 
     var createExerciseHtml = function() {
-      var elem = $('#' + config.subject.workArea).append(config.subject.exerciseTag);
+      // Create and convert id to string.
+      var pathId = "" + self.category.id + self.subject.id + taskCategory.id + self.task.id + self.currentExerciseId;
+      app.component('appExercise' + pathId, {
+        template: '<div ng-include="$ctrl.templateUrl"></div>',
+        controller: [
+          '$rootScope',
+          '$scope',
+          '$timeout',
+          'Config',
+          exerciseController]
+      });
+
+      var elem = $('#' + config.subject.workArea).append('<' + config.subject.exerciseTag + pathId + '/>');
 
       exerciseScope = $scope.$new();
       exerciseHtmlElem = $compile(elem.children()[1])(exerciseScope);
       $timeout(exerciseCompiled);
-
     };
 
     var initExerciseHistoryIcons = function() {
@@ -177,8 +193,8 @@
       if(exerciseCssElem) {
         exerciseCssElem.remove();
       }
-      if(exerciseHtmlElem) {console.log(exerciseHtmlElem);
-        exerciseHtmlElem.remove();console.log($('#' + config.subject.workArea).children()[1]);
+      if(exerciseHtmlElem) {
+        exerciseHtmlElem.remove();
       }
 
       if(exerciseScope == {}) {
@@ -218,12 +234,12 @@
       //js file for exercise
       $.getScript( path + ".js")
         .done(function( script, textStatus ) {
+          exerciseController = window.exerciseController;
           createExerciseHtml();
         })
         .fail(function( jqxhr, settings, exception ) {
           $( "#" + config.subject.workArea ).text(  config.subject.loadFileFail + " - " + path + ".js" );
         });
-
     };
 
     var loadTaskComponentFiles =function(data) {
@@ -513,21 +529,6 @@
     $.each(deregister, function(i, val){
       $scope.$on('$destroy', val);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   }
 

@@ -32,7 +32,7 @@
         taskContainer: "subjectTaskContainer",
         workArea: "subjectWorkArea",
         loadFileFail: "下载文件错误！",
-        exerciseTag: "<app-exercise></app-exercise>",
+        exerciseTag: "app-exercise",
         tasksTitle: {1: "请做", 2: "个练习！"},
         excerciseHtmlId: "exercise",
         answer: "答案",
