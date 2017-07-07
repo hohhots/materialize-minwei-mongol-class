@@ -66,7 +66,6 @@
         exercisePlayedAudioId = -1,
         // Previous exercise id.
         exerciseFinishedId = 0,
-        imagesConfig = {},
         audiosConfig = {},
         videosConfig = {},
         exerciseScope = {},
@@ -82,7 +81,7 @@
         self.subject = json.getSubject(self.category.id, subjectPath);
 
         json.setResourcesConfig(self.category, self.subject);
-        imagesConfig = json.images[self.category.id][self.subject.id];
+        self.imagesConfig = json.images[self.category.id][self.subject.id];
         audiosConfig = json.audios[self.category.id][self.subject.id];
         videosConfig = json.videos[self.category.id][self.subject.id];
 
@@ -356,6 +355,22 @@
 
     };
 
+    var exerciseTitlePlay = function(event, audioId) {
+      $.each(self.imagesConfig.images, function(i, v) {
+        if(audioId == v.id) {
+          var path = config.data.data + "/" + self.category.dirName + "/" + self.subject.dirName + "/" +  config.data.audios + "/"  + v.name + "-";
+          exerciseAudios = util.setAudio(path, audiosConfig);
+        }
+      });
+
+      $timeout(setAudioPlayer(exerciseAudios));
+      $timeout(function(){
+        audioPlayer.load();
+        audioPlayer.play();
+        $scope.$broadcast(config.events.exercisePlayEnd);
+      });
+    };
+
     var exerciseChecked = function(event, checkedId) {
       // On second click, do next exercise.
       if(exerciseFinishedId == exerciseConfig.id){
@@ -379,7 +394,7 @@
 
       var id = exerciseConfig.id;
 
-      if(exerciseFinishedId != (id - 1)) {
+      if(self.currentExerciseId != id) {
         self.exerciseWrong = true;
         self.pageLang.exerciseWrong = config.subject.answerSequenceWrong;
         return;
@@ -487,6 +502,7 @@
     self.waitSignContainer = {display: "block"};
     self.videoPlayerTitle = '';
     self.exerciseCover = false;
+    self.imagesConfig = {},
 
     // trigger to load exercise page,
     //0 indicate nothing, 1 indicate exercise 1.
@@ -533,6 +549,8 @@
     deregister.push($scope.$on(config.events.exerciseRendered, exerciseRendered));
 
     deregister.push($scope.$on(config.events.exercisePlayed, exercisePlay));
+
+    deregister.push($scope.$on(config.events.exerciseTitlePlayed, exerciseTitlePlay));
 
     deregister.push($scope.$on(config.events.exerciseCheckAnswer, exerciseChecked));
 

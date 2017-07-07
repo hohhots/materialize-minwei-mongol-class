@@ -28,7 +28,7 @@
                 <i class="fa {{$ctrl.exerciseCheckIcon[question.id]}}" ng-style="$ctrl.exerciseCheckStyle[question.id]" aria-hidden="true"></i>
               </span>
               <span class="exerciseCheckLabel">
-                <img ng-src="{{::question.imageUrl}}" width="35px" height="70px" title="{{::$ctrl.origin}}">
+                <img ng-src="{{$ctrl.questionsImageUrl[question.id]}}" width="35px" height="70px">
               </span>
             </div>
           </li>

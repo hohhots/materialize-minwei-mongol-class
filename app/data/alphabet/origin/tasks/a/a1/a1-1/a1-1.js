@@ -37,10 +37,10 @@ window.exerciseController = function controller($rootScope, $scope, $timeout, co
     exerciseQuestionClicked = 0;
 
     $.each(self.questions, function(i, val){
-          self.exerciseCheckIcon[val.id] = "fa-circle-thin";
-          self.exerciseCheckStyle[val.id] = {};
-        }
-      );
+        self.exerciseCheckIcon[val.id] = "fa-circle-thin";
+        self.exerciseCheckStyle[val.id] = {};
+      }
+    );
   };
 
   self.templateUrl = parent.exerciseTemplateUrl;
@@ -82,7 +82,6 @@ window.exerciseController = function controller($rootScope, $scope, $timeout, co
     if((exerciseQuestionClicked == id) && !otherClicked){return;}
 
     self.exerciseCheckIcon[id] = "fa-check-circle";
-    //self.exerciseCheckStyle[id].color = "#80ac07";
   };
 
   self.exerciseCheckMouseLeave = function(id, otherClicked = false) {

@@ -59,6 +59,7 @@
         displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',
         exercisePlayed: 'exercisePlayedEvent',
+        exerciseTitlePlayed: 'exerciseTitlePlayedEvent',
         exerciseNowPlaying: 'exerciseNowPlayingEvent',
         exercisePlayEnd: 'exercisePlayEndEvent',
         exerciseCheck: 'exerciseCheckEvent',
