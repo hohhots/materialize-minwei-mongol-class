@@ -52,7 +52,7 @@ window.exerciseController = function controller($rootScope, $scope, $timeout, co
   };
 
   self.$onDestroy = function(){
-    console.log('exercise : I am destroyed!');
+    //console.log('exercise : I am destroyed!');
   };
 
   self.playMouseEnter = function() {
@@ -138,9 +138,9 @@ window.exerciseController = function controller($rootScope, $scope, $timeout, co
 
   // add listener and hold on to deregister function
   var deregister = [];
-  deregister[0] = $scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying);
-  deregister[1] = $scope.$on(config.events.exercisePlayEnd, exercisePlayEnd);
-  deregister[2] = $scope.$on(config.events.exerciseCheck, exerciseCheck);
+  deregister.push($scope.$on(config.events.exerciseNowPlaying, exerciseNowPlaying));
+  deregister.push($scope.$on(config.events.exercisePlayEnd, exercisePlayEnd));
+  deregister.push($scope.$on(config.events.exerciseCheck, exerciseCheck));
   // clean up listener when directive's scope is destroyed
   $.each(deregister, function(i, val){
     $scope.$on('$destroy', val);

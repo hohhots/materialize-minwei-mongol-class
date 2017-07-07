@@ -19,15 +19,17 @@
   </div>
 
   <div class="exerciseProblem">
-    <div class="exerciseCenterContainer">
-      <div class="exerciseCenter">
+    <div class="exerciseCheckCenterContainer">
+      <div class="exerciseCheckCenter">
         <ul class="exerciseQuestionUl">
           <li class="exerciseQuestionLi" ng-repeat="question in $ctrl.questions">
             <div class="exerciseCheckAndOption" ng-mouseenter="$ctrl.exerciseCheckMouseEnter(question.id)" ng-mouseleave="$ctrl.exerciseCheckMouseLeave(question.id)" ng-click="$ctrl.exerciseCheckClick(question.id)">
               <span class="exerciseCheckBox">
                 <i class="fa {{$ctrl.exerciseCheckIcon[question.id]}}" ng-style="$ctrl.exerciseCheckStyle[question.id]" aria-hidden="true"></i>
               </span>
-              <span class="exerciseCheckLabel">{{::question.name}}</span>
+              <span class="exerciseCheckLabel">
+                <img ng-src="{{::question.imageUrl}}" width="35px" height="70px" title="{{::$ctrl.origin}}">
+              </span>
             </div>
           </li>
         </ul>

@@ -518,13 +518,13 @@
 
     // add listener and hold on to deregister function
     var deregister = [];
-    deregister[0] = $scope.$on(config.events.displayExercise, displayExercise);
-    deregister[1] = $scope.$on(config.events.displayVideoPlayer, displayVideoPlayer);
-    deregister[2] = $scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter);
-    deregister[3] = $scope.$on(config.events.closeVideoPlayer, closeVideoPlayer);
-    deregister[4] = $scope.$on(config.events.exerciseRendered, exerciseRendered);
-    deregister[5] = $scope.$on(config.events.exercisePlayed, exercisePlay);
-    deregister[6] = $scope.$on(config.events.exerciseCheckAnswer, exerciseChecked);
+    deregister.push($scope.$on(config.events.displayExercise, displayExercise));
+    deregister.push($scope.$on(config.events.displayVideoPlayer, displayVideoPlayer));
+    deregister.push($scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter));
+    deregister.push($scope.$on(config.events.closeVideoPlayer, closeVideoPlayer));
+    deregister.push($scope.$on(config.events.exerciseRendered, exerciseRendered));
+    deregister.push($scope.$on(config.events.exercisePlayed, exercisePlay));
+    deregister.push($scope.$on(config.events.exerciseCheckAnswer, exerciseChecked));
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function(i, val){
       $scope.$on('$destroy', val);

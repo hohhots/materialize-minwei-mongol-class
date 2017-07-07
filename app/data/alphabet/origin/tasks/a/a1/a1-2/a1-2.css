@@ -7,35 +7,21 @@
   min-height: 300px;
 }
 
-.exerciseTitle,
-.exerciseProblem {
-  position: relative;
-  float: left;
-}
-
-.exerciseProblem {
-  position: relative;
-  float: left;
-  border-left: 1px dashed #999;
-}
-
 .exercisePlay {
   position: relative;
-  float: left;
-  border-left: 1px dashed #999;
+  border-bottom: 1px dashed #999;
   cursor: pointer;
+  width: 100%;
 }
 
 .exerciseCenterContainer {
-  display: table-cell;
   vertical-align: middle;
-  height: 400px;
   text-align: center;
 }
 
 .exerciseCenter {
   display: inline-block;
-  margin: 0 70px;
+  margin: 40px 0;
 }
 
 .exercisePlayIconWrapper {
@@ -57,32 +43,40 @@
   cursor: pointer;
 }
 
+.exerciseProblem {
+  position: relative;
+  width: 100%;
+}
+
+.exerciseCheckCenterContainer {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.exerciseCheckCenter {
+  display: inline-block;
+  margin: 0;
+}
+
+.exerciseQuestionLi {
+  float: left;
+}
+
 .exerciseCheckAndOption {
-  display: flex !important;
-  padding: 16px 16px !important;
+  padding: 16px 26px !important;
   cursor: pointer;
 }
 
 .exerciseCheckBox {
   position: relative !important;
-  display: flex !important;
-  margin-right: 16px !important;
   padding: 3px;
   font-size: 28px;
 }
 
 .exerciseCheckLabel {
+  display: block;
+  margin-top: 10px;
   font-size: 24px;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
-}
-
-.exerciseCover{
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: transparent;
 }
