@@ -62,7 +62,7 @@
         exerciseNowPlaying: 'exerciseNowPlayingEvent',
         exercisePlayEnd: 'exercisePlayEndEvent',
         exerciseCheck: 'exerciseCheckEvent',
-        exerciseCheckedRight: 'exerciseCheckedRightEvent',
+        exerciseCheckPassed: 'exerciseCheckPassedEvent',
         displayVideoPlayer: 'displayVideoPlayerEvent',
         closeVideoPlayer:'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',

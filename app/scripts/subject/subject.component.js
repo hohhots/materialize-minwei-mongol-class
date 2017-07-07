@@ -264,6 +264,10 @@
       }
     };
 
+    var displayExerciseCover = function() {
+      self.exerciseCover = true;
+    };
+
     var displayExercise = function(event, data) {
       util.scrollToTop();
 
@@ -386,7 +390,7 @@
 
       self.checkAnswerLabel = config.subject.exerciseNext;
 
-      self.exerciseCover = true;
+      $scope.$broadcast(config.events.exerciseCheckPassed);
     };
 
     self.getCategoryUrl = function() {
@@ -519,12 +523,21 @@
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.displayExercise, displayExercise));
+
     deregister.push($scope.$on(config.events.displayVideoPlayer, displayVideoPlayer));
+
     deregister.push($scope.$on(config.events.closeVideoPlayerMouseEnter, closeVideoPlayerMouseEnter));
+
     deregister.push($scope.$on(config.events.closeVideoPlayer, closeVideoPlayer));
+
     deregister.push($scope.$on(config.events.exerciseRendered, exerciseRendered));
+
     deregister.push($scope.$on(config.events.exercisePlayed, exercisePlay));
+
     deregister.push($scope.$on(config.events.exerciseCheckAnswer, exerciseChecked));
+
+    deregister.push($scope.$on(config.events.exerciseCheckPassed, displayExerciseCover));
+
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function(i, val){
       $scope.$on('$destroy', val);
