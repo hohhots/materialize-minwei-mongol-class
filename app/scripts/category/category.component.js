@@ -32,6 +32,7 @@
       } else {
         self.headerStickyHide = true;
       }
+      $scope.$digest();
     };
 
     var setSubjectsStyle = function() {
@@ -46,9 +47,7 @@
     };
 
     $(window).scroll(function(e){
-      $scope.$apply(function(){
-        windowScroll(e);
-      });
+      windowScroll(e);
     });
 
     var init = function() {
