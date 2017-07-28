@@ -20,6 +20,14 @@
   text-shadow: 0 0 10px #1499af !important;
 }
 
+.homeIntroduction {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1200px;
+  padding: 40px;
+  font-size: 18px;
+}
+
 .divider {
   border-top: 1px solid #D6D8DA !important;
   width: 100% !important;
