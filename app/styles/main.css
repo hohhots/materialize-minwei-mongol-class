@@ -59,16 +59,7 @@ hr {
 
 .md-48 {font-size: 48px;}
 
-@media screen and (min-width: 767px) {
-  ul {
-    display: block !important;
-  }
+ul {
+   display: block !important;
 }
 
-@media only screen and (min-width: 992px) {
-
-}
-
-@media only screen and (min-width: 1230px) {
-
-}
