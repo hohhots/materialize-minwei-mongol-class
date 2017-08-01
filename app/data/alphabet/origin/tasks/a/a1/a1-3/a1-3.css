@@ -1,0 +1,26 @@
+.exerciseTextContent {
+  width: 100%;
+}
+
+.exerciseBodyContainer {
+  margin: 50px;
+  min-height: 300px;
+}
+
+.exerciseTitle,
+.exerciseProblem {
+  position: relative;
+  float: left;
+}
+
+.exerciseCenterContainer {
+  display: table-cell;
+  vertical-align: middle;
+  height: 400px;
+  text-align: center;
+}
+
+.exerciseCenter {
+  display: inline-block;
+  margin: 0 70px;
+}
