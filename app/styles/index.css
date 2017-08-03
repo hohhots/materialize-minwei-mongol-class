@@ -77,15 +77,14 @@
 	width: 1003px;
 }
 /*中部-第一部分*/
-.mid01{
-	width: 1003px;
-}
-.mid01_top{
+.mid01,
+.mid01_top,
+.intro_top_you {
 	width: 1003px;
 }
 
 .top_you {
-    width: 1003px;
+	width: 473px;
 }
 
 .top_you .gywm{
@@ -106,11 +105,11 @@
 	display: inline-block;
 }
 .bt1{
+	position: relative;
 	display: inline-block;
 	height: 28px;
-	position: absolute;
-	top: 6px;
-	left: 40px;
+	top: -6px;
+	left: 10px;
 }
 .title01{
 	height: 20px;
