@@ -129,8 +129,8 @@ a:focus{outline:none;}
 }
 .banner{
 	width: 100%;
-	height: 400px;
-	background: url(../images/bannerBack.png);
+	height: 229px;
+	text-align: center;
 }
 
 .banner img{
