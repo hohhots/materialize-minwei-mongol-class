@@ -97,6 +97,9 @@
 	width: 1003px;
 	text-align: center;
 }
+.mongolExample img{
+	float: left;
+}
 .gywm_tubiao{
 	width:4px;
 	height: 28px;
