@@ -4,6 +4,7 @@ docs
 libs
 dist
 .tmp
+.vscode
 app.yaml
 *.pyc
 *~
