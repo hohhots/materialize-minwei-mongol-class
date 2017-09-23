@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, angular) {
+(function() {
   // Define the `header` module
   var app = angular.module('app.home', [
     'core.config',
@@ -42,6 +42,10 @@
 
     self.getUrl = function(url) {
       return util.convertUrl(url);
+    };
+
+    self.getSubjectUrl = function(catname, subname) {
+      return util.convertUrl(catname + subname);
     };
 
     self.navMouseEnter = function(id) {
@@ -113,22 +117,6 @@
       return self.subjects[cid][sid].style;
     };
 
-    self.webCategoryMouseEnter = function(id) {
-      if(!self.webCategories[id]){
-        self.webCategories[id] = {};
-      }
-      if(!self.webCategories[id].style){
-        self.webCategories[id].style = {};
-      }
-      self.webCategories[id].style.color = json.categories[id].color;
-      self.webCategories[id].style.textDecoration = "underline";
-    };
-
-    self.webCategoryMouseLeave = function(id) {
-      self.webCategories[id].style.color =  "";
-      self.webCategories[id].style.textDecoration = "none";
-    };
-
     self.webSubjectMouseEnter = function(cid, sid) {
       self.webSubjects[cid][sid].style.textDecoration = "underline";
     };
@@ -191,4 +179,4 @@
     $scope.$watch(function(){return self.jsons;}, init, true);
   }
 
-})(jQuery, window.angular);
+})();

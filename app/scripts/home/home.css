@@ -193,11 +193,11 @@
   }
 
   .homeWebCategoriesH2 {
-    cursor: pointer !important;
     min-width: 40% !important;
     box-sizing: border-box !important;
     float: left !important;
     padding-right: 32px !important;
+    text-align: center;
   }
 
   .homeWebCategoriesH2A {
@@ -258,7 +258,7 @@
 
 @media screen and (min-width: 1024px) {
   .homeWebCategoriesH2 {
-    min-width: 28% !important;
+    min-width: 20% !important;
   }
 
   .homeWebCategoriesLi{

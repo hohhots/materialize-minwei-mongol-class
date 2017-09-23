@@ -35,46 +35,32 @@
           template: '<app-home />'
         },
         {
-          name: 'root.alphabet',
-          url: '/alphabet',
-          template: '<app-category />'
+          name: 'root.alphaorigin',
+          url: '/alphabetorigin',
+          template: '<app-alphaorigin />'
+        },
+        {
+          name: 'root.alphalist',
+          url: '/alphabetlist',
+          template: '<app-alphalist />'
+        }, {
+          name: 'root.alphavariant',
+          url: '/alphabetvariant',
+          template: '<app-alphavariant />'
         }
-        /**
-                {
-                  name: 'category',
-                  url: '/{categoryName}',
-                  template: categoryT
-                },
-        
-                {
-                  name: 'subject',
-                  url: '/{categoryName}/{subjectName}',
-                  template: subjectT
-                },
-        
-                {
-                  name: 'class',
-                  url: '/{categoryName}/{subjectName}/{className}',
-                  template: mclassT
-                },
-        
-                {
-                  name: 'lesson',
-                  url: '/{categoryName}/{subjectName}/{className}/{lesson}',
-                  template: lessonT
-                }
-                **/
+
       ]
+
+      // Must redirection before set before state
+      $urlRouterProvider.when('/root/alphabet', '/root/alphabet/origin');
+      $urlRouterProvider.when('/root', '/root/home');
 
       // Loop over the state definitions and register them
       states.forEach(function (state) {
         $stateProvider.state(state);
       });
 
-      $urlRouterProvider.when('/root', '/root/home')
       $urlRouterProvider.otherwise('/root/home');
-
-
     }
   ]);
 })();

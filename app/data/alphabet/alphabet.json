@@ -10,8 +10,8 @@
     "id": 2,
     "name": "字母表",
     "introduction": "传统蒙古文“根字母”加七个元音，构成了蒙古文独具个性的“字母表”。",
-    "dirName": "vowal",
-    "imageUrl": "vowal.png"
+    "dirName": "list",
+    "imageUrl": "list.png"
   },
   {
     "id": 3,
