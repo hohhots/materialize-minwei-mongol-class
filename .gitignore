@@ -1,10 +1,14 @@
+# directorys
 bower_components
 node_modules
+package-lock.json
 docs
 libs
 dist
 .tmp
 .vscode
+
+# files
 app.yaml
 *.pyc
 *~
