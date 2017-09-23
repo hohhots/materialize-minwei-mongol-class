@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
   var app = angular.module('app', [
     'ui.router',
     'app.root',
@@ -13,11 +13,8 @@
     'app.footer'
   ]);
 
-  app.config(['$stateProvider','$urlRouterProvider',
+  app.config(['$stateProvider', '$urlRouterProvider',
     function config($stateProvider, $urlRouterProvider) {
-
-      //var appHeader = "<app-header></app-header>";
-      //var appFooter = "<app-footer></app-footer>";
 
       //var homeT     =  appHeader + '<app-home></app-home>' + appFooter;
       //var categoryT =  appHeader + '<app-category></app-category>' + appFooter;
@@ -36,43 +33,48 @@
           name: 'root.home',
           url: '/home',
           template: '<app-home />'
+        },
+        {
+          name: 'root.alphabet',
+          url: '/alphabet',
+          template: '<app-category />'
         }
+        /**
+                {
+                  name: 'category',
+                  url: '/{categoryName}',
+                  template: categoryT
+                },
         
-/**
-        {
-          name: 'category',
-          url: '/{categoryName}',
-          template: categoryT
-        },
-
-        {
-          name: 'subject',
-          url: '/{categoryName}/{subjectName}',
-          template: subjectT
-        },
-
-        {
-          name: 'class',
-          url: '/{categoryName}/{subjectName}/{className}',
-          template: mclassT
-        },
-
-        {
-          name: 'lesson',
-          url: '/{categoryName}/{subjectName}/{className}/{lesson}',
-          template: lessonT
-        }
-        **/
+                {
+                  name: 'subject',
+                  url: '/{categoryName}/{subjectName}',
+                  template: subjectT
+                },
+        
+                {
+                  name: 'class',
+                  url: '/{categoryName}/{subjectName}/{className}',
+                  template: mclassT
+                },
+        
+                {
+                  name: 'lesson',
+                  url: '/{categoryName}/{subjectName}/{className}/{lesson}',
+                  template: lessonT
+                }
+                **/
       ]
 
-      //$urlServiceProvider.rules.otherwise({ state: 'root' });
-      
-      $urlRouterProvider.otherwise('/root/home');
-
       // Loop over the state definitions and register them
-      states.forEach(function(state) {
+      states.forEach(function (state) {
         $stateProvider.state(state);
       });
+
+      $urlRouterProvider.when('/root', '/root/home')
+      $urlRouterProvider.otherwise('/root/home');
+
+
     }
   ]);
 })();

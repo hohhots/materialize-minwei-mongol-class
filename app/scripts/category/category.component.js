@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, angular) {
+(function() {
   // Define the `header` module
   var app = angular.module('app.category', []);
 
@@ -54,7 +54,7 @@
       self.category = json.getCategory(path);
 
       self.subjects = self.jsons.subjects[self.category.id];
-
+      
       setSubjectsStyle();
 
       self.classes = self.jsons.classes[self.category.id];
@@ -109,4 +109,4 @@
     $scope.$watch(function(){return self.jsons;}, init, true);
   }
 
-})(jQuery, window.angular);
+})();

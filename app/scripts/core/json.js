@@ -97,6 +97,8 @@
     //Use this get category data according to access url
     //www.xxxx.com/#!/dirname
     var getCategoryJson = function(dirname) {
+      dirname = util.deconvertUrl(dirname);
+      
       var ob = {};
 
       $.each(jsons.categories, function(i, val) {

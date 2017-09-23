@@ -10,7 +10,8 @@
   var config =
     {
       app: {
-        urlPrefix: "#!"
+        urlPrefix: "#!",
+        url: "root"
       },
 
       json: {

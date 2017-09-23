@@ -54,7 +54,13 @@
           convertUrl: function(url) {
             url = url ? url : '';
 
-            return config.app.urlPrefix + "/" + url;
+            return config.app.urlPrefix + "/" + config.app.url + "/" + url;
+          },
+
+          deconvertUrl: function(url) {
+            url = url ? url : '';
+            var pre = config.app.url + "/";console.log(url.substring(+pre.length));
+            return url.substring(+pre.length);
           },
 
           setAudio: function(path, audiosConfig) {
