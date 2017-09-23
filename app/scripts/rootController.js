@@ -1,9 +1,9 @@
-(function(angular) {
+(function() {
   'use strict';
 
   angular.
-    module('learnMongolApp').
-    controller('RootController', ['$scope', rootController]);
+    module('app').
+    controller('rootController', ['$scope', rootController]);
 
     function rootController($scope) {
       var self = this;
@@ -34,4 +34,4 @@
         }
       };
     }
-})(window.angular);
+})();

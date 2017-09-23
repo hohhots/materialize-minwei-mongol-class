@@ -1,0 +1,60 @@
+<header class="homeHeader">
+    <h1 ng-bind-html="$ctrl.getText('welcome')"></h1>
+  </div>
+</header>
+
+<div>
+  <div class="divider"></div>
+  <div>
+    <nav>
+      <ul class="homeNavbar">
+        <li class="homeNavbarLi" ng-repeat="category in $ctrl.jsons.categories">
+          <a class="homeNavbarLiA" ng-style="$ctrl.navText[category.id].style"  ng-mouseenter="$ctrl.navMouseEnter(category.id)" ng-mouseleave="$ctrl.navMouseLeave(category.id)"  ng-click="$ctrl.gotoElement(category.name)">
+            {{::category.name}}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="divider"></div>
+  <div class="homeContainer">
+
+    <div id="{{::category.name}}" class="homeCategories" ng-repeat="category in $ctrl.jsons.categories">
+      <div class="homePhoneCategories">
+        <button class="homePhoneButton" ng-mouseenter="$ctrl.categoryMouseEnter(category.id)" ng-mouseleave="$ctrl.categoryMouseLeave(category.id)" ng-click="$ctrl.categoryClick($event, category.id)">
+          <a href="javascript:void(0)" class="homePhoneHeader">
+            <img class="homePhoneImage" ng-src="{{$ctrl.categories[category.id].image.src}}">
+            <span class="homePhoneSpan" ng-style="$ctrl.categories[category.id].style">{{::category.name}}</span>
+            <div class="homePhoneDropDownIcon">
+              <i class="fa {{$ctrl.folderIcon[category.id].class}} fa-lg" aria-hidden="true"  ng-style="$ctrl.folderIcon[category.id].style"></i>
+            </div>
+          </a>
+        </button>
+        <div ng-style="$ctrl.categories[category.id].displaySubjects">
+          <ul class="homePhoneSubjects">
+            <li class="homePhoneSubject" ng-repeat="subject in $ctrl.jsons.subjects[category.id]">
+              <a class="homePhoneSubjectA" href="#" ng-style="$ctrl.getSubjectsStyle($last, category.id, subject.id)" ng-mouseenter="$ctrl.subjectMouseEnter(category.id, subject.id)" ng-mouseleave="$ctrl.subjectMouseLeave(category.id, subject.id)">{{::subject.name}}</a>
+            </li>
+          </ul>
+          <hr class="homeSeparator">
+        </div>
+      </div>
+      <div class="homeWebCategories">
+        <h2 class="homeWebCategoriesH2" ng-mouseenter="$ctrl.webCategoryMouseEnter(category.id)" ng-mouseleave="$ctrl.webCategoryMouseLeave(category.id)">
+          <a class="homeWebCategoriesH2A" ng-href="{{$ctrl.getUrl(category.dirName)}}">
+            <img class="homeWebCategoriesH2AImg" ng-src="{{$ctrl.categories[category.id].image.src}}" alt="">
+            <span class="homeWebCategoriesH2ASpan" ng-style="$ctrl.webCategories[category.id].style">{{category.name}}</span>
+          </a>
+        </h2>
+        <ul class="homeWebCategoriesUl">
+          <li class="homeWebCategoriesLi" ng-repeat="subject in $ctrl.jsons.subjects[category.id]">
+            <a class="homeWebCategoriesLiA" href="#" ng-style="$ctrl.webSubjects[category.id][subject.id].style" ng-mouseenter="$ctrl.webSubjectMouseEnter(category.id, subject.id)" ng-mouseleave="$ctrl.webSubjectMouseLeave(category.id, subject.id)">
+              {{subject.name}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

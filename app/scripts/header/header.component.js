@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, angular){
+(function(){
   // Define the `header` module
   var app = angular.module('app.header', [
     'core.config',
@@ -171,4 +171,4 @@
     }
   }
 
-})(jQuery, window.angular);
+})();
