@@ -43,7 +43,8 @@
           name: 'root.alphalist',
           url: '/alphabetlist',
           template: '<app-alphalist />'
-        }, {
+        }, 
+        {
           name: 'root.alphavariant',
           url: '/alphabetvariant',
           template: '<app-alphavariant />'

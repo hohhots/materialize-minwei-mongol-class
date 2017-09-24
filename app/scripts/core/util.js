@@ -59,7 +59,7 @@
 
           deconvertUrl: function(url) {
             url = url ? url : '';
-            var pre = config.app.url + "/";console.log(url.substring(+pre.length));
+            var pre = config.app.url + "/";
             return url.substring(+pre.length);
           },
 

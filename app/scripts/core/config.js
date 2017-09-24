@@ -52,6 +52,7 @@
         mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
         home: 'scripts/home/home.template.html',
         category: 'scripts/category/category.template.html',
+        alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html'
       },
