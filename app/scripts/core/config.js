@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, angular) {
+(function($) {
 
   //set global file cache for $.ajax().
   $.ajaxSetup({
@@ -89,10 +89,7 @@
     };
 
   // Define the `core.config` module
-  angular.module('core.config', []);
-
-  angular.
-    module('core.config').
+  angular.module('core.config', []).
     constant('Config', config);
 
-})(jQuery, window.angular);
+})(jQuery);

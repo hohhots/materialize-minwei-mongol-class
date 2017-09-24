@@ -1,6 +1,6 @@
 'use strict';
 
-(function ($, angular) {
+(function ($) {
   // Define the `core.util` module
   var app = angular.module('core.util', [
     'core.config'
@@ -117,4 +117,4 @@
     return utils;
   }
   ]);
-})(jQuery, window.angular);
+})(jQuery);

@@ -13,8 +13,8 @@
     'app.footer'
   ]);
 
-  app.config(['$stateProvider', '$urlRouterProvider',
-    function config($stateProvider, $urlRouterProvider) {
+  app.config(['$stateProvider', '$urlRouterProvider', 'Config',
+    function config($stateProvider, $urlRouterProvider, config) {
 
       //var homeT     =  appHeader + '<app-home></app-home>' + appFooter;
       //var categoryT =  appHeader + '<app-category></app-category>' + appFooter;
@@ -37,24 +37,29 @@
         {
           name: 'root.alphaorigin',
           url: '/alphabetorigin',
-          component: 'appAlphaorigin'
-          //resolve: {
-          //  json: json.getJsonWithPath(config.dataPath[util.getUrlPath('category')].json),
-          //  data: json.getJsonWithPath(config.dataPath[util.getUrlPath('category')].data)
-          //}
+          component: 'appAlphaorigin',
+          resolve: {
+            jsonData: function ($http) {
+              return $http.get(config.dataPath['alphabetorigin'].json, { cache: true })
+                .then(function (resp) {return resp.data; });
+            },
+            subData: function () {
+              return 'asd';
+            }
+          }
         },
         {
           name: 'root.alphalist',
           url: '/alphabetlist',
           component: '<app-alphalist />'
-        }, 
+        },
         {
           name: 'root.alphavariant',
           url: '/alphabetvariant',
           component: '<app-alphavariant />'
         }
-
       ]
+
 
       // Must redirection before set before state
       $urlRouterProvider.when('/root', '/root/home');
