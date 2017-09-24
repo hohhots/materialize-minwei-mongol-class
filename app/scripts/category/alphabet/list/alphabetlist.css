@@ -1,0 +1,36 @@
+.alphabetlist-header {
+  padding-top: 96px !important;
+  padding-bottom: 32px !important;
+}
+
+.alphabetlist-content {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.alphabetorigin-view {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 45px;
+  height: 90px;
+  background-color: #085a9d;
+}
+
+.alphabetorigin-num {
+  width: 100% !important;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+@media (min-width:601px) {
+  .alphabetorigin-content {
+    width: 60% !important;
+  }
+}
+
+@media (min-width:993px) {
+  .alphabetorigin-content {
+    width: 50% !important;
+  }
+}

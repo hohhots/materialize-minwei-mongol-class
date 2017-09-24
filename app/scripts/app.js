@@ -43,20 +43,41 @@
               return $http.get(config.dataPath['alphabetorigin'].json, { cache: true })
                 .then(function (resp) {return resp.data; });
             },
-            subData: function () {
-              return 'asd';
+            subData: function ($http) {
+              return $http.get(config.dataPath['alphabetorigin'].data, { cache: true })
+                .then(function (resp) {return resp.data; });
             }
           }
         },
         {
           name: 'root.alphalist',
           url: '/alphabetlist',
-          component: '<app-alphalist />'
+          component: 'appAlphalist',
+          resolve: {
+            jsonData: function ($http) {
+              return $http.get(config.dataPath['alphabetlist'].json, { cache: true })
+                .then(function (resp) {return resp.data; });
+            },
+            subData: function ($http) {
+              return $http.get(config.dataPath['alphabetlist'].data, { cache: true })
+                .then(function (resp) {return resp.data; });
+            }
+          }
         },
         {
           name: 'root.alphavariant',
           url: '/alphabetvariant',
-          component: '<app-alphavariant />'
+          component: 'appAlphavariant',
+          resolve: {
+            jsonData: function ($http) {
+              return $http.get(config.dataPath['alphabetvariant'].json, { cache: true })
+                .then(function (resp) {return resp.data; });
+            },
+            subData: function ($http) {
+              return $http.get(config.dataPath['alphabetvariant'].data, { cache: true })
+                .then(function (resp) {return resp.data; });
+            }
+          }
         }
       ]
 

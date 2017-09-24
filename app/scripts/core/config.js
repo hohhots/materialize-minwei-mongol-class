@@ -53,6 +53,7 @@
         home: 'scripts/home/home.template.html',
         category: 'scripts/category/category.template.html',
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
+        alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html'
       },
@@ -61,6 +62,10 @@
         alphabetorigin: {
           json:'data/alphabet/origin/origin.json',
           data:'data/alphabet/origin/data.json'
+        },
+        alphabetlist: {
+          json:'data/alphabet/list/list.json',
+          data:'data/alphabet/list/data.json'
         }
       },
 
