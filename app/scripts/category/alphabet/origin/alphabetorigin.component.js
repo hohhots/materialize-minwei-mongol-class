@@ -19,10 +19,19 @@
   function controller($scope, $element, config, util, json) {
     var self = this;
 
-
     self.templateUrl = config.templateUrl.alphabetorigin;
-
+    self.category = {};
     
+    var paths = config.dataPath[util.getUrlPath('category')];
+    
+    var init = function() {
+      self.category = json.getCategory(paths.json);
+
+      self.data = json.getCategory(paths.data);
+      
+    };
+
+    $scope.$watch(function(){return self.jsons;}, init, true);
   }
 
 })();

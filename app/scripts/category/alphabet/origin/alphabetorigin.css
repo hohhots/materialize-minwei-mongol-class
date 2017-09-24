@@ -9,12 +9,17 @@
   margin-right: auto !important;
 }
 
-.alphabetorigin-alphabet {
+.alphabetorigin-view {
   margin-left: auto !important;
   margin-right: auto !important;
   width: 40px;
-  height: 70px;
+  height: 90px;
   background-color: #085a9d;
+}
+
+.alphabetorigin-num {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 @media (min-width:601px) {

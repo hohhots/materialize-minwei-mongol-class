@@ -57,6 +57,13 @@
         footer: 'scripts/footer/footer.template.html'
       },
 
+      dataPath: {
+        alphabetorigin: {
+          json:'data/alphabet/origin/origin.json',
+          data:'data/alphabet/origin/data.json'
+        }
+      },
+
       events: {
         displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',

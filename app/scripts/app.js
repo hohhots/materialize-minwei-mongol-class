@@ -53,7 +53,6 @@
       ]
 
       // Must redirection before set before state
-      $urlRouterProvider.when('/root/alphabet', '/root/alphabet/origin');
       $urlRouterProvider.when('/root', '/root/home');
 
       // Loop over the state definitions and register them
