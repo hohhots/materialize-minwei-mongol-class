@@ -32,22 +32,26 @@
         {
           name: 'root.home',
           url: '/home',
-          template: '<app-home />'
+          component: 'appHome'
         },
         {
           name: 'root.alphaorigin',
           url: '/alphabetorigin',
-          template: '<app-alphaorigin />'
+          component: 'appAlphaorigin'
+          //resolve: {
+          //  json: json.getJsonWithPath(config.dataPath[util.getUrlPath('category')].json),
+          //  data: json.getJsonWithPath(config.dataPath[util.getUrlPath('category')].data)
+          //}
         },
         {
           name: 'root.alphalist',
           url: '/alphabetlist',
-          template: '<app-alphalist />'
+          component: '<app-alphalist />'
         }, 
         {
           name: 'root.alphavariant',
           url: '/alphabetvariant',
-          template: '<app-alphavariant />'
+          component: '<app-alphavariant />'
         }
 
       ]

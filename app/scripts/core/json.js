@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, angular) {
+(function($) {
   // Define the `core.json` module
   var app = angular.module('core.json', [
     'ngResource',
@@ -8,12 +8,19 @@
     'core.util'
   ]);
 
-  app.factory('Json', ['$resource', 'Config', 'Util', json]);
+  app.factory('Json', ['$window', '$resource', 'Config', 'Util', json]);
 
-  function json($resource, config, util) {
+  function json($window, $resource, config, util) {
     var url = config.data.data;
     var resources = {};
     var resource;
+
+    var jsonResources = {};
+    var jsonResource;
+
+    var dataResources = {};
+    var dataResource;
+
     var postFix = util.upperFirstLetter(config.data.tasks) + ".json";
 
     var setResource = function(turl){
@@ -94,8 +101,32 @@
 
     };
 
-    //Use this get category data according to access url
-    //www.xxxx.com/#!/dirname
+    var setJsonResource = function(path){
+      if(!path) {
+        $window.alert("parameter 'path' of setJsonResource() in json.js is empty!");
+      }
+
+      if(jsonResources[path]) {
+        jsonResource = jsonResources[path];
+      } else {
+        jsonResource = jsonResources[path] = $resource(path, {}, {
+          query: {
+            method: 'GET',
+            isArray: true,
+            cache: true
+          }
+        });
+      }
+    }
+
+    var getJsonWithPath = function(path) {
+      setJsonResource(path);
+      
+      resource.query({}, function(data) {console.log(data);
+        return data;
+      });
+    };
+
     var getCategoryJson = function(dirname) {
       dirname = util.deconvertUrl(dirname);
       
@@ -274,6 +305,7 @@
       contacts: {},
       about: {},
 
+      getJsonWithPath: getJsonWithPath,
       getCategory: getCategoryJson,
       getSubject: getSubjectJson,
       setSubjectTasks: setSubjectTasksJson,
@@ -287,4 +319,4 @@
 
     return jsons;
   };
-})(jQuery, window.angular);
+})(jQuery);

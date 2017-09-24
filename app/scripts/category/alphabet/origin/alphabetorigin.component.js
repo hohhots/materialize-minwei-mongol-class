@@ -1,37 +1,27 @@
 'use strict';
 
-(function() {
+(function () {
   // Define the `header` module
   var app = angular.module('app.category');
 
   // Register `headerList` component, along with its associated controller and template
   app.component('appAlphaorigin', {
-      template: '<div ng-include="$ctrl.templateUrl"></div>',
-      controller: [
-        '$scope',
-        '$element',
-        'Config',
-        'Util',
-        'Json',
-        controller]
-    });
+    template: '<div ng-include="$ctrl.templateUrl"></div>',
+    controller: [
+      '$scope',
+      '$element',
+      'Config',
+      'Util',
+      'Json',
+      controller]
+  });
 
   function controller($scope, $element, config, util, json) {
     var self = this;
 
+    // variable for access from outside 
     self.templateUrl = config.templateUrl.alphabetorigin;
-    self.category = {};
-    
-    var paths = config.dataPath[util.getUrlPath('category')];
-    
-    var init = function() {
-      self.category = json.getCategory(paths.json);
 
-      self.data = json.getCategory(paths.data);
-      
-    };
-
-    $scope.$watch(function(){return self.jsons;}, init, true);
-  }
+  };
 
 })();
