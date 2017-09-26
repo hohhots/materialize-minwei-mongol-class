@@ -54,6 +54,7 @@
         category: 'scripts/category/category.template.html',
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
+        alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html'
       },
@@ -66,6 +67,10 @@
         alphabetlist: {
           json:'data/alphabet/list/list.json',
           data:'data/alphabet/list/data.json'
+        },
+        alphabetvariant: {
+          json:'data/alphabet/variant/variant.json',
+          data:'data/alphabet/variant/data.json'
         }
       },
 
