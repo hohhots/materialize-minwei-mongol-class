@@ -152,6 +152,10 @@ nav {
   background: #FFFFFF !important;
 }
 
+.subjectWrapper {
+  display: none;
+}
+
 .whiteBackColor {
   background-color: #FFF;
 }

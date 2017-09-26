@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "根字母",
+    "name": "根字母表",
     "introduction": "传统蒙古文和其它所有语言一样由最基本的字母组成整个语言，我们称之为“根字母”。",
     "dirName": "origin",
     "imageUrl": "origin.png"
@@ -15,7 +15,7 @@
   },
   {
     "id": 3,
-    "name": "字母变形",
+    "name": "字母变形表",
     "introduction": "传统蒙古文作为连写文字（书写每个单词时字母之间必须保持连续），“字母表”里的每一个字母在单词当中的位置，决定着它的书写形状。",
     "dirName": "variant",
     "imageUrl": "variant.jpeg"
