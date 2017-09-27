@@ -1,5 +1,5 @@
 .simple-player {
-  display:block;
+  display:none;
   z-index:1000;
   background-color:rgba(100,100,100,.9);
 }

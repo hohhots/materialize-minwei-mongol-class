@@ -1,0 +1,96 @@
+.origin-a,
+.origin-na,
+.origin-ba,
+.origin-pa,
+.origin-ha,
+.origin-ga,
+.origin-ma,
+.origin-la,
+.origin-sa,
+.origin-sha,
+.origin-ta,
+.origin-da,
+.origin-cha,
+.origin-zha,
+.origin-ya,
+.origin-ra,
+.origin-wa, {
+  margin: auto;
+  margin-top: 5px;
+  width: 43px;
+  height: 70px;
+  background-color: #a0a;
+  background: url(../data/alphabet/origin/images/alpha-white.png);
+  background-size: 1500px 670px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+
+.origin-a {
+  background-position: -130px -55px;
+}
+
+.origin-na {
+  background-position: -210px -55px;
+}
+
+.origin-ba {
+  background-position: -280px -52px;
+}
+
+.origin-pa {
+  background-position: -357px -52px;
+}
+
+.origin-ha {
+  background-position: -443px -52px;
+}
+
+.origin-ga {
+  background-position: -520px -52px;
+}
+
+.origin-ma {
+  background-position: -600px -52px;
+}
+
+.origin-la {
+  background-position: -678px -52px;
+}
+
+.origin-sa {
+  background-position: -758px -52px;
+}
+
+.origin-sha {
+  background-position: -835px -52px;
+}
+
+.origin-ta {
+  background-position: -913px -52px;
+}
+
+.origin-da {
+  background-position: -985px -52px;
+}
+
+.origin-cha {
+  background-position: -1065px -52px;
+}
+
+.origin-zha {
+  background-position: -1145px -52px;
+}
+
+.origin-ya {
+  background-position: -1223px -52px;
+}
+
+.origin-ra {
+  background-position: -1300px -52px;
+}
+
+.origin-wa {
+  background-position: -1378px -52px;
+}

@@ -76,6 +76,7 @@
       },
 
       events: {
+        playAlphaVideo: 'playAlphaVideoEvent',
         displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',
         exercisePlayed: 'exercisePlayedEvent',

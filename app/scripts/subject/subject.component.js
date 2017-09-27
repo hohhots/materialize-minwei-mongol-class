@@ -330,7 +330,7 @@
 
     var videoEnded = function(event) {
       self.playVideoButtonStyle.display = "block";
-      // Must run $digest(), because thie event fired by html video, out of angular $scope.
+      // Must run $digest(), because the event fired by html video, out of angular $scope.
       $scope.$digest();
     };
 

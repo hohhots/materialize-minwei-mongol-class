@@ -32,6 +32,19 @@
     self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
+    var playAlphaVideo = function(event, videoUrl) {
+      
+    };
+
+    // add listener and hold on to deregister function
+    var deregister = [];
+    deregister.push($scope.$on(config.events.playAlphaVideo, playAlphaVideo));
+
+    // clean up listener when directive's scope is destroyed
+    $.each(deregister, function(i, val){
+      $scope.$on('$destroy', val);
+    });
+
   };
 
 })();

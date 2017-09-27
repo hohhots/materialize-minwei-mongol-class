@@ -27,6 +27,10 @@
     self.templateUrl = config.templateUrl.alphabetorigin;
 
     // ser value for self variables
+    self.alphaClicked = function(name) {console.log(name);
+      
+      $scope.$broadcast(config.events.playAlphaVideo, name);
+    };
 
   };
 

@@ -16,6 +16,7 @@
 
 .alphabetorigin-content {
   margin: 16px;
+  margin-top: 0;
   margin-right: auto !important;
   margin-left: auto !important;
   overflow: auto;
@@ -26,8 +27,8 @@
   margin-left: auto !important;
   margin-right: auto !important;
   width: 45px;
-  height: 90px;
   background-color: #085a9d;
+  cursor: pointer;
 }
 
 .alphabetorigin-num {
