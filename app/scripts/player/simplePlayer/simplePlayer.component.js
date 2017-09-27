@@ -14,37 +14,56 @@
     controller: [
       '$scope',
       '$element',
+      '$timeout',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, config, util, json) {
+  function controller($scope, $element, $timeout, config, util, json) {
     var self = this;
 
     //define self variables
     self.templateUrl = config.templateUrl.simplePlayer;
+    self.mediasUrl = {};
     self.pageLang = {};
+    self.showPlayer = false;
 
     // ser value for self variables
     self.pageLang.close = config.subject.close;
     self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
-    var playAlphaVideo = function(event, videoUrl) {
-      
+    self.closePlayer = function() {
+      self.showPlayer = false;
+      videoElem.pause();
+    };
+
+    self.$postLink = function() {
+      $timeout(function () {
+        videoElem = $element.find('video')[0];
+      });
+    };
+
+    // define local variables
+    var videoElem = null;
+
+    var playAlphaVideo = function (event, mediasUrl) {
+      self.showPlayer = true;
+      self.mediasUrl = mediasUrl;
+
+      videoElem.load();
+      videoElem.play();
+
     };
 
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.playAlphaVideo, playAlphaVideo));
-
     // clean up listener when directive's scope is destroyed
-    $.each(deregister, function(i, val){
+    $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);
     });
-
   };
-
 })();

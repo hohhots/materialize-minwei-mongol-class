@@ -27,9 +27,18 @@
     self.templateUrl = config.templateUrl.alphabetorigin;
 
     // ser value for self variables
-    self.alphaClicked = function(name) {console.log(name);
-      
-      $scope.$broadcast(config.events.playAlphaVideo, name);
+    self.alphaClicked = function(name) {
+      var names = {};
+      var url = config.mediaUrl.alphaOrigin;
+      names.audios = {
+        ogg: url + config.data.audios + '/' + name + config.dataTypes.audios[0],
+        mpeg: url + config.data.audios + '/' + name + config.dataTypes.audios[1]
+      };
+      names.videos = {
+        ogv: url + config.data.videos + '/' + name + config.dataTypes.videos[0],
+        webm: url + config.data.videos + '/' + name + config.dataTypes.videos[1]
+      };
+      $scope.$broadcast(config.events.playAlphaVideo, names);
     };
 
   };

@@ -14,6 +14,24 @@
         url: "root"
       },
 
+      data: {
+        data: "data",
+        images: "images",
+        audios: "audios",
+        videos: "videos",
+        tasks: "tasks"
+      },
+
+      dataTypes: {
+        images: [".png"],
+        audios: [".ogg", ".mp3"],
+        videos: [".ogv", ".mp4"]
+      },
+
+      mediaUrl: {
+        alphaOrigin: 'data/alphabet/origin/'
+      },
+
       json: {
         categories: "categories.json",
         footer: "footer.json",
@@ -89,20 +107,6 @@
         closeVideoPlayer:'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',
         closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent'
-      },
-
-      data: {
-        data: "data",
-        images: "images",
-        audios: "audios",
-        videos: "videos",
-        tasks: "tasks"
-      },
-
-      dataTypes: {
-        images: ["png"],
-        audios: ["mp3", "ogg"],
-        videos: ["mp4", "ogv"]
       }
     };
 
