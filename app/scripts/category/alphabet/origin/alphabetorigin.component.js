@@ -23,8 +23,22 @@
   function controller($scope, $element, config, util, json) {
     var self = this;
 
-    // variable for outside access 
+    //define self variables
     self.templateUrl = config.templateUrl.alphabetorigin;
+    self.pageLang = {};
+
+    // ser value for self variables
+    self.pageLang.close = config.subject.close;
+    self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
+    self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
+
+    self.pageLang.targetProgress = config.subject.targetProgress;
+    self.pageLang.progress = config.subject.progress;
+    self.pageLang.practice = config.subject.practice;
+    self.pageLang.answer = config.subject.answer;
+    self.pageLang.checkAnswer = config.subject.checkAnswer;
+    self.pageLang.exerciseWrong = '';
+    self.pageLang.watchVideo = config.subject.watchVideo;
 
   };
 

@@ -95,6 +95,12 @@
         audios: "audios",
         videos: "videos",
         tasks: "tasks"
+      },
+
+      dataTypes: {
+        images: ["png"],
+        audios: ["mp3", "ogg"],
+        videos: ["mp4", "ogv"]
       }
     };
 

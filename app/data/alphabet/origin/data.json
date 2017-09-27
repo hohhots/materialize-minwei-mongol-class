@@ -2,145 +2,97 @@
   {
     "id": 1,
     "name": "根字母“a”",
-    "image": "a.png",
-    "audio": "a.mp3",
-    "video": "a.mp4",
-    "test": "aTest.json",
+    "fileName": "a",
     "introduction": "传统蒙古文字母“a”。"
   },
   {
     "id": 2,
     "name": "根字母“na”",
-    "image": "na.png",
-    "audio": "na.mp3",
-    "video": "na.mp4",
-    "test": "naTest.json",
+    "fileName": "na",
     "introduction": "传统蒙古文字母“na”。"
   },
   {
     "id": 3,
     "name": "根字母“ba”",
-    "image": "ba.png",
-    "audio": "ba.mp3",
-    "video": "ba.mp4",
-    "test": "baTest.json",
+    "fileName": "ba",
     "introduction": "传统蒙古文字母“ba”。"
   },
   {
     "id": 4,
     "name": "根字母“pa”",
-    "image": "pa.png",
-    "audio": "pa.mp3",
-    "video": "pa.mp4",
-    "test": "paTest.json",
+    "fileName": "pa",
     "introduction": "传统蒙古文字母“pa”。"
   },
   {
     "id": 5,
     "name": "根字母“ha”",
-    "image": "ha.png",
-    "audio": "ha.mp3",
-    "video": "ha.mp4",
-    "test": "haTest.json",
+    "fileName": "ha",
     "introduction": "传统蒙古文字母“ha”。"
   },
   {
     "id": 6,
     "name": "根字母“ga”",
-    "image": "ga.png",
-    "audio": "ga.mp3",
-    "video": "ga.mp4",
-    "test": "gaTest.json",
+    "fileName": "ga",
     "introduction": "传统蒙古文字母“ga”。"
   },
   {
     "id": 7,
     "name": "根字母“ma”",
-    "image": "ma.png",
-    "audio": "ma.mp3",
-    "video": "ma.mp4",
-    "test": "maTest.json",
+    "fileName": "ma",
     "introduction": "传统蒙古文字母“ma”。"
   },
   {
     "id": 8,
     "name": "根字母“la”",
-    "image": "la.png",
-    "audio": "la.mp3",
-    "video": "la.mp4",
-    "test": "laTest.json",
+    "fileName": "la",
     "introduction": "传统蒙古文字母“la”。"
   },
   {
     "id": 9,
     "name": "根字母“sa”",
-    "image": "sa.png",
-    "audio": "sa.mp3",
-    "video": "sa.mp4",
-    "test": "saTest.json",
+    "fileName": "sa",
     "introduction": "传统蒙古文字母“sa”。"
   },
   {
     "id": 10,
     "name": "根字母“sha”",
-    "image": "sha.png",
-    "audio": "sha.mp3",
-    "video": "sha.mp4",
-    "test": "shaTest.json",
+    "fileName": "sha",
     "introduction": "传统蒙古文字母“sha”。"
   },
   {
     "id": 11,
     "name": "根字母“ta”",
-    "image": "ta.png",
-    "audio": "ta.mp3",
-    "video": "ta.mp4",
-    "test": "taTest.json",
+    "fileName": "ta",
     "introduction": "传统蒙古文字母“ta”。"
   },
   {
     "id": 12,
     "name": "根字母“da”",
-    "image": "da.png",
-    "audio": "da.mp3",
-    "video": "da.mp4",
-    "test": "daTest.json",
+    "fileName": "da",
     "introduction": "传统蒙古文字母“da”。"
   },
   {
     "id": 13,
     "name": "根字母“cha”",
-    "image": "cha.png",
-    "audio": "cha.mp3",
-    "video": "cha.mp4",
-    "test": "chaTest.json",
+    "fileName": "cha",
     "introduction": "传统蒙古文字母“cha”。"
   },
   {
     "id": 14,
     "name": "根字母“zha”",
-    "image": "zha.png",
-    "audio": "zha.mp3",
-    "video": "zha.mp4",
-    "test": "zhaTest.json",
+    "fileName": "zha",
     "introduction": "传统蒙古文字母“zha”。"
   },
   {
     "id": 15,
     "name": "根字母“ya”",
-    "image": "ya.png",
-    "audio": "ya.mp3",
-    "video": "ya.mp4",
-    "test": "yaTest.json",
+    "fileName": "ya",
     "introduction": "传统蒙古文字母“ya”。"
   },
   {
     "id": 16,
     "name": "根字母“ra”",
-    "image": "ra.png",
-    "audio": "ra.mp3",
-    "video": "ra.mp4",
-    "test": "raTest.json",
+    "fileName": "ra",
     "introduction": "传统蒙古文字母“ra”。"
   }
 ]

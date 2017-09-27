@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "根字母表",
-    "introduction": "根字母表简介"
+    "introduction": "根字母表简介",
+    "mediaUrl": "/alphabet/origin/"
   } 
 ]
