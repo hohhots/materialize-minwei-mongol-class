@@ -10,7 +10,8 @@
     'app.subject',
     'app.class',
     'app.lesson',
-    'app.footer'
+    'app.footer',
+    'app.player'
   ]);
 
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',

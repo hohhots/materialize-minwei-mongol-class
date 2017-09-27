@@ -36,38 +36,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.alphabetorigin-player {
-  display:block;
-  z-index:1000;
-  background-color:rgba(100,100,100,.9);
-}
-
-.alphabetorigin-player-close {
-  position: absolute;
-  z-index: 1050;
-  right: -6px;
-  top: -20px;
-  cursor: pointer;
-}
-
-.alphabetorigin-player-close-icon {
-  margin: 0 5px;
-  font-size: 40px;
-  line-height: 40px;
-  text-decoration: none;
-  color: #314453;
-}
-
-.alphabetorigin-player-back {
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  width: 23px;
-  height: 23px;
-  background-color: #D3D616;
-  z-index: -1;
-}
-
 @media (min-width:601px) {
   .alphabetorigin-header {
     padding-top: 86px !important;

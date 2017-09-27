@@ -56,7 +56,8 @@
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
-        footer: 'scripts/footer/footer.template.html'
+        footer: 'scripts/footer/footer.template.html',
+        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
       },
 
       dataPath: {
