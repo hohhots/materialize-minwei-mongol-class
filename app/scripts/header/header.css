@@ -37,7 +37,7 @@ nav .fa-graduation-cap {
   left: 0px !important;
   position: absolute !important;
   right: 0px !important;
-  z-index: 1060 !important;
+  z-index: 100 !important;
 }
 
 nav {
