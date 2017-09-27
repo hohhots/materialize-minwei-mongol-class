@@ -118,21 +118,21 @@
 
 <div id="player" class="w3-modal alphabetorigin-player">
   <div class="w3-modal-content">
-    <div class="w3-container">
+    <div class="w3-container w3-padding w3-center">
       <div class="alphabetorigin-player-close">
         <i class="fa fa-times-circle fa-lg alphabetorigin-player-close-icon" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
         <span class="alphabetorigin-player-back"></span>
       </div>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
+      <div class="w3-margin-top">asdfgg asdf{{$ctrl.videoName}}</div>
+      <video width="100%" height="100%" name="{{$ctrl.videoName}}">
+        <source src="{{$ctrl.videoOgvUrl}}" type="video/ogg">
+        <source src="{{$ctrl.videoWebmUrl}}" type="video/webm"> {{::$ctrl.pageLang.notSupportHtml5Video}}
+      </video>
+      <audio>
+        <source src="{{$ctrl.audioOggUrl}}" type="audio/ogg">
+        <source src="{{$ctrl.audioMp3Url}}" type="audio/mpeg"> {{::$ctrl.pageLang.notSupportHtml5Audio}}
+      </audio>
     </div>
   </div>
+</div>
 </div>
