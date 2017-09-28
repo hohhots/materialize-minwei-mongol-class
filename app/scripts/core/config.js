@@ -30,7 +30,7 @@
       dataTypes: {
         images: [".png"],
         audios: [".ogg", ".mp3"],
-        videos: [".ogv", ".mp4"]
+        videos: [".ogv", ".webm"]
       },
 
       mediaUrl: {
