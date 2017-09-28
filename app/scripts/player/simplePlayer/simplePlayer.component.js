@@ -14,14 +14,14 @@
     controller: [
       '$scope',
       '$element',
-      '$timeout',
+      '$interval',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, $timeout, config, util, json) {
+  function controller($scope, $element, $interval, config, util, json) {
     var self = this;
 
     //define self variables
@@ -39,11 +39,15 @@
       self.showPlayer = false;
       videoElem.pause();
     };
-
+ 
     self.$postLink = function() {
-      $timeout(function () {
-        videoElem = $element.find('video')[0];
-      });
+      var stop = $interval(function() {console.log('i');
+        if (!videoElem) {
+          videoElem = $element.find('video')[0];
+        } else {console.log('s');
+          $interval.cancel(stop);
+        }
+      }, 10);
     };
 
     // define local variables
