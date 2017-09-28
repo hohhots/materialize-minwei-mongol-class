@@ -41,10 +41,10 @@
     };
  
     self.$postLink = function() {
-      var stop = $interval(function() {console.log('i');
+      var stop = $interval(function() {
         if (!videoElem) {
           videoElem = $element.find('video')[0];
-        } else {console.log('s');
+        } else {
           $interval.cancel(stop);
         }
       }, 10);
