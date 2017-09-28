@@ -27,7 +27,7 @@
     self.templateUrl = config.templateUrl.alphabetorigin;
 
     // ser value for self variables
-    self.alphaClicked = function(name) {
+    self.alphaClicked = function (id, name) {
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       names.audios = {
@@ -38,7 +38,19 @@
         ogv: url + config.data.videos + '/' + name + config.dataTypes.videos[0],
         webm: url + config.data.videos + '/' + name + config.dataTypes.videos[1]
       };
+      names.name = self.subData[id - 1].name;
       $scope.$broadcast(config.events.playAlphaVideo, names);
+    };
+
+    self.introductionClicked = function () {
+      var names = {};
+      var url = config.mediaUrl.alphaOrigin;
+      names.videos = {
+        ogv: url + config.data.videos + '/origin' + config.dataTypes.videos[0],
+        webm: url + config.data.videos + '/origin' + config.dataTypes.videos[1]
+      };
+      names.name = self.jsonData[0].name;
+      $scope.$broadcast(config.events.playIntroductionVideo, names);
     };
 
   };

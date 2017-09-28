@@ -35,13 +35,13 @@
     self.pageLang.notSupportHtml5Audio = config.subject.notSupportHtml5Audio;
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
-    self.closePlayer = function() {
+    self.closePlayer = function () {
       self.showPlayer = false;
       videoElem.pause();
     };
- 
-    self.$postLink = function() {
-      var stop = $interval(function() {
+
+    self.$postLink = function () {
+      var stop = $interval(function () {
         if (!videoElem || !audioElem) {
           videoElem = $element.find('video')[0];
           audioElem = $element.find('audio')[0];
@@ -67,7 +67,15 @@
       audioElem.play();
     };
 
-    var videoEnded = function() {
+    var playIntroductionVideo = function (event, mediasUrl) {
+      self.showPlayer = true;
+      self.mediasUrl = mediasUrl;
+
+      videoElem.load();
+      videoElem.play();
+    };
+
+    var videoEnded = function () {
       self.showPlayer = false;
       $scope.$digest();
     };
@@ -75,6 +83,8 @@
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.playAlphaVideo, playAlphaVideo));
+    deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
+
     //deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {

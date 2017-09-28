@@ -100,6 +100,7 @@
 
       events: {
         playAlphaVideo: 'playAlphaVideoEvent',
+        playIntroductionVideo: 'playIntroductionVideoEvent',
         displayExercise: 'displayExerciseEvent',
         exerciseRendered: 'exerciseRenderedEvent',
         exercisePlayed: 'exercisePlayedEvent',
