@@ -16,6 +16,14 @@
         $('html, body').animate({ scrollTop: 0 }, 'fast');
       },
 
+      getRandomGender: function() {
+        var gender = config.gender['man'];
+        if(Math.random() >= 0.5){
+          gender = config.gender['woman'];
+        }
+        return gender;
+      },
+
       //for slide down and up animation,
       //elem is jquery element.
       //down, if down or up

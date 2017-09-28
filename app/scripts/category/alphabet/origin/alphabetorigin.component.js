@@ -31,8 +31,8 @@
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       names.audios = {
-        ogg: url + config.data.audios + '/' + name + config.dataTypes.audios[0],
-        mpeg: url + config.data.audios + '/' + name + config.dataTypes.audios[1]
+        ogg: url + config.data.audios + '/' + name + util.getRandomGender() + config.dataTypes.audios[0],
+        mpeg: url + config.data.audios + '/' + name + util.getRandomGender() + config.dataTypes.audios[1]
       };
       names.videos = {
         ogv: url + config.data.videos + '/' + name + config.dataTypes.videos[0],

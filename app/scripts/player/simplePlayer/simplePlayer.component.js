@@ -42,16 +42,19 @@
  
     self.$postLink = function() {
       var stop = $interval(function() {
-        if (!videoElem) {
+        if (!videoElem || !audioElem) {
           videoElem = $element.find('video')[0];
+          audioElem = $element.find('audio')[0];
         } else {
           $interval.cancel(stop);
+          videoElem.onended = videoEnded;
         }
       }, 10);
     };
 
     // define local variables
     var videoElem = null;
+    var audioElem = null;
 
     var playAlphaVideo = function (event, mediasUrl) {
       self.showPlayer = true;
@@ -60,11 +63,19 @@
       videoElem.load();
       videoElem.play();
 
+      audioElem.load();
+      audioElem.play();
+    };
+
+    var videoEnded = function() {
+      self.showPlayer = false;
+      $scope.$digest();
     };
 
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.playAlphaVideo, playAlphaVideo));
+    //deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);

@@ -14,6 +14,11 @@
         url: "root"
       },
 
+      gender: {
+        man: '-m',
+        woman: '-w'
+      },
+
       data: {
         data: "data",
         images: "images",
