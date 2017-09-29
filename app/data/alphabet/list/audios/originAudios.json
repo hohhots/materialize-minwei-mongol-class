@@ -1,0 +1,100 @@
+[
+  {
+    "audioProfix":
+    {
+      "1": "ogg",
+      "2": "mp3"
+    },
+
+    "genderProfix":
+    {
+      "1": "m",
+      "2": "w"
+    },
+
+    "audios":
+    [
+      {
+        "id": 1,
+        "name": "a",
+        "videoId": 1
+      },
+      {
+        "id": 2,
+        "name": "na",
+        "videoId": 2
+      },
+      {
+        "id": 3,
+        "name": "ba",
+        "videoId": 3
+      },
+      {
+        "id": 4,
+        "name": "pa",
+        "videoId": 4
+      },
+      {
+        "id": 5,
+        "name": "ha",
+        "videoId": 5
+      },
+      {
+        "id": 6,
+        "name": "ga",
+        "videoId": 6
+      },
+      {
+        "id": 7,
+        "name": "ma",
+        "videoId": 7
+      },
+      {
+        "id": 8,
+        "name": "la",
+        "videoId": 8
+      },
+      {
+        "id": 9,
+        "name": "sa",
+        "videoId": 9
+      },
+      {
+        "id": 10,
+        "name": "sha",
+        "videoId": 10
+      },
+      {
+        "id": 11,
+        "name": "ta",
+        "videoId": 11
+      },
+      {
+        "id": 12,
+        "name": "da",
+        "videoId": 12
+      },
+      {
+        "id": 13,
+        "name": "cha",
+        "videoId": 13
+      },
+      {
+        "id": 14,
+        "name": "zha",
+        "videoId": 14
+      },
+      {
+        "id": 15,
+        "name": "ya",
+        "videoId": 15
+      },
+      {
+        "id": 16,
+        "name": "ra",
+        "videoId": 16
+      }
+    ]
+
+  }
+]
