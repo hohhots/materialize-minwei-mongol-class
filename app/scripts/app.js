@@ -24,6 +24,20 @@
       //var lessonT   =  appHeader + '<app-lesson></app-lesson>' + appFooter;
 
       // An array of state definitions
+      var httpJson = function(name){
+        return function ($http) {
+          return $http.get(config.dataPath[name].json, { cache: true })
+            .then(function (resp) {return resp.data; });
+        }
+      };
+
+      var httpData = function(name){
+        return function ($http) {
+          return $http.get(config.dataPath[name].data, { cache: true })
+            .then(function (resp) {return resp.data; });
+        }
+      };
+
       var states = [
         {
           name: 'root',
@@ -40,14 +54,8 @@
           url: '/alphabetorigin',
           component: 'appAlphaorigin',
           resolve: {
-            jsonData: function ($http) {
-              return $http.get(config.dataPath['alphabetorigin'].json, { cache: true })
-                .then(function (resp) {return resp.data; });
-            },
-            subData: function ($http) {
-              return $http.get(config.dataPath['alphabetorigin'].data, { cache: true })
-                .then(function (resp) {return resp.data; });
-            }
+            jsonData: httpJson('alphabetorigin'),
+            subData: httpData('alphabetorigin')
           }
         },
         {
@@ -55,14 +63,8 @@
           url: '/alphabetlist',
           component: 'appAlphalist',
           resolve: {
-            jsonData: function ($http) {
-              return $http.get(config.dataPath['alphabetlist'].json, { cache: true })
-                .then(function (resp) {return resp.data; });
-            },
-            subData: function ($http) {
-              return $http.get(config.dataPath['alphabetlist'].data, { cache: true })
-                .then(function (resp) {return resp.data; });
-            }
+            jsonData: httpJson('alphabetlist'),
+            subData: httpData('alphabetlist')
           }
         },
         {
@@ -70,14 +72,8 @@
           url: '/alphabetvariant',
           component: 'appAlphavariant',
           resolve: {
-            jsonData: function ($http) {
-              return $http.get(config.dataPath['alphabetvariant'].json, { cache: true })
-                .then(function (resp) {return resp.data; });
-            },
-            subData: function ($http) {
-              return $http.get(config.dataPath['alphabetvariant'].data, { cache: true })
-                .then(function (resp) {return resp.data; });
-            }
+            jsonData: httpJson('alphabetvariant'),
+            subData: httpData('alphabetvariant')
           }
         }
       ]
