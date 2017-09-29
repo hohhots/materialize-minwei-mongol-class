@@ -3,46 +3,18 @@
   width: 100%;
 }
 
-.alpha-col.s1 {
-  width: 14.28571%;
-}
-
-.alpha-col.s2 {
+.alpha-col.s4 {
   width: 33.33333%;
 }
 
 @media (min-width:601px) {
-  .alpha-col.m2 {
-    width: 33.33333%;
+  .alpha-col.m3 {
+    width: 24.99999%;
   }
 }
 
 @media (min-width:993px) {
   .alpha-col.l1 {
     width: 14.28571%;
-  }
-  
-  .alpha-col.l2 {
-    width: 28.57142%;
-  }
-  
-  .alpha-col.l3 {
-    width: 42.85713%;
-  }
-  
-  .alpha-col.l4 {
-    width: 57.14284%;
-  }
-  
-  .alpha-col.l5 {
-    width: 71.42855%;
-  }
-  
-  .alpha-col.l6 {
-    width: 85.71426%;
-  }
-  
-  .alpha-col.l7 {
-    width: 99.99997%;
   }
 }

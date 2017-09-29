@@ -8,96 +8,14 @@
     <button class="w3-btn w3-teal w3-card">{{::$ctrl.jsonData[0].introduction}}</button>
   </div>
 
-  <div class="w3-row w3-grayscale-min w3-center">
-    <div class="w3-card w3-light-grey alphabetorigin-content" style="margin-top:0">
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">1</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">2</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">3</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">4</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">5</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">6</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">7</div>
-          <div></div>
-        </div>
-      </div>
-    </div>
+  <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
     <div class="w3-card w3-light-grey alphabetorigin-content">
-      <div class="alpha-col s2 m2 l1">
+      <div ng-repeat="vowel in alpha.vowel" class="alpha-col s4 m3 l1">
         <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">8</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">9</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">10</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">11</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">12</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">13</div>
-          <div></div>
-        </div>
-      </div>
-      <div class="alpha-col s2 m2 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">14</div>
-          <div></div>
+          <div class="alphabetorigin-num">{{vowel.id}}</div>
+          <div class="origin-{{::vowel.name}}"></div>
         </div>
       </div>
     </div>
-    
   </div>
-</div>
 </div>

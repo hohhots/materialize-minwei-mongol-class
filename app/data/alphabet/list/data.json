@@ -2,287 +2,287 @@
   {
     "id": 1,
     "name": "字母组'a'",
-    "vowal": {
-      "a": {
+    "vowel": [
+      {
         "id": 1,
         "name": "a"
       },
-      "e": {
+      {
         "id": 2,
         "name": "e"
       },
-      "i": {
+      {
         "id": 3,
         "name": "i"
       },
-      "o": {
+      {
         "id": 4,
         "name": "o"
       },
-      "o2": {
+      {
         "id": 5,
         "name": "o2"
       },
-      "u": {
+      {
         "id": 6,
         "name": "u"
       },
-      "u2": {
+      {
         "id": 7,
         "name": "u2"
       }
-    }
+    ]
   },
 
   {
     "id": 2,
     "name": "字母组'na'",
-    "vowal": {
-      "na": {
+    "vowel": [
+      {
         "id": 1,
         "name": "na"
       },
-      "ne": {
+      {
         "id": 2,
         "name": "ne"
       },
-      "ni": {
+      {
         "id": 3,
         "name": "ni"
       },
-      "no": {
+      {
         "id": 4,
         "name": "no"
       },
-      "no2": {
+      {
         "id": 5,
         "name": "no2"
       },
-      "nu": {
+      {
         "id": 6,
         "name": "nu"
       },
-      "nu2": {
+      {
         "id": 7,
         "name": "nu2"
       }
-    }
+    ]
   },
 
   {
     "id": 3,
     "name": "字母组'ba'",
-    "vowal":{
-      "ba": {
+    "vowel":[
+      {
         "id": 1,
         "name": "ba"
       },
-      "be": {
+      {
         "id": 2,
         "name": "be"
       },
-      "bi": {
+      {
         "id": 3,
         "name": "bi"
       },
-      "bo": {
+      {
         "id": 4,
         "name": "bo"
       },
-      "bo2": {
+      {
         "id": 5,
         "name": "bo2"
       },
-      "bu": {
+      {
         "id": 6,
         "name": "bu"
       },
-      "bu2": {
+      {
         "id": 7,
         "name": "bu2"
       }
-    }
+    ]
   },
 
   {
     "id": 4,
     "name": "字母组'pa'",
-    "vowal": {
-      "pa": {
+    "vowel": [
+      {
         "id": 1,
         "name": "pa"
       },
-      "pe": {
+      {
         "id": 2,
         "name": "pe"
       },
-      "pi": {
+      {
         "id": 3,
         "name": "pi"
       },
-      "po": {
+      {
         "id": 4,
         "name": "po"
       },
-      "po2": {
+      {
         "id": 5,
         "name": "po2"
       },
-      "pu": {
+      {
         "id": 6,
         "name": "pu"
       },
-      "pu2": {
+      {
         "id": 7,
         "name": "pu2"
       }
-    }
+    ]
   },
 
   {
     "id": 5,
     "name": "字母组'ha'",
-    "vowal":{
-      "ha": {
+    "vowel":[
+      {
         "id": 1,
         "name": "ha"
       },
-      "he": {
+      {
         "id": 2,
         "name": "he"
       },
-      "hi": {
+      {
         "id": 3,
         "name": "hi"
       },
-      "ho": {
+      {
         "id": 4,
         "name": "ho"
       },
-      "ho2": {
+      {
         "id": 5,
         "name": "ho2"
       },
-      "hu": {
+      {
         "id": 6,
         "name": "hu"
       },
-      "hu2": {
+      {
         "id": 7,
         "name": "hu2"
       }
-    }
+    ]
   },
 
   {
     "id": 6,
     "name": "字母组'ga'",
-    "vowal": {
-      "ga": {
+    "vowel": [
+      {
         "id": 1,
         "name": "ga"
       },
-      "ge": {
+      {
         "id": 2,
         "name": "ge"
       },
-      "gi": {
+      {
         "id": 3,
         "name": "gi"
       },
-      "go": {
+      {
         "id": 4,
         "name": "go"
       },
-      "go2": {
+      {
         "id": 5,
         "name": "go2"
       },
-      "gu": {
+      {
         "id": 6,
         "name": "gu"
       },
-      "gu2": {
+      {
         "id": 7,
         "name": "gu2"
       }
-    }
+    ]
   },
 
   {
     "id": 7,
     "name": "字母组'ma'",
-    "vowal":{
-      "ma": {
+    "vowel":[
+      {
         "id": 1,
         "name": "ma"
       },
-      "me": {
+      {
         "id": 2,
         "name": "me"
       },
-      "mi": {
+      {
         "id": 3,
         "name": "mi"
       },
-      "mo": {
+      {
         "id": 4,
         "name": "mo"
       },
-      "mo2": {
+      {
         "id": 5,
         "name": "mo2"
       },
-      "mu": {
+      {
         "id": 6,
         "name": "mu"
       },
-      "mu2": {
+      {
         "id": 7,
         "name": "mu2"
       }
-    }
+    ]
   },
 
   {
     "id": 8,
     "name": "字母组'la'",
-    "vowal": {
-      "la": {
+    "vowel": [
+      {
         "id": 1,
         "name": "la"
       },
-      "le": {
+      {
         "id": 2,
         "name": "le"
       },
-      "li": {
+      {
         "id": 3,
         "name": "li"
       },
-      "lo": {
+      {
         "id": 4,
         "name": "lo"
       },
-      "lo2": {
+      {
         "id": 5,
         "name": "lo2"
       },
-      "lu": {
+      {
         "id": 6,
         "name": "lu"
       },
-      "lu2": {
+      {
         "id": 7,
         "name": "lu2"
       }
-    }
+    ]
   },
 
   {
     "id": 9,
     "name": "字母组'sa'",
-    "vowal": {
+    "vowel": {
       "sa": {
         "id": 1,
         "name": "sa"
@@ -317,7 +317,7 @@
   {
     "id": 10,
     "name": "字母组'sha'",
-    "vowal": {
+    "vowel": {
       "sha": {
         "id": 1,
         "name": "sha"
@@ -352,7 +352,7 @@
   {
     "id": 11,
     "name": "字母组'ta'",
-    "vowal": {
+    "vowel": {
       "ta": {
         "id": 1,
         "name": "ta"
@@ -387,7 +387,7 @@
   {
     "id": 12,
     "name": "字母组'da'",
-    "vowal": {
+    "vowel": {
       "da": {
         "id": 1,
         "name": "da"
@@ -422,7 +422,7 @@
   {
     "id": 13,
     "name": "字母组'cha'",
-    "vowal": {
+    "vowel": {
       "cha": {
         "id": 1,
         "name": "cha"
@@ -457,7 +457,7 @@
   {
     "id": 14,
     "name": "字母组'zha'",
-    "vowal": {
+    "vowel": {
       "zha": {
         "id": 1,
         "name": "zha"
@@ -492,7 +492,7 @@
   {
     "id": 15,
     "name": "字母组'ya'",
-    "vowal": {
+    "vowel": {
       "ya": {
         "id": 1,
         "name": "ya"
@@ -527,7 +527,7 @@
   {
     "id": 16,
     "name": "字母组'ra'",
-    "vowal": {
+    "vowel": {
       "ra": {
         "id": 1,
         "name": "ra"
@@ -555,6 +555,21 @@
       "ru2": {
         "id": 7,
         "name": "ru2"
+      }
+    }
+  },
+
+  {
+    "id": 17,
+    "name": "字母组'wa'",
+    "vowel": {
+      "wa": {
+        "id": 1,
+        "name": "wa"
+      },
+      "we": {
+        "id": 2,
+        "name": "we"
       }
     }
   }
