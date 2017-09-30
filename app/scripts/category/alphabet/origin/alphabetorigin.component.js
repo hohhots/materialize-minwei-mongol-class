@@ -31,15 +31,15 @@
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       var gender = util.getRandomGender();
+      names.name = self.subData[id - 1].name;
       names.audios = {
-        mpeg: url + config.data.audios + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
       };
       names.videos = {
-        webm: url + config.data.videos + '/' + name + config.dataTypes.videos[1],
-        ogv: url + config.data.videos + '/' + name + config.dataTypes.videos[0]
+        webm: url + config.data.videos + '/' + name + '/' + name + config.dataTypes.videos[1],
+        ogv: url + config.data.videos + '/' + name + '/' + name + config.dataTypes.videos[0]
       };
-      names.name = self.subData[id - 1].name;
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
 

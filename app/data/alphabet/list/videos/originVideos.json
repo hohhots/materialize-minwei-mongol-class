@@ -1,0 +1,120 @@
+[
+  {
+    "videoProfix":
+    {
+      "1": "ogv",
+      "2": "webm"
+    },
+
+    "thumbProfix":
+    {
+      "1": "jpg"
+    },
+
+    "videos":
+    [
+      {
+        "id": 0,
+        "name": "origin",
+        "introduction": "根字母简介"
+      },
+      {
+        "id": 1,
+        "name": "a",
+        "introduction": "读、写根字母“a”",
+        "audioId": 1
+      },
+      {
+        "id": 2,
+        "name": "na",
+        "introduction": "读、写根字母“na”",
+        "audioId": 2
+      },
+      {
+        "id": 3,
+        "name": "ba",
+        "introduction": "读、写根字母“ba”",
+        "audioId": 3
+      },
+      {
+        "id": 4,
+        "name": "pa",
+        "introduction": "读、写根字母“pa”",
+        "audioId": 4
+      },
+      {
+        "id": 5,
+        "name": "ha",
+        "introduction": "读、写根字母“ha”",
+        "audioId": 5
+      },
+      {
+        "id": 6,
+        "name": "ga",
+        "introduction": "读、写根字母“ga”",
+        "audioId": 6
+      },
+      {
+        "id": 7,
+        "name": "ma",
+        "introduction": "读、写根字母“ma”",
+        "audioId": 7
+      },
+      {
+        "id": 8,
+        "name": "la",
+        "introduction": "读、写根字母“la”",
+        "audioId": 8
+      },
+      {
+        "id": 9,
+        "name": "sa",
+        "introduction": "读、写根字母“sa”",
+        "audioId": 9
+      },
+      {
+        "id": 10,
+        "name": "sha",
+        "introduction": "读、写根字母“sha”",
+        "audioId": 10
+      },
+      {
+        "id": 11,
+        "name": "ta",
+        "introduction": "读、写根字母“ta”",
+        "audioId": 11
+      },
+      {
+        "id": 12,
+        "name": "da",
+        "introduction": "读、写根字母“da”",
+        "audioId": 12
+      },
+      {
+        "id": 13,
+        "name": "cha",
+        "introduction": "读、写根字母“cha”",
+        "audioId": 13
+      },
+      {
+        "id": 14,
+        "name": "zha",
+        "introduction": "读、写根字母“zha”",
+        "audioId": 14
+      },
+      {
+        "id": 15,
+        "name": "ya",
+        "introduction": "读、写根字母“ya”",
+        "audioId": 15
+      },
+      {
+        "id": 16,
+        "name": "ra",
+        "introduction": "读、写根字母“ra”",
+        "audioId": 16
+      }
+    ]
+
+  }
+]

@@ -34,7 +34,7 @@
       },
 
       mediaUrl: {
-        alphaOrigin: 'data/alphabet/origin/'
+        alphaOrigin: 'data/alphabet/list/'
       },
 
       json: {
