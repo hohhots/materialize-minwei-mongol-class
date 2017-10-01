@@ -37,6 +37,26 @@
         alphaOrigin: 'data/alphabet/list/'
       },
 
+      alphaVideosNamesMap: {
+        o2: "o", u2: "u",
+        ne: "na", no2: "no", nu2: "nu",
+        be: "ba", bo2: "bo", bu2: "bu",
+        pe: "pa", po2: "po", pu2: "pu",
+        ho2: "ho", hu2: "hu",
+        ge: "he", gi: "hi", go2: "go", gu2: "gu",
+        me: "ma", mo2: "mo", mu2: "mu",
+        le: "la", lo2: "lo", lu2: "lu",
+        se: "sa", so2: "so", su2: "su",
+        she: "sha", sho2: "sho", shu2: "shu",
+        te: "ta", to2: "to", tu2: "tu",
+        de: "da", do2: "do", du2: "du",
+        che: "cha", cho2: "cho", chu2: "chu",
+        zhe: "zha", zho2: "zho", zhu2: "zhu",
+        ye: "ya", yo2: "yo", yu2: "yu",
+        re: "ra", ro2: "ro", ru2: "ru",
+        we: "wa"
+      },
+
       json: {
         categories: "categories.json",
         footer: "footer.json",

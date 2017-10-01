@@ -282,296 +282,296 @@
   {
     "id": 9,
     "name": "字母组'sa'",
-    "vowel": {
-      "sa": {
+    "vowel": [
+      {
         "id": 1,
         "name": "sa"
       },
-      "se": {
+      {
         "id": 2,
         "name": "se"
       },
-      "si": {
+      {
         "id": 3,
         "name": "si"
       },
-      "so": {
+      {
         "id": 4,
         "name": "so"
       },
-      "so2": {
+      {
         "id": 5,
         "name": "so2"
       },
-      "su": {
+      {
         "id": 6,
         "name": "su"
       },
-      "su2": {
+      {
         "id": 7,
         "name": "su2"
       }
-    }
+    ]
   },
 
   {
     "id": 10,
     "name": "字母组'sha'",
-    "vowel": {
-      "sha": {
+    "vowel": [
+      {
         "id": 1,
         "name": "sha"
       },
-      "she": {
+      {
         "id": 2,
         "name": "she"
       },
-      "shi": {
+      {
         "id": 3,
         "name": "shi"
       },
-      "sho": {
+      {
         "id": 4,
         "name": "sho"
       },
-      "sho2": {
+      {
         "id": 5,
         "name": "sho2"
       },
-      "shu": {
+      {
         "id": 6,
         "name": "shu"
       },
-      "shu2": {
+      {
         "id": 7,
         "name": "shu2"
       }
-    }
+    ]
   },
 
   {
     "id": 11,
     "name": "字母组'ta'",
-    "vowel": {
-      "ta": {
+    "vowel": [
+      {
         "id": 1,
         "name": "ta"
       },
-      "te": {
+      {
         "id": 2,
         "name": "te"
       },
-      "ti": {
+      {
         "id": 3,
         "name": "ti"
       },
-      "to": {
+      {
         "id": 4,
         "name": "to"
       },
-      "to2": {
+      {
         "id": 5,
         "name": "to2"
       },
-      "tu": {
+      {
         "id": 6,
         "name": "tu"
       },
-      "tu2": {
+      {
         "id": 7,
         "name": "tu2"
       }
-    }
+    ]
   },
 
   {
     "id": 12,
     "name": "字母组'da'",
-    "vowel": {
-      "da": {
+    "vowel": [
+      {
         "id": 1,
         "name": "da"
       },
-      "de": {
+      {
         "id": 2,
         "name": "de"
       },
-      "di": {
+      {
         "id": 3,
         "name": "di"
       },
-      "do": {
+      {
         "id": 4,
         "name": "do"
       },
-      "do2": {
+      {
         "id": 5,
         "name": "do2"
       },
-      "du": {
+      {
         "id": 6,
         "name": "du"
       },
-      "du2": {
+      {
         "id": 7,
         "name": "du2"
       }
-    }
+    ]
   },
 
   {
     "id": 13,
     "name": "字母组'cha'",
-    "vowel": {
-      "cha": {
+    "vowel": [
+      {
         "id": 1,
         "name": "cha"
       },
-      "che": {
+      {
         "id": 2,
         "name": "che"
       },
-      "chi": {
+      {
         "id": 3,
         "name": "chi"
       },
-      "cho": {
+      {
         "id": 4,
         "name": "cho"
       },
-      "cho2": {
+      {
         "id": 5,
         "name": "cho2"
       },
-      "chu": {
+      {
         "id": 6,
         "name": "chu"
       },
-      "chu2": {
+      {
         "id": 7,
         "name": "chu2"
       }
-    }
+    ]
   },
 
   {
     "id": 14,
     "name": "字母组'zha'",
-    "vowel": {
-      "zha": {
+    "vowel": [
+      {
         "id": 1,
         "name": "zha"
       },
-      "zhe": {
+      {
         "id": 2,
         "name": "zhe"
       },
-      "zhi": {
+      {
         "id": 3,
         "name": "zhi"
       },
-      "zho": {
+      {
         "id": 4,
         "name": "zho"
       },
-      "zho2": {
+      {
         "id": 5,
         "name": "zho2"
       },
-      "zhu": {
+      {
         "id": 6,
         "name": "zhu"
       },
-      "zhu2": {
+      {
         "id": 7,
         "name": "zhu2"
       }
-    }
+    ]
   },
 
   {
     "id": 15,
     "name": "字母组'ya'",
-    "vowel": {
-      "ya": {
+    "vowel": [
+      {
         "id": 1,
         "name": "ya"
       },
-      "ye": {
+      {
         "id": 2,
         "name": "ye"
       },
-      "yi": {
+      {
         "id": 3,
         "name": "yi"
       },
-      "yo": {
+      {
         "id": 4,
         "name": "yo"
       },
-      "yo2": {
+      {
         "id": 5,
         "name": "yo2"
       },
-      "yu": {
+      {
         "id": 6,
         "name": "yu"
       },
-      "yu2": {
+      {
         "id": 7,
         "name": "yu2"
       }
-    }
+    ]
   },
 
   {
     "id": 16,
     "name": "字母组'ra'",
-    "vowel": {
-      "ra": {
+    "vowel": [
+      {
         "id": 1,
         "name": "ra"
       },
-      "re": {
+      {
         "id": 2,
         "name": "re"
       },
-      "ri": {
+      {
         "id": 3,
         "name": "ri"
       },
-      "ro": {
+      {
         "id": 4,
         "name": "ro"
       },
-      "ro2": {
+      {
         "id": 5,
         "name": "ro2"
       },
-      "ru": {
+      {
         "id": 6,
         "name": "ru"
       },
-      "ru2": {
+      {
         "id": 7,
         "name": "ru2"
       }
-    }
+    ]
   },
 
   {
     "id": 17,
     "name": "字母组'wa'",
-    "vowel": {
-      "wa": {
+    "vowel": [
+      {
         "id": 1,
         "name": "wa"
       },
-      "we": {
+      {
         "id": 2,
         "name": "we"
       }
-    }
+    ]
   }
 
 ]

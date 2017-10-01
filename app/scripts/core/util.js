@@ -24,6 +24,14 @@
         return gender;
       },
 
+      convertAlphaVideoName: function(alphaName) {
+        var temp = config.alphaVideosNamesMap[alphaName];
+        if(temp) {
+          alphaName = temp;
+        }
+        return alphaName;
+      },
+
       //for slide down and up animation,
       //elem is jquery element.
       //down, if down or up
