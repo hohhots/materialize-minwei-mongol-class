@@ -268,11 +268,57 @@
   height: 75px;
   background-color: #a0a;
   background: url(../data/alphabet/variant/images/a-na-black.png);
-  background-size: 1500px 670px;
+  background-size: 1500px 896px;
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
 
 .origin-a-1 {
-  background-position: -230px -47px;
+  background-position: -145px -60px;
+}
+.origin-a-2 {
+  background-position: -145px -330px;
+}
+.origin-a-3 {
+  background-position: -155px -680px;
+}
+
+.origin-e-1 {
+  background-position: -240px -50px;
+}
+.origin-e-2 {
+  background-position: -240px -330px;
+}
+.origin-e-3 {
+  background-position: -250px -680px;
+}
+
+.origin-i-1 {
+  background-position: -330px -60px;
+}
+.origin-i-2 {
+  background-position: -330px -330px;
+}
+.origin-i-3 {
+  background-position: -330px -680px;
+}
+
+.origin-o-1,.origin-o2-1, {
+  background-position: -423px -60px;
+}
+.origin-o-2,.origin-o2-2, {
+  background-position: -423px -330px;
+}
+.origin-o-3,.origin-o2-3, {
+  background-position: -423px -680px;
+}
+
+.origin-u-1,.origin-u2-1, {
+  background-position: -700px -75px;
+}
+.origin-u-2,.origin-u2-2, {
+  background-position: -700px -330px;
+}
+.origin-u-3,.origin-u2-3, {
+  background-position: -700px -680px;
 }
