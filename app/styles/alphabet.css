@@ -18,7 +18,6 @@
   margin: auto;
   width: 43px;
   height: 75px;
-  background-color: #a0a;
   background: url(../data/alphabet/origin/images/alpha-white.png);
   background-size: 1500px 670px;
   opacity: 0.8;
@@ -248,4 +247,32 @@
 
 .origin-wa, .origin-we {
   background-position: -1378px -47px;
+}
+
+.origin-a-1,.origin-a-2,.origin-a-3,
+.origin-e-1,.origin-e-2,.origin-e-3,
+.origin-i-1,.origin-i-2,.origin-i-3,
+.origin-o-1,.origin-o-2,.origin-o-3,
+.origin-o2-1,.origin-o2-2,.origin-o2-3,
+.origin-u-1,.origin-u-2,.origin-u-3,
+.origin-u2-1,.origin-u2-2,.origin-u2-3,
+.origin-na-1,.origin-na-2,.origin-na-3,
+.origin-ne-1,.origin-ne-2,.origin-ne-3,
+.origin-ni-1,.origin-ni-2,.origin-ni-3,
+.origin-no-1,.origin-no-2,.origin-no-3,
+.origin-no2-1,.origin-no2-2,.origin-no2-3,
+.origin-nu-1,.origin-nu-2,.origin-nu-3,
+.origin-nu2-1,.origin-nu2-2,.origin-nu2-3 {
+  margin: auto;
+  width: 43px;
+  height: 75px;
+  background-color: #a0a;
+  background: url(../data/alphabet/variant/images/a-na-black.png);
+  background-size: 1500px 670px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.origin-a-1 {
+  background-position: -230px -47px;
 }
