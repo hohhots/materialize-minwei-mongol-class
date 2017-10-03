@@ -3,28 +3,26 @@
 </header>
 
 <div class="w3-container w3-margin w3-center app-container">
-
-  <div class="w3-container w3-margin alphabetorigin-intro">
-    <div class="w3-container w3-center w3-col s12 m6 l6">
+  <div class="w3-container alphabetorigin-intro">
+    <div class="w3-container w3-padding w3-col s12 m6 l6">
       <button class="w3-btn w3-teal w3-card">{{::$ctrl.jsonData[0].introduction}}</button>
     </div>
-    <div class="w3-container w3-center w3-col s12 m6 l6">
+    <div class="w3-container w3-padding w3-col s12 m6 l6">
       <button class="w3-btn w3-teal w3-card">{{::$ctrl.selectAlpha}}选择根字母</button>
     </div>
   </div>
 
-  <div class="w3-row w3-grayscale-min w3-center">
-    <div ng-repeat="alpha in $ctrl.subData" class="w3-card w3-light-grey alphabetorigin-content" style="margin-top:0">
-      <div ng-repeat="vowel in alpha.vowel" class="w3-cell alpha-col s2 m2 l1">
+  <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
+    <div class="w3-card w3-light-grey alphabetorigin-content">
+      <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClicked(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)"
+        class="alpha-col s4 m3 l1">
         <div class="w3-card w3-margin alphabetorigin-view">
-          <div class="alphabetorigin-num">1</div>
-          <div></div>
+          <div class="origin-{{::vowel.name}}"></div>
         </div>
-        <div class="w3-margin w3-border alphabetorigin-view alphabetvariant-alpha">
-          <p>asdf asdff</p>
-        </div>
+        <div class="origin-{{::vowel.name}}-1"></div>
+        <div class="origin-{{::vowel.name}}-2"></div>
+        <div class="origin-{{::vowel.name}}-3"></div>
       </div>
     </div>
   </div>
-</div>
 </div>

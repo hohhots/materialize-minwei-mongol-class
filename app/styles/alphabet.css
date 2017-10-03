@@ -16,9 +16,8 @@
 .origin-ra,.origin-re,.origin-ri,.origin-ro,.origin-ro2,.origin-ru,.origin-ru2,
 .origin-wa,.origin-we, {
   margin: auto;
-  margin-top: 5px;
   width: 43px;
-  height: 70px;
+  height: 75px;
   background-color: #a0a;
   background: url(../data/alphabet/origin/images/alpha-white.png);
   background-size: 1500px 670px;
@@ -28,225 +27,225 @@
 
 
 .origin-a {
-  background-position: -130px -55px;
+  background-position: -130px -50px;
 }
 .origin-e {
-  background-position: -125px -140px;
+  background-position: -125px -135px;
 }
 .origin-i {
-  background-position: -128px -215px;
+  background-position: -128px -210px;
 }
 .origin-o,.origin-o2 {
-  background-position: -127px -285px;
+  background-position: -127px -280px;
 }
 .origin-u,.origin-u2 {
-  background-position: -127px -415px;
+  background-position: -127px -410px;
 }
 
 .origin-na,.origin-ne {
-  background-position: -210px -55px;
+  background-position: -210px -50px;
 }
 .origin-ni {
-  background-position: -205px -218px;
+  background-position: -205px -213px;
 }
 .origin-no,.origin-no2 {
-  background-position: -205px -285px;
+  background-position: -205px -280px;
 }
 .origin-nu,.origin-nu2 {
-  background-position: -205px -415px;
+  background-position: -205px -410px;
 }
 
 .origin-ba,.origin-be {
-  background-position: -280px -52px;
+  background-position: -280px -47px;
 }
 .origin-bi {
-  background-position: -285px -215px;
+  background-position: -285px -210px;
 }
 .origin-bo,.origin-bo2  {
-  background-position: -285px -285px;
+  background-position: -285px -280px;
 }
 .origin-bu,.origin-bu2 {
-  background-position: -285px -410px;
+  background-position: -285px -405px;
 }
 
 .origin-pa,.origin-pe {
-  background-position: -357px -52px;
+  background-position: -357px -47px;
 }
 .origin-pi {
-  background-position: -363px -215px;
+  background-position: -363px -210px;
 }
 .origin-po,.origin-po2  {
-  background-position: -363px -285px;
+  background-position: -363px -280px;
 }
 .origin-pu,.origin-pu2 {
-  background-position: -363px -410px;
+  background-position: -363px -405px;
 }
 
 .origin-ha {
-  background-position: -443px -52px;
+  background-position: -443px -47px;
 }
 .origin-he {
-  background-position: -435px -140px;
+  background-position: -435px -135px;
 }
 .origin-hi {
-  background-position: -443px -215px;
+  background-position: -443px -210px;
 }
 .origin-ho,.origin-ho2  {
-  background-position: -440px -285px;
+  background-position: -440px -280px;
 }
 .origin-hu,.origin-hu2 {
-  background-position: -440px -410px;
+  background-position: -440px -405px;
 }
 
 .origin-ga {
-  background-position: -520px -52px;
+  background-position: -520px -47px;
 }
 .origin-ge {
-  background-position: -435px -140px;
+  background-position: -435px -135px;
 }
 .origin-gi {
-  background-position: -520px -215px;
+  background-position: -520px -210px;
 }
 .origin-go,.origin-go2  {
-  background-position: -517px -285px;
+  background-position: -517px -280px;
 }
 .origin-gu,.origin-gu2 {
-  background-position: -517px -410px;
+  background-position: -517px -405px;
 }
 
 .origin-ma,.origin-me {
-  background-position: -600px -52px;
+  background-position: -600px -47px;
 }
 .origin-mi {
-  background-position: -595px -218px;
+  background-position: -595px -213px;
 }
 .origin-mo,.origin-mo2 {
-  background-position: -598px -285px;
+  background-position: -598px -280px;
 }
 .origin-mu,.origin-mu2 {
-  background-position: -598px -415px;
+  background-position: -598px -410px;
 }
 
 .origin-la,.origin-le {
-  background-position: -678px -52px;
+  background-position: -678px -47px;
 }
 .origin-li {
-  background-position: -678px -218px;
+  background-position: -678px -213px;
 }
 .origin-lo,.origin-lo2 {
-  background-position: -679px -285px;
+  background-position: -679px -280px;
 }
 .origin-lu,.origin-lu2 {
-  background-position: -679px -415px;
+  background-position: -679px -410px;
 }
 
 .origin-sa,.origin-se {
-  background-position: -758px -52px;
+  background-position: -758px -47px;
 }
 .origin-si {
-  background-position: -758px -218px;
+  background-position: -758px -213px;
 }
 .origin-so,.origin-so2 {
-  background-position: -754px -285px;
+  background-position: -754px -280px;
 }
 .origin-su,.origin-su2 {
-  background-position: -754px -415px;
+  background-position: -754px -410px;
 }
 
 .origin-sha,.origin-she {
-  background-position: -835px -52px;
+  background-position: -835px -47px;
 }
 .origin-shi {
-  background-position: -835px -218px;
+  background-position: -835px -213px;
 }
 .origin-sho,.origin-sho2 {
-  background-position: -836px -285px;
+  background-position: -836px -280px;
 }
 .origin-shu,.origin-shu2 {
-  background-position: -836px -415px;
+  background-position: -836px -410px;
 }
 
 .origin-ta,.origin-te {
-  background-position: -913px -52px;
+  background-position: -913px -47px;
 }
 .origin-ti {
-  background-position: -908px -218px;
+  background-position: -908px -213px;
 }
 .origin-to,.origin-to2 {
-  background-position: -908px -285px;
+  background-position: -908px -280px;
 }
 .origin-tu,.origin-tu2 {
-  background-position: -908px -415px;
+  background-position: -908px -410px;
 }
 
 .origin-da,.origin-de {
-  background-position: -985px -52px;
+  background-position: -985px -47px;
 }
 .origin-di {
-  background-position: -980px -218px;
+  background-position: -980px -213px;
 }
 .origin-do,.origin-do2 {
-  background-position: -980px -285px;
+  background-position: -980px -280px;
 }
 .origin-du,.origin-du2 {
-  background-position: -980px -415px;
+  background-position: -980px -410px;
 }
 
 .origin-cha,.origin-che {
-  background-position: -1065px -52px;
+  background-position: -1065px -47px;
 }
 .origin-chi {
-  background-position: -1063px -218px;
+  background-position: -1063px -213px;
 }
 .origin-cho,.origin-cho2 {
-  background-position: -1062px -285px;
+  background-position: -1062px -280px;
 }
 .origin-chu,.origin-chu2 {
-  background-position: -1062px -415px;
+  background-position: -1062px -410px;
 }
 
 .origin-zha,.origin-zhe {
-  background-position: -1145px -52px;
+  background-position: -1145px -47px;
 }
 .origin-zhi {
-  background-position: -1143px -218px;
+  background-position: -1143px -213px;
 }
 .origin-zho,.origin-zho2 {
-  background-position: -1142px -285px;
+  background-position: -1142px -280px;
 }
 .origin-zhu,.origin-zhu2 {
-  background-position: -1142px -415px;
+  background-position: -1142px -410px;
 }
 
 .origin-ya,.origin-ye {
-  background-position: -1223px -52px;
+  background-position: -1223px -47px;
 }
 .origin-yi {
-  background-position: -1216px -218px;
+  background-position: -1216px -213px;
 }
 .origin-yo,.origin-yo2 {
-  background-position: -1216px -285px;
+  background-position: -1216px -280px;
 }
 .origin-yu,.origin-yu2 {
-  background-position: -1216px -415px;
+  background-position: -1216px -410px;
 }
 
 .origin-ra {
-  background-position: -1300px -52px;
+  background-position: -1300px -47px;
 }
 .origin-ra,.origin-re {
-  background-position: -1300px -52px;
+  background-position: -1300px -47px;
 }
 .origin-ri {
-  background-position: -1293px -218px;
+  background-position: -1293px -213px;
 }
 .origin-ro,.origin-ro2 {
-  background-position: -1293px -285px;
+  background-position: -1293px -280px;
 }
 .origin-ru,.origin-ru2 {
-  background-position: -1293px -415px;
+  background-position: -1293px -410px;
 }
 
 .origin-wa, .origin-we {
-  background-position: -1378px -52px;
+  background-position: -1378px -47px;
 }

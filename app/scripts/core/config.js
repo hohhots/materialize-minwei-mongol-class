@@ -114,7 +114,7 @@
         },
         alphabetvariant: {
           json:'data/alphabet/variant/variant.json',
-          data:'data/alphabet/variant/data.json'
+          data:'data/alphabet/list/data.json'
         }
       },
 
