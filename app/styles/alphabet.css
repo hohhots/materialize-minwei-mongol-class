@@ -322,3 +322,55 @@
 .origin-u-3,.origin-u2-3, {
   background-position: -522px -580px;
 }
+
+.origin-na-1 {
+  background-position: -685px -50px;
+}
+.origin-na-2 {
+  background-position: -685px -285px;
+}
+.origin-na-3 {
+  height: 100px !important;
+  background-position: -682px -600px;
+}
+
+.origin-ne-1 {
+  background-position: -765px -50px;
+}
+.origin-ne-2 {
+  background-position: -765px -285px;
+}
+.origin-ne-3 {
+  height: 100px !important;
+  background-position: -762px -600px;
+}
+
+.origin-ni-1 {
+  background-position: -843px -50px;
+}
+.origin-ni-2 {
+  background-position: -843px -285px;
+}
+.origin-ni-3 {
+  background-position: -843px -580px;
+}
+
+.origin-no-1,.origin-no2-1, {
+  background-position: -923px -50px;
+}
+.origin-no-2,.origin-no2-2, {
+  background-position: -923px -285px;
+}
+.origin-no-3,.origin-no2-3, {
+  background-position: -923px -585px;
+}
+
+.origin-nu-1,.origin-nu2-1, {
+  background-position: -522px -57px;
+}
+.origin-nu-2,.origin-nu2-2, {
+  background-position: -522px -285px;
+}
+.origin-nu-3,.origin-nu2-3, {
+  background-position: -522px -580px;
+}
