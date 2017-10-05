@@ -91,7 +91,8 @@
       },
 
       alphaLangs: {
-        alphaFilter: "过滤根字母"
+        alphaFilter: "过滤根字母",
+        selectOriginAlpha: "选择根字母"
       },
 
       templateUrl: {

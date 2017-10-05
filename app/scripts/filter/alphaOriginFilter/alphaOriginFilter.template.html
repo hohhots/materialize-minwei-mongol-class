@@ -1,5 +1,19 @@
 <div id="player" class="w3-modal origin-filter" ng-show="$ctrl.showAlphaOriginFilter">
   <div class="w3-modal-content">
-    sdf
+    <header class="w3-container w3-padding w3-center w3-theme-d5">
+      {{::$ctrl.selectOriginAlpha}}
+    </header>
+
+    <div class="w3-container w3-margin w3-center app-container">
+      <div class="w3-row w3-grayscale-min w3-center">
+        <div class="w3-card w3-light-grey alphabetorigin-content">
+          <div ng-repeat="alpha in $ctrl.subData" ng-click="$ctrl.alphaClicked(alpha.id,alpha.fileName)" class="w3-col s4 m3 l2">
+            <div class="w3-card w3-margin alphabetorigin-view">
+              <div class="origin-{{::alpha.fileName}}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -13,18 +13,30 @@
       '$scope',
       '$element',
       '$interval',
+      '$http',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, $interval, config, util, json) {
+  function controller($scope, $element, $interval, $http, config, util, json) {
     var self = this;
 
     //define self variables
     self.templateUrl = config.templateUrl.alphaOriginFilter;
-   
+
     self.showAlphaOriginFilter = true;
+    self.selectOriginAlpha = config.alphaLangs.selectOriginAlpha;
+    self.subData = [];
+
+    var httpData = function (name) {
+      $http.get(config.dataPath[name].data, { cache: true })
+        .then(function (resp) { self.subData = resp.data;console.log(self.subData); });
+    };
+
+    httpData('alphabetorigin');
+
+    
   };
 })();
