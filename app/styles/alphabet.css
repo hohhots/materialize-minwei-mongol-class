@@ -761,7 +761,7 @@ div[class*='-zho-'],div[class*='-zho2-'],div[class*='-zhu-'],div[class*='-zhu2-'
 }
 
 .origin-cha-1,.origin-che-1 {
-  background-position: -119px -45px;
+  background-position: -119px -50px;
 }
 .origin-cha-2,.origin-che-2 {
   background-position: -119px -300px;
@@ -770,72 +770,69 @@ div[class*='-zho-'],div[class*='-zho2-'],div[class*='-zhu-'],div[class*='-zhu2-'
   background-position: -119px -595px;
 }
 .origin-chi-1 {
-  background-position: -276px -45px;
+  background-position: -276px -50px;
 }
 .origin-chi-2 {
-  background-position: -276px -295px;
+  background-position: -276px -300px;
 }
 .origin-chi-3 {
   background-position: -276px -595px;
 }
 .origin-cho-1,.origin-cho2-1, {
-  background-position: -355px -45px;
+  background-position: -355px -50px;
 }
 .origin-cho-2,.origin-cho2-2, {
-  background-position: -355px -290px;
+  background-position: -355px -300px;
 }
 .origin-cho-3,.origin-cho2-3, {
-  background-position: -355px -600px;
+  background-position: -355px -595px;
 }
 .origin-chu-1,.origin-chu2-1, {
-  background-position: -515px -50px;
+  background-position: -515px -60px;
 }
 .origin-chu-2,.origin-chu2-2, {
-  background-position: -515px -295px;
+  background-position: -515px -300px;
 }
 .origin-chu-3,.origin-chu2-3, {
-  background-position: -515px -600px;
+  background-position: -515px -595px;
 }
 
 .origin-zha-1,.origin-zhe-1 {
-  background-position: -678px -45px;
+  background-position: -678px -50px;
 }
 .origin-zha-2,.origin-zhe-2 {
   background-position: -678px -300px;
 }
 .origin-zha-3,.origin-zhe-3 {
-  background-position: -675px -595px;
+  background-position: -678px -595px;
 }
 .origin-zhi-1 {
-  background-position: -840px -45px;
+  background-position: -835px -50px;
 }
 .origin-zhi-2 {
-  background-position: -840px -295px;
+  background-position: -835px -300px;
 }
 .origin-zhi-3 {
-  background-position: -840px -595px;
+  background-position: -835px -595px;
 }
 .origin-zho-1,.origin-zho2-1, {
-  background-position: -918px -45px;
+  background-position: -915px -50px;
 }
 .origin-zho-2,.origin-zho2-2, {
-  background-position: -918px -290px;
+  background-position: -915px -300px;
 }
 .origin-zho-3,.origin-zho2-3, {
-  background-position: -918px -600px;
+  background-position: -915px -595px;
 }
 .origin-zhu-1,.origin-zhu2-1, {
-  background-position: -1078px -50px;
+  background-position: -1075px -55px;
 }
 .origin-zhu-2,.origin-zhu2-2, {
-  background-position: -1078px -295px;
+  background-position: -1075px -300px;
 }
 .origin-zhu-3,.origin-zhu2-3, {
-  background-position: -1078px -600px;
+  background-position: -1075px -595px;
 }
-
-
-
 
 div[class*='-ya-'],div[class*='-ye-'],div[class*='-yi-'],
 div[class*='-yo-'],div[class*='-yo2-'],div[class*='-yu-'],div[class*='-yu2-'],
@@ -844,76 +841,82 @@ div[class*='-ro-'],div[class*='-ro2-'],div[class*='-ru-'],div[class*='-ru2-'] {
   background-image: url(../data/alphabet/variant/images/ya-ra-black.png);
 }
 
+div[class*='origin-ya-3'],div[class*='origin-ye-3'],div[class*='origin-yi-3'],
+div[class*='origin-yo-3'],div[class*='origin-yo2-3'],div[class*='origin-yu-3'],div[class*='origin-yu2-3'] {
+  height: 160px !important;
+}
+
 .origin-ya-1,.origin-ye-1 {
-  background-position: -119px -45px;
+  background-position: -115px -60px;
 }
 .origin-ya-2,.origin-ye-2 {
-  background-position: -119px -300px;
+  background-position: -115px -300px;
 }
 .origin-ya-3,.origin-ye-3 {
-  background-position: -119px -595px;
+  background-position: -115px -600px;
 }
 .origin-yi-1 {
-  background-position: -276px -45px;
+  background-position: -273px -60px;
 }
 .origin-yi-2 {
-  background-position: -276px -295px;
+  background-position: -273px -300px;
 }
 .origin-yi-3 {
-  background-position: -276px -595px;
+  background-position: -273px -593px;
 }
 .origin-yo-1,.origin-yo2-1, {
-  background-position: -355px -45px;
+  background-position: -353px -60px;
 }
 .origin-yo-2,.origin-yo2-2, {
-  background-position: -355px -290px;
+  background-position: -353px -300px;
 }
 .origin-yo-3,.origin-yo2-3, {
-  background-position: -355px -600px;
+  background-position: -353px -595px;
 }
 .origin-yu-1,.origin-yu2-1, {
-  background-position: -515px -50px;
+  background-position: -513px -60px;
 }
 .origin-yu-2,.origin-yu2-2, {
-  background-position: -515px -295px;
+  background-position: -513px -300px;
 }
 .origin-yu-3,.origin-yu2-3, {
-  background-position: -515px -600px;
+  background-position: -513px -595px;
 }
 
 .origin-ra-1,.origin-re-1 {
-  background-position: -678px -45px;
+  background-position: -675px -60px;
 }
 .origin-ra-2,.origin-re-2 {
-  background-position: -678px -300px;
+  background-position: -675px -300px;
 }
 .origin-ra-3,.origin-re-3 {
   background-position: -675px -595px;
 }
 .origin-ri-1 {
-  background-position: -840px -45px;
+  background-position: -835px -60px;
 }
 .origin-ri-2 {
-  background-position: -840px -295px;
+  background-position: -835px -295px;
 }
 .origin-ri-3 {
-  background-position: -840px -595px;
+  background-position: -835px -595px;
 }
 .origin-ro-1,.origin-ro2-1, {
-  background-position: -918px -45px;
+  background-position: -915px -60px;
 }
 .origin-ro-2,.origin-ro2-2, {
-  background-position: -918px -290px;
+  background-position: -915px -300px;
 }
 .origin-ro-3,.origin-ro2-3, {
-  background-position: -918px -600px;
+  background-position: -915px -595px;
 }
 .origin-ru-1,.origin-ru2-1, {
-  background-position: -1078px -50px;
+  background-position: -1075px -60px;
 }
 .origin-ru-2,.origin-ru2-2, {
-  background-position: -1078px -295px;
+  background-position: -1075px -300px;
 }
 .origin-ru-3,.origin-ru2-3, {
-  background-position: -1078px -600px;
+  background-position: -1075px -595px;
 }
+
