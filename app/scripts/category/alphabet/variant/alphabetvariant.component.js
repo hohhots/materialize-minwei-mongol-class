@@ -20,6 +20,7 @@
     // variable for outside access 
     self.templateUrl = config.templateUrl.alphabetvariant;
 
+    self.alphaFilter = config.alphaLangs.alphaFilter;
   };
 
 })();

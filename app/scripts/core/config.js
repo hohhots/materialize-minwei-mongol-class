@@ -90,6 +90,10 @@
         notSupportHtml5Video: "您的浏览器不支持 HTML5 播放视频。"
       },
 
+      alphaLangs: {
+        alphaFilter: "过滤根字母"
+      },
+
       templateUrl: {
         header: 'scripts/header/header.template.html',
         mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
@@ -100,7 +104,8 @@
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
-        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
+        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
+        alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html"
       },
 
       dataPath: {
