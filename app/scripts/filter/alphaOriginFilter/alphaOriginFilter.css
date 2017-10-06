@@ -10,3 +10,26 @@
 .w3-modal-content {
   background-color:rgba(200,200,200,.9);
 }
+
+.alphabetorigin-filter {
+  margin: auto;
+  width: 70%;
+  margin-top: 0 !important;
+  padding: 10px;
+}
+
+.alphabetorigin-selected {
+  background-color: #179127;
+}
+
+@media (min-width:601px) {
+  .alphabetorigin-filter {
+    width: 50%;
+  }
+}
+
+@media (min-width:993px) {
+  .alphabetorigin-filter {
+    width: 40%;
+  }
+}

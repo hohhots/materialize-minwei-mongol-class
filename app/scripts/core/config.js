@@ -14,6 +14,10 @@
         url: "root"
       },
 
+      type: {
+        css: 'css'
+      },
+
       gender: {
         man: '-m',
         woman: '-w'
@@ -91,8 +95,10 @@
       },
 
       alphaLangs: {
+        ok: "确定",
         alphaFilter: "过滤根字母",
-        selectOriginAlpha: "选择根字母"
+        selectOriginAlpha: "选择根字母",
+        selectAll: "全选"
       },
 
       templateUrl: {
@@ -138,7 +144,9 @@
         displayVideoPlayer: 'displayVideoPlayerEvent',
         closeVideoPlayer:'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',
-        closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent'
+        closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent',
+        displayAlphaFilter: 'displayAlphaFilterEvent',
+        filtAlphaVariants: 'filtAlphaVariantsEvent'
       }
     };
 
