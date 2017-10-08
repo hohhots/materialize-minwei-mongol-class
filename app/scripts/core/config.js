@@ -95,8 +95,10 @@
       },
 
       alphaLangs: {
+        introduction: "简介",
+        practice: "练习",
         ok: "确定",
-        alphaFilter: "过滤根字母",
+        filter: "过滤",
         selectOriginAlpha: "选择根字母",
         selectAll: "全选"
       },

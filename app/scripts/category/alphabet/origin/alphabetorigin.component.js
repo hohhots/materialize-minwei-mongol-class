@@ -25,7 +25,9 @@
 
     //define self variables
     self.templateUrl = config.templateUrl.alphabetorigin;
-
+    self.introduction = config.alphaLangs.introduction;
+    self.practice = config.alphaLangs.practice;
+    
     // ser value for self variables
     self.alphaClicked = function (id, name) {
       var names = {};

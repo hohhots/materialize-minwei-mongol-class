@@ -19,8 +19,9 @@
 
     // variable for outside access
     self.data = [];
+    self.introduction = config.alphaLangs.introduction;
     self.templateUrl = config.templateUrl.alphabetvariant;
-    self.alphaFilter = config.alphaLangs.alphaFilter;
+    self.alphaFilter = config.alphaLangs.filter;
 
     self.$onInit = function () {
       self.data = self.subData;
