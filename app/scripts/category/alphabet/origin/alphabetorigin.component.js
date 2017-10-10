@@ -14,13 +14,14 @@
     controller: [
       '$scope',
       '$element',
+      '$location',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, config, util, json) {
+  function controller($scope, $element, $location, config, util, json) {
     var self = this;
 
     //define self variables
@@ -28,12 +29,12 @@
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
 
-    self.practiceUrl = function() {
-      return util.convertUrl(config.pagesUrl.originPractice);
-    };
+    //self.practiceUrl = function() {
+    //  return util.convertUrl(config.pagesUrl.originPractice);
+    //};
     
     // ser value for self variables
-    self.alphaClicked = function (id, name) {
+    self.alphaClick = function (id, name) {
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       var gender = util.getRandomGender();
@@ -49,7 +50,7 @@
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
 
-    self.introductionClicked = function () {
+    self.introductionClick = function () {
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       names.videos = {
@@ -58,6 +59,10 @@
       };
       names.name = self.jsonData[0].name;
       $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
+    self.practiceClick = function () {
+      $location.path("/" + config.app.url + "/" + config.pagesUrl.originPractice);
     };
 
   };

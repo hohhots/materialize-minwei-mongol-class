@@ -42,6 +42,7 @@
       },
 
       pagesUrl: {
+        alphaOrigin: 'alphabetorigin',
         originPractice: 'originpractice'        
       },
 

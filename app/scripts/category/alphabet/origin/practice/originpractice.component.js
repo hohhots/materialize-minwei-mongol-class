@@ -14,21 +14,33 @@
     controller: [
       '$scope',
       '$element',
+      '$location',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, config, util, json) {
+  function controller($scope, $element, $location, config, util, json) {
     var self = this;
     
     //define self variables
     self.templateUrl = config.templateUrl.originpractice;
     self.name = '';
+    self.testAlphas = [];
 
     self.$onInit = function () {
       self.name = self.jsonData[0].name + config.alphaLangs.practice;
+      setFourAlphas();
+    };
+
+    self.exitPractice = function () {
+      $location.path("/" + config.app.url + "/" + config.pagesUrl.alphaOrigin);
+    };
+
+    var setFourAlphas = function() {
+      var position = Math.floor(Math.random()*(self.subData.length - 3));
+      self.testAlphas = self.subData.slice(position, position+4);
     };
   };
 
