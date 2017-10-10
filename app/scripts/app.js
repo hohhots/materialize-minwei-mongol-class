@@ -18,13 +18,6 @@
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',
     function config($stateProvider, $urlRouterProvider, config) {
 
-      //var homeT     =  appHeader + '<app-home></app-home>' + appFooter;
-      //var categoryT =  appHeader + '<app-category></app-category>' + appFooter;
-      //var subjectT  =  appHeader + '<app-subject></app-subject>' + appFooter;
-      //var mclassT   =  appHeader + '<app-class></app-class>' + appFooter;
-      //var lessonT   =  appHeader + '<app-lesson></app-lesson>' + appFooter;
-
-      // An array of state definitions
       var httpJson = function(name){
         return function ($http) {
           return $http.get(config.dataPath[name].json, { cache: true })
@@ -54,6 +47,15 @@
           name: 'root.alphaorigin',
           url: '/alphabetorigin',
           component: 'appAlphaorigin',
+          resolve: {
+            jsonData: httpJson('alphabetorigin'),
+            subData: httpData('alphabetorigin')
+          }
+        },
+        {
+          name: 'root.originpractice',
+          url: '/originpractice',
+          component: 'originPractice',
           resolve: {
             jsonData: httpJson('alphabetorigin'),
             subData: httpData('alphabetorigin')

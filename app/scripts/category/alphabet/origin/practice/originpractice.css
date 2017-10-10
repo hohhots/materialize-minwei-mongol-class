@@ -1,0 +1,19 @@
+.originpractice-exit {
+  margin-left: 1em;
+  float: left;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.originpractice-text {
+  margin: 10px;
+  text-align: left;
+}
+
+@media (min-width:601px) {
+ 
+}
+
+@media (min-width:993px) {
+  
+}

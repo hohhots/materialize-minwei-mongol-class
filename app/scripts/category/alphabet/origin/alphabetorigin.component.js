@@ -27,6 +27,10 @@
     self.templateUrl = config.templateUrl.alphabetorigin;
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
+
+    self.practiceUrl = function() {
+      return util.convertUrl(config.pagesUrl.originPractice);
+    };
     
     // ser value for self variables
     self.alphaClicked = function (id, name) {

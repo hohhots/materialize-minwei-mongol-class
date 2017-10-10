@@ -9,7 +9,7 @@
       <button ng-click="$ctrl.introductionClicked()" class="w3-btn w3-teal w3-card">{{::$ctrl.introduction}}</button>
     </div>
     <div class="w3-container w3-padding w3-col s6 m6 l6">
-      <button ng-click="$ctrl.introductionClicked()" class="w3-btn w3-teal w3-card">{{::$ctrl.practice}}</button>
+      <button class="w3-btn w3-teal w3-card"><a ng-href="{{::$ctrl.practiceUrl()}}">{{::$ctrl.practice}}</a></button>
     </div>
   </div>
 

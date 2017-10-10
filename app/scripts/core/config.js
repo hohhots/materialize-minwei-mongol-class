@@ -41,6 +41,10 @@
         alphaOrigin: 'data/alphabet/list/'
       },
 
+      pagesUrl: {
+        originPractice: 'originpractice'        
+      },
+
       alphaVideosNamesMap: {
         o2: "o", u2: "u",
         ne: "na", no2: "no", nu2: "nu",
@@ -109,6 +113,7 @@
         home: 'scripts/home/home.template.html',
         category: 'scripts/category/category.template.html',
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
+        originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
