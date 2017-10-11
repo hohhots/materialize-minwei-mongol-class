@@ -16,34 +16,44 @@
       </div>
 
       <div class="originpractice-text">
-        <p>（共13个练习，每次随机显示其中之一。）</p><br />
+        <p>（共13个练习，每次随机显示其中之一。）</p>
+        <br />
         <p>点击播放按钮听字母发音，然后点击&lt;选择字母&gt;，按发音顺序选择相应的字母。</p>
       </div>
 
       <div class="originpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.testAlphas" class="w3-col s3 m3 l3">
+        <div ng-repeat="alpha in $ctrl.answerAlphas" class="w3-col s3 m3 l3">
           <div class="w3-card w3-margin originpractice-view">
             <div class="originpractice-num">{{::($index + 1)}}</div>
-            <div ng-class="$ctrl.getAlphaClass(alpha.fileName)"></div>
+            <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
           </div>
         </div>
       </div>
 
       <div class="originpractice-play">
-        <i class="w3-btn fa fa-play-circle-o" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
+        <div class="originpractice-alphas">
+          <div class="w3-container w3-padding w3-col s4 m4 l4">
+            <i class="w3-btn fa fa-check-circle-o" aria-hidden="true" ng-show="$ctrl.correct"></i>
+          </div>
+          <div class="w3-container w3-padding w3-col s4 m4 l4">
+            <i class="w3-btn fa fa-play-circle-o" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
+          </div>
+          <div class="w3-container w3-padding w3-col s4 m4 l4">
+            <i class="w3-btn fa fa-times-circle-o" style="color:red" aria-hidden="true" ng-show="$ctrl.error"></i>
+          </div>
+        </div>
       </div>
 
       <div class="originpractice-done">
-        <button class="w3-card w3-margin w3-btn w3-teal w3-card">
-          <a ng-href="{{::$ctrl.practiceUrl()}}">
-            {{::$ctrl.langs.selectAlpha}}
-          </a>
+        <button class="w3-card w3-margin w3-btn w3-teal w3-card" ng-click="$ctrl.selectAlphaClick()">
+          {{::$ctrl.langs.selectAlpha}}
         </button>
-        <button class="w3-card w3-margin w3-btn w3-teal w3-card">
-          <a ng-href="{{::$ctrl.practiceUrl()}}">
-            {{::$ctrl.langs.checkAnswer}}
-          </a>
+        <button class="w3-card w3-margin w3-btn w3-teal w3-card" ng-click="$ctrl.checkAnswerClick()" ng-hide="$ctrl.correct">
+          {{::$ctrl.langs.checkAnswer}}
         </button>
+        <button class="w3-card w3-margin w3-btn w3-teal w3-card" ng-click="$ctrl.nextTestClick()" ng-show="$ctrl.correct">
+            {{::$ctrl.langs.nextTest}}
+          </button>
       </div>
 
     </div>

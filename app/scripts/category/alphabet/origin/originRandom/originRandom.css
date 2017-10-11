@@ -1,0 +1,17 @@
+.originrandom-num,
+.originrandom-num-zero {
+  width: 100% !important;
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 16px;
+  font-weight: bold;  
+}
+
+.originrandom-num-zero {
+  border-bottom: 1px solid #085a9d !important;
+  color: #085a9d;
+}
+
+.originrandom-selected {
+  background-color: #179127;
+}

@@ -106,13 +106,15 @@
       alphaLangs: {
         introduction: "简介",
         practice: "练习",
+        clear: '清除',
         ok: "确定",
         exit: "退出",
         filter: "过滤",
         selectAlpha: "选择字母",
         selectAll: "全选",
         checkAnswer: "检查答案",
-        notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。"
+        notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
+        nextTest: '下一练习'
       },
 
       templateUrl: {
@@ -163,6 +165,7 @@
         closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent',
         displayAlphaFilter: 'displayAlphaFilterEvent',
         filtAlphaVariants: 'filtAlphaVariantsEvent',
+        displayOriginRandom: 'displayOriginRandomEvent',
         selectRandomAlphas: 'selectRandomAlphasEvent'
       }
     };
