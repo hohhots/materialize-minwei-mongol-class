@@ -42,6 +42,13 @@
   font-size: 14px;
 }
 
+.originpractice-view {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 45px;
+  background-color: #085a9d;
+}
+
 .originpractice-num {
   width: 100% !important;
   color: rgba(255, 255, 255, 0.7);
@@ -64,7 +71,6 @@
   padding: 8px;
   font-size: 40px;
   color: #08790E;
-  cursor: pointer;
 }
 
 .originpractice-done {

@@ -66,6 +66,10 @@
         we: "wa"
       },
 
+      alphaCss: {
+        practiceEmpty: 'originpractice-empty-alpha'
+      },
+
       json: {
         categories: "categories.json",
         footer: "footer.json",
@@ -103,9 +107,12 @@
         introduction: "简介",
         practice: "练习",
         ok: "确定",
+        exit: "退出",
         filter: "过滤",
-        selectOriginAlpha: "选择根字母",
-        selectAll: "全选"
+        selectAlpha: "选择字母",
+        selectAll: "全选",
+        checkAnswer: "检查答案",
+        notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。"
       },
 
       templateUrl: {
@@ -120,7 +127,8 @@
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
         simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
-        alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html"
+        alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
+        originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
       },
 
       dataPath: {
@@ -154,7 +162,8 @@
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',
         closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent',
         displayAlphaFilter: 'displayAlphaFilterEvent',
-        filtAlphaVariants: 'filtAlphaVariantsEvent'
+        filtAlphaVariants: 'filtAlphaVariantsEvent',
+        selectRandomAlphas: 'selectRandomAlphasEvent'
       }
     };
 

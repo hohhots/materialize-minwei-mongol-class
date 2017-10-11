@@ -85,7 +85,6 @@
     deregister.push($scope.$on(config.events.playAlphaVideo, playAlphaVideo));
     deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
 
-    //deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);
