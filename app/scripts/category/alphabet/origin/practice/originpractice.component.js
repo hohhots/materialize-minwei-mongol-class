@@ -91,8 +91,7 @@
     };
 
     self.checkAnswerClick = function() {
-      self.correct = false;
-      self.error = false;
+      init();
       if(!answered) {
         return;
       }
@@ -114,6 +113,11 @@
     var url = config.mediaUrl.alphaOrigin;
     var answered = false;
 
+    var init = function() {
+      self.correct = false;
+      self.error = false;
+    };
+
     var setFourAlphas = function () {
       var position = Math.floor(Math.random() * (self.subData.length - 3));
       testAlphas = self.subData.slice(position, position + 4);
@@ -133,6 +137,7 @@
       if(alphas.length != 4) {
         return;
       }
+      init();
       self.answerAlphas = angular.copy(alphas);
       answered = true;
     };
