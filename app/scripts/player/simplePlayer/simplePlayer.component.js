@@ -36,6 +36,8 @@
     self.pageLang.notSupportHtml5Video = config.subject.notSupportHtml5Video;
 
     self.closePlayer = function () {
+      videoElem.pause();
+      audioElem.pause();
       self.showPlayer = false;
       videoElem.pause();
     };
