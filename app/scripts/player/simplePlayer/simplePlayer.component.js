@@ -39,7 +39,6 @@
       videoElem.pause();
       audioElem.pause();
       self.showPlayer = false;
-      videoElem.pause();
     };
 
     self.$postLink = function () {
