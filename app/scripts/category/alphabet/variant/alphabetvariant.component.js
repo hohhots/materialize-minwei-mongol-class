@@ -31,6 +31,17 @@
       $scope.$broadcast(config.events.displayAlphaFilter);
     };
 
+    self.introductionClicked = function () {
+      var names = {};
+      var url = config.mediaUrl.alphaOrigin;
+      names.videos = {
+        ogv: url + config.data.videos + '/variant' + config.dataTypes.videos[0],
+        webm: url + config.data.videos + '/variant' + config.dataTypes.videos[1]
+      };
+      names.name = self.jsonData[0].name;
+      $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
     var filtAlphaVariants = function (event, alphaIds) {
       if (alphaIds.length == 0) {
         self.$onInit();

@@ -19,6 +19,7 @@
 
     // variable for outside access 
     self.templateUrl = config.templateUrl.alphabetlist;
+    self.introduction = config.alphaLangs.introduction;
 
     self.alphaClicked = function (originName, originDirName, alphaId, alphaName) {
       var names = {}; console.log();
