@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "根字母表",
+    "name": "原型字母表",
     "introduction": "传统蒙古文和其它所有语言一样由最基本的字母组成整个语言，我们称之为“根字母”。",
     "dirName": "origin",
     "imageUrl": "origin.png"
