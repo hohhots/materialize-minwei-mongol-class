@@ -12,9 +12,10 @@
 
 .originpractice-exit {
   position: absolute;
-  top: -20px;
-  right: -23px;
+  top: -30px;
+  right: -33px;
   z-index: 1050;
+  padding: 5px;
   cursor: pointer;
   color: #009688;
 }
@@ -28,8 +29,8 @@
 
 .originpractice-close-back {
   position: absolute;
-  top: 8px;
-  left: 6px;
+  top: 14px;
+  left: 10px;
   width: 23px;
   height: 23px;
   background-color: #D3D616;

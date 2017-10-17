@@ -21,7 +21,8 @@
     self.templateUrl = config.templateUrl.listpractice;
     self.langs = {};
     self.answerAlphas = [];
-
+    self.realAlphaClass = '';
+    
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
@@ -32,7 +33,7 @@
       setAnswerAlphas();
     };
 
-    /*self.$postLink = function () {
+    self.$postLink = function () {
       var stop = $interval(function () {
         if (!audioElem) {
           audioElem = $element.find('audio')[0];
@@ -41,7 +42,7 @@
           audioElem.onended = self.playAudios;
         }
       }, 10);
-    };*/
+    };
 
     self.exitPractice = function () {
       util.changePath(config.pagesUrl.alphaList);
@@ -60,11 +61,11 @@
         playedAudioId = 0;
         return;
       }
-      var name = testAlphas[playedAudioId].fileName;
+      var name = testAlphas[playedAudioId].name;
       var gender = util.getRandomGender();
       self.audio = {
-        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + originAlphaName + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + originAlphaName + '/' + name + gender + config.dataTypes.audios[0]
       };
       if (playedAudioId != 0) {
         $scope.$digest();
@@ -74,13 +75,28 @@
       playedAudioId++;
     };
 
+    self.selectAlpha = function(alpha) {
+      $scope.$broadcast(config.events.displayListRandom);
+    };
+
+    var originAlphaName = '';
     var testAlphas = [];
+    var audioElem = null;
+    var playedAudioId = 0;
+    var url = config.mediaUrl.alphaList;
     var answered = false;
+    var sevenAlphaClass = 'alpha-col s4 m3 l1';
+    var twoAlphaClass = 'w3-col s6 m6 l6';
 
     var setAnswerAlphas = function() {
       var position = Math.floor(Math.random() * (self.subData.length));
       testAlphas = self.subData[position].vowel;
+      originAlphaName = testAlphas[0].name;
       self.answerAlphas = angular.copy(testAlphas);
+      self.realAlphaClass = sevenAlphaClass;
+      if(testAlphas.length ==  2) {
+        self.realAlphaClass = twoAlphaClass;
+      }
     };
 
   };

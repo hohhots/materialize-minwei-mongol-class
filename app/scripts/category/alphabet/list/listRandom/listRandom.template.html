@@ -1,9 +1,9 @@
-<div id="player" class="w3-modal origin-filter" ng-show="$ctrl.showOriginRandom">
+<div id="player" class="w3-modal origin-filter" ng-show="$ctrl.showListRandom">
   <div class="w3-modal-content">
 
     <div class="originpractice-close-container">
-      <div class="originrandom-exit" ng-click="$ctrl.closeRandom()">
-        <i class="fa fa-times-circle fa-lg originpractice-close-icon" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
+      <div class="listpractice-exit" ng-click="$ctrl.exitPractice()">
+        <i class="fa fa-times-circle fa-lg originpractice-close-icon" title="{{::$ctrl.langs.exit}}" aria-hidden="true"></i>
         <span class="originpractice-close-back"></span>
       </div>
     </div>
@@ -12,18 +12,9 @@
       {{::$ctrl.langs.selectAlpha}}
     </header>
 
-    <div class="w3-container w3-center alphabetorigin-filter">
-      <div class="w3-container w3-padding w3-col s6 m6 l6">
-        <button class="w3-btn w3-teal w3-card" ng-click="$ctrl.clearClick()">{{::$ctrl.langs.clear}}</button>
-      </div>
-      <div class="w3-container w3-padding w3-col s6 m6 l6">
-        <button class="w3-btn w3-teal w3-card" ng-click="$ctrl.okClick()">{{::$ctrl.langs.ok}}</button>
-      </div>
-    </div>
-
     <div class="w3-container w3-margin w3-center app-container">
       <div class="w3-row w3-grayscale-min w3-center">
-        <div class="alphabetorigin-content">
+        <div class="w3-margin-top alphabetorigin-content">
           <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)" class="w3-col s4 m3 l2">
             <div class="w3-card w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
               <div ng-class="$ctrl.getAlphaCss(alpha.id)">{{$ctrl.getSelectedOrder(alpha.id)}}</div>

@@ -48,6 +48,11 @@
 
     self.okClick = function () {
       $scope.$emit(config.events.selectRandomAlphas, selectedAlphas);
+      //self.closeRandom();
+      $scope.$broadcast(config.events.closeOriginRandom);
+    };
+
+    self.closeRandom = function() {
       self.showOriginRandom = false;
     };
 
@@ -113,6 +118,7 @@
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.displayOriginRandom, displayOriginRandom));
+    deregister.push($scope.$on(config.events.closeOriginRandom, self.closeRandom));
 
     //deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed

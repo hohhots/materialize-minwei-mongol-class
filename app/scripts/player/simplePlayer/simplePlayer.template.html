@@ -1,10 +1,14 @@
 <div id="player" class="w3-modal simple-player" ng-show="$ctrl.showPlayer">
   <div class="w3-modal-content" style="max-width:500px">
     <div class="w3-container w3-padding w3-center w3-light-gray">
-      <div class="simple-player-close" ng-click="$ctrl.closePlayer()">
-        <i class="fa fa-times-circle fa-lg simple-player-close-icon" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
-        <span class="simple-player-back"></span>
+
+      <div class="originpractice-close-container">
+        <div class="originpractice-exit" ng-click="$ctrl.closePlayer()">
+          <i class="fa fa-times-circle fa-lg originpractice-close-icon" title="{{::$ctrl.pageLang.close}}" aria-hidden="true"></i>
+          <span class="originpractice-close-back"></span>
+        </div>
       </div>
+      
       <div class="w3-margin-top">{{$ctrl.mediasUrl.name}}</div>
       <p>&nbsp;</p>
       <video id="simpleVideoPlayer" width="100%" height="100%" name="{{$ctrl.mediasUrl.name}}">

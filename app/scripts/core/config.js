@@ -38,7 +38,8 @@
       },
 
       mediaUrl: {
-        alphaOrigin: 'data/alphabet/list/'
+        alphaOrigin: 'data/alphabet/list/',
+        alphaList: 'data/alphabet/list/'
       },
 
       pagesUrl: {
@@ -127,13 +128,14 @@
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
+        listRandom:  'scripts/category/alphabet/list/listRandom/listRandom.template.html',
         listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
         simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
         alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
-        originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
+        originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html'
       },
 
       dataPath: {
@@ -169,7 +171,9 @@
         displayAlphaFilter: 'displayAlphaFilterEvent',
         filtAlphaVariants: 'filtAlphaVariantsEvent',
         displayOriginRandom: 'displayOriginRandomEvent',
-        selectRandomAlphas: 'selectRandomAlphasEvent'
+        closeOriginRandom: 'closeOriginRandomEvent',
+        selectRandomAlphas: 'selectRandomAlphasEvent',
+        displayListRandom: 'displayListRandomEvent'
       }
     };
 

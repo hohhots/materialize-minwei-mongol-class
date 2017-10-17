@@ -41,7 +41,7 @@
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
 
-    self.introductionClicked = function () {
+    self.introductionClick = function () {
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       names.videos = {
