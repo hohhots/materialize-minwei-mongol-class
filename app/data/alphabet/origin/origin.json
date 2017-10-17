@@ -1,11 +1,7 @@
 [
   {
     "id": 1,
-<<<<<<< HEAD
-    "name": "原型字母表",
-=======
     "name": "原形字母表",
->>>>>>> new
     "introduction": "简介",
     "mediaUrl": "/alphabet/origin/"
   } 

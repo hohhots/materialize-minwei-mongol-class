@@ -19,10 +19,10 @@
         'Util',
         'Json',
         'anchorSmoothScroll',
-        appHomeController]
+        Controller]
     });
 
-  function appHomeController( $scope, $sce, config, util, json, anchorScroll) {
+  function Controller( $scope, $sce, config, util, json, anchorScroll) {
     var self = this;
 
     self.templateUrl = config.templateUrl.home;

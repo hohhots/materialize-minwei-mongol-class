@@ -20,6 +20,7 @@
     //define self variables
     self.templateUrl = config.templateUrl.listpractice;
     self.langs = {};
+    self.answerAlphas = [];
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -28,7 +29,7 @@
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
-      //setFourAlphas();
+      setAnswerAlphas();
     };
 
     /*self.$postLink = function () {
@@ -44,6 +45,42 @@
 
     self.exitPractice = function () {
       util.changePath(config.pagesUrl.alphaList);
+    };
+
+    self.getAlphaClass = function (alpha) {
+      var name = config.alphaCss.practiceEmpty;
+      if(answered) {
+        name = 'origin-' + alpha.fileName;
+      }
+      return name;
+    };
+
+    self.playAudios = function () {
+      if (playedAudioId == testAlphas.length) {
+        playedAudioId = 0;
+        return;
+      }
+      var name = testAlphas[playedAudioId].fileName;
+      var gender = util.getRandomGender();
+      self.audio = {
+        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
+      };
+      if (playedAudioId != 0) {
+        $scope.$digest();
+      }
+      audioElem.load();
+      audioElem.play();
+      playedAudioId++;
+    };
+
+    var testAlphas = [];
+    var answered = false;
+
+    var setAnswerAlphas = function() {
+      var position = Math.floor(Math.random() * (self.subData.length));
+      testAlphas = self.subData[position].vowel;
+      self.answerAlphas = angular.copy(testAlphas);
     };
 
   };

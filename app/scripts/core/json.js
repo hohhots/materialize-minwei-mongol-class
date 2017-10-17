@@ -122,7 +122,7 @@
     var getJsonWithPath = function(path) {
       setJsonResource(path);
       
-      resource.query({}, function(data) {console.log(data);
+      resource.query({}, function(data) {
         return data;
       });
     };
