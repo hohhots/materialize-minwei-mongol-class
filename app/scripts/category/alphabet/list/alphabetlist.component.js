@@ -20,8 +20,9 @@
     // variable for outside access 
     self.templateUrl = config.templateUrl.alphabetlist;
     self.introduction = config.alphaLangs.introduction;
+    self.practice = config.alphaLangs.practice;
 
-    self.alphaClicked = function (originName, originDirName, alphaId, alphaName) {
+    self.alphaClick = function (originName, originDirName, alphaId, alphaName) {
       var names = {}; console.log();
       var url = config.mediaUrl.alphaOrigin;
       var gender = util.getRandomGender();
@@ -49,6 +50,10 @@
       };
       names.name = self.jsonData[0].name;
       $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
+    self.practiceClick = function () {
+      util.changePath(config.pagesUrl.listPractice);
     };
   };
 

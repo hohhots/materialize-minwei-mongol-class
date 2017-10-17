@@ -43,7 +43,9 @@
 
       pagesUrl: {
         alphaOrigin: 'alphabetorigin',
-        originPractice: 'originpractice'        
+        alphaList: 'alphabetlist',
+        originPractice: 'originpractice',
+        listPractice: 'listpractice'   
       },
 
       alphaVideosNamesMap: {
@@ -125,6 +127,7 @@
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
+        listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',

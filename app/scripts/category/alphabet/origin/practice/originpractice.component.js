@@ -56,7 +56,7 @@
     };
 
     self.exitPractice = function () {
-      $location.path("/" + config.app.url + "/" + config.pagesUrl.alphaOrigin);
+      util.changePath(config.pagesUrl.alphaOrigin);
     };
 
     self.getAlphaClass = function (alpha) {
