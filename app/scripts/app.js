@@ -32,6 +32,13 @@
         }
       };
 
+      var resolve = function(path) {
+        return {
+          jsonData: httpJson(path),
+          subData: httpData(path)
+        }
+      };
+
       var states = [
         {
           name: 'root',
@@ -47,37 +54,31 @@
           name: 'root.alphaorigin',
           url: '/alphabetorigin',
           component: 'appAlphaorigin',
-          resolve: {
-            jsonData: httpJson('alphabetorigin'),
-            subData: httpData('alphabetorigin')
-          }
+          resolve: resolve('alphabetorigin')
         },
         {
           name: 'root.originpractice',
           url: '/originpractice',
           component: 'originPractice',
-          resolve: {
-            jsonData: httpJson('alphabetorigin'),
-            subData: httpData('alphabetorigin')
-          }
+          resolve: resolve('alphabetorigin')
         },
         {
           name: 'root.alphalist',
           url: '/alphabetlist',
           component: 'appAlphalist',
-          resolve: {
-            jsonData: httpJson('alphabetlist'),
-            subData: httpData('alphabetlist')
-          }
+          resolve: resolve('alphabetlist')
+        },
+        {
+          name: 'root.listpractice',
+          url: '/listpractice',
+          component: 'listPractice',
+          resolve: resolve('alphabetlist')
         },
         {
           name: 'root.alphavariant',
           url: '/alphabetvariant',
           component: 'appAlphavariant',
-          resolve: {
-            jsonData: httpJson('alphabetvariant'),
-            subData: httpData('alphabetvariant')
-          }
+          resolve: resolve('alphabetvariant')
         }
       ]
 

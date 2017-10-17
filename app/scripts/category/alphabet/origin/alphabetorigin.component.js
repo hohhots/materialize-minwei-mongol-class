@@ -11,17 +11,10 @@
       jsonData: '<',
       subData: '<'
     },
-    controller: [
-      '$scope',
-      '$element',
-      '$location',
-      'Config',
-      'Util',
-      'Json',
-      controller]
+    controller: ['$scope', '$element', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($scope, $element, $location, config, util, json) {
+  function controller($scope, $element, config, util, json) {
     var self = this;
 
     //define self variables
@@ -62,7 +55,7 @@
     };
 
     self.practiceClick = function () {
-      $location.path("/" + config.app.url + "/" + config.pagesUrl.originPractice);
+      util.changePath(config.pagesUrl.originPractice);
     };
   };
 

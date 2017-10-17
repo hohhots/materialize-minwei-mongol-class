@@ -72,6 +72,10 @@
         return str.replace(f, f.toUpperCase());
       },
 
+      changePath: function(path) {
+        $location.path("/" + config.app.url + "/" + path);        
+      },
+
       convertUrl: function (url) {
         url = url ? url : '';
 

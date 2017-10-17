@@ -55,6 +55,7 @@
   }
 
   .alphabetorigin-content {
+    overflow: auto;
     width: 60% !important;
   }
 }
