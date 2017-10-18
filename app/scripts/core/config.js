@@ -1,6 +1,6 @@
 'use strict';
 
-(function($) {
+(function ($) {
 
   //set global file cache for $.ajax().
   $.ajaxSetup({
@@ -46,10 +46,32 @@
         alphaOrigin: 'alphabetorigin',
         alphaList: 'alphabetlist',
         originPractice: 'originpractice',
-        listPractice: 'listpractice'   
+        listPractice: 'listpractice'
       },
 
-      alphaVideosNamesMap: {
+      alphaListNamesMap: {
+        o2: "o", u2: "u",
+        ne: "na", no2: "no", nu2: "nu",
+        be: "ba", bo2: "bo", bu2: "bu",
+        pe: "pa", po2: "po", pu2: "pu",
+        ho2: "ho", hu2: "hu",
+        go2: "go", gu2: "gu",
+        me: "ma", mo2: "mo", mu2: "mu",
+        le: "la", lo2: "lo", lu2: "lu",
+        se: "sa", so2: "so", su2: "su",
+        she: "sha", sho2: "sho", shu2: "shu",
+        te: "ta", to2: "to", tu2: "tu",
+        de: "da", do2: "do", du2: "du",
+        che: "cha", cho2: "cho", chu2: "chu",
+        zhe: "zha", zho2: "zho", zhu2: "zhu",
+        ye: "ya", yo2: "yo", yu2: "yu",
+        re: "ra", ro2: "ro", ru2: "ru",
+        we: "wa"
+      },
+
+      alphaVideoNamesMap: {}, /*$.extend({}, alphaListNamesMap, {
+        ge: "he", gi: "hi"
+      }), ),angular.copy(alphaListNamesMap),{
         o2: "o", u2: "u",
         ne: "na", no2: "no", nu2: "nu",
         be: "ba", bo2: "bo", bu2: "bu",
@@ -67,7 +89,7 @@
         ye: "ya", yo2: "yo", yu2: "yu",
         re: "ra", ro2: "ro", ru2: "ru",
         we: "wa"
-      },
+      },*/
 
       alphaCss: {
         practiceEmpty: 'originpractice-empty-alpha'
@@ -80,11 +102,11 @@
         about: "about.json",
       },
 
-      home:{
+      home: {
         welcome: "学 - 优美蒙语<br>享 - 蒙古文化"
       },
 
-      subject:{
+      subject: {
         progress: "进度",
         targetProgress: "目标进度",
         practice: "练习",
@@ -93,7 +115,7 @@
         workArea: "subjectWorkArea",
         loadFileFail: "下载文件错误！",
         exerciseTag: "app-exercise",
-        tasksTitle: {1: "请做", 2: "个练习！"},
+        tasksTitle: { 1: "请做", 2: "个练习！" },
         excerciseHtmlId: "exercise",
         answer: "答案",
         checkAnswer: "检查答案",
@@ -128,7 +150,7 @@
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
-        listRandom:  'scripts/category/alphabet/list/listRandom/listRandom.template.html',
+        listRandom: 'scripts/category/alphabet/list/listRandom/listRandom.template.html',
         listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         subject: 'scripts/subject/subject.template.html',
@@ -140,16 +162,16 @@
 
       dataPath: {
         alphabetorigin: {
-          json:'data/alphabet/origin/origin.json',
-          data:'data/alphabet/origin/data.json'
+          json: 'data/alphabet/origin/origin.json',
+          data: 'data/alphabet/origin/data.json'
         },
         alphabetlist: {
-          json:'data/alphabet/list/list.json',
-          data:'data/alphabet/list/data.json'
+          json: 'data/alphabet/list/list.json',
+          data: 'data/alphabet/list/data.json'
         },
         alphabetvariant: {
-          json:'data/alphabet/variant/variant.json',
-          data:'data/alphabet/list/data.json'
+          json: 'data/alphabet/variant/variant.json',
+          data: 'data/alphabet/list/data.json'
         }
       },
 
@@ -165,7 +187,7 @@
         exerciseCheck: 'exerciseCheckEvent',
         exerciseCheckPassed: 'exerciseCheckPassedEvent',
         displayVideoPlayer: 'displayVideoPlayerEvent',
-        closeVideoPlayer:'closeVideoPlayerEvent',
+        closeVideoPlayer: 'closeVideoPlayerEvent',
         closeVideoPlayerMouseLeave: 'closeVideoPlayerMouseLeaveEvent',
         closeVideoPlayerMouseEnter: 'closeVideoPlayerMouseEnterEvent',
         displayAlphaFilter: 'displayAlphaFilterEvent',
@@ -173,9 +195,15 @@
         displayOriginRandom: 'displayOriginRandomEvent',
         closeOriginRandom: 'closeOriginRandomEvent',
         selectRandomAlphas: 'selectRandomAlphasEvent',
-        displayListRandom: 'displayListRandomEvent'
+        listDisplayRandomAlpha: 'listDisplayRandomAlphaEvent',
+        listHideRandomAlpha: 'listHideRandomAlpha',
+        listRandomAlphaSelected: 'listRandomAlphaSelectedEvent'
       }
     };
+
+  config.alphaVideoNamesMap = $.extend({}, config.alphaListNamesMap, {
+    ge: "he", gi: "hi"
+  });
 
   // Define the `core.config` module
   angular.module('core.config', []).

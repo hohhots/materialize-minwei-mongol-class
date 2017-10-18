@@ -35,8 +35,8 @@
         originDirName = 'ha';
       }
       names.videos = {
-        webm: url + config.data.videos + '/' + originDirName + '/' + util.convertAlphaVideoName(alphaName) + config.dataTypes.videos[1],
-        ogv: url + config.data.videos + '/' + originDirName + '/' + util.convertAlphaVideoName(alphaName) + config.dataTypes.videos[0]
+        webm: url + config.data.videos + '/' + originDirName + '/' + util.convertVideoAlphaName(alphaName) + config.dataTypes.videos[1],
+        ogv: url + config.data.videos + '/' + originDirName + '/' + util.convertVideoAlphaName(alphaName) + config.dataTypes.videos[0]
       };
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };

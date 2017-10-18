@@ -24,8 +24,16 @@
         return gender;
       },
 
-      convertAlphaVideoName: function(alphaName) {
-        var temp = config.alphaVideosNamesMap[alphaName];
+      convertAlphaName: function(alphaName) {
+        var temp = config.alphaListNamesMap[alphaName];
+        if(temp) {
+          alphaName = temp;
+        }
+        return alphaName;
+      },
+
+      convertVideoAlphaName: function(alphaName) {
+        var temp = config.alphaVideoNamesMap[alphaName];
         if(temp) {
           alphaName = temp;
         }

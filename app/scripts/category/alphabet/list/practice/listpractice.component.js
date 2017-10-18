@@ -64,8 +64,8 @@
       var name = testAlphas[playedAudioId].name;
       var gender = util.getRandomGender();
       self.audio = {
-        mpeg: url + config.data.audios + '/' + originAlphaName + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + originAlphaName + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[0]
       };
       if (playedAudioId != 0) {
         $scope.$digest();
@@ -76,10 +76,14 @@
     };
 
     self.selectAlpha = function(alpha) {
-      $scope.$broadcast(config.events.displayListRandom);
+      var tests = {
+        testOrigin: testOriginAlpha,
+        testAlpha: alpha
+      };
+      $scope.$broadcast(config.events.listDisplayRandomAlpha, tests);
     };
 
-    var originAlphaName = '';
+    var testOriginAlpha = '';
     var testAlphas = [];
     var audioElem = null;
     var playedAudioId = 0;
@@ -90,8 +94,8 @@
 
     var setAnswerAlphas = function() {
       var position = Math.floor(Math.random() * (self.subData.length));
-      testAlphas = self.subData[position].vowel;
-      originAlphaName = testAlphas[0].name;
+      testOriginAlpha = self.subData[position];
+      testAlphas = angular.copy(testOriginAlpha.vowel);
       self.answerAlphas = angular.copy(testAlphas);
       self.realAlphaClass = sevenAlphaClass;
       if(testAlphas.length ==  2) {
