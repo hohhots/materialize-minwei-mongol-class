@@ -106,7 +106,7 @@
 
     var randomAlphaSelected = function(event, alpha) {
       alpha.answered = true;
-      self.answerAlphas[testAlpha.id - 1] = alpha;console.log(self.answerAlphas);
+      self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };
 
     // add listener and hold on to deregister function
