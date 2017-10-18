@@ -22,6 +22,8 @@
     self.langs = {};
     self.answerAlphas = [];
     self.realAlphaClass = '';
+    self.correct = false;
+    self.error = false;
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -76,12 +78,34 @@
     };
 
     self.selectAlpha = function (index) {
+      if (self.correct) { return; }
       testAlpha = testAlphas[index];
       var tests = {
         testOrigin: testOriginAlpha,
         testAlpha: testAlpha
       };
       $scope.$broadcast(config.events.listDisplayRandomAlpha, tests);
+    };
+
+    self.checkAnswerClick = function () {
+      if (practiceDone()) {
+        checkStateInit();
+        var right = true;
+        $.each(testAlphas, function (i, v) {
+          if (self.answerAlphas[i].name != util.convertAlphaName(v.name)) {
+            right = false;
+          }
+        });
+        if (right == true) {
+          self.correct = true;
+        } else {
+          self.error = true;
+        }
+      }
+    };
+
+    self.nextTestClick = function () {
+      $state.reload();
     };
 
     var testOriginAlpha = '';
@@ -104,9 +128,25 @@
       }
     };
 
-    var randomAlphaSelected = function(event, alpha) {
+    var randomAlphaSelected = function (event, alpha) {
+      checkStateInit();
       alpha.answered = true;
       self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
+    };
+
+    var practiceDone = function () {
+      var done = true;
+      $.each(self.answerAlphas, function (i, v) {
+        if (v.answered != true) {
+          done = false;
+        }
+      });
+      return done;
+    };
+
+    var checkStateInit = function () {
+      self.correct = false;
+      self.error = false;
     };
 
     // add listener and hold on to deregister function
