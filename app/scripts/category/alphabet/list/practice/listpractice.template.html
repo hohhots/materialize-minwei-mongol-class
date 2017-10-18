@@ -36,8 +36,8 @@
       </div>
 
       <div class="listpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.answerAlphas" ng-class="$ctrl.realAlphaClass">
-          <div class="w3-card w3-margin originpractice-view" ng-click="$ctrl.selectAlpha(alpha)">
+        <div ng-repeat="alpha in $ctrl.answerAlphas track by $index" ng-class="$ctrl.realAlphaClass">
+          <div class="w3-card w3-margin listpractice-view" ng-click="$ctrl.selectAlpha($index)">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
           </div>

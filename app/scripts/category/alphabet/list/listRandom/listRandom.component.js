@@ -42,22 +42,20 @@
     };
 
     self.exitPractice = function () {
-      $scope.$emit(config.events.listRandomAlphaSelected, selectedAlpha);
       $scope.$broadcast(config.events.listHideRandomAlpha);
     };
 
-    var selectedAlpha = {};
     var fiveAlphaClass = 'alpha5-col s4 m3 l1';
     var fourAlphaClass = 'w3-col s4 m3 l3';
     var oneAlphaClass = 'w3-col s12 m12 l12';
 
-    var init = function(tests) {
+    var init = function (tests) {
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));
       self.realAlphaClass = fiveAlphaClass;
-      if(self.randomAlphas.length ==  4) {
+      if (self.randomAlphas.length == 4) {
         self.realAlphaClass = fourAlphaClass;
       }
-      if(self.randomAlphas.length ==  1) {
+      if (self.randomAlphas.length == 1) {
         self.realAlphaClass = oneAlphaClass;
       }
     };
@@ -73,7 +71,7 @@
       } else {
         array.splice(random, 1)[0];
       }
-      setAlphasRandom(angular.copy(array));      
+      setAlphasRandom(angular.copy(array));
     };
 
     var displayRandomAlpha = function (event, tests) {
@@ -81,7 +79,16 @@
       self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
       if (self.randomAlphas.length == 0) {
         init(tests);
+      } else {
+        var temp = self.randomAlphas;
+        self.randomAlphas = [];
+        setAlphasRandom(temp);
       }
+    };
+
+    self.alphaClick = function (alpha) {
+      $scope.$emit(config.events.listRandomAlphaSelected, alpha);
+      $scope.$broadcast(config.events.listHideRandomAlpha);
     };
 
     var hideRandomAlpha = function () {

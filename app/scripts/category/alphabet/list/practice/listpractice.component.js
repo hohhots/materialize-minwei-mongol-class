@@ -22,7 +22,7 @@
     self.langs = {};
     self.answerAlphas = [];
     self.realAlphaClass = '';
-    
+
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
@@ -50,8 +50,8 @@
 
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
-      if(answered) {
-        name = 'origin-' + alpha.fileName;
+      if (alpha.answered) {
+        name = 'origin-' + alpha.name;
       }
       return name;
     };
@@ -75,34 +75,49 @@
       playedAudioId++;
     };
 
-    self.selectAlpha = function(alpha) {
+    self.selectAlpha = function (index) {
+      testAlpha = testAlphas[index];
       var tests = {
         testOrigin: testOriginAlpha,
-        testAlpha: alpha
+        testAlpha: testAlpha
       };
       $scope.$broadcast(config.events.listDisplayRandomAlpha, tests);
     };
 
     var testOriginAlpha = '';
     var testAlphas = [];
+    var testAlpha = {};
     var audioElem = null;
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaList;
-    var answered = false;
     var sevenAlphaClass = 'alpha-col s4 m3 l1';
     var twoAlphaClass = 'w3-col s6 m6 l6';
 
-    var setAnswerAlphas = function() {
+    var setAnswerAlphas = function () {
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
-      testAlphas = angular.copy(testOriginAlpha.vowel);
+      testAlphas = testOriginAlpha.vowel;
       self.answerAlphas = angular.copy(testAlphas);
       self.realAlphaClass = sevenAlphaClass;
-      if(testAlphas.length ==  2) {
+      if (testAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;
       }
     };
 
-  };
+    var randomAlphaSelected = function(event, alpha) {
+      alpha.answered = true;
+      self.answerAlphas[testAlpha.id - 1] = alpha;console.log(self.answerAlphas);
+    };
 
+    // add listener and hold on to deregister function
+    var deregister = [];
+    deregister.push($scope.$on(config.events.listRandomAlphaSelected, randomAlphaSelected));
+
+    //deregister.push(videoElem.on('ended', videoEnded));
+    // clean up listener when directive's scope is destroyed
+    $.each(deregister, function (i, val) {
+      $scope.$on('$destroy', val);
+    });
+
+  };
 })();
