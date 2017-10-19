@@ -125,7 +125,7 @@
 
     var playAudio = function () {
       if (playedAudioId == testAlphas.length) {
-        $scope.$broadcast(config.events.stopPlayers);
+        $scope.$broadcast(config.events.stopPlayers, true);
         return;
       }
       var name = testAlphas[playedAudioId].fileName;
@@ -166,9 +166,12 @@
       return correct;
     };
 
-    var stopPlayers = function () {
+    var stopPlayers = function (event, outScope) {
       audioElem.pause();
       playedAudioId = 0;
+      if (outScope) {
+        $scope.$digest();
+      }
     };
 
     // add listener and hold on to deregister function

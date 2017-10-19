@@ -41,9 +41,17 @@
           audioElem = $element.find('audio')[0];
         } else {
           $interval.cancel(stop);
-          audioElem.onended = self.playAudios;
+          audioElem.onended = playAudio;
         }
       }, 10);
+    };
+
+    self.getPlayerIconClass = function () {
+      var css = "fa-play-circle-o";
+      if (playedAudioId != 0) {
+        css = "fa-pause-circle-o w3-text-red";
+      }
+      return css;
     };
 
     self.exitPractice = function () {
@@ -59,22 +67,11 @@
     };
 
     self.playAudios = function () {
-      if (playedAudioId == testAlphas.length) {
-        playedAudioId = 0;
-        return;
+      if (playedAudioId == 0) {
+        playAudio();
+      } else {
+        $scope.$broadcast(config.events.stopPlayers);
       }
-      var name = testAlphas[playedAudioId].name;
-      var gender = util.getRandomGender();
-      self.audio = {
-        mpeg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[0]
-      };
-      if (playedAudioId != 0) {
-        $scope.$digest();
-      }
-      audioElem.load();
-      audioElem.play();
-      playedAudioId++;
     };
 
     self.selectAlpha = function (index) {
@@ -150,9 +147,31 @@
       self.error = false;
     };
 
-    var stopPlayers = function () {
-      playedAudioId = 0;
+    var playAudio = function () {
+      if (playedAudioId == testAlphas.length) {
+        $scope.$broadcast(config.events.stopPlayers, true);
+        return;
+      }
+      var name = testAlphas[playedAudioId].name;
+      var gender = util.getRandomGender();
+      self.audio = {
+        mpeg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[0]
+      };
+      if (playedAudioId != 0) {
+        $scope.$digest();
+      }
+      audioElem.load();
+      audioElem.play();
+      playedAudioId++;
+    };
+
+    var stopPlayers = function (event, outScope) {
       audioElem.pause();
+      playedAudioId = 0;
+      if (outScope) {
+        $scope.$digest();
+      }
     };
 
     // add listener and hold on to deregister function

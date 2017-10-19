@@ -14,10 +14,10 @@
 
     <div class="w3-container w3-center alphabetorigin-filter">
       <div class="w3-container w3-padding w3-col s6 m6 l6">
-        <button class="w3-btn w3-teal w3-card" ng-click="$ctrl.clearClick()">{{::$ctrl.langs.clear}}</button>
+        <button class="w3-btn w3-teal" ng-click="$ctrl.clearClick()">{{::$ctrl.langs.clear}}</button>
       </div>
       <div class="w3-container w3-padding w3-col s6 m6 l6">
-        <button class="w3-btn w3-teal w3-card" ng-click="$ctrl.okClick()">{{::$ctrl.langs.ok}}</button>
+        <button class="w3-btn w3-teal" ng-click="$ctrl.okClick()">{{::$ctrl.langs.ok}}</button>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
       <div class="w3-row w3-grayscale-min w3-center">
         <div class="alphabetorigin-content">
           <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)" class="w3-col s4 m3 l2">
-            <div class="w3-card w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
+            <div class="w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
               <div ng-class="$ctrl.getAlphaCss(alpha.id)">{{$ctrl.getSelectedOrder(alpha.id)}}</div>
               <div class="origin-{{::alpha.fileName}}"></div>
             </div>
