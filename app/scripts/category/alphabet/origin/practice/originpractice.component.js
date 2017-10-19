@@ -51,9 +51,17 @@
           audioElem = $element.find('audio')[0];
         } else {
           $interval.cancel(stop);
-          audioElem.onended = self.playAudios;
+          audioElem.onended = playAudio;
         }
       }, 10);
+    };
+
+    self.getPlayerIconClass = function () {
+      var css = "fa-play-circle-o";
+      if (playedAudioId != 0) {
+        css = "fa-pause-circle-o w3-text-red";
+      }
+      return css;
     };
 
     self.exitPractice = function () {
@@ -69,27 +77,16 @@
     };
 
     self.playAudios = function () {
-      if (playedAudioId == testAlphas.length) {
-        playedAudioId = 0;
-        return;
+      if (playedAudioId == 0) {
+        playAudio();
+      } else {
+        $scope.$broadcast(config.events.stopPlayers);
       }
-      var name = testAlphas[playedAudioId].fileName;
-      var gender = util.getRandomGender();
-      self.audio = {
-        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
-      };
-      if (playedAudioId != 0) {
-        $scope.$digest();
-      }
-      audioElem.load();
-      audioElem.play();
-      playedAudioId++;
     };
 
     self.selectAlphaClick = function () {
       if (self.correct) { return; }
-      $scope.$broadcast(config.events.stopPlayers);
+      //$scope.$broadcast(config.events.stopPlayers);
       $scope.$broadcast(config.events.displayOriginRandom);
     };
 
@@ -126,6 +123,25 @@
       self.answerAlphas = angular.copy(testAlphas);
     };
 
+    var playAudio = function () {
+      if (playedAudioId == testAlphas.length) {
+        $scope.$broadcast(config.events.stopPlayers);
+        return;
+      }
+      var name = testAlphas[playedAudioId].fileName;
+      var gender = util.getRandomGender();
+      self.audio = {
+        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
+      };
+      if (playedAudioId != 0) {
+        $scope.$digest();
+      }
+      audioElem.load();
+      audioElem.play();
+      playedAudioId++;
+    };
+
     var selectRandomAlphas = function (event, alphas) {
       if ((answered == true) && (alphas.length == 0)) {
         self.answerAlphas = angular.copy(testAlphas);
@@ -151,8 +167,8 @@
     };
 
     var stopPlayers = function () {
-      playedAudioId = 0;
       audioElem.pause();
+      playedAudioId = 0;
     };
 
     // add listener and hold on to deregister function
