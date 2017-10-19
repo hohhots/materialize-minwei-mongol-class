@@ -78,6 +78,7 @@
     };
 
     self.selectAlpha = function (index) {
+      $scope.$broadcast(config.events.stopPlayers);
       if (self.correct) { return; }
       testAlpha = testAlphas[index];
       var tests = {
@@ -149,8 +150,14 @@
       self.error = false;
     };
 
+    var stopPlayers = function () {
+      playedAudioId = 0;
+      audioElem.pause();
+    };
+
     // add listener and hold on to deregister function
     var deregister = [];
+    deregister.push($scope.$on(config.events.stopPlayers, stopPlayers));
     deregister.push($scope.$on(config.events.listRandomAlphaSelected, randomAlphaSelected));
 
     //deregister.push(videoElem.on('ended', videoEnded));
