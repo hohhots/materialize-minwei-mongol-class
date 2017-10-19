@@ -176,6 +176,7 @@
       },
 
       events: {
+        stopPlayers: 'stopPlayersEvent',
         playAlphaVideo: 'playAlphaVideoEvent',
         playIntroductionVideo: 'playIntroductionVideoEvent',
         displayExercise: 'displayExerciseEvent',

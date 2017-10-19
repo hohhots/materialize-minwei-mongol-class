@@ -61,8 +61,8 @@
 </div>
 
 <audio style="display: none">
-  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg">
-  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg"> {{::$ctrl.langs.notSupportHtml5Audio}}
+  <source ng-src="{{$ctrl.audio.mpeg}}" type="audio/mpeg">
+  <source ng-src="{{$ctrl.audio.ogg}}" type="audio/ogg"> {{::$ctrl.langs.notSupportHtml5Audio}}
 </audio>
 
 <origin-random data-jsondata="$ctrl.jsonData" data-subdata="$ctrl.subData"></origin-random>

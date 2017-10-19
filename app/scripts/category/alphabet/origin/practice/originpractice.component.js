@@ -17,13 +17,14 @@
       '$element',
       '$location',
       '$interval',
+      '$timeout',
       'Config',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $state, $element, $location, $interval, config, util, json) {
+  function controller($scope, $state, $element, $location, $interval, $timeout, config, util, json) {
     var self = this;
 
     //define self variables
@@ -33,7 +34,7 @@
     self.answerAlphas = [];
     self.correct = false;
     self.error = false;
-    
+
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
@@ -61,7 +62,7 @@
 
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
-      if(answered) {
+      if (answered) {
         name = 'origin-' + alpha.fileName;
       }
       return name;
@@ -86,24 +87,25 @@
       playedAudioId++;
     };
 
-    self.selectAlphaClick = function() {
+    self.selectAlphaClick = function () {
+      if (self.correct) { return; }
+      $scope.$broadcast(config.events.stopPlayers);
       $scope.$broadcast(config.events.displayOriginRandom);
     };
 
-    self.checkAnswerClick = function() {
+    self.checkAnswerClick = function () {
       init();
-      if(!answered) {
+      if (!answered) {
         return;
       }
-      if(answerCorrect()) {
+      if (answerCorrect()) {
         self.correct = true;
       } else {
         self.error = true;
       }
-
     };
 
-    self.nextTestClick = function() {
+    self.nextTestClick = function () {
       $state.reload();
     };
 
@@ -113,7 +115,7 @@
     var url = config.mediaUrl.alphaOrigin;
     var answered = false;
 
-    var init = function() {
+    var init = function () {
       self.correct = false;
       self.error = false;
     };
@@ -124,17 +126,13 @@
       self.answerAlphas = angular.copy(testAlphas);
     };
 
-    var autoPlayAudio = function () {
-      self.playAudios();
-    };
-
-    var selectRandomAlphas = function(event, alphas) {
-      if((answered == true) && (alphas.length == 0)) {
+    var selectRandomAlphas = function (event, alphas) {
+      if ((answered == true) && (alphas.length == 0)) {
         self.answerAlphas = angular.copy(testAlphas);
         answered = false;
         return;
       }
-      if(alphas.length != 4) {
+      if (alphas.length != 4) {
         return;
       }
       init();
@@ -142,18 +140,24 @@
       answered = true;
     };
 
-    var answerCorrect = function() {
+    var answerCorrect = function () {
       var correct = true;
-      $.each(testAlphas, function(i, v){
-        if(v.id != self.answerAlphas[i].id) {
+      $.each(testAlphas, function (i, v) {
+        if (v.id != self.answerAlphas[i].id) {
           correct = false;
         }
       });
       return correct;
     };
 
+    var stopPlayers = function () {
+      playedAudioId = 0;
+      audioElem.pause();
+    };
+
     // add listener and hold on to deregister function
     var deregister = [];
+    deregister.push($scope.$on(config.events.stopPlayers, stopPlayers));
     deregister.push($scope.$on(config.events.selectRandomAlphas, selectRandomAlphas));
 
     //deregister.push(videoElem.on('ended', videoEnded));
