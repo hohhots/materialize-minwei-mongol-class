@@ -44,9 +44,13 @@
 
       pagesUrl: {
         alphaOrigin: 'alphabetorigin',
-        alphaList: 'alphabetlist',
         originPractice: 'originpractice',
-        listPractice: 'listpractice'
+        
+        alphaList: 'alphabetlist',
+        listPractice: 'listpractice',
+        
+        alphaVariant: 'alphabetvariant',
+        variantPractice: 'variantpractice'
       },
 
       alphaListNamesMap: {
@@ -69,27 +73,7 @@
         we: "wa"
       },
 
-      alphaVideoNamesMap: {}, /*$.extend({}, alphaListNamesMap, {
-        ge: "he", gi: "hi"
-      }), ),angular.copy(alphaListNamesMap),{
-        o2: "o", u2: "u",
-        ne: "na", no2: "no", nu2: "nu",
-        be: "ba", bo2: "bo", bu2: "bu",
-        pe: "pa", po2: "po", pu2: "pu",
-        ho2: "ho", hu2: "hu",
-        ge: "he", gi: "hi", go2: "go", gu2: "gu",
-        me: "ma", mo2: "mo", mu2: "mu",
-        le: "la", lo2: "lo", lu2: "lu",
-        se: "sa", so2: "so", su2: "su",
-        she: "sha", sho2: "sho", shu2: "shu",
-        te: "ta", to2: "to", tu2: "tu",
-        de: "da", do2: "do", du2: "du",
-        che: "cha", cho2: "cho", chu2: "chu",
-        zhe: "zha", zho2: "zho", zhu2: "zhu",
-        ye: "ya", yo2: "yo", yu2: "yu",
-        re: "ra", ro2: "ro", ru2: "ru",
-        we: "wa"
-      },*/
+      alphaVideoNamesMap: {},
 
       alphaCss: {
         practiceEmpty: 'originpractice-empty-alpha'
@@ -134,7 +118,7 @@
         clear: '清除',
         ok: "确定",
         exit: "退出",
-        filter: "过滤",
+        filter: "筛选",
         selectAlpha: "选择字母",
         selectAll: "全选",
         checkAnswer: "检查答案",
@@ -147,17 +131,22 @@
         mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
         home: 'scripts/home/home.template.html',
         category: 'scripts/category/category.template.html',
+        
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
+        alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
+        originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
+        
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
         listRandom: 'scripts/category/alphabet/list/listRandom/listRandom.template.html',
         listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
+        
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
+        variantpractice: 'scripts/category/alphabet/variant/practice/variantpractice.template.html',
+        
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
-        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
-        alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
-        originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html'
+        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
       },
 
       dataPath: {

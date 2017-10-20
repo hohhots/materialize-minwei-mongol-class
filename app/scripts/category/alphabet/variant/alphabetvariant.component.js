@@ -19,9 +19,11 @@
 
     // variable for outside access
     self.data = [];
-    self.introduction = config.alphaLangs.introduction;
+    self.langs = {};
+    self.langs.practice = config.alphaLangs.practice;
+    self.langs.introduction = config.alphaLangs.introduction;
+    self.langs.alphaFilter = config.alphaLangs.filter;
     self.templateUrl = config.templateUrl.alphabetvariant;
-    self.alphaFilter = config.alphaLangs.filter;
 
     self.$onInit = function () {
       self.data = self.subData;
@@ -40,6 +42,10 @@
       };
       names.name = self.jsonData[0].name;
       $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
+    self.practiceClick = function () {
+      util.changePath(config.pagesUrl.variantPractice);
     };
 
     var filtAlphaVariants = function (event, alphaIds) {

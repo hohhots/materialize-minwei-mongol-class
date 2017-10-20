@@ -79,6 +79,12 @@
           url: '/alphabetvariant',
           component: 'appAlphavariant',
           resolve: resolve('alphabetvariant')
+        },
+        {
+          name: 'root.variantpractice',
+          url: '/variantpractice',
+          component: 'variantPractice',
+          resolve: resolve('alphabetvariant')
         }
       ]
 

@@ -1,4 +1,4 @@
-<header class="w3-container w3-center w3-brown alphabetorigin-header">
+<header class="w3-container w3-center w3-theme-d5 alphabetorigin-header">
   <div class="app-container">
     {{::$ctrl.langs.name}}
   </div>
@@ -6,7 +6,7 @@
 
 <div class="w3-container w3-margin w3-center app-container">
   <div class="w3-row w3-grayscale-min w3-center">
-    <div class="w3-margin w3-padding originpractice-content">
+    <div class="w3-margin w3-padding w3-light-grey originpractice-content">
 
       <div class="originpractice-close-container">
         <div class="originpractice-exit" ng-click="$ctrl.exitPractice()">
@@ -16,9 +16,9 @@
       </div>
 
       <div class="originpractice-text">
-        <p>（共17个练习，每次随机显示其中之一。读音顺序遵守字母表规则）</p>
+        <p>（共51个练习，每次随机显示其中之一。读音顺序遵守原形字母表规则）</p>
         <br />
-        <p>点击播放按钮听字母读音，然后按读音顺序点击相应空白字母位置进行选择。</p>
+        <p>点击播放按钮听字母读音，然后按读音顺序点击相应空白字母位置选择原形字母在字首、字中、字尾的变形字母。</p>
       </div>
 
       <div class="originpractice-play">
@@ -27,7 +27,7 @@
             <i class="fa fa-check-circle-o originpractice-checkicon" aria-hidden="true" ng-show="$ctrl.correct"></i>
           </div>
           <div class="w3-container w3-padding w3-col s6 m6 l4">
-            <i class="listpractice-playIcon fa" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
+            <i class="variantpractice-playIcon fa" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
           </div>
           <div class="w3-container w3-padding w3-col s3 m3 l4 originpractice-checkicon">
             <i class="fa fa-times-circle-o originpractice-checkicon" style="color:red" aria-hidden="true" ng-show="$ctrl.error"></i>
@@ -35,9 +35,9 @@
         </div>
       </div>
 
-      <div class="listpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.answerAlphas" ng-class="$ctrl.realAlphaClass">
-          <div class="w3-margin listpractice-view" ng-click="$ctrl.selectAlpha($index)">
+      <div class="originpractice-alphas">
+        <div ng-repeat="alpha in $ctrl.answerAlphas" class="w3-col s3 m3 l3">
+          <div class="w3-margin originpractice-view">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
           </div>
@@ -45,6 +45,9 @@
       </div>
 
       <div class="originpractice-done">
+        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.selectAlphaClick()">
+          {{::$ctrl.langs.selectAlpha}}
+        </button>
         <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.checkAnswerClick()" ng-hide="$ctrl.correct">
           {{::$ctrl.langs.checkAnswer}}
         </button>
@@ -62,4 +65,4 @@
   <source src="{{$ctrl.audio.ogg}}" type="audio/ogg"> {{::$ctrl.langs.notSupportHtml5Audio}}
 </audio>
 
-<list-random data-jsondata="$ctrl.jsonData" data-subdata="$ctrl.subData"></list-random>
+<origin-random data-jsondata="$ctrl.jsonData" data-subdata="$ctrl.subData"></origin-random>

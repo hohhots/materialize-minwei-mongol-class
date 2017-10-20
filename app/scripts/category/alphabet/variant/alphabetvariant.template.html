@@ -3,22 +3,29 @@
 </header>
 
 <div class="w3-container w3-margin w3-center app-container">
-  <div class="w3-container alphabetorigin-intro">
-    <div class="w3-container w3-padding w3-col s6 m6 l6">
-      <button ng-click="$ctrl.introductionClicked()" class="w3-btn w3-teal w3-card">
-        {{::$ctrl.introduction}}
+  <div class="w3-container alphabetvariant-intro">
+    <div class="w3-container w3-padding w3-col s4 m4 l4">
+      <button class="w3-btn w3-teal" ng-click="$ctrl.introductionClicked()">
+        {{::$ctrl.langs.introduction}}
       </button>
     </div>
-    <div class="w3-container w3-padding w3-col s6 m6 l6">
-      <button class="w3-btn w3-teal w3-card" ng-click="$ctrl.alphaFilterClick()">{{::$ctrl.alphaFilter}}</button>
+    <div class="w3-container w3-padding w3-col s4 m4 l4">
+      <button class="w3-btn w3-teal" ng-click="$ctrl.alphaFilterClick()">
+        {{::$ctrl.langs.alphaFilter}}
+      </button>
     </div>
+    <div class="w3-container w3-padding w3-col s4 m4 l4">
+        <button class="w3-btn w3-teal" ng-click="$ctrl.practiceClick()">
+          {{::$ctrl.langs.practice}}
+        </button>
+      </div>
   </div>
 
   <div ng-repeat="alpha in $ctrl.data" class="w3-row w3-grayscale-min w3-center">
-    <div class="w3-card w3-light-grey alphabetorigin-content">
+    <div class="w3-border-bottom w3-light-grey alphabetorigin-content">
       <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClicked(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)"
         class="alpha-col s4 m3 l1">
-        <div class="w3-card w3-margin alphabetorigin-view">
+        <div class="w3-margin alphabetorigin-view">
           <div class="origin-{{::vowel.name}}"></div>
         </div>
         <div class="origin-{{::vowel.name}}-1 w3-border-bottom"></div>
