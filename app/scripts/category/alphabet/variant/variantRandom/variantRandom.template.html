@@ -1,0 +1,27 @@
+<div id="player" class="w3-modal origin-filter" ng-show="$ctrl.showVariantRandom">
+  <div class="w3-modal-content">
+
+    <div class="originpractice-close-container">
+      <div class="listpractice-exit" ng-click="$ctrl.exitPractice()">
+        <i class="fa fa-times-circle fa-lg originpractice-close-icon" title="{{::$ctrl.langs.exit}}" aria-hidden="true"></i>
+        <span class="originpractice-close-back"></span>
+      </div>
+    </div>
+
+    <header class="w3-container w3-padding w3-center w3-theme-d5">
+      {{$ctrl.alphaIdToSelect}}
+    </header>
+
+    <div class="w3-container w3-margin w3-center app-container">
+      <div class="w3-row w3-grayscale-min w3-center">
+        <div class="w3-margin-top alphabetorigin-content">
+          <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)"  ng-class="$ctrl.realAlphaClass">
+            <div class="w3-margin w3-display-container alphabetorigin-view">
+              <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,22 +3,16 @@
 </header>
 
 <div class="w3-container w3-margin w3-center app-container">
-  <div class="w3-container alphabetvariant-intro">
-    <div class="w3-container w3-padding w3-col s4 m4 l4">
-      <button class="w3-btn w3-teal" ng-click="$ctrl.introductionClicked()">
-        {{::$ctrl.langs.introduction}}
-      </button>
-    </div>
-    <div class="w3-container w3-padding w3-col s4 m4 l4">
-      <button class="w3-btn w3-teal" ng-click="$ctrl.alphaFilterClick()">
-        {{::$ctrl.langs.alphaFilter}}
-      </button>
-    </div>
-    <div class="w3-container w3-padding w3-col s4 m4 l4">
-        <button class="w3-btn w3-teal" ng-click="$ctrl.practiceClick()">
-          {{::$ctrl.langs.practice}}
-        </button>
-      </div>
+  <div class="w3-container alphabetorigin-intro">
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.introductionClicked()">
+      {{::$ctrl.langs.introduction}}
+    </button>
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.alphaFilterClick()">
+      {{::$ctrl.langs.alphaFilter}}
+    </button>
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.practiceClick()">
+      {{::$ctrl.langs.practice}}
+    </button>
   </div>
 
   <div ng-repeat="alpha in $ctrl.data" class="w3-row w3-grayscale-min w3-center">

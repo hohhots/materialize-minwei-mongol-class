@@ -1,3 +1,16 @@
-.variantpractice-playIcon {
-  cursor: pointer;
+.variantpractice-view {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 45px;
+  background-color: #085a9d;
+}
+
+.variantpractice-position,
+.variantpractice-position-fill {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.variantpractice-position-fill {
+  background-color: #085a9d;
 }

@@ -7,7 +7,7 @@
 
 .alphabetorigin-intro {
   margin: auto;
-  width: 60%;
+  width: 100%;
   margin-top: 0 !important;
   padding: 10px;
 }
@@ -47,7 +47,6 @@
   }
 
   .alphabetorigin-intro {
-    width: 50%;
     padding: 20px;
   }
 
@@ -68,7 +67,6 @@
   }
 
   .alphabetorigin-intro {
-    width: 30%;
     padding: 30px;
   }
 

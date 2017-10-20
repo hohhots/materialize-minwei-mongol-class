@@ -106,10 +106,10 @@
       $state.reload();
     };
 
+    var audioElem = null;
     var testOriginAlpha = '';
     var testAlphas = [];
     var testAlpha = {};
-    var audioElem = null;
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaList;
     var sevenAlphaClass = 'alpha-col s4 m3 l1';

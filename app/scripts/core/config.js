@@ -123,7 +123,10 @@
         selectAll: "全选",
         checkAnswer: "检查答案",
         notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
-        nextTest: '下一练习'
+        nextTest: '下一练习',
+        top: '首',
+        middle: '中',
+        bottom: '尾'
       },
 
       templateUrl: {
@@ -138,12 +141,14 @@
         originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
         
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
-        listRandom: 'scripts/category/alphabet/list/listRandom/listRandom.template.html',
         listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
+        listRandom: 'scripts/category/alphabet/list/listRandom/listRandom.template.html',
         
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         variantpractice: 'scripts/category/alphabet/variant/practice/variantpractice.template.html',
+        variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
         
+
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
         simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
@@ -185,9 +190,14 @@
         displayOriginRandom: 'displayOriginRandomEvent',
         closeOriginRandom: 'closeOriginRandomEvent',
         selectRandomAlphas: 'selectRandomAlphasEvent',
+
         listDisplayRandomAlpha: 'listDisplayRandomAlphaEvent',
         listHideRandomAlpha: 'listHideRandomAlpha',
-        listRandomAlphaSelected: 'listRandomAlphaSelectedEvent'
+        listRandomAlphaSelected: 'listRandomAlphaSelectedEvent',
+
+        variantRandomAlphaSelected: 'variantRandomAlphaSelectedEvent',
+        variantDisplayRandomAlpha: 'variantDisplayRandomAlphaEvent',
+        variantHideRandomAlpha: 'variantHideRandomAlphaEvent'
       }
     };
 
