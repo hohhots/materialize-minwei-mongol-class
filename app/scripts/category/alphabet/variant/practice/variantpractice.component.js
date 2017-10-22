@@ -64,10 +64,10 @@
     };
 
     self.getAnswerAlphaClass = function (index) {
-      var css = config.alphaCss.practiceEmpty + ' variantpractice-position';
+      var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
       var alpha = answerAlphas[index];
       if (alpha) {
-        css = 'variantpractice-position-fill origin-' + alpha.name + '-' + variantPosition;
+        css = 'origin-' + alpha.name + '-' + variantPosition + ' variantview-view-value';
       }
       return css;
     };
@@ -99,6 +99,23 @@
       };
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
     };
+    
+    self.getSelectText = function (testAlphaIndex) {
+      var text = '';console.log(answerAlphas[testAlphaIndex]);
+      if (!answerAlphas[testAlphaIndex]) {
+        switch (variantPosition) {
+          case 1:
+            text = config.alphaLangs.top;
+            break;
+          case 2:
+            text = config.alphaLangs.middle;
+            break;
+          default:
+            text = config.alphaLangs.bottom;
+        }
+      }
+      return text;
+    };
 
     var audioElem = null;
     var testOriginAlpha = '';
@@ -112,26 +129,12 @@
 
     var setAnswerAlphas = function () {
       variantPosition = Math.floor(Math.random() * 3) + 1;
-      setSelectText();
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       self.testAlphas = testOriginAlpha.vowel;
       self.realAlphaClass = sevenAlphaClass;
       if (self.testAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;
-      }
-    };
-
-    var setSelectText = function () {
-      switch (variantPosition) {
-        case 1:
-        self.langs.selectText = config.alphaLangs.top;
-          break;
-        case 2:
-        self.langs.selectText =  config.alphaLangs.middle;
-          break;
-        default:
-        self.langs.selectText =  config.alphaLangs.bottom;
       }
     };
 
@@ -162,7 +165,7 @@
     var randomAlphaSelected = function (event, alpha) {
       checkStateInit();
       alpha.answered = true;
-      self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
+      answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };
 
     var stopPlayers = function (event, outScope) {

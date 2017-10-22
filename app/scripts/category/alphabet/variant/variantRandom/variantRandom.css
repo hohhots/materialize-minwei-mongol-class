@@ -1,3 +1,10 @@
+.alphabetvariant-view {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 45px;
+  background-color: #d6cc37;
+  cursor: pointer;
+}
 
 @media (min-width:601px) {
 

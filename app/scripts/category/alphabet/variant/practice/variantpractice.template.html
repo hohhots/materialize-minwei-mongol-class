@@ -18,7 +18,7 @@
       <div class="originpractice-text">
         <p>（共51个练习，每次随机显示其中之一。读音顺序遵守字母表规则）</p>
         <br />
-        <p>点击播放按钮听字母读音，然后按读音顺序点击原形字母选择其在字首、字中、字尾的相应变形字母。</p>
+        <p>点击播放按钮听字母读音，然后按读音顺序点击下面原形字母选择其在字首、字中、字尾的相应变形字母。</p>
       </div>
 
       <div class="originpractice-play">
@@ -41,7 +41,9 @@
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
           </div>
-          <div class="w3-border w3-cell-middle" ng-class="$ctrl.getAnswerAlphaClass($index)">{{::$ctrl.langs.selectText}}</div>
+          <div ng-class="$ctrl.getAnswerAlphaClass($index)">
+            <span class="variantpractice-opacity">{{$ctrl.getSelectText($index)}}</span>
+          </div>
         </div>
       </div>
 

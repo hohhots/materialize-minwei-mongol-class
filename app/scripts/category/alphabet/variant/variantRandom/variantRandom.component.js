@@ -45,7 +45,7 @@
       $scope.$broadcast(config.events.variantHideRandomAlpha);
     };
 
-    self.getAlphaClass = function (alpha) {console.log(variantPosition);
+    self.getAlphaClass = function (alpha) {
       return 'origin-' + alpha.name + '-' + variantPosition;
     };
 
@@ -92,8 +92,17 @@
       }
     };
 
-    var hideRandomAlpha = function () {
+    self.alphaClick = function (alpha) {
+      $scope.$emit(config.events.variantRandomAlphaSelected, alpha);
+      $scope.$broadcast(config.events.variantHideRandomAlpha);
+    };
 
+    self.exitPractice = function () {
+      $scope.$broadcast(config.events.variantHideRandomAlpha);
+    };
+
+    var hideRandomAlpha = function () {
+      self.showVariantRandom = false;
     };
 
     // add listener and hold on to deregister function

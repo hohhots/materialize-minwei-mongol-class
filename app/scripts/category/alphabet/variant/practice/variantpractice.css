@@ -5,6 +5,18 @@
   background-color: #085a9d;
 }
 
+.variantview-view-value {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 45px;
+}
+
+.variantpractice-empty-alpha {
+  width: 43px;
+  height: 75px;
+  padding-top: 25px;
+}
+
 .variantpractice-position,
 .variantpractice-position-fill {
   margin-left: auto !important;
@@ -13,4 +25,8 @@
 
 .variantpractice-position-fill {
   background-color: #085a9d;
+}
+
+.variantpractice-opacity {
+  opacity: 0.3;
 }
