@@ -8,10 +8,14 @@
 .variantview-view-value {
   margin-left: auto !important;
   margin-right: auto !important;
-  width: 45px;
+}
+
+.variantpractice-alpha-click {
+  cursor: pointer;
 }
 
 .variantpractice-empty-alpha {
+  border: 1px solid #ccc;
   width: 43px;
   height: 75px;
   padding-top: 25px;

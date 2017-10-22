@@ -49,20 +49,30 @@
       return 'origin-' + alpha.name + '-' + variantPosition;
     };
 
-    var fiveAlphaClass = 'alpha5-col s4 m3 l1';
-    var fourAlphaClass = 'w3-col s4 m3 l3';
     var oneAlphaClass = 'w3-col s12 m12 l12';
+    var threeAlphaClass = 'w3-col s4 m4 l4';
+    var fourAlphaClass = 'w3-col s4 m3 l3';
+    var fiveAlphaClass = 'alpha5-col s4 m3 l1';
     var variantPosition = 0;
 
     var init = function (tests) {
       variantPosition = tests.variantPosition;
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));
       self.realAlphaClass = fiveAlphaClass;
-      if (self.randomAlphas.length == 4) {
-        self.realAlphaClass = fourAlphaClass;
-      }
-      if (self.randomAlphas.length == 1) {
-        self.realAlphaClass = oneAlphaClass;
+      switch (self.randomAlphas.length) {
+        case 1:
+          self.realAlphaClass = oneAlphaClass;
+          break;
+        case 3:
+          self.realAlphaClass = threeAlphaClass;
+          break;
+        case 4:
+          self.realAlphaClass = fourAlphaClass;
+          break;
+        case 5:
+          self.realAlphaClass = fiveAlphaClass;
+          break;
+        default:
       }
     };
 
@@ -72,7 +82,7 @@
         return;
       }
       var random = Math.floor(Math.random() * len);
-      if (array[random].name == util.convertAlphaName(array[random].name)) {
+      if (array[random].name == util.convertAlphaName(array[random].name, variantPosition)) {
         self.randomAlphas.push(array.splice(random, 1)[0]);
       } else {
         array.splice(random, 1)[0];
@@ -81,7 +91,6 @@
     };
 
     var displayRandomAlpha = function (event, tests) {
-      self.showVariantRandom = true;
       self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
       if (self.randomAlphas.length == 0) {
         init(tests);
@@ -90,6 +99,7 @@
         self.randomAlphas = [];
         setAlphasRandom(temp);
       }
+      self.showVariantRandom = true;
     };
 
     self.alphaClick = function (alpha) {

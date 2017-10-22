@@ -75,7 +75,9 @@
 
       alphaVideoNamesMap: {},
 
-      alphaTopNamesMap: {},
+      alphaVariantNamesMap1: {},
+      alphaVariantNamesMap2: {},
+      alphaVariantNamesMap3: {},
 
       alphaCss: {
         practiceEmpty: 'originpractice-empty-alpha',
@@ -227,11 +229,25 @@
     ge: "he", gi: "hi"
   });
 
-  config.alphaTopNamesMap = config.alphaListNamesMap;
-  config.alphaMiddleNamesMap = config.$.extend({}, config.alphaListNamesMap, {
-    o2: "o", u: "o", u2: "o"
+  config.alphaVariantNamesMap1 = config.alphaListNamesMap;
+  config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
+    e: "a", o2: "o", u: "o", u2: "o",
+    nu: "no", nu2: "o",
+    bu: "bo", bu2: "bo",
+    pu: "po", pu2: "po",
+    mu: "mo", mu2: "mo",
+    lu: "lo", lu2: "lo",
+    su: "so", su2: "so",
+    shu: "sho", shu2: "sho",
+    tu: "to", tu2: "to",
+    du: "do", du2: "do",
+    chu: "cho", chu2: "cho",
+    zhu: "zho", zhu2: "zho",
+    yu: "yo", yu2: "yo",
+    ru: "ro", ru2: "ro",
   });
-  console.log(config.alphaMiddleNamesMap);
+  config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
+
   // Define the `core.config` module
   angular.module('core.config', []).
     constant('Config', config);

@@ -101,7 +101,7 @@
     };
     
     self.getSelectText = function (testAlphaIndex) {
-      var text = '';console.log(answerAlphas[testAlphaIndex]);
+      var text = '';
       if (!answerAlphas[testAlphaIndex]) {
         switch (variantPosition) {
           case 1:
@@ -136,6 +136,7 @@
       if (self.testAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;
       }
+      self.realAlphaClass = self.realAlphaClass + ' variantpractice-alpha-click';
     };
 
     var checkStateInit = function () {

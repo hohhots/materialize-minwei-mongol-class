@@ -16,25 +16,41 @@
         $('html, body').animate({ scrollTop: 0 }, 'fast');
       },
 
-      getRandomGender: function() {
+      getRandomGender: function () {
         var gender = config.gender['man'];
-        if(Math.random() >= 0.5){
+        if (Math.random() >= 0.5) {
           gender = config.gender['woman'];
         }
         return gender;
       },
 
-      convertAlphaName: function(alphaName) {
-        var temp = config.alphaListNamesMap[alphaName];
-        if(temp) {
+      convertAlphaName: function (alphaName, variantPosition) {
+        variantPosition = variantPosition || 0;
+        var temp = '';
+        switch (variantPosition) {
+          case 0:
+            temp = config.alphaListNamesMap[alphaName];
+            break;
+          case 1:
+            temp = config.alphaVariantNamesMap1[alphaName];
+            break;
+          case 2:
+            temp = config.alphaVariantNamesMap2[alphaName];
+            break;
+          case 3:
+            temp = config.alphaVariantNamesMap3[alphaName];
+            break;
+          default:
+        }
+        if (temp) {
           alphaName = temp;
         }
         return alphaName;
       },
 
-      convertVideoAlphaName: function(alphaName) {
+      convertVideoAlphaName: function (alphaName) {
         var temp = config.alphaVideoNamesMap[alphaName];
-        if(temp) {
+        if (temp) {
           alphaName = temp;
         }
         return alphaName;
@@ -80,8 +96,8 @@
         return str.replace(f, f.toUpperCase());
       },
 
-      changePath: function(path) {
-        $location.path("/" + config.app.url + "/" + path);        
+      changePath: function (path) {
+        $location.path("/" + config.app.url + "/" + path);
       },
 
       convertUrl: function (url) {
