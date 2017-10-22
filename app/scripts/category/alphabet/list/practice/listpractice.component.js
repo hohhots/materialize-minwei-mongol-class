@@ -61,7 +61,7 @@
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
       if (alpha.answered) {
-        name = 'origin-' + alpha.name;
+        name = 'originFont-' + alpha.name;
       }
       return name;
     };
@@ -86,7 +86,7 @@
     };
 
     self.checkAnswerClick = function () {
-      if (practiceDone()) {
+      if (util.practiceDone(self.answerAlphas)) {
         checkStateInit();
         var right = true;
         $.each(testAlphas, function (i, v) {
@@ -130,16 +130,6 @@
       checkStateInit();
       alpha.answered = true;
       self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
-    };
-
-    var practiceDone = function () {
-      var done = true;
-      $.each(self.answerAlphas, function (i, v) {
-        if (v.answered != true) {
-          done = false;
-        }
-      });
-      return done;
     };
 
     var checkStateInit = function () {

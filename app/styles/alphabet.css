@@ -1,4 +1,4 @@
-div[class^='origin-'] {
+div[class^='originFont-'], [class*=' originFont-'] {
   margin: auto;
   width: 43px;
   height: 75px;
@@ -9,230 +9,230 @@ div[class^='origin-'] {
 }
 
 div[class*='-3'] {
-  height: 100px;
+  height: 100px !important;
 }
 
-.origin-a {
+.originFont-a {
   background-position: -130px -45px;
 }
-.origin-e {
+.originFont-e {
   background-position: -125px -130px;
 }
-.origin-i {
+.originFont-i {
   background-position: -128px -210px;
 }
-.origin-o,.origin-o2 {
+.originFont-o,.originFont-o2 {
   background-position: -127px -280px;
 }
-.origin-u,.origin-u2 {
+.originFont-u,.originFont-u2 {
   background-position: -127px -410px;
 }
 
-.origin-na,.origin-ne {
+.originFont-na,.originFont-ne {
   background-position: -210px -45px;
 }
-.origin-ni {
+.originFont-ni {
   background-position: -205px -208px;
 }
-.origin-no,.origin-no2 {
+.originFont-no,.originFont-no2 {
   background-position: -205px -280px;
 }
-.origin-nu,.origin-nu2 {
+.originFont-nu,.originFont-nu2 {
   background-position: -205px -410px;
 }
 
-.origin-ba,.origin-be {
+.originFont-ba,.originFont-be {
   background-position: -280px -47px;
 }
-.origin-bi {
+.originFont-bi {
   background-position: -285px -210px;
 }
-.origin-bo,.origin-bo2  {
+.originFont-bo,.originFont-bo2  {
   background-position: -285px -280px;
 }
-.origin-bu,.origin-bu2 {
+.originFont-bu,.originFont-bu2 {
   background-position: -285px -405px;
 }
 
-.origin-pa,.origin-pe {
+.originFont-pa,.originFont-pe {
   background-position: -357px -47px;
 }
-.origin-pi {
+.originFont-pi {
   background-position: -363px -210px;
 }
-.origin-po,.origin-po2  {
+.originFont-po,.originFont-po2  {
   background-position: -363px -280px;
 }
-.origin-pu,.origin-pu2 {
+.originFont-pu,.originFont-pu2 {
   background-position: -363px -405px;
 }
 
-.origin-ha {
+.originFont-ha {
   background-position: -443px -47px;
 }
-.origin-he {
+.originFont-he {
   background-position: -435px -135px;
 }
-.origin-hi {
+.originFont-hi {
   background-position: -443px -210px;
 }
-.origin-ho,.origin-ho2  {
+.originFont-ho,.originFont-ho2  {
   background-position: -440px -280px;
 }
-.origin-hu,.origin-hu2 {
+.originFont-hu,.originFont-hu2 {
   background-position: -440px -405px;
 }
 
-.origin-ga {
+.originFont-ga {
   background-position: -520px -47px;
 }
-.origin-ge {
+.originFont-ge {
   background-position: -435px -135px;
 }
-.origin-gi {
+.originFont-gi {
   background-position: -520px -210px;
 }
-.origin-go,.origin-go2  {
+.originFont-go,.originFont-go2  {
   background-position: -517px -280px;
 }
-.origin-gu,.origin-gu2 {
+.originFont-gu,.originFont-gu2 {
   background-position: -517px -405px;
 }
 
-.origin-ma,.origin-me {
+.originFont-ma,.originFont-me {
   background-position: -600px -47px;
 }
-.origin-mi {
+.originFont-mi {
   background-position: -595px -213px;
 }
-.origin-mo,.origin-mo2 {
+.originFont-mo,.originFont-mo2 {
   background-position: -598px -280px;
 }
-.origin-mu,.origin-mu2 {
+.originFont-mu,.originFont-mu2 {
   background-position: -598px -410px;
 }
 
-.origin-la,.origin-le {
+.originFont-la,.originFont-le {
   background-position: -678px -47px;
 }
-.origin-li {
+.originFont-li {
   background-position: -678px -213px;
 }
-.origin-lo,.origin-lo2 {
+.originFont-lo,.originFont-lo2 {
   background-position: -679px -280px;
 }
-.origin-lu,.origin-lu2 {
+.originFont-lu,.originFont-lu2 {
   background-position: -679px -410px;
 }
 
-.origin-sa,.origin-se {
+.originFont-sa,.originFont-se {
   background-position: -758px -47px;
 }
-.origin-si {
+.originFont-si {
   background-position: -758px -213px;
 }
-.origin-so,.origin-so2 {
+.originFont-so,.originFont-so2 {
   background-position: -754px -280px;
 }
-.origin-su,.origin-su2 {
+.originFont-su,.originFont-su2 {
   background-position: -754px -410px;
 }
 
-.origin-sha,.origin-she {
+.originFont-sha,.originFont-she {
   background-position: -835px -47px;
 }
-.origin-shi {
+.originFont-shi {
   background-position: -835px -213px;
 }
-.origin-sho,.origin-sho2 {
+.originFont-sho,.originFont-sho2 {
   background-position: -836px -280px;
 }
-.origin-shu,.origin-shu2 {
+.originFont-shu,.originFont-shu2 {
   background-position: -836px -410px;
 }
 
-.origin-ta,.origin-te {
+.originFont-ta,.originFont-te {
   background-position: -913px -47px;
 }
-.origin-ti {
+.originFont-ti {
   background-position: -908px -213px;
 }
-.origin-to,.origin-to2 {
+.originFont-to,.originFont-to2 {
   background-position: -908px -280px;
 }
-.origin-tu,.origin-tu2 {
+.originFont-tu,.originFont-tu2 {
   background-position: -908px -410px;
 }
 
-.origin-da,.origin-de {
+.originFont-da,.originFont-de {
   background-position: -985px -47px;
 }
-.origin-di {
+.originFont-di {
   background-position: -980px -213px;
 }
-.origin-do,.origin-do2 {
+.originFont-do,.originFont-do2 {
   background-position: -980px -280px;
 }
-.origin-du,.origin-du2 {
+.originFont-du,.originFont-du2 {
   background-position: -980px -410px;
 }
 
-.origin-cha,.origin-che {
+.originFont-cha,.originFont-che {
   background-position: -1065px -47px;
 }
-.origin-chi {
+.originFont-chi {
   background-position: -1063px -213px;
 }
-.origin-cho,.origin-cho2 {
+.originFont-cho,.originFont-cho2 {
   background-position: -1062px -280px;
 }
-.origin-chu,.origin-chu2 {
+.originFont-chu,.originFont-chu2 {
   background-position: -1062px -410px;
 }
 
-.origin-zha,.origin-zhe {
+.originFont-zha,.originFont-zhe {
   background-position: -1145px -47px;
 }
-.origin-zhi {
+.originFont-zhi {
   background-position: -1143px -213px;
 }
-.origin-zho,.origin-zho2 {
+.originFont-zho,.originFont-zho2 {
   background-position: -1142px -280px;
 }
-.origin-zhu,.origin-zhu2 {
+.originFont-zhu,.originFont-zhu2 {
   background-position: -1142px -410px;
 }
 
-.origin-ya,.origin-ye {
+.originFont-ya,.originFont-ye {
   background-position: -1223px -47px;
 }
-.origin-yi {
+.originFont-yi {
   background-position: -1216px -213px;
 }
-.origin-yo,.origin-yo2 {
+.originFont-yo,.originFont-yo2 {
   background-position: -1216px -280px;
 }
-.origin-yu,.origin-yu2 {
+.originFont-yu,.originFont-yu2 {
   background-position: -1216px -410px;
 }
 
-.origin-ra {
+.originFont-ra {
   background-position: -1300px -47px;
 }
-.origin-ra,.origin-re {
+.originFont-ra,.originFont-re {
   background-position: -1300px -47px;
 }
-.origin-ri {
+.originFont-ri {
   background-position: -1293px -213px;
 }
-.origin-ro,.origin-ro2 {
+.originFont-ro,.originFont-ro2 {
   background-position: -1293px -280px;
 }
-.origin-ru,.origin-ru2 {
+.originFont-ru,.originFont-ru2 {
   background-position: -1293px -410px;
 }
 
-.origin-wa, .origin-we {
+.originFont-wa, .originFont-we {
   background-position: -1378px -47px;
 }
 
@@ -247,86 +247,86 @@ div[class*='-no-'],div[class*='-no2-'],div[class*='-nu-'],div[class*='-nu2-'] {
   background-image: url(../data/alphabet/variant/images/a-na-black.png);
 }
 
-.origin-a-1 {
+.originFont-a-1 {
   background-position: -125px -50px;
 }
-.origin-a-2 {
+.originFont-a-2 {
   background-position: -125px -280px;
 }
-.origin-a-3 {
+.originFont-a-3 {
   background-position: -130px -590px;
 }
-.origin-e-1 {
+.originFont-e-1 {
   background-position: -205px -40px;
 }
-.origin-e-2 {
+.originFont-e-2 {
   background-position: -205px -285px;
 }
-.origin-e-3 {
+.originFont-e-3 {
   background-position: -210px -590px;
 }
-.origin-i-1 {
+.originFont-i-1 {
   background-position: -283px -50px;
 }
-.origin-i-2 {
+.originFont-i-2 {
   background-position: -283px -285px;
 }
-.origin-i-3 {
+.originFont-i-3 {
   background-position: -283px -580px;
 }
-.origin-o-1,.origin-o2-1, {
+.originFont-o-1,.originFont-o2-1, {
   background-position: -363px -50px;
 }
-.origin-o-2,.origin-o2-2, {
+.originFont-o-2,.originFont-o2-2, {
   background-position: -363px -285px;
 }
-.origin-o-3,.origin-o2-3, {
+.originFont-o-3,.originFont-o2-3, {
   background-position: -363px -580px;
 }
-.origin-u-1,.origin-u2-1, {
+.originFont-u-1,.originFont-u2-1, {
   background-position: -522px -57px;
 }
-.origin-u-2,.origin-u2-2, {
+.originFont-u-2,.originFont-u2-2, {
   background-position: -522px -285px;
 }
-.origin-u-3,.origin-u2-3, {
+.originFont-u-3,.originFont-u2-3, {
   background-position: -522px -580px;
 }
 
-.origin-na-1,.origin-ne-1 {
+.originFont-na-1,.originFont-ne-1 {
   background-position: -765px -50px;
 }
-.origin-na-2,.origin-ne-2 {
+.originFont-na-2,.originFont-ne-2 {
   background-position: -765px -280px;
 }
-.origin-na-3,.origin-ne-3 {
+.originFont-na-3,.originFont-ne-3 {
   background-position: -763px -600px;
 }
-.origin-ni-1 {
+.originFont-ni-1 {
   background-position: -843px -50px;
 }
-.origin-ni-2 {
+.originFont-ni-2 {
   background-position: -843px -285px;
 }
-.origin-ni-3 {
+.originFont-ni-3 {
   background-position: -843px -580px;
 }
-.origin-no-1,.origin-no2-1, {
+.originFont-no-1,.originFont-no2-1, {
   background-position: -922px -50px;
 }
-.origin-no-2,.origin-no2-2, {
+.originFont-no-2,.originFont-no2-2, {
   background-position: -922px -290px;
 }
-.origin-no-3,.origin-no2-3, {
+.originFont-no-3,.originFont-no2-3, {
   background-position: -922px -580px;
 }
-.origin-nu-1,.origin-nu2-1, {
+.originFont-nu-1,.originFont-nu2-1, {
   background-position: -1082px -57px;
 }
-.origin-nu-2,.origin-nu2-2, {
+.originFont-nu-2,.originFont-nu2-2, {
   background-position: -1082px -285px;
 }
-.origin-nu-3,.origin-nu2-3, {
+.originFont-nu-3,.originFont-nu2-3, {
   background-position: -1082px -580px;
 }
 
@@ -337,77 +337,77 @@ div[class*='-po-'],div[class*='-po2-'],div[class*='-pu-'],div[class*='-pu2-'] {
   background-image: url(../data/alphabet/variant/images/ba-pa-black.png);
 }
 
-.origin-ba-1,.origin-be-1 {
+.originFont-ba-1,.originFont-be-1 {
   background-position: -113px -45px;
 }
-.origin-ba-2,.origin-be-2 {
+.originFont-ba-2,.originFont-be-2 {
   background-position: -113px -300px;
 }
-.origin-ba-3,.origin-be-3 {
+.originFont-ba-3,.originFont-be-3 {
   background-position: -110px -595px;
 }
-.origin-bi-1 {
+.originFont-bi-1 {
   background-position: -273px -45px;
 }
-.origin-bi-2 {
+.originFont-bi-2 {
   background-position: -273px -295px;
 }
-.origin-bi-3 {
+.originFont-bi-3 {
   background-position: -273px -595px;
 }
-.origin-bo-1,.origin-bo2-1, {
+.originFont-bo-1,.originFont-bo2-1, {
   background-position: -350px -45px;
 }
-.origin-bo-2,.origin-bo2-2, {
+.originFont-bo-2,.originFont-bo2-2, {
   background-position: -350px -290px;
 }
-.origin-bo-3,.origin-bo2-3, {
+.originFont-bo-3,.originFont-bo2-3, {
   background-position: -350px -600px;
 }
-.origin-bu-1,.origin-bu2-1, {
+.originFont-bu-1,.originFont-bu2-1, {
   background-position: -512px -50px;
 }
-.origin-bu-2,.origin-bu2-2, {
+.originFont-bu-2,.originFont-bu2-2, {
   background-position: -512px -295px;
 }
-.origin-bu-3,.origin-bu2-3, {
+.originFont-bu-3,.originFont-bu2-3, {
   background-position: -512px -600px;
 }
 
-.origin-pa-1,.origin-pe-1 {
+.originFont-pa-1,.originFont-pe-1 {
   background-position: -673px -45px;
 }
-.origin-pa-2,.origin-pe-2 {
+.originFont-pa-2,.originFont-pe-2 {
   background-position: -673px -300px;
 }
-.origin-pa-3,.origin-pe-3 {
+.originFont-pa-3,.originFont-pe-3 {
   background-position: -674px -595px;
 }
-.origin-pi-1 {
+.originFont-pi-1 {
   background-position: -833px -45px;
 }
-.origin-pi-2 {
+.originFont-pi-2 {
   background-position: -833px -295px;
 }
-.origin-pi-3 {
+.originFont-pi-3 {
   background-position: -833px -590px;
 }
-.origin-po-1,.origin-po2-1, {
+.originFont-po-1,.originFont-po2-1, {
   background-position: -910px -45px;
 }
-.origin-po-2,.origin-po2-2, {
+.originFont-po-2,.originFont-po2-2, {
   background-position: -910px -290px;
 }
-.origin-po-3,.origin-po2-3, {
+.originFont-po-3,.originFont-po2-3, {
   background-position: -910px -590px;
 }
-.origin-pu-1,.origin-pu2-1, {
+.originFont-pu-1,.originFont-pu2-1, {
   background-position: -1072px -50px;
 }
-.origin-pu-2,.origin-pu2-2, {
+.originFont-pu-2,.originFont-pu2-2, {
   background-position: -1072px -295px;
 }
-.origin-pu-3,.origin-pu2-3, {
+.originFont-pu-3,.originFont-pu2-3, {
   background-position: -1072px -590px;
 }
 
@@ -418,95 +418,95 @@ div[class*='-go-'],div[class*='-go2-'],div[class*='-gu-'],div[class*='-gu2-'] {
   background-image: url(../data/alphabet/variant/images/ha-ga-black.png);
 }
 
-.origin-ha-1 {
+.originFont-ha-1 {
   background-position: -105px -50px;
 }
-.origin-ha-2 {
+.originFont-ha-2 {
   background-position: -105px -290px;
 }
-.origin-ha-3 {
+.originFont-ha-3 {
   background-position: -105px -595px;
 }
-.origin-he-1 {
+.originFont-he-1 {
   background-position: -190px -50px;
 }
-.origin-he-2 {
+.originFont-he-2 {
   background-position: -190px -295px;
 }
-.origin-he-3 {
+.originFont-he-3 {
   background-position: -185px -590px;
 }
-.origin-hi-1 {
+.originFont-hi-1 {
   background-position: -270px -47px;
 }
-.origin-hi-2 {
+.originFont-hi-2 {
   background-position: -270px -290px;
 }
-.origin-hi-3 {
+.originFont-hi-3 {
   background-position: -270px -590px;
 }
-.origin-ho-1,.origin-ho2-1, {
+.originFont-ho-1,.originFont-ho2-1, {
   background-position: -348px -50px;
 }
-.origin-ho-2,.origin-ho2-2, {
+.originFont-ho-2,.originFont-ho2-2, {
   background-position: -348px -300px;
 }
-.origin-ho-3,.origin-ho2-3, {
+.originFont-ho-3,.originFont-ho2-3, {
   background-position: -348px -590px;
 }
-.origin-hu-1,.origin-hu2-1, {
+.originFont-hu-1,.originFont-hu2-1, {
   background-position: -510px -50px;
 }
-.origin-hu-2,.origin-hu2-2, {
+.originFont-hu-2,.originFont-hu2-2, {
   background-position: -510px -295px;
 }
-.origin-hu-3,.origin-hu2-3, {
+.originFont-hu-3,.originFont-hu2-3, {
   background-position: -510px -590px;
 }
 
-.origin-ga-1 {
+.originFont-ga-1 {
   background-position: -665px -45px;
 }
-.origin-ga-2 {
+.originFont-ga-2 {
   background-position: -665px -290px;
 }
-.origin-ga-3 {
+.originFont-ga-3 {
   background-position: -665px -595px;
 }
-.origin-ge-1 {
+.originFont-ge-1 {
   background-position: -750px -45px;
 }
-.origin-ge-2 {
+.originFont-ge-2 {
   background-position: -750px -295px;
 }
-.origin-ge-3 {
+.originFont-ge-3 {
   background-position: -745px -590px;
 }
-.origin-gi-1 {
+.originFont-gi-1 {
   background-position: -830px -45px;
 }
-.origin-gi-2 {
+.originFont-gi-2 {
   background-position: -830px -290px;
 }
-.origin-gi-3 {
+.originFont-gi-3 {
   background-position: -830px -590px;
 }
-.origin-go-1,.origin-go2-1, {
+.originFont-go-1,.originFont-go2-1, {
   background-position: -905px -50px;
 }
-.origin-go-2,.origin-go2-2, {
+.originFont-go-2,.originFont-go2-2, {
   background-position: -905px -295px;
 }
-.origin-go-3,.origin-go2-3, {
+.originFont-go-3,.originFont-go2-3, {
   background-position: -905px -590px;
 }
-.origin-gu-1,.origin-gu2-1, {
+.originFont-gu-1,.originFont-gu2-1, {
   background-position: -1065px -50px;
 }
-.origin-gu-2,.origin-gu2-2, {
+.originFont-gu-2,.originFont-gu2-2, {
   background-position: -1065px -295px;
 }
-.origin-gu-3,.origin-gu2-3, {
+.originFont-gu-3,.originFont-gu2-3, {
   background-position: -1065px -590px;
 }
 
@@ -517,77 +517,77 @@ div[class*='-lo-'],div[class*='-lo2-'],div[class*='-lu-'],div[class*='-lu2-'] {
   background-image: url(../data/alphabet/variant/images/ma-la-black.png);
 }
 
-.origin-ma-1,.origin-me-1 {
+.originFont-ma-1,.originFont-me-1 {
   background-position: -105px -50px;
 }
-.origin-ma-2,.origin-me-2 {
+.originFont-ma-2,.originFont-me-2 {
   background-position: -105px -280px;
 }
-.origin-ma-3,.origin-me-3 {
+.originFont-ma-3,.originFont-me-3 {
   background-position: -105px -580px;
 }
-.origin-mi-1 {
+.originFont-mi-1 {
   background-position: -266px -50px;
 }
-.origin-mi-2 {
+.originFont-mi-2 {
   background-position: -266px -285px;
 }
-.origin-mi-3 {
+.originFont-mi-3 {
   background-position: -266px -580px;
 }
-.origin-mo-1,.origin-mo2-1, {
+.originFont-mo-1,.originFont-mo2-1, {
   background-position: -347px -50px;
 }
-.origin-mo-2,.origin-mo2-2, {
+.originFont-mo-2,.originFont-mo2-2, {
   background-position: -347px -290px;
 }
-.origin-mo-3,.origin-mo2-3, {
+.originFont-mo-3,.originFont-mo2-3, {
   background-position: -347px -580px;
 }
-.origin-mu-1,.origin-mu2-1, {
+.originFont-mu-1,.originFont-mu2-1, {
   background-position: -509px -60px;
 }
-.origin-mu-2,.origin-mu2-2, {
+.originFont-mu-2,.originFont-mu2-2, {
   background-position: -509px -290px;
 }
-.origin-mu-3,.origin-mu2-3, {
+.originFont-mu-3,.originFont-mu2-3, {
   background-position: -509px -580px;
 }
 
-.origin-la-1,.origin-le-1 {
+.originFont-la-1,.originFont-le-1 {
   background-position: -668px -50px;
 }
-.origin-la-2,.origin-le-2 {
+.originFont-la-2,.originFont-le-2 {
   background-position: -668px -290px;
 }
-.origin-la-3,.origin-le-3 {
+.originFont-la-3,.originFont-le-3 {
   background-position: -668px -595px;
 }
-.origin-li-1 {
+.originFont-li-1 {
   background-position: -828px -50px;
 }
-.origin-li-2 {
+.originFont-li-2 {
   background-position: -828px -290px;
 }
-.origin-li-3 {
+.originFont-li-3 {
   background-position: -828px -595px;
 }
-.origin-lo-1,.origin-lo2-1, {
+.originFont-lo-1,.originFont-lo2-1, {
   background-position: -905px -50px;
 }
-.origin-lo-2,.origin-lo2-2, {
+.originFont-lo-2,.originFont-lo2-2, {
   background-position: -905px -290px;
 }
-.origin-lo-3,.origin-lo2-3, {
+.originFont-lo-3,.originFont-lo2-3, {
   background-position: -905px -590px;
 }
-.origin-lu-1,.origin-lu2-1, {
+.originFont-lu-1,.originFont-lu2-1, {
   background-position: -1065px -55px;
 }
-.origin-lu-2,.origin-lu2-2, {
+.originFont-lu-2,.originFont-lu2-2, {
   background-position: -1065px -290px;
 }
-.origin-lu-3,.origin-lu2-3, {
+.originFont-lu-3,.originFont-lu2-3, {
   background-position: -1065px -590px;
 }
 
@@ -598,77 +598,77 @@ div[class*='-sho-'],div[class*='-sho2-'],div[class*='-shu-'],div[class*='-shu2-'
   background-image: url(../data/alphabet/variant/images/sa-sha-black.png);
 }
 
-.origin-sa-1,.origin-se-1 {
+.originFont-sa-1,.originFont-se-1 {
   background-position: -108px -50px;
 }
-.origin-sa-2,.origin-se-2 {
+.originFont-sa-2,.originFont-se-2 {
   background-position: -108px -300px;
 }
-.origin-sa-3,.origin-se-3 {
+.originFont-sa-3,.originFont-se-3 {
   background-position: -108px -595px;
 }
-.origin-si-1 {
+.originFont-si-1 {
   background-position: -266px -50px;
 }
-.origin-si-2 {
+.originFont-si-2 {
   background-position: -266px -300px;
 }
-.origin-si-3 {
+.originFont-si-3 {
   background-position: -266px -590px;
 }
-.origin-so-1,.origin-so2-1, {
+.originFont-so-1,.originFont-so2-1, {
   background-position: -345px -55px;
 }
-.origin-so-2,.origin-so2-2, {
+.originFont-so-2,.originFont-so2-2, {
   background-position: -345px -300px;
 }
-.origin-so-3,.origin-so2-3, {
+.originFont-so-3,.originFont-so2-3, {
   background-position: -345px -590px;
 }
-.origin-su-1,.origin-su2-1, {
+.originFont-su-1,.originFont-su2-1, {
   background-position: -505px -60px;
 }
-.origin-su-2,.origin-su2-2, {
+.originFont-su-2,.originFont-su2-2, {
   background-position: -505px -300px;
 }
-.origin-su-3,.origin-su2-3, {
+.originFont-su-3,.originFont-su2-3, {
   background-position: -505px -590px;
 }
 
-.origin-sha-1,.origin-she-1 {
+.originFont-sha-1,.originFont-she-1 {
   background-position: -668px -50px;
 }
-.origin-sha-2,.origin-she-2 {
+.originFont-sha-2,.originFont-she-2 {
   background-position: -668px -300px;
 }
-.origin-sha-3,.origin-she-3 {
+.originFont-sha-3,.originFont-she-3 {
   background-position: -668px -595px;
 }
-.origin-shi-1 {
+.originFont-shi-1 {
   background-position: -830px -50px;
 }
-.origin-shi-2 {
+.originFont-shi-2 {
   background-position: -830px -300px;
 }
-.origin-shi-3 {
+.originFont-shi-3 {
   background-position: -830px -595px;
 }
-.origin-sho-1,.origin-sho2-1, {
+.originFont-sho-1,.originFont-sho2-1, {
   background-position: -910px -50px;
 }
-.origin-sho-2,.origin-sho2-2, {
+.originFont-sho-2,.originFont-sho2-2, {
   background-position: -910px -300px;
 }
-.origin-sho-3,.origin-sho2-3, {
+.originFont-sho-3,.originFont-sho2-3, {
   background-position: -910px -598px;
 }
-.origin-shu-1,.origin-shu2-1, {
+.originFont-shu-1,.originFont-shu2-1, {
   background-position: -1070px -60px;
 }
-.origin-shu-2,.origin-shu2-2, {
+.originFont-shu-2,.originFont-shu2-2, {
   background-position: -1070px -300px;
 }
-.origin-shu-3,.origin-shu2-3, {
+.originFont-shu-3,.originFont-shu2-3, {
   background-position: -1070px -600px;
 }
 
@@ -679,77 +679,77 @@ div[class*='-do-'],div[class*='-do2-'],div[class*='-du-'],div[class*='-du2-'] {
   background-image: url(../data/alphabet/variant/images/ta-da-black.png);
 }
 
-.origin-ta-1,.origin-te-1 {
+.originFont-ta-1,.originFont-te-1 {
   background-position: -115px -50px;
 }
-.origin-ta-2,.origin-te-2 {
+.originFont-ta-2,.originFont-te-2 {
   background-position: -115px -300px;
 }
-.origin-ta-3,.origin-te-3 {
+.originFont-ta-3,.originFont-te-3 {
   background-position: -115px -595px;
 }
-.origin-ti-1 {
+.originFont-ti-1 {
   background-position: -275px -50px;
 }
-.origin-ti-2 {
+.originFont-ti-2 {
   background-position: -275px -300px;
 }
-.origin-ti-3 {
+.originFont-ti-3 {
   background-position: -275px -595px;
 }
-.origin-to-1,.origin-to2-1, {
+.originFont-to-1,.originFont-to2-1, {
   background-position: -353px -50px;
 }
-.origin-to-2,.origin-to2-2, {
+.originFont-to-2,.originFont-to2-2, {
   background-position: -353px -300px;
 }
-.origin-to-3,.origin-to2-3, {
+.originFont-to-3,.originFont-to2-3, {
   background-position: -353px -595px;
 }
-.origin-tu-1,.origin-tu2-1, {
+.originFont-tu-1,.originFont-tu2-1, {
   background-position: -515px -60px;
 }
-.origin-tu-2,.origin-tu2-2, {
+.originFont-tu-2,.originFont-tu2-2, {
   background-position: -515px -300px;
 }
-.origin-tu-3,.origin-tu2-3, {
+.originFont-tu-3,.originFont-tu2-3, {
   background-position: -515px -595px;
 }
 
-.origin-da-1,.origin-de-1 {
+.originFont-da-1,.originFont-de-1 {
   background-position: -673px -50px;
 }
-.origin-da-2,.origin-de-2 {
+.originFont-da-2,.originFont-de-2 {
   background-position: -673px -300px;
 }
-.origin-da-3,.origin-de-3 {
+.originFont-da-3,.originFont-de-3 {
   background-position: -670px -595px;
 }
-.origin-di-1 {
+.originFont-di-1 {
   background-position: -830px -50px;
 }
-.origin-di-2 {
+.originFont-di-2 {
   background-position: -830px -300px;
 }
-.origin-di-3 {
+.originFont-di-3 {
   background-position: -830px -595px;
 }
-.origin-do-1,.origin-do2-1, {
+.originFont-do-1,.originFont-do2-1, {
   background-position: -910px -50px;
 }
-.origin-do-2,.origin-do2-2, {
+.originFont-do-2,.originFont-do2-2, {
   background-position: -910px -300px;
 }
-.origin-do-3,.origin-do2-3, {
+.originFont-do-3,.originFont-do2-3, {
   background-position: -910px -595px;
 }
-.origin-du-1,.origin-du2-1, {
+.originFont-du-1,.originFont-du2-1, {
   background-position: -1070px -60px;
 }
-.origin-du-2,.origin-du2-2, {
+.originFont-du-2,.originFont-du2-2, {
   background-position: -1070px -300px;
 }
-.origin-du-3,.origin-du2-3, {
+.originFont-du-3,.originFont-du2-3, {
   background-position: -1070px -595px;
 }
 
@@ -760,77 +760,77 @@ div[class*='-zho-'],div[class*='-zho2-'],div[class*='-zhu-'],div[class*='-zhu2-'
   background-image: url(../data/alphabet/variant/images/cha-zha-black.png);
 }
 
-.origin-cha-1,.origin-che-1 {
+.originFont-cha-1,.originFont-che-1 {
   background-position: -119px -50px;
 }
-.origin-cha-2,.origin-che-2 {
+.originFont-cha-2,.originFont-che-2 {
   background-position: -119px -300px;
 }
-.origin-cha-3,.origin-che-3 {
+.originFont-cha-3,.originFont-che-3 {
   background-position: -119px -595px;
 }
-.origin-chi-1 {
+.originFont-chi-1 {
   background-position: -276px -50px;
 }
-.origin-chi-2 {
+.originFont-chi-2 {
   background-position: -276px -300px;
 }
-.origin-chi-3 {
+.originFont-chi-3 {
   background-position: -276px -595px;
 }
-.origin-cho-1,.origin-cho2-1, {
+.originFont-cho-1,.originFont-cho2-1, {
   background-position: -355px -50px;
 }
-.origin-cho-2,.origin-cho2-2, {
+.originFont-cho-2,.originFont-cho2-2, {
   background-position: -355px -300px;
 }
-.origin-cho-3,.origin-cho2-3, {
+.originFont-cho-3,.originFont-cho2-3, {
   background-position: -355px -595px;
 }
-.origin-chu-1,.origin-chu2-1, {
+.originFont-chu-1,.originFont-chu2-1, {
   background-position: -515px -60px;
 }
-.origin-chu-2,.origin-chu2-2, {
+.originFont-chu-2,.originFont-chu2-2, {
   background-position: -515px -300px;
 }
-.origin-chu-3,.origin-chu2-3, {
+.originFont-chu-3,.originFont-chu2-3, {
   background-position: -515px -595px;
 }
 
-.origin-zha-1,.origin-zhe-1 {
+.originFont-zha-1,.originFont-zhe-1 {
   background-position: -678px -50px;
 }
-.origin-zha-2,.origin-zhe-2 {
+.originFont-zha-2,.originFont-zhe-2 {
   background-position: -678px -300px;
 }
-.origin-zha-3,.origin-zhe-3 {
+.originFont-zha-3,.originFont-zhe-3 {
   background-position: -678px -595px;
 }
-.origin-zhi-1 {
+.originFont-zhi-1 {
   background-position: -835px -50px;
 }
-.origin-zhi-2 {
+.originFont-zhi-2 {
   background-position: -835px -300px;
 }
-.origin-zhi-3 {
+.originFont-zhi-3 {
   background-position: -835px -595px;
 }
-.origin-zho-1,.origin-zho2-1, {
+.originFont-zho-1,.originFont-zho2-1, {
   background-position: -915px -50px;
 }
-.origin-zho-2,.origin-zho2-2, {
+.originFont-zho-2,.originFont-zho2-2, {
   background-position: -915px -300px;
 }
-.origin-zho-3,.origin-zho2-3, {
+.originFont-zho-3,.originFont-zho2-3, {
   background-position: -915px -595px;
 }
-.origin-zhu-1,.origin-zhu2-1, {
+.originFont-zhu-1,.originFont-zhu2-1, {
   background-position: -1075px -55px;
 }
-.origin-zhu-2,.origin-zhu2-2, {
+.originFont-zhu-2,.originFont-zhu2-2, {
   background-position: -1075px -300px;
 }
-.origin-zhu-3,.origin-zhu2-3, {
+.originFont-zhu-3,.originFont-zhu2-3, {
   background-position: -1075px -595px;
 }
 
@@ -841,82 +841,82 @@ div[class*='-ro-'],div[class*='-ro2-'],div[class*='-ru-'],div[class*='-ru2-'] {
   background-image: url(../data/alphabet/variant/images/ya-ra-black.png);
 }
 
-div[class*='origin-ya-3'],div[class*='origin-ye-3'],div[class*='origin-yi-3'],
-div[class*='origin-yo-3'],div[class*='origin-yo2-3'],div[class*='origin-yu-3'],div[class*='origin-yu2-3'] {
+div[class*='originFont-ya-3'],div[class*='originFont-ye-3'],div[class*='originFont-yi-3'],
+div[class*='originFont-yo-3'],div[class*='originFont-yo2-3'],div[class*='originFont-yu-3'],div[class*='originFont-yu2-3'] {
   height: 160px !important;
 }
 
-.origin-ya-1,.origin-ye-1 {
+.originFont-ya-1,.originFont-ye-1 {
   background-position: -115px -60px;
 }
-.origin-ya-2,.origin-ye-2 {
+.originFont-ya-2,.originFont-ye-2 {
   background-position: -115px -300px;
 }
-.origin-ya-3,.origin-ye-3 {
+.originFont-ya-3,.originFont-ye-3 {
   background-position: -115px -600px;
 }
-.origin-yi-1 {
+.originFont-yi-1 {
   background-position: -273px -60px;
 }
-.origin-yi-2 {
+.originFont-yi-2 {
   background-position: -273px -300px;
 }
-.origin-yi-3 {
+.originFont-yi-3 {
   background-position: -273px -593px;
 }
-.origin-yo-1,.origin-yo2-1, {
+.originFont-yo-1,.originFont-yo2-1, {
   background-position: -353px -60px;
 }
-.origin-yo-2,.origin-yo2-2, {
+.originFont-yo-2,.originFont-yo2-2, {
   background-position: -353px -300px;
 }
-.origin-yo-3,.origin-yo2-3, {
+.originFont-yo-3,.originFont-yo2-3, {
   background-position: -353px -595px;
 }
-.origin-yu-1,.origin-yu2-1, {
+.originFont-yu-1,.originFont-yu2-1, {
   background-position: -513px -60px;
 }
-.origin-yu-2,.origin-yu2-2, {
+.originFont-yu-2,.originFont-yu2-2, {
   background-position: -513px -300px;
 }
-.origin-yu-3,.origin-yu2-3, {
+.originFont-yu-3,.originFont-yu2-3, {
   background-position: -513px -595px;
 }
 
-.origin-ra-1,.origin-re-1 {
+.originFont-ra-1,.originFont-re-1 {
   background-position: -675px -60px;
 }
-.origin-ra-2,.origin-re-2 {
+.originFont-ra-2,.originFont-re-2 {
   background-position: -675px -300px;
 }
-.origin-ra-3,.origin-re-3 {
+.originFont-ra-3,.originFont-re-3 {
   background-position: -675px -595px;
 }
-.origin-ri-1 {
+.originFont-ri-1 {
   background-position: -835px -60px;
 }
-.origin-ri-2 {
+.originFont-ri-2 {
   background-position: -835px -295px;
 }
-.origin-ri-3 {
+.originFont-ri-3 {
   background-position: -835px -595px;
 }
-.origin-ro-1,.origin-ro2-1, {
+.originFont-ro-1,.originFont-ro2-1, {
   background-position: -915px -60px;
 }
-.origin-ro-2,.origin-ro2-2, {
+.originFont-ro-2,.originFont-ro2-2, {
   background-position: -915px -300px;
 }
-.origin-ro-3,.origin-ro2-3, {
+.originFont-ro-3,.originFont-ro2-3, {
   background-position: -915px -595px;
 }
-.origin-ru-1,.origin-ru2-1, {
+.originFont-ru-1,.originFont-ru2-1, {
   background-position: -1075px -60px;
 }
-.origin-ru-2,.origin-ru2-2, {
+.originFont-ru-2,.originFont-ru2-2, {
   background-position: -1075px -300px;
 }
-.origin-ru-3,.origin-ru2-3, {
+.originFont-ru-3,.originFont-ru2-3, {
   background-position: -1075px -595px;
 }
 

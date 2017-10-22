@@ -71,7 +71,7 @@
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
       if (answered) {
-        name = 'origin-' + alpha.fileName;
+        name = 'originFont-' + alpha.fileName;
       }
       return name;
     };

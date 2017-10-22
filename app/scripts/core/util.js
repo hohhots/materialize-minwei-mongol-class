@@ -112,6 +112,16 @@
         return url.substring(+pre.length);
       },
 
+      practiceDone: function (alphas) {
+        var done = true;
+        $.each(alphas, function (i, v) {
+          if (!v.answered) {
+            done = false;
+          }
+        });
+        return done;
+      },
+
       setAudio: function (path, audiosConfig) {
         var audios = {};
 

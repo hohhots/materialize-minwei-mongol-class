@@ -60,14 +60,14 @@
     };
 
     self.getAlphaClass = function (alpha) {
-      return 'origin-' + alpha.name;
+      return 'originFont-' + alpha.name;
     };
 
     self.getAnswerAlphaClass = function (index) {
       var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
       var alpha = answerAlphas[index];
-      if (alpha) {
-        css = 'origin-' + alpha.name + '-' + variantPosition + ' variantview-view-value';
+      if (alpha.answered) {
+        css = 'originFont-' + alpha.name + '-' + variantPosition + ' variantview-view-value';
       }
       return css;
     };
@@ -102,7 +102,7 @@
     
     self.getSelectText = function (testAlphaIndex) {
       var text = '';
-      if (!answerAlphas[testAlphaIndex]) {
+      if (!answerAlphas[testAlphaIndex].answered) {
         switch (variantPosition) {
           case 1:
             text = config.alphaLangs.top;
@@ -115,6 +115,27 @@
         }
       }
       return text;
+    };
+
+    self.checkAnswerClick = function () {
+      if (util.practiceDone(answerAlphas)) {
+        checkStateInit();
+        var right = true;
+        $.each(self.testAlphas, function (i, v) {
+          if (answerAlphas[i].name != util.convertAlphaName(v.name, variantPosition)) {
+            right = false;
+          }
+        });
+        if (right == true) {
+          self.correct = true;
+        } else {
+          self.error = true;
+        }
+      }
+    };
+
+    self.nextTestClick = function () {
+      $state.reload();
     };
 
     var audioElem = null;
@@ -132,6 +153,7 @@
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       self.testAlphas = testOriginAlpha.vowel;
+      answerAlphas = angular.copy(self.testAlphas);
       self.realAlphaClass = sevenAlphaClass;
       if (self.testAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;

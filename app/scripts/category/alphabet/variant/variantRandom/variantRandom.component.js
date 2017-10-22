@@ -46,7 +46,7 @@
     };
 
     self.getAlphaClass = function (alpha) {
-      return 'origin-' + alpha.name + '-' + variantPosition;
+      return 'originFont-' + alpha.name + '-' + variantPosition;
     };
 
     var oneAlphaClass = 'w3-col s12 m12 l12';
