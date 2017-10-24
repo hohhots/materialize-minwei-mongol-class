@@ -18,7 +18,7 @@
       <div class="originpractice-text">
         <p>（共13个练习，每次随机显示其中之一。读音顺序遵守原形字母表规则）</p>
         <br />
-        <p>点击播放按钮听字母读音，然后点击&lt;选择字母&gt;，按读音顺序一次选择所有的字母。</p>
+        <p>点击播放按钮听字母读音，然后点击下面任意待选字母位置，按读音顺序一次选择所有的字母。</p>
       </div>
 
       <div class="originpractice-play">
@@ -36,7 +36,7 @@
       </div>
 
       <div class="originpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.answerAlphas" class="w3-col s3 m3 l3">
+        <div ng-repeat="alpha in $ctrl.answerAlphas" class="w3-col s3 m3 l3"  ng-click="$ctrl.selectAlphaClick()">
           <div class="w3-margin originpractice-view">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
@@ -45,9 +45,6 @@
       </div>
 
       <div class="originpractice-done">
-        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.selectAlphaClick()">
-          {{::$ctrl.langs.selectAlpha}}
-        </button>
         <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.checkAnswerClick()" ng-hide="$ctrl.correct">
           {{::$ctrl.langs.checkAnswer}}
         </button>

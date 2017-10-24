@@ -50,6 +50,7 @@
     };
 
     var oneAlphaClass = 'w3-col s12 m12 l12';
+    var twoAlphaClass = 'w3-col s6 m6 l6';
     var threeAlphaClass = 'w3-col s4 m4 l4';
     var fourAlphaClass = 'w3-col s4 m3 l3';
     var fiveAlphaClass = 'alpha5-col s4 m3 l1';
@@ -62,6 +63,9 @@
       switch (self.randomAlphas.length) {
         case 1:
           self.realAlphaClass = oneAlphaClass;
+          break;
+        case 2:
+          self.realAlphaClass = twoAlphaClass;
           break;
         case 3:
           self.realAlphaClass = threeAlphaClass;

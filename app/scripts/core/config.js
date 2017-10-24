@@ -1,6 +1,6 @@
 'use strict';
 
-(function ($) {
+(function () {
 
   //set global file cache for $.ajax().
   $.ajaxSetup({
@@ -45,10 +45,10 @@
       pagesUrl: {
         alphaOrigin: 'alphabetorigin',
         originPractice: 'originpractice',
-        
+
         alphaList: 'alphabetlist',
         listPractice: 'listpractice',
-        
+
         alphaVariant: 'alphabetvariant',
         variantPractice: 'variantpractice'
       },
@@ -139,20 +139,20 @@
         mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
         home: 'scripts/home/home.template.html',
         category: 'scripts/category/category.template.html',
-        
+
         alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
         originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
         alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
         originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
-        
+
         alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
         listpractice: 'scripts/category/alphabet/list/practice/listpractice.template.html',
         listRandom: 'scripts/category/alphabet/list/listRandom/listRandom.template.html',
-        
+
         alphabetvariant: 'scripts/category/alphabet/variant/alphabetvariant.template.html',
         variantpractice: 'scripts/category/alphabet/variant/practice/variantpractice.template.html',
         variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
-        
+
 
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
@@ -206,25 +206,25 @@
       }
     };
 
-    /*       alphaListNamesMap: {
-        o2: "o", u2: "u",
-        ne: "na", no2: "no", nu2: "nu",
-        be: "ba", bo2: "bo", bu2: "bu",
-        pe: "pa", po2: "po", pu2: "pu",
-        ho2: "ho", hu2: "hu",
-        go2: "go", gu2: "gu",
-        me: "ma", mo2: "mo", mu2: "mu",
-        le: "la", lo2: "lo", lu2: "lu",
-        se: "sa", so2: "so", su2: "su",
-        she: "sha", sho2: "sho", shu2: "shu",
-        te: "ta", to2: "to", tu2: "tu",
-        de: "da", do2: "do", du2: "du",
-        che: "cha", cho2: "cho", chu2: "chu",
-        zhe: "zha", zho2: "zho", zhu2: "zhu",
-        ye: "ya", yo2: "yo", yu2: "yu",
-        re: "ra", ro2: "ro", ru2: "ru",
-        we: "wa"
-      },*/
+  /*       alphaListNamesMap: {
+      o2: "o", u2: "u",
+      ne: "na", no2: "no", nu2: "nu",
+      be: "ba", bo2: "bo", bu2: "bu",
+      pe: "pa", po2: "po", pu2: "pu",
+      ho2: "ho", hu2: "hu",
+      go2: "go", gu2: "gu",
+      me: "ma", mo2: "mo", mu2: "mu",
+      le: "la", lo2: "lo", lu2: "lu",
+      se: "sa", so2: "so", su2: "su",
+      she: "sha", sho2: "sho", shu2: "shu",
+      te: "ta", to2: "to", tu2: "tu",
+      de: "da", do2: "do", du2: "du",
+      che: "cha", cho2: "cho", chu2: "chu",
+      zhe: "zha", zho2: "zho", zhu2: "zhu",
+      ye: "ya", yo2: "yo", yu2: "yu",
+      re: "ra", ro2: "ro", ru2: "ru",
+      we: "wa"
+    },*/
   config.alphaVideoNamesMap = $.extend({}, config.alphaListNamesMap, {
     ge: "he", gi: "hi"
   });
@@ -246,10 +246,16 @@
     yu: "yo", yu2: "yo",
     ru: "ro", ru2: "ro",
   });
-  config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
 
+  var result = config.alphaVariantNamesMap3, key, obj = config.alphaVariantNamesMap2;
+  for (key in obj) {
+    if (obj.hasOwnProperty(key) && (key !== 'we')) {
+      result[key] = obj[key];
+    }
+  }
+  console.log(config.alphaVariantNamesMap3);
   // Define the `core.config` module
   angular.module('core.config', []).
     constant('Config', config);
 
-})(jQuery);
+})();

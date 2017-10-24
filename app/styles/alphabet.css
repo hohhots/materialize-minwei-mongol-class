@@ -293,6 +293,11 @@ div[class*='-no-'],div[class*='-no2-'],div[class*='-nu-'],div[class*='-nu2-'] {
   background-position: -522px -580px;
 }
 
+div[class*='na-3'],div[class*='ne-3'],div[class*='ni-3'],
+div[class*='no-3'],div[class*='no2-3'],div[class*='nu-3'],div[class*='nu2-3'] {
+  height: 170px !important;
+}
+
 .originFont-na-1,.originFont-ne-1 {
   background-position: -765px -50px;
 }
@@ -517,6 +522,11 @@ div[class*='-lo-'],div[class*='-lo2-'],div[class*='-lu-'],div[class*='-lu2-'] {
   background-image: url(../data/alphabet/variant/images/ma-la-black.png);
 }
 
+div[class*='ma-3'],div[class*='me-3'],div[class*='mi-3'],
+div[class*='mo-3'],div[class*='mo2-3'],div[class*='mu-3'],div[class*='mu2-3'] {
+  height: 170px !important;
+}
+
 .originFont-ma-1,.originFont-me-1 {
   background-position: -105px -50px;
 }
@@ -524,7 +534,7 @@ div[class*='-lo-'],div[class*='-lo2-'],div[class*='-lu-'],div[class*='-lu2-'] {
   background-position: -105px -280px;
 }
 .originFont-ma-3,.originFont-me-3 {
-  background-position: -105px -580px;
+  background-position: -105px -590px;
 }
 .originFont-mi-1 {
   background-position: -266px -50px;
@@ -554,14 +564,19 @@ div[class*='-lo-'],div[class*='-lo2-'],div[class*='-lu-'],div[class*='-lu2-'] {
   background-position: -509px -580px;
 }
 
+div[class*='la-3'],div[class*='le-3'],div[class*='li-3'],
+div[class*='lo-3'],div[class*='lo2-3'],div[class*='lu-3'],div[class*='lu2-3'] {
+  height: 170px !important;
+}
+
 .originFont-la-1,.originFont-le-1 {
-  background-position: -668px -50px;
+  background-position: -665px -50px;
 }
 .originFont-la-2,.originFont-le-2 {
-  background-position: -668px -290px;
+  background-position: -665px -290px;
 }
 .originFont-la-3,.originFont-le-3 {
-  background-position: -668px -595px;
+  background-position: -665px -595px;
 }
 .originFont-li-1 {
   background-position: -828px -50px;
@@ -837,12 +852,13 @@ div[class*='-zho-'],div[class*='-zho2-'],div[class*='-zhu-'],div[class*='-zhu2-'
 div[class*='-ya-'],div[class*='-ye-'],div[class*='-yi-'],
 div[class*='-yo-'],div[class*='-yo2-'],div[class*='-yu-'],div[class*='-yu2-'],
 div[class*='-ra-'],div[class*='-re-'],div[class*='-ri-'],
-div[class*='-ro-'],div[class*='-ro2-'],div[class*='-ru-'],div[class*='-ru2-'] {
+div[class*='-ro-'],div[class*='-ro2-'],div[class*='-ru-'],div[class*='-ru2-'],
+div[class*='-wa-'],div[class*='-we-'] {
   background-image: url(../data/alphabet/variant/images/ya-ra-black.png);
 }
 
-div[class*='originFont-ya-3'],div[class*='originFont-ye-3'],div[class*='originFont-yi-3'],
-div[class*='originFont-yo-3'],div[class*='originFont-yo2-3'],div[class*='originFont-yu-3'],div[class*='originFont-yu2-3'] {
+div[class*='ya-3'],div[class*='ye-3'],div[class*='yi-3'],
+div[class*='yo-3'],div[class*='yo2-3'],div[class*='yu-3'],div[class*='yu2-3'] {
   height: 160px !important;
 }
 
@@ -883,6 +899,11 @@ div[class*='originFont-yo-3'],div[class*='originFont-yo2-3'],div[class*='originF
   background-position: -513px -595px;
 }
 
+div[class*='ra-3'],div[class*='re-3'],div[class*='ri-3'],
+div[class*='ro-3'],div[class*='ro2-3'],div[class*='ru-3'],div[class*='ru2-3'] {
+  height: 170px !important;
+}
+
 .originFont-ra-1,.originFont-re-1 {
   background-position: -675px -60px;
 }
@@ -920,3 +941,19 @@ div[class*='originFont-yo-3'],div[class*='originFont-yo2-3'],div[class*='originF
   background-position: -1075px -595px;
 }
 
+div[class*='wa-3'],div[class*='we-3'] {
+  height: 160px !important;
+}
+
+.originFont-wa-1,.originFont-we-1 {
+  background-position: -40px -60px;
+}
+.originFont-wa-2,.originFont-we-2 {
+  background-position: -40px -300px;
+}
+.originFont-wa-3 {
+  background-position: -40px -600px;
+}
+.originFont-we-3 {
+  background-position: -2528px -600px;
+}
