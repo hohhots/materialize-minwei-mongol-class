@@ -143,7 +143,7 @@
     };
 
     var selectRandomAlphas = function (event, alphas) {
-      if ((answered == true) && (alphas.length == 0)) {
+      if ((answered == true) && (alphas.length != 4)) {
         self.answerAlphas = angular.copy(testAlphas);
         answered = false;
         return;

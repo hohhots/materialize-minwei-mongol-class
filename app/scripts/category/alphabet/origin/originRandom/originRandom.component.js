@@ -42,17 +42,25 @@
       setAlphasRandom(angular.copy(self.subdata));
     };
 
-    self.clearClick = function() {
+    self.clearClick = function () {
       selectedAlphas = [];
     };
 
     self.okClick = function () {
-      $scope.$emit(config.events.selectRandomAlphas, selectedAlphas);
-      //self.closeRandom();
-      $scope.$broadcast(config.events.closeOriginRandom);
+      var temp = selectedAlphas;
+      if (temp.length != 4) {
+        selectedAlphas = [];
+      }
+      var stopTime = $interval(function () {
+        $scope.$emit(config.events.selectRandomAlphas, temp);
+        //self.closeRandom();
+        $scope.$broadcast(config.events.closeOriginRandom);
+        selectedAlphas = [];
+        $interval.cancel(stopTime);
+      }, 600);
     };
 
-    self.closeRandom = function() {
+    self.closeRandom = function () {
       self.showOriginRandom = false;
     };
 
@@ -62,7 +70,7 @@
         removeSelectedAlpha(i);
         return;
       }
-      if(selectedAlphas.length == 4) {
+      if (selectedAlphas.length == 4) {
         return;
       }
       selectedAlphas.push(alpha);
@@ -107,12 +115,13 @@
     };
 
     var displayOriginRandom = function () {
+      selectedAlphas = [];
       self.showOriginRandom = true;
     };
 
-    var removeSelectedAlpha = function(selectedOrder) {
+    var removeSelectedAlpha = function (selectedOrder) {
       var i = selectedOrder - 1;
-      selectedAlphas.splice(i,1);
+      selectedAlphas.splice(i, 1);
     };
 
     // add listener and hold on to deregister function
