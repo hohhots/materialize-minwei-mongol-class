@@ -69,7 +69,7 @@
 
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
-      if (answered) {
+      if (answered()) {
         name = 'originFont-' + alpha.fileName;
       }
       return name;
@@ -108,7 +108,16 @@
     var audioElem = null;
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaOrigin;
-    var answered = false;
+
+    var answered = function () {
+      var answered = false;
+      $.each(self.answerAlphas, function (i, v) {
+        if (!!v.error || !!v.correct) {
+          answered = true;
+        }
+      });
+      return answered;
+    };
 
     var setFourAlphas = function () {
       var position = Math.floor(Math.random() * (self.subData.length - 3));
@@ -151,7 +160,7 @@
         }
       });
       if (allAnswerCorrect()) {
-        self.allCorrect = true;        
+        self.allCorrect = true;
       }
     };
 
@@ -174,16 +183,14 @@
     };
 
     var selectRandomAlphas = function (event, alphas) {
-      if ((answered == true) && (alphas.length != 4)) {
+      if ((answered()) && (alphas.length != 4)) {
         self.answerAlphas = angular.copy(testAlphas);
-        answered = false;
         return;
       }
       if (alphas.length != 4) {
         return;
       }
       self.answerAlphas = angular.copy(alphas);
-      answered = true;
       checkAnswer();
     };
 
