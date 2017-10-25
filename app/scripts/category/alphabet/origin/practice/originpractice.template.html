@@ -29,15 +29,12 @@
           <div class="w3-container w3-padding w3-col s6 m6 l4">
             <i class="originpractice-playIcon fa" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
           </div>
-          <div class="w3-container w3-padding w3-col s3 m3 l4 originpractice-checkicon">
-            <i class="fa fa-times-circle-o originpractice-checkicon" style="color:red" aria-hidden="true" ng-show="$ctrl.error"></i>
-          </div>
         </div>
       </div>
 
       <div class="originpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.answerAlphas" class="w3-col s3 m3 l3"  ng-click="$ctrl.selectAlphaClick()">
-          <div class="w3-margin originpractice-view">
+        <div ng-repeat="alpha in $ctrl.answerAlphas" class="originpractice-alpha w3-col s3 m3 l3" ng-click="$ctrl.selectAlphaClick()">
+          <div class="w3-margin originpractice-view" ng-class="$ctrl.getAlphaCheckedClass(alpha)">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
           </div>
@@ -45,10 +42,10 @@
       </div>
 
       <div class="originpractice-done">
-        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.checkAnswerClick()" ng-hide="$ctrl.correct">
+        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.checkAnswerClick()" ng-hide="$ctrl.allCorrect">
           {{::$ctrl.langs.checkAnswer}}
         </button>
-        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.nextTestClick()" ng-show="$ctrl.correct">
+        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.nextTestClick()" ng-show="$ctrl.allCorrect">
           {{::$ctrl.langs.nextTest}}
         </button>
       </div>

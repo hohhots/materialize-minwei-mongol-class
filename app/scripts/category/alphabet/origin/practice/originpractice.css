@@ -51,7 +51,18 @@
   margin-left: auto !important;
   margin-right: auto !important;
   width: 45px;
-  background-color: #085a9d;
+}
+
+.originpractice-blue {
+  background-color: #2a6592;
+}
+
+.originpractice-green {
+  background-color: #4CAF50;
+}
+
+.originpractice-red {
+  background-color: #f44336;
 }
 
 .originpractice-num {
@@ -65,6 +76,10 @@
   overflow: auto;
   margin: auto;
   width: 100% !important;
+}
+
+.originpractice-alpha {
+  cursor: pointer;
 }
 
 .originpractice-empty-alpha {

@@ -48,8 +48,10 @@
 
     self.okClick = function () {
       var temp = selectedAlphas;
+      var time = 0;
       if (temp.length != 4) {
         selectedAlphas = [];
+        time = 600;
       }
       var stopTime = $interval(function () {
         $scope.$emit(config.events.selectRandomAlphas, temp);
@@ -57,7 +59,7 @@
         $scope.$broadcast(config.events.closeOriginRandom);
         selectedAlphas = [];
         $interval.cancel(stopTime);
-      }, 600);
+      }, time);
     };
 
     self.closeRandom = function () {

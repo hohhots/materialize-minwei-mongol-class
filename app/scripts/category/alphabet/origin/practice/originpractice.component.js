@@ -32,8 +32,7 @@
     self.langs = {};
     self.audio = {};
     self.answerAlphas = [];
-    self.correct = false;
-    self.error = false;
+    self.allCorrect = false;
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -76,6 +75,17 @@
       return name;
     };
 
+    self.getAlphaCheckedClass = function (alpha) {
+      var stat = 'originpractice-blue';
+      if (alpha.correct) {
+        stat = 'originpractice-green';
+      }
+      if (alpha.error) {
+        stat = 'originpractice-red';
+      }
+      return stat;
+    };
+
     self.playAudios = function () {
       if (playedAudioId == 0) {
         playAudio();
@@ -85,21 +95,16 @@
     };
 
     self.selectAlphaClick = function () {
-      if (self.correct) { return; }
+      if (allAnswerCorrect()) { return; }
       //$scope.$broadcast(config.events.stopPlayers);
       $scope.$broadcast(config.events.displayOriginRandom);
     };
 
     self.checkAnswerClick = function () {
-      init();
-      if (!answered) {
+      if (allAnswerCorrect()) {
         return;
       }
-      if (answerCorrect()) {
-        self.correct = true;
-      } else {
-        self.error = true;
-      }
+      setAnswerResult();
     };
 
     self.nextTestClick = function () {
@@ -111,11 +116,6 @@
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaOrigin;
     var answered = false;
-
-    var init = function () {
-      self.correct = false;
-      self.error = false;
-    };
 
     var setFourAlphas = function () {
       var position = Math.floor(Math.random() * (self.subData.length - 3));
@@ -151,15 +151,27 @@
       if (alphas.length != 4) {
         return;
       }
-      init();
       self.answerAlphas = angular.copy(alphas);
       answered = true;
     };
 
-    var answerCorrect = function () {
-      var correct = true;
+    var setAnswerResult = function () {
       $.each(testAlphas, function (i, v) {
         if (v.id != self.answerAlphas[i].id) {
+          self.answerAlphas[i].error = true;
+        } else {
+          self.answerAlphas[i].correct = true;
+        }
+      });
+      if (allAnswerCorrect()) {
+        self.allCorrect = true;        
+      }
+    };
+
+    var allAnswerCorrect = function () {
+      var correct = true;
+      $.each(self.answerAlphas, function (i, v) {
+        if (v.error || !v.correct) {
           correct = false;
         }
       });
