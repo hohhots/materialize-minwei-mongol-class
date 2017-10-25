@@ -37,7 +37,6 @@
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
-      self.langs.checkAnswer = config.alphaLangs.checkAnswer;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
@@ -59,6 +58,10 @@
       util.changePath(config.pagesUrl.alphaVariant);
     };
 
+    self.allCorrect = function () {
+      return util.allAnswerCorrect(answerAlphas);
+    };
+
     self.getAlphaClass = function (alpha) {
       return 'originFont-' + alpha.name;
     };
@@ -66,18 +69,37 @@
     self.getAnswerAlphaClass = function (index) {
       var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
       var alpha = answerAlphas[index];
-      if (alpha.answered) {
+      if (util.alphaAnswered(alpha)) {
         css = 'originFont-' + alpha.name + '-' + variantPosition + ' variantview-view-value';
       }
-      return css;
+
+      var stat = '';
+      if (util.allAlphaAnswered(util.alphaAnswered, answerAlphas)) {
+        if (alpha.correct) {
+          stat = ' originpractice-green';
+        }
+        if (alpha.error) {
+          stat = ' originpractice-red';
+        }
+      }
+      return css + stat;
     };
 
     self.getPlayerIconClass = function () {
-      var css = "fa-play-circle-o";
-      if (playedAudioId != 0) {
-        css = "fa-pause-circle-o w3-text-red";
+      return util.getPlayerIconClass(playedAudioId);
+    };
+
+    self.getAlphaCheckedClass = function (alpha) {
+      var stat = 'originpractice-blue';
+      if (util.allAlphaAnswered(util.alphaAnswered, answerAlphas)) {
+        if (alpha.correct) {
+          stat = 'originpractice-green';
+        }
+        if (alpha.error) {
+          stat = 'originpractice-red';
+        }
       }
-      return css;
+      return stat;
     };
 
     self.playAudios = function () {
@@ -88,9 +110,9 @@
       }
     };
 
-    self.selectAlpha = function (index) {
-      $scope.$broadcast(config.events.stopPlayers);
-      if (self.correct) { return; }
+    self.selectAlphaClick = function (index) {
+      //$scope.$broadcast(config.events.stopPlayers);
+      if (util.allAnswerCorrect(answerAlphas)) { return; }
       testAlpha = self.testAlphas[index];
       var tests = {
         testOrigin: testOriginAlpha,
@@ -99,10 +121,10 @@
       };
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
     };
-    
+
     self.getSelectText = function (testAlphaIndex) {
       var text = '';
-      if (!answerAlphas[testAlphaIndex].answered) {
+      if (!util.alphaAnswered(answerAlphas[testAlphaIndex])) {
         switch (variantPosition) {
           case 1:
             text = config.alphaLangs.top;
@@ -115,23 +137,6 @@
         }
       }
       return text;
-    };
-
-    self.checkAnswerClick = function () {
-      if (util.practiceDone(answerAlphas)) {
-        checkStateInit();
-        var right = true;
-        $.each(self.testAlphas, function (i, v) {
-          if (answerAlphas[i].name != util.convertAlphaName(v.name, variantPosition)) {
-            right = false;
-          }
-        });
-        if (right == true) {
-          self.correct = true;
-        } else {
-          self.error = true;
-        }
-      }
     };
 
     self.nextTestClick = function () {
@@ -161,9 +166,14 @@
       self.realAlphaClass = self.realAlphaClass + ' variantpractice-alpha-click';
     };
 
-    var checkStateInit = function () {
-      self.correct = false;
-      self.error = false;
+    var setAnswerAlphaState = function (alpha) {
+      alpha.correct = false;
+      alpha.error = false;
+      if (alpha.name == util.convertAlphaName(testAlpha.name, variantPosition)) {
+        alpha.correct = true;
+      } else {
+        alpha.error = true;
+      }
     };
 
     var playAudio = function () {
@@ -185,18 +195,17 @@
       playedAudioId++;
     };
 
-    var randomAlphaSelected = function (event, alpha) {
-      checkStateInit();
-      alpha.answered = true;
-      answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
-    };
-
     var stopPlayers = function (event, outScope) {
       audioElem.pause();
       playedAudioId = 0;
       if (outScope) {
         $scope.$digest();
       }
+    };
+
+    var randomAlphaSelected = function (event, alpha) {
+      setAnswerAlphaState(alpha);
+      answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };
 
     // add listener and hold on to deregister function

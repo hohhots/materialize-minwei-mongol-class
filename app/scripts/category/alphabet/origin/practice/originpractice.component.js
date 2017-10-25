@@ -55,11 +55,7 @@
     };
 
     self.getPlayerIconClass = function () {
-      var css = "fa-play-circle-o";
-      if (playedAudioId != 0) {
-        css = "fa-pause-circle-o w3-text-red";
-      }
-      return css;
+      return util.getPlayerIconClass(playedAudioId);
     };
 
     self.exitPractice = function () {

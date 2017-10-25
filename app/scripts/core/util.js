@@ -56,6 +56,14 @@
         return alphaName;
       },
 
+      getPlayerIconClass: function (playedAudioId) {
+        var css = "fa-play-circle-o";
+        if (playedAudioId != 0) {
+          css = "fa-stop-circle-o w3-text-red";
+        }
+        return css;
+      },
+
       allAnswerCorrect: function (answerAlphas) {
         var correct = true;
         $.each(answerAlphas, function (i, v) {
@@ -64,6 +72,24 @@
           }
         });
         return correct;
+      },
+
+      alphaAnswered: function (alpha) {
+        var ans = false;
+        if (!!alpha.error || !!alpha.correct) {
+          ans = true;
+        }
+        return ans;
+      },
+  
+      allAlphaAnswered: function (alphaAnswered, answerAlphas) {
+        var ans = true;
+        $.each(answerAlphas, function (i, alpha) {
+          if (!alphaAnswered(alpha)) {
+            ans = false;
+          }
+        });
+        return ans;
       },
 
       //for slide down and up animation,
@@ -120,16 +146,6 @@
         url = url ? url : '';
         var pre = config.app.url + "/";
         return url.substring(+pre.length);
-      },
-
-      practiceDone: function (alphas) {
-        var done = true;
-        $.each(alphas, function (i, v) {
-          if (!v.answered) {
-            done = false;
-          }
-        });
-        return done;
       },
 
       setAudio: function (path, audiosConfig) {

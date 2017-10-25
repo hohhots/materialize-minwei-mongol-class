@@ -45,11 +45,7 @@
     };
 
     self.getPlayerIconClass = function () {
-      var css = "fa-play-circle-o";
-      if (playedAudioId != 0) {
-        css = "fa-pause-circle-o w3-text-red";
-      }
-      return css;
+      return util.getPlayerIconClass(playedAudioId);
     };
 
     self.exitPractice = function () {
@@ -62,7 +58,7 @@
 
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
-      if (alphaAnswered(alpha)) {
+      if (util.alphaAnswered(alpha)) {
         name = 'originFont-' + alpha.name;
       }
       return name;
@@ -70,7 +66,7 @@
 
     self.getAlphaCheckedClass = function (alpha) {
       var stat = 'originpractice-blue';
-      if (allAlphaAnswered()) {
+      if (util.allAlphaAnswered(util.alphaAnswered, self.answerAlphas)) {
         if (alpha.correct) {
           stat = 'originpractice-green';
         }
@@ -132,24 +128,6 @@
       } else {
         alpha.error = true;
       }
-    };
-
-    var alphaAnswered = function (alpha) {
-      var ans = false;
-      if (!!alpha.error || !!alpha.correct) {
-        ans = true;
-      }
-      return ans;
-    };
-
-    var allAlphaAnswered = function () {
-      var ans = true;
-      $.each(self.answerAlphas, function (i, alpha) {
-        if (!alphaAnswered(alpha)) {
-          ans = false;
-        }
-      });
-      return ans;
     };
 
     var playAudio = function () {
