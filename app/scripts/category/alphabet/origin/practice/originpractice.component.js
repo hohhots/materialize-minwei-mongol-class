@@ -37,7 +37,6 @@
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
-      self.langs.checkAnswer = config.alphaLangs.checkAnswer;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
@@ -95,7 +94,7 @@
     };
 
     self.selectAlphaClick = function () {
-      if (allAnswerCorrect()) { return; }
+      if (util.allAnswerCorrect(self.answerAlphas)) { return; }
       //$scope.$broadcast(config.events.stopPlayers);
       $scope.$broadcast(config.events.displayOriginRandom);
     };
@@ -110,13 +109,13 @@
     var url = config.mediaUrl.alphaOrigin;
 
     var answered = function () {
-      var answered = false;
+      var ans = false;
       $.each(self.answerAlphas, function (i, v) {
         if (!!v.error || !!v.correct) {
-          answered = true;
+          ans = true;
         }
       });
-      return answered;
+      return ans;
     };
 
     var setFourAlphas = function () {
@@ -145,7 +144,7 @@
     };
 
     var checkAnswer = function () {
-      if (allAnswerCorrect()) {
+      if (util.allAnswerCorrect(self.answerAlphas)) {
         return;
       }
       setAnswerResult();
@@ -159,19 +158,9 @@
           self.answerAlphas[i].correct = true;
         }
       });
-      if (allAnswerCorrect()) {
+      if (util.allAnswerCorrect(self.answerAlphas)) {
         self.allCorrect = true;
       }
-    };
-
-    var allAnswerCorrect = function () {
-      var correct = true;
-      $.each(self.answerAlphas, function (i, v) {
-        if (v.error || !v.correct) {
-          correct = false;
-        }
-      });
-      return correct;
     };
 
     var stopPlayers = function (event, outScope) {

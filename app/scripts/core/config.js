@@ -253,7 +253,6 @@
       result[key] = obj[key];
     }
   }
-  console.log(config.alphaVariantNamesMap3);
   // Define the `core.config` module
   angular.module('core.config', []).
     constant('Config', config);

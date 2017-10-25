@@ -56,6 +56,16 @@
         return alphaName;
       },
 
+      allAnswerCorrect: function (answerAlphas) {
+        var correct = true;
+        $.each(answerAlphas, function (i, v) {
+          if (v.error || !v.correct) {
+            correct = false;
+          }
+        });
+        return correct;
+      },
+
       //for slide down and up animation,
       //elem is jquery element.
       //down, if down or up

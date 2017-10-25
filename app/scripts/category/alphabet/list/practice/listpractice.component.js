@@ -22,13 +22,11 @@
     self.langs = {};
     self.answerAlphas = [];
     self.realAlphaClass = '';
-    self.correct = false;
-    self.error = false;
+    self.allCorrect = false;
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
-      self.langs.checkAnswer = config.alphaLangs.checkAnswer;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
@@ -58,12 +56,29 @@
       util.changePath(config.pagesUrl.alphaList);
     };
 
+    self.allCorrect = function () {
+      return util.allAnswerCorrect(self.answerAlphas);
+    };
+
     self.getAlphaClass = function (alpha) {
       var name = config.alphaCss.practiceEmpty;
-      if (alpha.answered) {
+      if (alphaAnswered(alpha)) {
         name = 'originFont-' + alpha.name;
       }
       return name;
+    };
+
+    self.getAlphaCheckedClass = function (alpha) {
+      var stat = 'originpractice-blue';
+      if (allAlphaAnswered()) {
+        if (alpha.correct) {
+          stat = 'originpractice-green';
+        }
+        if (alpha.error) {
+          stat = 'originpractice-red';
+        }
+      }
+      return stat;
     };
 
     self.playAudios = function () {
@@ -74,32 +89,15 @@
       }
     };
 
-    self.selectAlpha = function (index) {
-      $scope.$broadcast(config.events.stopPlayers);
-      if (self.correct) { return; }
+    self.selectAlphaClick = function (index) {
+      //$scope.$broadcast(config.events.stopPlayers);
+      if (util.allAnswerCorrect(self.answerAlphas)) { return; }
       testAlpha = testAlphas[index];
       var tests = {
         testOrigin: testOriginAlpha,
         testAlpha: testAlpha
       };
       $scope.$broadcast(config.events.listDisplayRandomAlpha, tests);
-    };
-
-    self.checkAnswerClick = function () {
-      if (util.practiceDone(self.answerAlphas)) {
-        checkStateInit();
-        var right = true;
-        $.each(testAlphas, function (i, v) {
-          if (self.answerAlphas[i].name != util.convertAlphaName(v.name)) {
-            right = false;
-          }
-        });
-        if (right == true) {
-          self.correct = true;
-        } else {
-          self.error = true;
-        }
-      }
     };
 
     self.nextTestClick = function () {
@@ -126,15 +124,32 @@
       }
     };
 
-    var randomAlphaSelected = function (event, alpha) {
-      checkStateInit();
-      alpha.answered = true;
-      self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
+    var setAnswerAlphaState = function (alpha) {
+      alpha.correct = false;
+      alpha.error = false;
+      if (alpha.name == util.convertAlphaName(testAlpha.name)) {
+        alpha.correct = true;
+      } else {
+        alpha.error = true;
+      }
     };
 
-    var checkStateInit = function () {
-      self.correct = false;
-      self.error = false;
+    var alphaAnswered = function (alpha) {
+      var ans = false;
+      if (!!alpha.error || !!alpha.correct) {
+        ans = true;
+      }
+      return ans;
+    };
+
+    var allAlphaAnswered = function () {
+      var ans = true;
+      $.each(self.answerAlphas, function (i, alpha) {
+        if (!alphaAnswered(alpha)) {
+          ans = false;
+        }
+      });
+      return ans;
     };
 
     var playAudio = function () {
@@ -162,6 +177,11 @@
       if (outScope) {
         $scope.$digest();
       }
+    };
+
+    var randomAlphaSelected = function (event, alpha) {
+      setAnswerAlphaState(alpha);
+      self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };
 
     // add listener and hold on to deregister function
