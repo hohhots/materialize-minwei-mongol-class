@@ -100,13 +100,6 @@
       $scope.$broadcast(config.events.displayOriginRandom);
     };
 
-    self.checkAnswerClick = function () {
-      if (allAnswerCorrect()) {
-        return;
-      }
-      setAnswerResult();
-    };
-
     self.nextTestClick = function () {
       $state.reload();
     };
@@ -142,17 +135,11 @@
       playedAudioId++;
     };
 
-    var selectRandomAlphas = function (event, alphas) {
-      if ((answered == true) && (alphas.length != 4)) {
-        self.answerAlphas = angular.copy(testAlphas);
-        answered = false;
+    var checkAnswer = function () {
+      if (allAnswerCorrect()) {
         return;
       }
-      if (alphas.length != 4) {
-        return;
-      }
-      self.answerAlphas = angular.copy(alphas);
-      answered = true;
+      setAnswerResult();
     };
 
     var setAnswerResult = function () {
@@ -184,6 +171,20 @@
       if (outScope) {
         $scope.$digest();
       }
+    };
+
+    var selectRandomAlphas = function (event, alphas) {
+      if ((answered == true) && (alphas.length != 4)) {
+        self.answerAlphas = angular.copy(testAlphas);
+        answered = false;
+        return;
+      }
+      if (alphas.length != 4) {
+        return;
+      }
+      self.answerAlphas = angular.copy(alphas);
+      answered = true;
+      checkAnswer();
     };
 
     // add listener and hold on to deregister function
