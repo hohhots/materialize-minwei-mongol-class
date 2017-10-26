@@ -49,8 +49,8 @@
 </div>
 
 <audio style="display: none">
-  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg">
-  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg"> {{::$ctrl.langs.notSupportHtml5Audio}}
+  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg">
+  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg"> {{::$ctrl.langs.notSupportHtml5Audio}}
 </audio>
 
 <list-random data-jsondata="$ctrl.jsonData" data-subdata="$ctrl.subData"></list-random>
