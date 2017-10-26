@@ -231,8 +231,8 @@
 
   config.alphaVariantNamesMap1 = config.alphaListNamesMap;
   config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
-    e: "a", o2: "o", u: "o", u2: "o",
-    nu: "no", nu2: "o",
+    e: "a", u: "o", u2: "o",
+    nu: "no", nu2: "no",
     bu: "bo", bu2: "bo",
     pu: "po", pu2: "po",
     mu: "mo", mu2: "mo",
