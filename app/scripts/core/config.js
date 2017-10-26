@@ -226,7 +226,7 @@
       we: "wa"
     },*/
   config.alphaVideoNamesMap = $.extend({}, config.alphaListNamesMap, {
-    ge: "he", gi: "hi"
+    ge: "he", gi: "hi", gu: "hu", gu2: "hu"
   });
 
   config.alphaVariantNamesMap1 = config.alphaListNamesMap;

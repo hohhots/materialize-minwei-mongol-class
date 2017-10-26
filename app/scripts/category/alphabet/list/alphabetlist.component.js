@@ -31,7 +31,7 @@
         mpeg: url + config.data.audios + '/' + originDirName + '/' + alphaName + gender + config.dataTypes.audios[1],
         ogg: url + config.data.audios + '/' + originDirName + '/' + alphaName + gender + config.dataTypes.audios[0]
       };
-      if ((originDirName == 'ga') && (alphaName == 'ge' || alphaName == 'gi')) {
+      if ((originDirName == 'ga') && (alphaName == 'ge' || alphaName == 'gi' || alphaName == 'gu' || alphaName == 'gu2')) {
         originDirName = 'ha';
       }
       names.videos = {
