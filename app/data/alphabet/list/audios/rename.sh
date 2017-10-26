@@ -31,14 +31,6 @@ m="m"
    done
 
 
-   #for vowel in "${vowels[@]}"
-   # do
-   # for num in $(seq 1 ${#vowels[@]})
-   #  do
-   #   echo "$dir/$dir$num"
-   #  done
-   # done
-
 
 
 
