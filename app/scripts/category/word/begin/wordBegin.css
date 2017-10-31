@@ -1,0 +1,20 @@
+.alpha-col {
+  float: left;
+  width: 100%;
+}
+
+.alpha-col.s4 {
+  width: 33.33333%;
+}
+
+@media (min-width:601px) {
+  .alpha-col.m3 {
+    width: 24.99999%;
+  }
+}
+
+@media (min-width:993px) {
+  .alpha-col.l1 {
+    width: 14.28571%;
+  }
+}

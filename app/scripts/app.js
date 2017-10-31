@@ -85,6 +85,12 @@
           url: '/variantpractice',
           component: 'variantPractice',
           resolve: resolve('alphabetvariant')
+        },
+        {
+          name: 'root.wordbegin',
+          url: '/wordbegin',
+          component: 'appWordbegin',
+          resolve: resolve('wordbegin')
         }
       ]
 

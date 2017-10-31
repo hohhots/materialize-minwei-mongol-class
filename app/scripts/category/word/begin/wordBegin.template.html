@@ -1,0 +1,28 @@
+<header class="w3-container w3-center w3-brown alphabetorigin-header">
+  {{::$ctrl.jsonData[0].name}}
+</header>
+
+<div class="w3-container w3-margin w3-center app-container">
+
+  <div class="w3-container w3-center alphabetorigin-intro">
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.introductionClick()">
+      {{::$ctrl.introduction}}
+    </button>
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.practiceClick()">
+      {{::$ctrl.practice}}
+    </button>
+  </div>
+
+  <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
+    <div class="w3-border-bottom alphabetorigin-content">
+      <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClick(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)" class="alpha-col s4 m3 l1">
+        <div class="w3-margin alphabetorigin-view">
+          <div class="alphabetorigin-num">{{::vowel.id}}</div>
+          <div class="originFont-{{::vowel.name}}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-simpleplayer></app-simpleplayer>

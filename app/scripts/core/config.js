@@ -92,7 +92,7 @@
       },
 
       home: {
-        welcome: "学 - 优美蒙语<br>享 - 蒙古文化"
+        welcome: "学 - 优美蒙语<br>懂 - 人与自然"
       },
 
       subject: {
@@ -153,7 +153,8 @@
         variantpractice: 'scripts/category/alphabet/variant/practice/variantpractice.template.html',
         variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
 
-
+        wordbegin: 'scripts/category/word/begin/wordBegin.template.html',
+        
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
         simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
@@ -171,6 +172,10 @@
         alphabetvariant: {
           json: 'data/alphabet/variant/variant.json',
           data: 'data/alphabet/list/data.json'
+        },
+        wordbegin: {
+          json: 'data/word/begin/begin.json',
+          data: 'data/word/begin/data.json'
         }
       },
 
