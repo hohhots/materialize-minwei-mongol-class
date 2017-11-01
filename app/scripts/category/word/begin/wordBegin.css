@@ -1,3 +1,35 @@
+.wordbegin-view {
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 72px;
+  height: 100px;
+  background-color: #085a9d;
+  cursor: pointer;
+}
+
+.wordbegin-mean {
+  height: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  display: table;
+  text-align: center;
+  padding: 5px;
+}
+
+.wordbegin-word {
+  height: 100%;
+  border: 1px solid rgba(255, 0, 0, 1) !important;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  display: table;
+  text-align: center;
+}
+
+.wordbegin-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .alpha-col {
   float: left;
   width: 100%;

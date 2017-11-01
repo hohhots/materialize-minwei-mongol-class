@@ -19,7 +19,9 @@
 
     // variable for outside access 
     self.templateUrl = config.templateUrl.wordbegin;
-    
+    self.introduction = config.alphaLangs.introduction;
+    self.practice = config.alphaLangs.practice;
+
   };
 
 })();

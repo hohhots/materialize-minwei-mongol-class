@@ -92,7 +92,7 @@
       },
 
       home: {
-        welcome: "学 - 优美蒙语<br>懂 - 人与自然"
+        welcome: "学 - 优美蒙古语<br>懂 - 人与大自然"
       },
 
       subject: {
