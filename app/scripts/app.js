@@ -12,7 +12,8 @@
     'app.lesson',
     'app.footer',
     'app.player',
-    'app.filter'
+    'app.filter',
+    'app.word'
   ]);
 
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',

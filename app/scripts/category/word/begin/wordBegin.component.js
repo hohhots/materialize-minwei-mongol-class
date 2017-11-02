@@ -18,7 +18,7 @@
     var self = this;
 
     // variable for outside access 
-    self.templateUrl = config.templateUrl.wordbegin;
+    self.templateUrl = config.templateUrl.wordBegin;
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
 

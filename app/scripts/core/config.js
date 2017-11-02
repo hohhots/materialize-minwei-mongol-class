@@ -153,11 +153,12 @@
         variantpractice: 'scripts/category/alphabet/variant/practice/variantpractice.template.html',
         variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
 
-        wordbegin: 'scripts/category/word/begin/wordBegin.template.html',
+        wordBegin: 'scripts/category/word/begin/wordBegin.template.html',
         
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',
-        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html"
+        simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
+        word: "scripts/word/word.template.html"
       },
 
       dataPath: {
