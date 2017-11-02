@@ -45,7 +45,10 @@
       n31: '<span class="hawang-ni1"></span>',
       g23: '<span class="hawang-he3"></span>',
       m41: '<span class="hawang-mo1"></span>',
-      d43: '<span class="hawang-to3"></span>'
+      d43: '<span class="hawang-to3"></span>',
+      a21: '<span class="hawang-e1"></span>',
+      b22: '<span class="hawang-ba2"></span>',
+      s43: '<span class="hawang-so3"></span>',
     };
 
     var setMonText = function (str) {
@@ -53,6 +56,9 @@
       str = str.replace(/g23/g, replaceTag);
       str = str.replace(/m41/g, replaceTag);
       str = str.replace(/d43/g, replaceTag);
+      str = str.replace(/a21/g, replaceTag);
+      str = str.replace(/b22/g, replaceTag);
+      str = str.replace(/s43/g, replaceTag);
       self.monText = $sce.trustAsHtml(str);
     };
 

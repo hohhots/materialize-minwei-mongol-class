@@ -3,7 +3,6 @@
   text-align: center;
   transform-origin: left top;
   transform: rotate(-90deg) rotateY(180deg);
-  background-color: #303;
 }
 
 .word-container-cell {
