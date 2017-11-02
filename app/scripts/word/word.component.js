@@ -42,13 +42,17 @@
     var parentElem = $element.parents(parentElemClass);
 
     var tagsToReplace = {
-      n31: '<i class="hawang-ni1"></i>',
-      g23: '<i class="hawang-he3"></i>'
+      n31: '<span class="hawang-ni1"></span>',
+      g23: '<span class="hawang-he3"></span>',
+      m41: '<span class="hawang-mo1"></span>',
+      d43: '<span class="hawang-to3"></span>'
     };
 
     var setMonText = function (str) {
       str = str.replace(/n31/g, replaceTag);
       str = str.replace(/g23/g, replaceTag);
+      str = str.replace(/m41/g, replaceTag);
+      str = str.replace(/d43/g, replaceTag);
       self.monText = $sce.trustAsHtml(str);
     };
 
