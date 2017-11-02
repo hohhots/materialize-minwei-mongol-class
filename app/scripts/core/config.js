@@ -39,7 +39,8 @@
 
       mediaUrl: {
         alphaOrigin: 'data/alphabet/list/',
-        alphaList: 'data/alphabet/list/'
+        alphaList: 'data/alphabet/list/',
+        ebookBegin: 'data/ebook/begin/'
       },
 
       pagesUrl: {
@@ -131,7 +132,10 @@
         nextTest: '下一练习',
         top: '首',
         middle: '中',
-        bottom: '尾'
+        bottom: '尾',
+        pagePrevious: '前一页',
+        pageNext: '下一页',
+        audioPlay: '播放音频'
       },
 
       templateUrl: {
@@ -154,6 +158,7 @@
         variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
 
         wordBegin: 'scripts/category/word/begin/wordBegin.template.html',
+        ebookBegin: 'scripts/category/ebook/begin/ebookBegin.template.html',
         
         subject: 'scripts/subject/subject.template.html',
         footer: 'scripts/footer/footer.template.html',

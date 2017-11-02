@@ -1,32 +1,33 @@
-<header class="w3-container w3-center w3-win8-taupe alphabetorigin-header">
+<header class="w3-container w3-center w3-win8-mauve alphabetorigin-header">
   {{::$ctrl.jsonData[0].name}}
 </header>
 
 <div class="w3-container w3-margin w3-center app-container">
 
-  <div class="w3-container w3-center alphabetorigin-intro">
-    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.introductionClick()">
-      {{::$ctrl.introduction}}
-    </button>
-    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.practiceClick()">
-      {{::$ctrl.practice}}
-    </button>
-  </div>
+  <div class="w3-margin-top w3-row w3-grayscale-min w3-center">
+    <div class="w3-row alphabetorigin-content">
+      <div class="w3-padding">
 
-  <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
-    <div class="w3-row w3-border-bottom alphabetorigin-content">
-      <div ng-repeat="word in alpha.words" ng-click="$ctrl.alphaClick(word.word,word.word, word.id, word.word)" class="w3-padding alpha5-col s4 m3 l1">
-        <div class="wordbegin-view">
-          <div class="w3-col s6 m6 l6 wordbegin-mean">
-            <span class="wordbegin-cell">{{::word.meaning}}</span>
-          </div>
-          <div class="w3-col s6 m6 l6 wordbegin-word">
-            <mon-word data-orgintext="{{::word.word}}"></mon-word>
-          </div>
+        <img ng-src="{{$ctrl.currentImageUrl}}" class="ebookImage" alt="">
+
+        <div class="w3-center ebookbegin-buttons">
+          <button class="w3-btn w3-margin-top ebookPrepageIcon" ng-click="$ctrl.pagePrevious()" title="{{::$ctrl.langs.pagePrevious}}">
+            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+          </button>
+          <button class="w3-btn w3-margin-top ebookPlayerIcon" ng-click="$ctrl.audioPlay()" title="{{::$ctrl.langs.audioPlay}}">
+            <i class="fa fa-play-circle" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true"></i>
+          </button>
+          <button class="w3-btn w3-margin-top ebookNextpageIcon" ng-click="$ctrl.pageNext()" title="{{::$ctrl.langs.pageNext}}">
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
+
 </div>
 
-<app-simpleplayer></app-simpleplayer>
+<audio style="display: none">
+  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg">
+  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg"> {{::$ctrl.langs.notSupportHtml5Audio}}
+</audio>

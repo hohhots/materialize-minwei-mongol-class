@@ -2,50 +2,7 @@
   {
     "id": 1,
     "name": "begin",
-    "imageDir": "images",
-    "audioDir": "audios",
-    "pages": [
-      {
-        "id": 1,
-        "image": "p1.jpg",
-        "audio": {
-          "ogg": "p1.ogg",
-          "mp3": "p1.mp3"
-        }
-      },
-      {
-        "id": 2,
-        "image": "p2.jpg",
-        "audio": {
-          "ogg": "p2.ogg",
-          "mp3": "p2.mp3"
-        }  
-      },
-      {
-        "id": 3,
-        "image": "p3.jpg",
-        "audio": {
-          "ogg": "p3.ogg",
-          "mp3": "p3.mp3"
-        }  
-      },
-      {
-        "id": 4,
-        "image": "p4.jpg",
-        "audio": {
-          "ogg": "p4.ogg",
-          "mp3": "p4.mp3"
-        }  
-      },
-      {
-        "id": 6,
-        "image": "p5.jpg",
-        "audio": {
-          "ogg": "p5.ogg",
-          "mp3": "p5.mp3"
-        }  
-      }
-    ]
+    "totalPages": 5
   }
 
 ]
