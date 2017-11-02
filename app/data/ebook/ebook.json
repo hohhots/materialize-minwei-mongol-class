@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "初级教材",
+    "introduction": "传统蒙古文初级教材。",
+    "dirName": "begin"
+  },
+  {
+    "id": 2,
+    "name": "中级教材",
+    "introduction": "传统蒙古文中级教材。",
+    "dirName": "begin"
+  },
+  {
+    "id": 3,
+    "name": "高级教材",
+    "introduction": "传统蒙古文高级教材。",
+    "dirName": "begin"
+  }
+]

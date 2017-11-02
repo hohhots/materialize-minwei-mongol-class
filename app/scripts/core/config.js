@@ -177,7 +177,11 @@
         wordbegin: {
           json: 'data/word/begin/begin.json',
           data: 'data/word/begin/data.json'
-        }
+        },
+        ebookbegin: {
+          json: 'data/ebook/begin/begin.json',
+          data: 'data/ebook/begin/data.json'
+        } 
       },
 
       events: {

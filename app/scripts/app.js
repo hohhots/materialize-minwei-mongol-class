@@ -92,6 +92,12 @@
           url: '/wordbegin',
           component: 'appWordbegin',
           resolve: resolve('wordbegin')
+        },
+        {
+          name: 'root.ebookbegin',
+          url: '/ebookbegin',
+          component: 'appEbookbegin',
+          resolve: resolve('ebookbegin')
         }
       ]
 

@@ -26,18 +26,10 @@
   },
   {
     "id": 4,
-    "name": "蒙古文会话",
-    "introduction": "传统蒙古文会话学习。",
-    "dirName": "conversation",
-    "imageName": "conversation.jpeg",
+    "name": "电子教材",
+    "introduction": "蒙古文在线电子教材",
+    "dirName": "ebook",
+    "imageName": "ebook.jpeg",
     "color": "#be2612"
-  },
-  {
-    "id": 5,
-    "name": "蒙古文标准音",
-    "introduction": "传统蒙古文标准音学习。",
-    "dirName": "standard",
-    "imageName": "standard.png",
-    "color": "#a75a05"
   }
 ]

@@ -1,23 +1,20 @@
 [
   {
     "id": 1,
-    "name": "蒙语简单句",
-    "introduction": "传统蒙古文根字母。",
-    "dirName": "origin",
-    "imageUrl": "data/1/1.png"
+    "name": "初级句子",
+    "introduction": "传统蒙古文初级句子。",
+    "dirName": "origin"
   },
   {
     "id": 2,
-    "name": "根字母带元音",
-    "introduction": "传统蒙古文字母加元音。",
-    "dirName": "vowal",
-    "imageUrl": "data/1/2.png"
+    "name": "中级句子",
+    "introduction": "传统蒙古文中级句子。",
+    "dirName": "vowal"
   },
   {
     "id": 3,
-    "name": "字母变体",
-    "introduction": "传统蒙古文字母在字首、字中、字尾的变体。",
-    "dirName": "variant",
-    "imageUrl": "data/1/3.png"
+    "name": "高级句子",
+    "introduction": "传统蒙古文高级句子。",
+    "dirName": "variant"
   }
 ]
