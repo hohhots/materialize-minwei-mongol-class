@@ -82,6 +82,7 @@
 
     var setcurrentStates = function () {
       self.currentImageUrl = url + config.data.images + '/' + currentPageNum + config.dataTypes.images[0];
+      $scope.$broadcast(config.events.stopPlayers);
     };
 
     var autoStopAudio = function () {
@@ -89,10 +90,12 @@
     };
 
     var stopPlayers = function (event, outScope) {
-      audioElem.pause();
-      audioPlaying = 0;
-      if (outScope) {
-        $scope.$digest();
+      if (audioElem && audioPlaying) {
+        audioElem.pause();
+        audioPlaying = 0;
+        if (outScope) {
+          $scope.$digest();
+        }
       }
     };
 
