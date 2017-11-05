@@ -27,7 +27,7 @@
     //define self variables
     self.templateUrl = config.templateUrl.word;
 
-    self.$postLink = function () {
+    self.$postLink = function () { console.log(parentElem);//offsetWidth
       self.containerStyle.position = "absolute";
       self.containerStyle.width = parentElem.height();
       self.containerStyle.height = parentElem.width();
