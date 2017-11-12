@@ -15,7 +15,7 @@
       '$sce',
       '$element',
       '$interval',
-      'Config',
+      'wordConfig',
       'Util',
       'Json',
       controller]
@@ -25,9 +25,9 @@
     var self = this;
 
     //define self variables
-    self.templateUrl = config.templateUrl.word;
+    self.templateUrl = config.template;
 
-    self.$postLink = function () { console.log(parentElem);//offsetWidth
+    self.$postLink = function () {
       self.containerStyle.position = "absolute";
       self.containerStyle.width = parentElem.height();
       self.containerStyle.height = parentElem.width();
@@ -40,15 +40,17 @@
 
     var parentElemClass = ".wordbegin-word";
     var parentElem = $element.parents(parentElemClass);
-
+    var mongolTagPrefix = '<span class="';
+    var mongolTagSuffix = '"></span>';
+    
     var tagsToReplace = {
-      n31: '<span class="hawang-ni1"></span>',
-      g23: '<span class="hawang-he3"></span>',
-      m41: '<span class="hawang-mo1"></span>',
-      d43: '<span class="hawang-to3"></span>',
-      a21: '<span class="hawang-e1"></span>',
-      b22: '<span class="hawang-ba2"></span>',
-      s43: '<span class="hawang-so3"></span>',
+      n31: mongolTagPrefix + 'hawang-ni1' + mongolTagSuffix,
+      g23: mongolTagPrefix + 'hawang-he3' + mongolTagSuffix,
+      m41: mongolTagPrefix + 'hawang-mo1' + mongolTagSuffix,
+      d43: mongolTagPrefix + 'hawang-to3' + mongolTagSuffix,
+      a21: mongolTagPrefix + 'hawang-e1' + mongolTagSuffix,
+      b22: mongolTagPrefix + 'hawang-ba2' + mongolTagSuffix,
+      s43: mongolTagPrefix + 'hawang-so3' + mongolTagSuffix,
     };
 
     var setMonText = function (str) {
