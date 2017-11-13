@@ -2,6 +2,19 @@
 
 (function () {
 
+  var mongolPrefix = '<span class="';
+  var mongolSuffix = '"></span>';
+
+  var setMonWord = function (str) {
+    $.each(config.wordToReplaceMap, function (key, value) {
+      var replace = key;
+      var re = new RegExp(replace,"g");
+      str = str.replace(re, '<span class="hawang-' + value + '"></span>');
+    });
+
+    return str;
+  };
+
   var alphaListNamesMap = {
     o2: "o", u2: "u",
     ne: "na", no2: "no", nu2: "nu",
@@ -22,7 +35,9 @@
     we: "wa"
   };
 
-  var alphaVariantNamesMap1 = alphaListNamesMap;
+  var alphaVariantNamesMap1 = $.extend({}, alphaListNamesMap, {
+    ge: "he", gi: "hi", gu: "hu", gu2: "hu"
+  });
   var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
     e: "a", u: "o", u2: "o",
     nu: "no", nu2: "no",
@@ -116,7 +131,8 @@
 
   var config = {
     template: "scripts/word/word.template.html",
-    wordToReplaceMap: {}
+    wordToReplaceMap: {},
+    setMonWord: setMonWord
   };
 
 
@@ -130,6 +146,7 @@
   });
 
   createFourthAlphas();
+
   //console.log(config.wordToReplaceMap);
   angular.module('app.word').
     constant('wordConfig', config);
