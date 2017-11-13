@@ -33,7 +33,7 @@
     su: "so", su2: "so",
     xu: "xo", xu2: "xo",
     tu: "to", tu2: "to",
-    du: "do", du2: "do",
+    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: "to", du2: "to",
     qu: "qo", qu2: "qo",
     ju: "jo", ju2: "jo",
     yu: "yo", yu2: "yo",
@@ -55,13 +55,13 @@
     var converted = '';
 
     switch (position) {
-      case 1:
+      case '1':
         converted = alphaVariantNamesMap1[name];
         break;
-      case 2:
+      case '2':
         converted = alphaVariantNamesMap2[name];
         break;
-      case 3:
+      case '3':
         converted = alphaVariantNamesMap3[name];
         break;
       default:
@@ -71,7 +71,7 @@
     if (converted) {
       converted = converted + position;
     } else {
-      converted = tag;      
+      converted = tag;
     }
 
     return converted;
@@ -79,10 +79,13 @@
 
   var fontPosition = [1, 2, 3];
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
-  var letters = ['a', 'n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r'];
+  var letters = ['a', 'n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
   var createAlphaPosition = function (alpha) {
     $.each(vowels, function (index1, value1) {
+      if ((alpha == letters[16]) && (index1 > 1)) {
+        return;
+      }
       $.each(fontPosition, function (index2, value2) {
         var va = alpha;
         if (alpha == value1) {
@@ -96,6 +99,21 @@
     });
   };
 
+  var createFourthAlphas = function () {
+    config.wordToReplaceMap['n14'] = convertAlphas('na4');
+    config.wordToReplaceMap['n24'] = convertAlphas('na4');
+    config.wordToReplaceMap['m14'] = convertAlphas('ma4');
+    config.wordToReplaceMap['m24'] = convertAlphas('ma4');
+    config.wordToReplaceMap['l14'] = convertAlphas('la4');
+    config.wordToReplaceMap['l24'] = convertAlphas('la4');
+    config.wordToReplaceMap['y14'] = convertAlphas('ya4');
+    config.wordToReplaceMap['y24'] = convertAlphas('ya4');
+    config.wordToReplaceMap['r14'] = convertAlphas('ra4');
+    config.wordToReplaceMap['r24'] = convertAlphas('ra4');
+    config.wordToReplaceMap['w14'] = convertAlphas('wa4');
+  };
+
+
   var config = {
     template: "scripts/word/word.template.html",
     wordToReplaceMap: {}
@@ -103,14 +121,16 @@
 
 
   $.each(letters, function (index, value) {
-    config.wordToReplaceMap[value + '00'] = convertAlphas(value);
+    var conv = value;
+    if (value != vowels[0]) {
+      conv = conv + vowels[0];
+    }
+    config.wordToReplaceMap[value + '00'] = conv;
     createAlphaPosition(value);
   });
 
-
-  console.log(config.wordToReplaceMap);
-
-  // Define the `core.config` module
+  createFourthAlphas();
+  //console.log(config.wordToReplaceMap);
   angular.module('app.word').
     constant('wordConfig', config);
 
