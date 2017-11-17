@@ -1,3 +1,9 @@
+.word-outerContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 .word-container {
   display: table;
   text-align: center;

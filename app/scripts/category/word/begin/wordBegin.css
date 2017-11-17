@@ -9,11 +9,11 @@
 }
 
 .wordbegin-mean {
+  display: table;  
+  padding: 5px;  
   height: 100%;
   color: rgba(255, 255, 255, 0.8);
-  display: table;
   text-align: center;
-  padding: 5px;
 }
 
 .wordbegin-word {
@@ -26,6 +26,7 @@
 .wordbegin-cell {
   display: table-cell;
   vertical-align: middle;
+  line-height: 1.4;  
 }
 
 .alpha-col {
