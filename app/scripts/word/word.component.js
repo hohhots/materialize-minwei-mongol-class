@@ -45,10 +45,6 @@
         $interval.cancel(dim);
       }, 20);
 
-
-
-      console.log(parentElem);
-
       if (parentElem[0].offsetHeight) {
         oh = parentElem[0].offsetHeight;
 

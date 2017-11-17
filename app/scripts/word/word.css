@@ -14,7 +14,6 @@
 .word-container-cell {
   display: table-cell;
   vertical-align: middle;
-  background-color: #333;
 }
 
 @font-face {

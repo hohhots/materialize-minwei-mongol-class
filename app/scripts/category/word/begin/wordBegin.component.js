@@ -20,8 +20,13 @@
     // variable for outside access 
     self.templateUrl = config.templateUrl.wordBegin;
     self.introduction = config.alphaLangs.introduction;
+    self.translate = config.alphaLangs.translate;
     self.practice = config.alphaLangs.practice;
 
+    self.translateClick = function () {
+      console.log('ho');
+    };
+    
   };
 
 })();
