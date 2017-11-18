@@ -18,9 +18,9 @@
 
   <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
     <div class="w3-row w3-border-bottom alphabetorigin-content">
-      <div ng-repeat="word in alpha.words" ng-click="$ctrl.alphaClick(word.word,word.word, word.id, word.word)" class="w3-padding alpha5-col s4 m3 l1">
-        <div class="wordbegin-view">
-          <div class="w3-col s6 m6 l6 wordbegin-mean">
+      <div ng-repeat="word in alpha.words" ng-click="$ctrl.alphaClick(word)" class="w3-padding alpha5-col s4 m3 l1">
+        <div class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
+          <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
             <span class="wordbegin-cell">{{::word.meaning}}</span>
           </div>
           <div class="w3-col s6 m6 l6 wordbegin-word">
