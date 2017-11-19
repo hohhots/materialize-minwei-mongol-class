@@ -22,16 +22,21 @@
     self.introduction = config.alphaLangs.introduction;
     self.translate = config.alphaLangs.translate;
     self.practice = config.alphaLangs.practice;
-    self.hideMean = false;
+    self.hideMean = true;
     self.wordbeginView = {};
     self.wordbeginView.styles = {};
+    self.wordbeginWordClass = '';
 
     self.translateClick = function () {
       self.hideMean = !self.hideMean;
-      if (self.wordbeginView.styles.width == (viewWidth + widthUnit)) {
-        self.wordbeginView.styles.width = viewWidth / 2 + widthUnit;
+
+      var st = self.wordbeginView.styles;
+      if (st.width == (viewWidth + widthUnit)) {
+        st.width = (viewWidth / 2 + widthUnit);
+        self.wordbeginWordClass = 'wordbegin-word';
       } else {
-        self.wordbeginView.styles.width = viewWidth + widthUnit;
+        st.width = (viewWidth + widthUnit);
+        self.wordbeginWordClass = 'w3-col s6 m6 l6 wordbegin-word';
       }
     };
 
@@ -43,7 +48,8 @@
     var widthUnit = 'px';
 
     var init = function () {
-      self.wordbeginView.styles.width = viewWidth + widthUnit;
+      self.wordbeginView.styles.width = (viewWidth / 2 + widthUnit);
+      self.wordbeginWordClass = 'wordbegin-word';
     };
 
     init();

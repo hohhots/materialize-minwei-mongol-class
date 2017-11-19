@@ -45,11 +45,6 @@
         $interval.cancel(dim);
       }, 20);
 
-      if (parentElem[0].offsetHeight) {
-        oh = parentElem[0].offsetHeight;
-
-      }
-
       self.monText = $sce.trustAsHtml(config.setMonWord(self.orgintext));
     };
 

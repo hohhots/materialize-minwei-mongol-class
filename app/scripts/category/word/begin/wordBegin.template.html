@@ -23,7 +23,7 @@
           <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
             <span class="wordbegin-cell">{{::word.meaning}}</span>
           </div>
-          <div class="w3-col s6 m6 l6 wordbegin-word">
+          <div ng-class="$ctrl.wordbeginWordClass">
             <mon-word data-orgintext="{{::word.word}}"></mon-word>
           </div>
         </div>
