@@ -163,7 +163,8 @@
       subject: 'scripts/subject/subject.template.html',
       footer: 'scripts/footer/footer.template.html',
       simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
-      word: "scripts/word/word.template.html"
+      word: "scripts/word/word.template.html",
+      wordPlayer: "scripts/player/wordPlayer/wordPlayer.template.html",
     },
 
     dataPath: {

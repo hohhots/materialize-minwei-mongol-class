@@ -41,7 +41,7 @@
     };
 
     self.alphaClick = function (word) {
-      console.log(word);
+      $scope.$broadcast(config.events.playWordAnimation, word);
     };
 
     var viewWidth = 72;
