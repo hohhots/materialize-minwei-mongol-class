@@ -8,7 +8,11 @@
           <span class="originpractice-close-back"></span>
         </div>
       </div>
-      
+
+      <div class="w3-margin-top w3-margin-bottom wordplayer-word-container">
+        <mon-word data-orgintext="{{$ctrl.word}}"></mon-word>
+      </div>
+
       <audio style="display: none">
         <source src="{{$ctrl.mediasUrl.audios.ogg}}" type="audio/ogg">
         <source src="{{$ctrl.mediasUrl.audios.mpeg}}" type="audio/mpeg"> {{::$ctrl.pageLang.notSupportHtml5Audio}}

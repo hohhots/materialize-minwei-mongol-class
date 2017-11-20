@@ -35,8 +35,10 @@
       var oh = 0;
 
       var dim = $interval(function () {
+        parentElem = $element.parent();
+
         ow = parentElem[0].offsetWidth;
-        oh = parentElem[0].offsetHeight;
+        oh = parentElem[0].offsetHeight; console.log(self.orgintext);
 
         self.containerStyle.position = "absolute";
         self.containerStyle.width = oh + 'px';
@@ -45,9 +47,13 @@
         $interval.cancel(dim);
       }, 20);
 
+      self.$doCheck();
+    };
+
+    self.$doCheck = function () {
       self.monText = $sce.trustAsHtml(config.setMonWord(self.orgintext));
     };
 
-    var parentElem = $element.parent();
+    var parentElem;
   };
 })();

@@ -29,6 +29,7 @@
     self.mediasUrl = {};
     self.pageLang = {};
     self.showWordPlayer = false;
+    self.word = '';
 
     // ser value for self variables
     self.pageLang.close = config.subject.close;
@@ -59,8 +60,9 @@
 
     var playWordAnimation = function (event, word) {
       self.showWordPlayer = true;
+      self.word = word.word;
       //self.mediasUrl = mediasUrl;
-      console.log(word);
+      console.log(self.word);
       //audioElem.load();
       //audioElem.play();
     };
