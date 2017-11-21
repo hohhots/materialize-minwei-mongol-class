@@ -8,7 +8,7 @@
   app.component('monWord', {
     template: '<div ng-include="$ctrl.templateUrl" class="word-outerContainer"></div>',
     bindings: {
-      orgintext: '@'
+      origintext: '@'
     },
     controller: [
       '$scope',
@@ -29,31 +29,31 @@
     self.monText = '';
     self.containerStyle = {};
 
-    self.$postLink = function () {
+    self.$onChanges = function (changes) {
+      setDimension();
+      if (changes['origintext']) {
+        self.monText = $sce.trustAsHtml(config.setMonWord(self.origintext));
+      }
+    };
 
-      var ow = 0;
-      var oh = 0;
+    var parentElem;
 
-      var dim = $interval(function () {
-        parentElem = $element.parent();
+    var setDimension = function () {
+      var dd = $interval(function () {
+        if (!parentElem) {
+          parentElem = $element.find('.word-outerContainer');
+        }
 
-        ow = parentElem[0].offsetWidth;
-        oh = parentElem[0].offsetHeight; console.log(self.orgintext);
+        var ow = parentElem[0].offsetWidth;
+        var oh = parentElem[0].offsetHeight;
 
         self.containerStyle.position = "absolute";
         self.containerStyle.width = oh + 'px';
         self.containerStyle.height = ow + 'px';
 
-        $interval.cancel(dim);
+        $interval.cancel(dd);
       }, 20);
-
-      self.$doCheck();
     };
 
-    self.$doCheck = function () {
-      self.monText = $sce.trustAsHtml(config.setMonWord(self.orgintext));
-    };
-
-    var parentElem;
   };
 })();

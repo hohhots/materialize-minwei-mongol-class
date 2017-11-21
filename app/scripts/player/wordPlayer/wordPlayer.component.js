@@ -62,7 +62,7 @@
       self.showWordPlayer = true;
       self.word = word.word;
       //self.mediasUrl = mediasUrl;
-      console.log(self.word);
+      //console.log(self.word);
       //audioElem.load();
       //audioElem.play();
     };
