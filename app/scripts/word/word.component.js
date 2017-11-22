@@ -30,9 +30,8 @@
     self.containerStyle = {};
 
     self.$onChanges = function (changes) {
-      setDimension();
       if (changes['origintext']) {
-        self.monText = $sce.trustAsHtml(config.setMonWord(self.origintext));
+        setDimension();
       }
     };
 
@@ -41,7 +40,7 @@
     var setDimension = function () {
       var dd = $interval(function () {
         if (!parentElem) {
-          parentElem = $element.find('.word-outerContainer');
+          parentElem = $element.parent();
         }
 
         var ow = parentElem[0].offsetWidth;
@@ -51,7 +50,11 @@
         self.containerStyle.width = oh + 'px';
         self.containerStyle.height = ow + 'px';
 
+        //if (oh != 0) {
         $interval.cancel(dd);
+        //}
+
+        self.monText = $sce.trustAsHtml(config.setMonWord(self.origintext));
       }, 20);
     };
 

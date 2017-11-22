@@ -1,6 +1,6 @@
 <div id="wordPlayer" class="w3-modal word-player" ng-show="$ctrl.showWordPlayer">
   <div class="w3-modal-content" style="max-width:500px">
-    <div class="w3-container w3-padding w3-center w3-light-gray">
+    <div class="w3-container w3-padding w3-center wordplayer-board" style="min-height:300px">
 
       <div class="originpractice-close-container">
         <div class="originpractice-exit" ng-click="$ctrl.closePlayer()">
@@ -17,6 +17,7 @@
         <source src="{{$ctrl.mediasUrl.audios.ogg}}" type="audio/ogg">
         <source src="{{$ctrl.mediasUrl.audios.mpeg}}" type="audio/mpeg"> {{::$ctrl.pageLang.notSupportHtml5Audio}}
       </audio>
+
     </div>
   </div>
 </div>

@@ -3,39 +3,15 @@
   margin-right: auto;
   width: 36px;
   height: 100px;
+  font-size: 2em;
 }
 
-.w3-modal {
-  display: block;
+.wordplayer-board {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 1);
 }
 
-.simple-player {
-  z-index:1000;
-  background-color:rgba(100,100,100,.9);
-}
-
-.simple-player-close {
-  position: absolute;
-  z-index: 1050;
-  right: -6px;
-  top: -20px;
-  cursor: pointer;
-}
-
-.simple-player-close-icon {
-  margin: 0 5px;
-  font-size: 40px;
-  line-height: 40px;
-  text-decoration: none;
-  color: #314453;
-}
-
-.simple-player-back {
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  width: 23px;
-  height: 23px;
-  background-color: #D3D616;
-  z-index: -1;
+.word-player {
+  z-index: 1000;
+  background-color: rgba(100,100,100,.9);
 }
