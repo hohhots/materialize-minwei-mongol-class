@@ -2,6 +2,8 @@
 
 (function () {
 
+  var wordContainerCellClass = '.word-container-cell';
+
   var mongolPrefix = '<span class="';
   var mongolSuffix = '"></span>';
 
@@ -130,6 +132,7 @@
 
 
   var config = {
+    wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
     wordToReplaceMap: {},
     setMonWord: setMonWord

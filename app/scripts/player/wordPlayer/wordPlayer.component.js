@@ -48,6 +48,7 @@
     self.closePlayer = function () {
       audioElem.pause();
       self.showWordPlayer = false;
+      self.word = '';
     };
 
     // define local variables
@@ -61,6 +62,11 @@
     var playWordAnimation = function (event, word) {
       self.showWordPlayer = true;
       self.word = word.word;
+      //broadcast after word rendring completed, so time must set largger than word rendring.
+      var dd = $interval(function () {
+        $scope.$broadcast(config.events.wordGetWordSpans);
+        $interval.cancel(dd);
+      }, 30);
       //self.mediasUrl = mediasUrl;
       //console.log(self.word);
       //audioElem.load();

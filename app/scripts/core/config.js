@@ -218,7 +218,10 @@
 
       variantRandomAlphaSelected: 'variantRandomAlphaSelectedEvent',
       variantDisplayRandomAlpha: 'variantDisplayRandomAlphaEvent',
-      variantHideRandomAlpha: 'variantHideRandomAlphaEvent'
+      variantHideRandomAlpha: 'variantHideRandomAlphaEvent',
+
+      wordGetWordSpans: 'wordGetWordSpansEvent',
+      playWordAnimation: 'playWordAnimationEvents'
     }
   };
 
