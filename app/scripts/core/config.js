@@ -221,6 +221,7 @@
       variantHideRandomAlpha: 'variantHideRandomAlphaEvent',
 
       wordGetWordSpans: 'wordGetWordSpansEvent',
+      setWordAnimationElement: 'setWordAnimationElementEvent',
       playWordAnimation: 'playWordAnimationEvents'
     }
   };

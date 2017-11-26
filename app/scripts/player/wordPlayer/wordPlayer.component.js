@@ -53,6 +53,8 @@
 
     // define local variables
     var audioElem = null;
+    var playWord = [];
+    var playWordSpans = [];
 
     var playerEnded = function () {
       self.showPlayer = false;
@@ -73,9 +75,20 @@
       //audioElem.play();
     };
 
+    var setWordAnimationElement = function (event, words) {
+      playWord = words[0];
+      playWordSpans = words[1];console.log(playWord);
+      wordSeperateAnimation();
+    };
+
+    var wordSeperateAnimation = function () {
+      //$.each();
+    };
+
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.playWordAnimation, playWordAnimation));
+    deregister.push($scope.$on(config.events.setWordAnimationElement, setWordAnimationElement));
     //deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
 
     // clean up listener when directive's scope is destroyed

@@ -32,11 +32,25 @@
 
     self.$onChanges = function (changes) {
       if (changes['origintext']) {
+        setTextArray();
         setDimension();
       }
     };
 
-    var parentElem;
+    var textArray = [],
+      textSpansArray = [],
+      parentElem;
+
+    var setTextArray = function () {
+      textArray = [];
+      var len = self.origintext.length / 3;
+      if (len == 0) { return; }
+      for (var i = 0; i < len; i++) {
+        var j = i * 3;
+        textArray[i] = self.origintext.substring(j, j + 3);
+      }
+      //console.log(textArray);
+    };
 
     var setDimension = function () {
       var dd = $interval(function () {
@@ -56,17 +70,22 @@
         //}
 
         self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext));
+        //console.log(textSpansArray);
       }, 20);
     };
 
     //must called after rendering, so use $interval for call this function.
-    var getWordSpans = function () {
-      var a = $element.find(wordConfig.wordContainerCellClass).children();
+    var getWordSpan = function () {
+      var dd = $interval(function () {
+        textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();        
+        $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray]);
+        $interval.cancel(dd);
+      }, 30);
     };
 
     // add listener and hold on to deregister function
     var deregister = [];
-    deregister.push($scope.$on(config.events.wordGetWordSpans, getWordSpans));
+    deregister.push($scope.$on(config.events.wordGetWordSpans, getWordSpan));
     //deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
 
     // clean up listener when directive's scope is destroyed
