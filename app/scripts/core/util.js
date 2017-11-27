@@ -192,6 +192,11 @@
         return currentExerciseId[categoryId][subjectId][taskCategoryId][taskId];
       },
 
+      //value form must like '88px'
+      getNumOfDim: function (value) {
+        return value.substr(0, value.lastIndexOf("p"));
+      }
+
     };
 
     return utils;

@@ -55,6 +55,7 @@
     var audioElem = null;
     var playWord = [];
     var playWordSpans = [];
+    var wordParentSpan = '';
 
     var playerEnded = function () {
       self.showPlayer = false;
@@ -77,12 +78,40 @@
 
     var setWordAnimationElement = function (event, words) {
       playWord = words[0];
-      playWordSpans = words[1];console.log(playWord);
+      playWordSpans = words[1];
+      wordParentSpan = words[2];
       wordSeperateAnimation();
     };
 
     var wordSeperateAnimation = function () {
-      //$.each();
+      console.log();
+
+      var parentWidth = wordParentSpan.css('width');
+      parentWidth = util.getNumOfDim(parentWidth);
+      
+      var wordWidth = playWordSpans.css('height');
+      wordWidth = util.getNumOfDim(wordWidth);
+      
+      var middleLeft = (parentWidth - wordWidth)/2;
+
+      $.each(playWordSpans, function (index, val) {
+        //$(val).css('visibility', 'hidden');
+        $(val).css('position', 'absolute');
+        $(val).css('left', '0');
+        $(val).css('top', middleLeft + 'px');
+        if (index) {
+          var preSpan = playWordSpans[index - 1];
+          var top = $(preSpan).css('left');
+          top = util.getNumOfDim(top);// + playWordSpans[index - 1].offsetHeight;
+
+          var height = $(preSpan).css('width');
+          height = util.getNumOfDim(height);
+          top = parseInt(top) + parseInt(height);
+          console.log(top);
+
+          $(val).css('left', top);
+        }
+      });
     };
 
     // add listener and hold on to deregister function

@@ -78,7 +78,7 @@
     var getWordSpan = function () {
       var dd = $interval(function () {
         textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();        
-        $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray]);
+        $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, parentElem]);
         $interval.cancel(dd);
       }, 30);
     };
