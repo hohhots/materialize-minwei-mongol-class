@@ -46,15 +46,21 @@
     };
 
     self.closePlayer = function () {
+      //run before display to none.
+      playWordSpans.stop();
+      playingIndex = 0;      
+      
       audioElem.pause();
       self.showWordPlayer = false;
       self.word = '';
     };
 
     // define local variables
+    var vowels = [];
     var audioElem = null;
     var seperateHeight = 20;
     var playWord = [];
+    var wordAudios = [];
     var playWordSpans = [];
     var wordParentSpan = '';
     var playingIndex = 0;
@@ -79,10 +85,33 @@
     var setWordAnimationElement = function (event, words) {
       playWord = words[0];
       playWordSpans = words[1];
-      wordParentSpan = words[2];
+      if (wordParentSpan.length == 0) {
+        wordParentSpan = words[2];
+      }
+      if (vowels.length == 0) {
+        vowels = words[3];
+      }
+      setWordAudios();
+      for (var i in wordAudios) {
+        preloadAudios(wordAudios[i]);
+      }
       setWordSeperate();
       wordAnimation();
     };
+
+    function preloadAudios(url) {
+      var audio = new Audio();
+      // once this file loads, it will call loadedAudio()
+      // the file will be kept by the browser as cache
+      audio.addEventListener('canplaythrough', loadedAudio, false);
+      audio.src = url;
+    }
+
+    var loaded = 0;
+    function loadedAudio() {
+      loaded++;
+      console.log(loaded);
+    }
 
     var setWordSeperate = function () {
       var parentWidth = wordParentSpan.css('width');
@@ -116,8 +145,7 @@
     };
 
     var wordAnimation = function () {
-      if (playingIndex == playWord.length) {
-        playingIndex = 0;
+      if (!self.showWordPlayer || (playingIndex == playWord.length)) {
         return;
       }
       $element.css('visibility', 'visible');
@@ -126,7 +154,7 @@
       var audioDone = false;
       var span = $(playWordSpans[playingIndex]);
       span.css({ 'visibility': 'visible', 'opacity': 0 });
-      span.animate({ "opacity": "+=1" }, 2000, function () {
+      span.stop(true, true).animate({ "opacity": "+=1" }, 2000, function () {
         animationDone = true;
         nextAnimation();
       });
@@ -136,14 +164,29 @@
       var nextAnimation = function () {
         if (animationDone && audioDone) {
           ++playingIndex;
-          $interval.cancel(check);
           wordAnimation();
         }
       };
+
       //self.mediasUrl = mediasUrl;
       //console.log(self.word);
       //audioElem.load();
       //audioElem.play();
+    };
+
+    var setWordAudios = function () {
+      wordAudios = [];
+      $.each(playWord, function (index, val) {
+        //if val is vowels
+        var name = vowels[val.substr(1, 1) - 1];
+        //if val is not vowels
+        var f = val.substr(0, 1);
+        if ($.inArray(f, vowels) == -1) {
+          name = f + name;
+        }
+        wordAudios[index] = name;
+      });
+      console.log(playWord + ' - ' + wordAudios);
     };
 
     // add listener and hold on to deregister function

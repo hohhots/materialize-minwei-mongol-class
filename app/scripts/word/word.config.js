@@ -98,6 +98,10 @@
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
   var letters = ['a', 'n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
+  var getVowels = function () {
+    return vowels;
+  };
+
   var createAlphaPosition = function (alpha) {
     $.each(vowels, function (index1, value1) {
       if ((alpha == letters[16]) && (index1 > 1)) {
@@ -135,6 +139,7 @@
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
     wordToReplaceMap: {},
+    getVowels: getVowels,
     setMonWord: setMonWord
   };
 

@@ -20,11 +20,11 @@
     <div class="w3-row w3-border-bottom alphabetorigin-content">
       <div ng-repeat="word in alpha.words" ng-click="$ctrl.alphaClick(word)" class="w3-padding alpha5-col s4 m3 l1">
         <div class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
-          <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
-            <span class="wordbegin-cell">{{::word.meaning}}</span>
-          </div>
           <div ng-class="$ctrl.wordbeginWordClass">
             <mon-word data-origintext="{{::word.word}}"></mon-word>
+          </div>
+          <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
+            <span class="wordbegin-cell">{{::word.meaning}}</span>
           </div>
         </div>
       </div>

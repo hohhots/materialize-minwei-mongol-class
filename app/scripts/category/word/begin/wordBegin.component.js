@@ -31,13 +31,20 @@
       self.hideMean = !self.hideMean;
 
       var st = self.wordbeginView.styles;
-      if (st.width == (viewWidth + widthUnit)) {
-        st.width = (viewWidth / 2 + widthUnit);
+      var width = $(wordBeginViewClass).css('width');
+      if (width == (viewWidth + widthUnit)) {
+        //st.width = (viewWidth / 2 + widthUnit);
+        $(wordBeginViewClass).animate({ "width": "-=" + viewWidth / 2}, 500);
         self.wordbeginWordClass = 'wordbegin-word';
       } else {
-        st.width = (viewWidth + widthUnit);
+        //st.width = (viewWidth + widthUnit);
+        $(wordBeginViewClass).animate({ "width": "+=" + viewWidth / 2}, 500);
         self.wordbeginWordClass = 'w3-col s6 m6 l6 wordbegin-word';
       }
+      /*span.animate({ "opacity": "+=1" }, 2000, function () {
+        animationDone = true;
+        nextAnimation();
+      });*/
     };
 
     self.alphaClick = function (word) {
@@ -46,6 +53,7 @@
 
     var viewWidth = 72;
     var widthUnit = 'px';
+    var wordBeginViewClass = '.wordbegin-view';
 
     var init = function () {
       self.wordbeginView.styles.width = (viewWidth / 2 + widthUnit);
