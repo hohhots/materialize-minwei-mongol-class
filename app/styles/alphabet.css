@@ -138,16 +138,16 @@ div[class*='-3'] {
   background-position: -754px -410px;
 }
 
-.originFont-sha,.originFont-she {
+.originFont-xa,.originFont-xe {
   background-position: -835px -47px;
 }
-.originFont-shi {
+.originFont-xi {
   background-position: -835px -213px;
 }
-.originFont-sho,.originFont-sho2 {
+.originFont-xo,.originFont-xo2 {
   background-position: -836px -280px;
 }
-.originFont-shu,.originFont-shu2 {
+.originFont-xu,.originFont-xu2 {
   background-position: -836px -410px;
 }
 
@@ -177,29 +177,29 @@ div[class*='-3'] {
   background-position: -980px -410px;
 }
 
-.originFont-cha,.originFont-che {
+.originFont-qa,.originFont-qe {
   background-position: -1065px -47px;
 }
-.originFont-chi {
+.originFont-qi {
   background-position: -1063px -213px;
 }
-.originFont-cho,.originFont-cho2 {
+.originFont-qo,.originFont-qo2 {
   background-position: -1062px -280px;
 }
-.originFont-chu,.originFont-chu2 {
+.originFont-qu,.originFont-qu2 {
   background-position: -1062px -410px;
 }
 
-.originFont-zha,.originFont-zhe {
+.originFont-ja,.originFont-je {
   background-position: -1145px -47px;
 }
-.originFont-zhi {
+.originFont-ji {
   background-position: -1143px -213px;
 }
-.originFont-zho,.originFont-zho2 {
+.originFont-jo,.originFont-jo2 {
   background-position: -1142px -280px;
 }
-.originFont-zhu,.originFont-zhu2 {
+.originFont-ju,.originFont-ju2 {
   background-position: -1142px -410px;
 }
 
@@ -608,9 +608,9 @@ div[class*='lo-3'],div[class*='lo2-3'],div[class*='lu-3'],div[class*='lu2-3'] {
 
 div[class*='-sa-'],div[class*='-se-'],div[class*='-si-'],
 div[class*='-so-'],div[class*='-so2-'],div[class*='-su-'],div[class*='-su2-'],
-div[class*='-sha-'],div[class*='-she-'],div[class*='-shi-'],
-div[class*='-sho-'],div[class*='-sho2-'],div[class*='-shu-'],div[class*='-shu2-'] {
-  background-image: url(../data/alphabet/variant/images/sa-sha-black.png);
+div[class*='-xa-'],div[class*='-xe-'],div[class*='-xi-'],
+div[class*='-xo-'],div[class*='-xo2-'],div[class*='-xu-'],div[class*='-xu2-'] {
+  background-image: url(../data/alphabet/variant/images/sa-xa-black.png);
 }
 
 .originFont-sa-1,.originFont-se-1 {
@@ -650,40 +650,40 @@ div[class*='-sho-'],div[class*='-sho2-'],div[class*='-shu-'],div[class*='-shu2-'
   background-position: -505px -590px;
 }
 
-.originFont-sha-1,.originFont-she-1 {
+.originFont-xa-1,.originFont-xe-1 {
   background-position: -668px -50px;
 }
-.originFont-sha-2,.originFont-she-2 {
+.originFont-xa-2,.originFont-xe-2 {
   background-position: -668px -300px;
 }
-.originFont-sha-3,.originFont-she-3 {
+.originFont-xa-3,.originFont-xe-3 {
   background-position: -668px -595px;
 }
-.originFont-shi-1 {
+.originFont-xi-1 {
   background-position: -830px -50px;
 }
-.originFont-shi-2 {
+.originFont-xi-2 {
   background-position: -830px -300px;
 }
-.originFont-shi-3 {
+.originFont-xi-3 {
   background-position: -830px -595px;
 }
-.originFont-sho-1,.originFont-sho2-1 {
+.originFont-xo-1,.originFont-xo2-1 {
   background-position: -910px -50px;
 }
-.originFont-sho-2,.originFont-sho2-2 {
+.originFont-xo-2,.originFont-xo2-2 {
   background-position: -910px -300px;
 }
-.originFont-sho-3,.originFont-sho2-3 {
+.originFont-xo-3,.originFont-xo2-3 {
   background-position: -910px -598px;
 }
-.originFont-shu-1,.originFont-shu2-1 {
+.originFont-xu-1,.originFont-xu2-1 {
   background-position: -1070px -60px;
 }
-.originFont-shu-2,.originFont-shu2-2 {
+.originFont-xu-2,.originFont-xu2-2 {
   background-position: -1070px -300px;
 }
-.originFont-shu-3,.originFont-shu2-3 {
+.originFont-xu-3,.originFont-xu2-3 {
   background-position: -1070px -600px;
 }
 
@@ -768,84 +768,84 @@ div[class*='-do-'],div[class*='-do2-'],div[class*='-du-'],div[class*='-du2-'] {
   background-position: -1070px -595px;
 }
 
-div[class*='-cha-'],div[class*='-che-'],div[class*='-chi-'],
-div[class*='-cho-'],div[class*='-cho2-'],div[class*='-chu-'],div[class*='-chu2-'],
-div[class*='-zha-'],div[class*='-zhe-'],div[class*='-zhi-'],
-div[class*='-zho-'],div[class*='-zho2-'],div[class*='-zhu-'],div[class*='-zhu2-'] {
-  background-image: url(../data/alphabet/variant/images/cha-zha-black.png);
+div[class*='-qa-'],div[class*='-qe-'],div[class*='-qi-'],
+div[class*='-qo-'],div[class*='-qo2-'],div[class*='-qu-'],div[class*='-qu2-'],
+div[class*='-ja-'],div[class*='-je-'],div[class*='-ji-'],
+div[class*='-jo-'],div[class*='-jo2-'],div[class*='-ju-'],div[class*='-ju2-'] {
+  background-image: url(../data/alphabet/variant/images/qa-ja-black.png);
 }
 
-.originFont-cha-1,.originFont-che-1 {
+.originFont-qa-1,.originFont-qe-1 {
   background-position: -119px -50px;
 }
-.originFont-cha-2,.originFont-che-2 {
+.originFont-qa-2,.originFont-qe-2 {
   background-position: -119px -300px;
 }
-.originFont-cha-3,.originFont-che-3 {
+.originFont-qa-3,.originFont-qe-3 {
   background-position: -119px -595px;
 }
-.originFont-chi-1 {
+.originFont-qi-1 {
   background-position: -276px -50px;
 }
-.originFont-chi-2 {
+.originFont-qi-2 {
   background-position: -276px -300px;
 }
-.originFont-chi-3 {
+.originFont-qi-3 {
   background-position: -276px -595px;
 }
-.originFont-cho-1,.originFont-cho2-1 {
+.originFont-qo-1,.originFont-qo2-1 {
   background-position: -355px -50px;
 }
-.originFont-cho-2,.originFont-cho2-2 {
+.originFont-qo-2,.originFont-qo2-2 {
   background-position: -355px -300px;
 }
-.originFont-cho-3,.originFont-cho2-3 {
+.originFont-qo-3,.originFont-qo2-3 {
   background-position: -355px -595px;
 }
-.originFont-chu-1,.originFont-chu2-1 {
+.originFont-qu-1,.originFont-qu2-1 {
   background-position: -515px -60px;
 }
-.originFont-chu-2,.originFont-chu2-2 {
+.originFont-qu-2,.originFont-qu2-2 {
   background-position: -515px -300px;
 }
-.originFont-chu-3,.originFont-chu2-3 {
+.originFont-qu-3,.originFont-qu2-3 {
   background-position: -515px -595px;
 }
 
-.originFont-zha-1,.originFont-zhe-1 {
+.originFont-ja-1,.originFont-je-1 {
   background-position: -678px -50px;
 }
-.originFont-zha-2,.originFont-zhe-2 {
+.originFont-ja-2,.originFont-je-2 {
   background-position: -678px -300px;
 }
-.originFont-zha-3,.originFont-zhe-3 {
+.originFont-ja-3,.originFont-je-3 {
   background-position: -678px -595px;
 }
-.originFont-zhi-1 {
+.originFont-ji-1 {
   background-position: -835px -50px;
 }
-.originFont-zhi-2 {
+.originFont-ji-2 {
   background-position: -835px -300px;
 }
-.originFont-zhi-3 {
+.originFont-ji-3 {
   background-position: -835px -595px;
 }
-.originFont-zho-1,.originFont-zho2-1 {
+.originFont-jo-1,.originFont-jo2-1 {
   background-position: -915px -50px;
 }
-.originFont-zho-2,.originFont-zho2-2 {
+.originFont-jo-2,.originFont-jo2-2 {
   background-position: -915px -300px;
 }
-.originFont-zho-3,.originFont-zho2-3 {
+.originFont-jo-3,.originFont-jo2-3 {
   background-position: -915px -595px;
 }
-.originFont-zhu-1,.originFont-zhu2-1 {
+.originFont-ju-1,.originFont-ju2-1 {
   background-position: -1075px -55px;
 }
-.originFont-zhu-2,.originFont-zhu2-2 {
+.originFont-ju-2,.originFont-ju2-2 {
   background-position: -1075px -300px;
 }
-.originFont-zhu-3,.originFont-zhu2-3 {
+.originFont-ju-3,.originFont-ju2-3 {
   background-position: -1075px -595px;
 }
 

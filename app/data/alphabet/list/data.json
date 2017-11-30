@@ -316,35 +316,35 @@
 
   {
     "id": 10,
-    "name": "sha",
+    "name": "xa",
     "vowel": [
       {
         "id": 1,
-        "name": "sha"
+        "name": "xa"
       },
       {
         "id": 2,
-        "name": "she"
+        "name": "xe"
       },
       {
         "id": 3,
-        "name": "shi"
+        "name": "xi"
       },
       {
         "id": 4,
-        "name": "sho"
+        "name": "xo"
       },
       {
         "id": 5,
-        "name": "sho2"
+        "name": "xo2"
       },
       {
         "id": 6,
-        "name": "shu"
+        "name": "xu"
       },
       {
         "id": 7,
-        "name": "shu2"
+        "name": "xu2"
       }
     ]
   },
@@ -421,70 +421,70 @@
 
   {
     "id": 13,
-    "name": "cha",
+    "name": "qa",
     "vowel": [
       {
         "id": 1,
-        "name": "cha"
+        "name": "qa"
       },
       {
         "id": 2,
-        "name": "che"
+        "name": "qe"
       },
       {
         "id": 3,
-        "name": "chi"
+        "name": "qi"
       },
       {
         "id": 4,
-        "name": "cho"
+        "name": "qo"
       },
       {
         "id": 5,
-        "name": "cho2"
+        "name": "qo2"
       },
       {
         "id": 6,
-        "name": "chu"
+        "name": "qu"
       },
       {
         "id": 7,
-        "name": "chu2"
+        "name": "qu2"
       }
     ]
   },
 
   {
     "id": 14,
-    "name": "zha",
+    "name": "ja",
     "vowel": [
       {
         "id": 1,
-        "name": "zha"
+        "name": "ja"
       },
       {
         "id": 2,
-        "name": "zhe"
+        "name": "je"
       },
       {
         "id": 3,
-        "name": "zhi"
+        "name": "ji"
       },
       {
         "id": 4,
-        "name": "zho"
+        "name": "jo"
       },
       {
         "id": 5,
-        "name": "zho2"
+        "name": "jo2"
       },
       {
         "id": 6,
-        "name": "zhu"
+        "name": "ju"
       },
       {
         "id": 7,
-        "name": "zhu2"
+        "name": "ju2"
       }
     ]
   },

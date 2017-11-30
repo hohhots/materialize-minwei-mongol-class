@@ -126,10 +126,11 @@
         return;
       }
       var name = testAlphas[playedAudioId].fileName;
+      var dirName = testAlphas[playedAudioId].fileName.substr(0, 1);
       var gender = util.getRandomGender();
       self.audio = {
-        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[0]
       };
       if (playedAudioId != 0) {
         $scope.$digest();

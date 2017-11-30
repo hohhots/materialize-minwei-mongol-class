@@ -55,9 +55,9 @@
   },
   {
     "id": 10,
-    "name": "根字母“sha”",
-    "fileName": "sha",
-    "introduction": "传统蒙古文字母“sha”。"
+    "name": "根字母“xa”",
+    "fileName": "xa",
+    "introduction": "传统蒙古文字母“xa”。"
   },
   {
     "id": 11,
@@ -73,15 +73,15 @@
   },
   {
     "id": 13,
-    "name": "根字母“cha”",
-    "fileName": "cha",
-    "introduction": "传统蒙古文字母“cha”。"
+    "name": "根字母“qa”",
+    "fileName": "qa",
+    "introduction": "传统蒙古文字母“qa”。"
   },
   {
     "id": 14,
-    "name": "根字母“zha”",
-    "fileName": "zha",
-    "introduction": "传统蒙古文字母“zha”。"
+    "name": "根字母“ja”",
+    "fileName": "ja",
+    "introduction": "传统蒙古文字母“ja”。"
   },
   {
     "id": 15,

@@ -48,8 +48,8 @@
     self.closePlayer = function () {
       //run before display to none.
       playWordSpans.stop();
-      playingIndex = 0;      
-      
+      playingIndex = 0;
+
       audioElem.pause();
       self.showWordPlayer = false;
       self.word = '';
@@ -60,10 +60,11 @@
     var audioElem = null;
     var seperateHeight = 20;
     var playWord = [];
-    var wordAudios = [];
+    var wordAudios = {};
     var playWordSpans = [];
     var wordParentSpan = '';
     var playingIndex = 0;
+    var gender = '';//util.getRandomGender();    
 
     var playerEnded = function () {
       self.closePlayer();
@@ -83,6 +84,7 @@
     };
 
     var setWordAnimationElement = function (event, words) {
+      gender = util.getRandomGender();      
       playWord = words[0];
       playWordSpans = words[1];
       if (wordParentSpan.length == 0) {
@@ -91,15 +93,20 @@
       if (vowels.length == 0) {
         vowels = words[3];
       }
-      setWordAudios();
-      for (var i in wordAudios) {
-        preloadAudios(wordAudios[i]);
-      }
+      setWordAudios();console.log(wordAudios);
+      $.each(wordAudios, function (key, val) {
+        $.each(val, function (key1, val1) {
+          preloadAudios(val1);
+        });
+      });
+      //for (var i in wordAudios) {
+      //  preloadAudios(wordAudios[i]);
+      //}
       setWordSeperate();
       wordAnimation();
     };
 
-    function preloadAudios(url) {
+    function preloadAudios(url) {console.log(url);
       var audio = new Audio();
       // once this file loads, it will call loadedAudio()
       // the file will be kept by the browser as cache
@@ -177,6 +184,7 @@
     var setWordAudios = function () {
       wordAudios = [];
       $.each(playWord, function (index, val) {
+
         //if val is vowels
         var name = vowels[val.substr(1, 1) - 1];
         //if val is not vowels
@@ -184,9 +192,15 @@
         if ($.inArray(f, vowels) == -1) {
           name = f + name;
         }
-        wordAudios[index] = name;
+ 
+        var url = config.mediaUrl.alphaList;
+        var audios = {
+          mpeg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[1],
+          ogg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[0]
+        };
+        wordAudios[val] = audios;
       });
-      console.log(playWord + ' - ' + wordAudios);
+      console.log( wordAudios );
     };
 
     // add listener and hold on to deregister function

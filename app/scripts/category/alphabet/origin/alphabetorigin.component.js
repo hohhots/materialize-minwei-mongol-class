@@ -28,17 +28,18 @@
 
     // ser value for self variables
     self.alphaClick = function (id, name) {
+      var dirName = name.substr(0,1);
       var names = {};
       var url = config.mediaUrl.alphaOrigin;
       var gender = util.getRandomGender();
       names.name = self.subData[id - 1].name;
       names.audios = {
-        mpeg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + name + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[0]
       };
       names.videos = {
-        webm: url + config.data.videos + '/' + name + '/' + name + config.dataTypes.videos[1],
-        ogv: url + config.data.videos + '/' + name + '/' + name + config.dataTypes.videos[0]
+        webm: url + config.data.videos + '/' + dirName + '/' + name + config.dataTypes.videos[1],
+        ogv: url + config.data.videos + '/' + dirName + '/' + name + config.dataTypes.videos[0]
       };
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
