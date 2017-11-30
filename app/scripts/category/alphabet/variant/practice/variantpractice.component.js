@@ -183,9 +183,10 @@
       }
       var name = self.testAlphas[playedAudioId].name;
       var gender = util.getRandomGender();
+      var dirName = testOriginAlpha.name.substr(0, 1);
       self.audio = {
-        mpeg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' + testOriginAlpha.name + '/' + name + gender + config.dataTypes.audios[0]
+        mpeg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[0]
       };
       if (playedAudioId != 0) {
         $scope.$digest();

@@ -62,9 +62,9 @@
     var playWord = [];
     var wordAudios = {};
     var playWordSpans = [];
-    var wordParentSpan = '';
+    var wordParentSpan = [];
     var playingIndex = 0;
-    var gender = '';//util.getRandomGender();    
+    var gender = '';
 
     var playerEnded = function () {
       self.closePlayer();
@@ -84,7 +84,7 @@
     };
 
     var setWordAnimationElement = function (event, words) {
-      gender = util.getRandomGender();      
+      gender = util.getRandomGender();
       playWord = words[0];
       playWordSpans = words[1];
       if (wordParentSpan.length == 0) {
@@ -93,31 +93,24 @@
       if (vowels.length == 0) {
         vowels = words[3];
       }
-      setWordAudios();console.log(wordAudios);
+
+      setWordAudios();
       $.each(wordAudios, function (key, val) {
         $.each(val, function (key1, val1) {
           preloadAudios(val1);
         });
       });
-      //for (var i in wordAudios) {
-      //  preloadAudios(wordAudios[i]);
-      //}
+
       setWordSeperate();
       wordAnimation();
     };
 
-    function preloadAudios(url) {console.log(url);
+    function preloadAudios(url) {
       var audio = new Audio();
       // once this file loads, it will call loadedAudio()
       // the file will be kept by the browser as cache
-      audio.addEventListener('canplaythrough', loadedAudio, false);
+      //audio.addEventListener('canplaythrough', loadedAudio, false);
       audio.src = url;
-    }
-
-    var loaded = 0;
-    function loadedAudio() {
-      loaded++;
-      console.log(loaded);
     }
 
     var setWordSeperate = function () {
@@ -151,7 +144,7 @@
       });
     };
 
-    var wordAnimation = function () {
+    var wordAnimation = function (outsideScope) {
       if (!self.showWordPlayer || (playingIndex == playWord.length)) {
         return;
       }
@@ -159,6 +152,7 @@
 
       var animationDone = false;
       var audioDone = false;
+
       var span = $(playWordSpans[playingIndex]);
       span.css({ 'visibility': 'visible', 'opacity': 0 });
       span.stop(true, true).animate({ "opacity": "+=1" }, 2000, function () {
@@ -166,23 +160,27 @@
         nextAnimation();
       });
 
-      audioDone = true;
+      audioElem.onended = function () {
+        audioDone = true;
+        nextAnimation();
+      };
+      self.mediasUrl.audios = wordAudios[playWord[playingIndex]]; 
+      if (outsideScope) {
+        $scope.$digest();
+      }
+      audioElem.load();
+      audioElem.play();
 
       var nextAnimation = function () {
         if (animationDone && audioDone) {
           ++playingIndex;
-          wordAnimation();
+          wordAnimation(true);
         }
       };
-
-      //self.mediasUrl = mediasUrl;
-      //console.log(self.word);
-      //audioElem.load();
-      //audioElem.play();
     };
 
     var setWordAudios = function () {
-      wordAudios = [];
+      wordAudios = {};
       $.each(playWord, function (index, val) {
 
         //if val is vowels
@@ -192,7 +190,7 @@
         if ($.inArray(f, vowels) == -1) {
           name = f + name;
         }
- 
+
         var url = config.mediaUrl.alphaList;
         var audios = {
           mpeg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[1],
@@ -200,7 +198,6 @@
         };
         wordAudios[val] = audios;
       });
-      console.log( wordAudios );
     };
 
     // add listener and hold on to deregister function
