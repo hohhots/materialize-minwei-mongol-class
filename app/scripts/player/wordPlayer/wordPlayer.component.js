@@ -46,13 +46,20 @@
     };
 
     self.closePlayer = function () {
-      //run before display to none.
-      playWordSpans.stop();
-      playingIndex = 0;
+      var elem = $element.find('.w3-modal-content');
+      elem.stop(true, true).fadeTo(2000, 0.1, function () {
+        //run before display to none.
+        playWordSpans.stop();
+        playingIndex = 0;
 
-      audioElem.pause();
-      self.showWordPlayer = false;
-      self.word = '';
+        audioElem.pause();
+        self.showWordPlayer = false;
+        self.word = '';
+
+        $scope.$digest();
+
+        elem.css('opacity', 1);
+      });
     };
 
     // define local variables
@@ -145,7 +152,11 @@
     };
 
     var wordAnimation = function (outsideScope) {
-      if (!self.showWordPlayer || (playingIndex == playWord.length)) {
+      if (!self.showWordPlayer) {
+        return;
+      }
+      if (playingIndex == playWord.length) {
+        shrinkWord();
         return;
       }
       $element.css('visibility', 'visible');
@@ -164,7 +175,7 @@
         audioDone = true;
         nextAnimation();
       };
-      self.mediasUrl.audios = wordAudios[playWord[playingIndex]]; 
+      self.mediasUrl.audios = wordAudios[playWord[playingIndex]];
       if (outsideScope) {
         $scope.$digest();
       }
@@ -175,6 +186,38 @@
         if (animationDone && audioDone) {
           ++playingIndex;
           wordAnimation(true);
+        }
+      };
+    };
+
+    var shrinkWord = function () {
+      var animationDone = [];
+      var audioDone = false;
+      var animationDuration = 1000;
+
+      for (var i = 1; i < playWord.length; i++) {
+        var span = $(playWordSpans[i]);
+        span.stop(true, true).animate({ "left": "-=" + (seperateHeight * i) }, animationDuration, function () {
+          animationDone.push(true);
+          closePlayer();
+        });
+      }
+
+      audioElem.onended = function () {
+        audioDone = true;
+        closePlayer();
+      };
+      $scope.$apply(self.mediasUrl.audios = self.mediasUrl.audios);//wordAudios[playWord[playingIndex]];
+
+      audioElem.load();
+      var audio = $interval(function () {
+        $interval.cancel(audio);
+        audioElem.play();
+      }, animationDuration);
+
+      var closePlayer = function () {
+        if ((animationDone.length == (playWord.length - 1)) && audioDone) {
+          self.closePlayer();
         }
       };
     };
@@ -204,8 +247,7 @@
     var deregister = [];
     deregister.push($scope.$on(config.events.playWordAnimation, playWordAnimation));
     deregister.push($scope.$on(config.events.setWordAnimationElement, setWordAnimationElement));
-    //deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
-
+    
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);
