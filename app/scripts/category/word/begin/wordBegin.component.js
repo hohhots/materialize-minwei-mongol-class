@@ -55,11 +55,10 @@
     var widthUnit = 'px';
     var wordBeginViewClass = '.wordbegin-view';
 
-    var init = function () {
+    (function init() {
       self.wordbeginView.styles.width = (viewWidth / 2 + widthUnit);
       self.wordbeginWordClass = 'wordbegin-word';
-    };
+    })();
 
-    init();
   };
 })();

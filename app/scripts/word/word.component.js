@@ -41,7 +41,7 @@
       textSpansArray = [],
       parentElem;
 
-    var setTextArray = function () {
+    function setTextArray() {
       textArray = [];
       var len = self.origintext.length / 3;
       if (len == 0) { return; }
@@ -49,7 +49,6 @@
         var j = i * 3;
         textArray[i] = self.origintext.substring(j, j + 3);
       }
-      //console.log(textArray);
     };
 
     var setDimension = function () {
@@ -65,19 +64,16 @@
         self.containerStyle.width = oh + 'px';
         self.containerStyle.height = ow + 'px';
 
-        //if (oh != 0) {
         $interval.cancel(dd);
-        //}
 
         self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext));
-        //console.log(textSpansArray);
       }, 20);
     };
 
     //must called after rendering, so use $interval for call this function.
     var getWordSpan = function () {
       var dd = $interval(function () {
-        textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();        
+        textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();
         $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, parentElem, wordConfig.getVowels()]);
         $interval.cancel(dd);
       }, 30);

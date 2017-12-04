@@ -16,12 +16,13 @@
       '$element',
       '$interval',
       'Config',
+      'wordConfig',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $element, $interval, config, util, json) {
+  function controller($scope, $element, $interval, config, wordConfig, util, json) {
     var self = this;
 
     //define self variables
@@ -46,8 +47,8 @@
     };
 
     self.closePlayer = function () {
-      var elem = $element.find('.w3-modal-content');
-      elem.stop(true, true).fadeTo(2000, 0.1, function () {
+      var pare = $element.find('.w3-modal');
+      pare.stop(true, true).fadeTo(2000, 0, function () {
         //run before display to none.
         playWordSpans.stop();
         playingIndex = 0;
@@ -58,7 +59,7 @@
 
         $scope.$digest();
 
-        elem.css('opacity', 1);
+        pare.css('opacity', 1);
       });
     };
 
@@ -73,12 +74,108 @@
     var playingIndex = 0;
     var gender = '';
 
-    var playerEnded = function () {
+    var animationDone = false;
+    var audioDone = false;
+
+    var animationDuration = 1000;
+
+    function playerEnded() {
       self.closePlayer();
       $scope.$digest();
+    }
+
+    function setAudioElem(word) {
+      gender = util.getRandomGender();
+      vowels = wordConfig.getVowels();
+
+      setWordAudios(word);
+      $.each(wordAudios, function (key, val) {
+        $.each(val, function (key1, val1) {
+          preloadAudios(val1);
+        });
+      });
+    }
+
+    function playWordAudios(event, word) {
+      setAudioElem(word.word);
+      playWordAudio();
+    }
+
+    function playWordAudio(outsideScope) {
+      /**if (!self.showWordPlayer) {
+        audioElem.pause();
+        return;
+      }**/
+      if (playingIndex == playWord.length) {
+        playWholeAudio();
+        return;
+      }
+
+      audioDone = false;
+
+      audioElem.onended = function () {
+        audioDone = true;
+        nextAnimation();
+      };
+      self.mediasUrl = { audios: wordAudios[playWord[playingIndex]] };
+      if (outsideScope) {
+        $scope.$digest();
+      }
+
+      audioElem.load();
+      audioElem.play();
+    }
+
+    function playWholeAudio() {
+      audioDone = false;
+
+      audioElem.onended = function () {
+        audioDone = true;
+        setClosePlayer();
+      };
+      self.mediasUrl = self.mediasUrl;//wordAudios[playWord[playingIndex]];
+      $scope.$digest();
+
+      audioElem.load();
+      audioElem.play();
+    }
+
+    function setWordAudios(word) {
+      wordAudios = [];
+
+      playWord = setTextArray(word);
+
+      $.each(playWord, function (index, val) {
+
+        //if val is vowels
+        var name = vowels[val.substr(1, 1) - 1];
+        //if val is not vowels
+        var f = val.substr(0, 1);
+        if ($.inArray(f, vowels) == -1) {
+          name = f + name;
+        }
+
+        var url = config.mediaUrl.alphaList;
+        var audios = {
+          mpeg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[1],
+          ogg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[0]
+        };
+        wordAudios[val] = audios;
+      });
+
+      function setTextArray(word) {
+        var textArray = [];
+        var len = word.length / 3;
+        if (len == 0) { return; }
+        for (var i = 0; i < len; i++) {
+          var j = i * 3;
+          textArray[i] = word.substring(j, j + 3);
+        } console.log(word);
+        return textArray;
+      };
     };
 
-    var playWordAnimation = function (event, word) {
+    function playWordAnimation(event, word) {
       $element.css('visibility', 'hidden');
       self.showWordPlayer = true;
       self.word = word.word;
@@ -87,10 +184,9 @@
         $scope.$broadcast(config.events.wordGetWordSpans);
         $interval.cancel(dd);
       }, 30);
+    }
 
-    };
-
-    var setWordAnimationElement = function (event, words) {
+    function setWordAnimationElement(event, words) {
       gender = util.getRandomGender();
       playWord = words[0];
       playWordSpans = words[1];
@@ -100,13 +196,6 @@
       if (vowels.length == 0) {
         vowels = words[3];
       }
-
-      setWordAudios();
-      $.each(wordAudios, function (key, val) {
-        $.each(val, function (key1, val1) {
-          preloadAudios(val1);
-        });
-      });
 
       setWordSeperate();
       wordAnimation();
@@ -120,7 +209,7 @@
       audio.src = url;
     }
 
-    var setWordSeperate = function () {
+    function setWordSeperate() {
       var parentWidth = wordParentSpan.css('width');
       parentWidth = util.getNumOfDim(parentWidth);
 
@@ -140,7 +229,7 @@
           var preSpan = playWordSpans[index - 1];
 
           var top = $(preSpan).css('left');
-          top = util.getNumOfDim(top);// + playWordSpans[index - 1].offsetHeight;
+          top = util.getNumOfDim(top);
 
           var height = $(preSpan).css('width');
           height = util.getNumOfDim(height);
@@ -151,7 +240,7 @@
       });
     };
 
-    var wordAnimation = function (outsideScope) {
+    function wordAnimation() {
       if (!self.showWordPlayer) {
         return;
       }
@@ -161,8 +250,7 @@
       }
       $element.css('visibility', 'visible');
 
-      var animationDone = false;
-      var audioDone = false;
+      animationDone = false;
 
       var span = $(playWordSpans[playingIndex]);
       span.css({ 'visibility': 'visible', 'opacity': 0 });
@@ -171,83 +259,40 @@
         nextAnimation();
       });
 
-      audioElem.onended = function () {
-        audioDone = true;
-        nextAnimation();
-      };
-      self.mediasUrl.audios = wordAudios[playWord[playingIndex]];
-      if (outsideScope) {
-        $scope.$digest();
-      }
-      audioElem.load();
-      audioElem.play();
-
-      var nextAnimation = function () {
-        if (animationDone && audioDone) {
-          ++playingIndex;
-          wordAnimation(true);
-        }
-      };
     };
 
-    var shrinkWord = function () {
-      var animationDone = [];
-      var audioDone = false;
-      var animationDuration = 1000;
+    function nextAnimation() {
+      if (animationDone && audioDone) {
+        ++playingIndex;
+        wordAnimation();
+        playWordAudio(true);
+      }
+    };
+
+    function shrinkWord() {
+      animationDone = [];
 
       for (var i = 1; i < playWord.length; i++) {
         var span = $(playWordSpans[i]);
         span.stop(true, true).animate({ "left": "-=" + (seperateHeight * i) }, animationDuration, function () {
           animationDone.push(true);
-          closePlayer();
+          setClosePlayer();
         });
       }
-
-      audioElem.onended = function () {
-        audioDone = true;
-        closePlayer();
-      };
-      $scope.$apply(self.mediasUrl.audios = self.mediasUrl.audios);//wordAudios[playWord[playingIndex]];
-
-      audioElem.load();
-      var audio = $interval(function () {
-        $interval.cancel(audio);
-        audioElem.play();
-      }, animationDuration);
-
-      var closePlayer = function () {
-        if ((animationDone.length == (playWord.length - 1)) && audioDone) {
-          self.closePlayer();
-        }
-      };
     };
 
-    var setWordAudios = function () {
-      wordAudios = {};
-      $.each(playWord, function (index, val) {
-
-        //if val is vowels
-        var name = vowels[val.substr(1, 1) - 1];
-        //if val is not vowels
-        var f = val.substr(0, 1);
-        if ($.inArray(f, vowels) == -1) {
-          name = f + name;
-        }
-
-        var url = config.mediaUrl.alphaList;
-        var audios = {
-          mpeg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[1],
-          ogg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[0]
-        };
-        wordAudios[val] = audios;
-      });
+    function setClosePlayer() {
+      if ((animationDone.length == (playWord.length - 1)) && audioDone) {
+        self.closePlayer();
+      }
     };
 
     // add listener and hold on to deregister function
     var deregister = [];
+    deregister.push($scope.$on(config.events.playWordAnimation, playWordAudios));
     deregister.push($scope.$on(config.events.playWordAnimation, playWordAnimation));
     deregister.push($scope.$on(config.events.setWordAnimationElement, setWordAnimationElement));
-    
+
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);
