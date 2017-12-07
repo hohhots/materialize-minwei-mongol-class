@@ -10,8 +10,9 @@
       </div>
 
       <div class="w3-margin-top">{{$ctrl.mediasUrl.name}}</div>
+      <i class="fa fa-refresh fa-spin simplePlayerLoading" aria-hidden="true" ng-hide="$ctrl.hideLoading"></i>
       <p>&nbsp;</p>
-      <video id="simpleVideoPlayer" width="100%" height="100%" name="{{$ctrl.mediasUrl.name}}">
+      <video id="simpleVideoPlayer" ng-show="$ctrl.hideLoading" width="100%" height="100%" name="{{$ctrl.mediasUrl.name}}">
         <source src="{{$ctrl.mediasUrl.videos.ogv}}" type="video/ogg">
         <source src="{{$ctrl.mediasUrl.videos.webm}}" type="video/webm"> {{::$ctrl.pageLang.notSupportHtml5Video}}
       </video>

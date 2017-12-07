@@ -29,6 +29,7 @@
     self.mediasUrl = {};
     self.pageLang = {};
     self.showPlayer = false;
+    self.hideLoading = false;
 
     // ser value for self variables
     self.pageLang.close = config.subject.close;
@@ -39,6 +40,7 @@
       videoElem.pause();
       audioElem.pause();
       self.showPlayer = false;
+      self.hideLoading = false;
     };
 
     self.$postLink = function () {
@@ -58,27 +60,47 @@
     var audioElem = null;
 
     var playAlphaVideo = function (event, mediasUrl) {
+      videoElem.oncanplaythrough = function () {
+        if (!self.showPlayer) {
+          return;
+        }
+        hideLoading();
+        videoElem.play();
+        audioElem.play();
+      };
+
       self.showPlayer = true;
       self.mediasUrl = mediasUrl;
 
       videoElem.load();
-      videoElem.play();
-
       audioElem.load();
-      audioElem.play();
     };
 
     var playIntroductionVideo = function (event, mediasUrl) {
+      videoElem.oncanplaythrough = function () {
+        if (!self.showPlayer) {
+          return;
+        }
+        hideLoading();
+        videoElem.play();
+      };
+
       self.showPlayer = true;
       self.mediasUrl = mediasUrl;
 
       videoElem.load();
-      videoElem.play();
+    };
+
+    function hideLoading() {
+      $scope.$apply(function () {
+        self.hideLoading = true;
+      });
     };
 
     var videoEnded = function () {
-      self.showPlayer = false;
+      self.closePlayer();
       $scope.$digest();
+      videoElem.oncanplaythrough = function () { };
     };
 
     // add listener and hold on to deregister function
