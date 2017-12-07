@@ -254,7 +254,7 @@
 
       var span = $(playWordSpans[playingIndex]);
       span.css({ 'visibility': 'visible', 'opacity': 0 });
-      span.stop(true, true).animate({ "opacity": "+=1" }, 2000, function () {
+      span.stop(true, true).animate({ "opacity": "+=1" }, animationDuration, function () {
         animationDone = true;
         nextAnimation();
       });
