@@ -77,7 +77,7 @@
     var animationDone = false;
     var audioDone = false;
 
-    var animationDuration = 1000;
+    var animationDuration = 500;
 
     function playerEnded() {
       self.closePlayer();
