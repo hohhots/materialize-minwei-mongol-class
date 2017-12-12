@@ -1,0 +1,54 @@
+<header class="w3-container w3-center w3-win8-taupe alphabetorigin-header">
+  <div class="app-container">
+    {{::$ctrl.langs.name}}
+  </div>
+</header>
+
+<div class="w3-container w3-margin w3-center app-container">
+  <div class="w3-row w3-grayscale-min">
+    <div class="w3-margin w3-padding w3-light-grey originpractice-content">
+
+      <div class="originpractice-close-container">
+        <div class="originpractice-exit" ng-click="$ctrl.exitPractice()">
+          <i class="fa fa-times-circle fa-lg originpractice-close-icon" title="{{::$ctrl.langs.exit}}" aria-hidden="true"></i>
+          <span class="originpractice-close-back"></span>
+        </div>
+      </div>
+
+      <div class="originpractice-text">
+        <p>（共15个练习，每次随机显示其中之一。）</p>
+        <br />
+        <p>单击下面蒙古文单词学习，单击字母右面的空白方块输入正确的单词。</p>
+      </div>
+
+      <div class="originpractice-play">
+        <div class="originpractice-alphas">
+          <div class="w3-container w3-padding">
+            <i class="originpractice-playIcon fa" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true" ng-click="$ctrl.playAudios()"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="originpractice-alphas">
+        <div ng-repeat="alpha in $ctrl.answerAlphas" class="originpractice-alpha w3-col s3 m3 l3" ng-click="$ctrl.selectAlphaClick()">
+          <div class="w3-margin originpractice-view" ng-class="$ctrl.getAlphaCheckedClass(alpha)">
+            <div class="originpractice-num">{{::($index + 1)}}</div>
+            <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="originpractice-done">
+        <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.nextTestClick()" ng-show="$ctrl.allCorrect">
+          {{::$ctrl.langs.nextTest}}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<audio style="display: none">
+  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg">
+  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg"> {{::$ctrl.langs.notSupportHtml5Audio}}
+</audio>

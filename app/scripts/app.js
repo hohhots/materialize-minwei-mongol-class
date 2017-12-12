@@ -94,6 +94,12 @@
           resolve: resolve('wordbegin')
         },
         {
+          name: 'root.wordbeginpractice',
+          url: '/wordbeginpractice',
+          component: 'wordbeginPractice',
+          resolve: resolve('wordbegin')
+        },
+        {
           name: 'root.ebookbegin',
           url: '/ebookbegin',
           component: 'appEbookbegin',
@@ -102,7 +108,7 @@
       ]
 
 
-      // Must redirection before set before state
+      // Must redirection before set and state
       $urlRouterProvider.when('/root', '/root/home');
 
       // Loop over the state definitions and register them

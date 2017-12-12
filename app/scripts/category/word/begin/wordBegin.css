@@ -1,3 +1,7 @@
+.word-header {
+  background-color: #87794e !important;
+}
+
 .wordbegin-view {
   overflow: auto;
   margin-left: auto;

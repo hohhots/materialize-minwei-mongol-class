@@ -22,10 +22,6 @@
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
 
-    //self.practiceUrl = function() {
-    //  return util.convertUrl(config.pagesUrl.originPractice);
-    //};
-
     // ser value for self variables
     self.alphaClick = function (id, name) {
       var dirName = name.substr(0,1);

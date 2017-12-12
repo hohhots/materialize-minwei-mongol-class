@@ -51,6 +51,10 @@
       $scope.$broadcast(config.events.playWordAnimation, word);
     };
 
+    self.practiceClick = function () {
+      util.changePath(config.pagesUrl.wordbeginPractice);
+    };
+
     var viewWidth = 72;
     var widthUnit = 'px';
     var wordBeginViewClass = '.wordbegin-view';

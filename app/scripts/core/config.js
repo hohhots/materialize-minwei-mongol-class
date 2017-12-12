@@ -50,7 +50,10 @@
       listPractice: 'listpractice',
 
       alphaVariant: 'alphabetvariant',
-      variantPractice: 'variantpractice'
+      variantPractice: 'variantpractice',
+
+      wordBegin: 'wordbegin',
+      wordbeginPractice: 'wordbeginpractice'
     },
 
     alphaListNamesMap: {
@@ -158,6 +161,7 @@
       variantRandom: 'scripts/category/alphabet/variant/variantRandom/variantRandom.template.html',
 
       wordBegin: 'scripts/category/word/begin/wordBegin.template.html',
+      wordbeginpractice: 'scripts/category/word/begin/practice/wordbeginpractice.template.html',
       ebookBegin: 'scripts/category/ebook/begin/ebookBegin.template.html',
 
       subject: 'scripts/subject/subject.template.html',
