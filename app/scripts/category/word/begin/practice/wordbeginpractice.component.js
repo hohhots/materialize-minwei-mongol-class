@@ -29,12 +29,14 @@
 
     //define self variables
     self.templateUrl = config.templateUrl.wordbeginpractice;
-    self.langs = {};
+    self.pageLangs = {};
+    self.allCorrect = false;
     
     self.$onInit = function () {
-      self.langs.exit = config.alphaLangs.exit;
-      self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
-      self.langs.nextTest = config.alphaLangs.nextTest;
+      self.pageLangs.name = self.jsonData[0].name + config.alphaLangs.practice;
+      self.pageLangs.exit = config.alphaLangs.exit;
+      self.pageLangs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
+      self.pageLangs.nextTest = config.alphaLangs.nextTest;
     };
 
     self.exitPractice = function () {
