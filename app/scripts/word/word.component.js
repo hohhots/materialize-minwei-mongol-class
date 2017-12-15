@@ -57,8 +57,8 @@
           parentElem = $element.parent();
         }
 
-        var ow = parentElem[0].offsetWidth;
-        var oh = parentElem[0].offsetHeight;
+        var ow = parentElem[0].clientWidth;
+        var oh = parentElem[0].clientHeight;
 
         self.containerStyle.position = "absolute";
         self.containerStyle.width = oh + 'px';

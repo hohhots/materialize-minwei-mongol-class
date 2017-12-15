@@ -47,8 +47,8 @@
       });*/
     };
 
-    self.alphaClick = function (word) {
-      $scope.$broadcast(config.events.playWordAnimation, word);
+    self.wordClick = function (word) {
+      $scope.$broadcast(config.events.playWordAnimation, word.word);
     };
 
     self.practiceClick = function () {

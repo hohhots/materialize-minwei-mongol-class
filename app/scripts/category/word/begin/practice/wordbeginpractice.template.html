@@ -22,16 +22,18 @@
       </div>
 
       <div class="w3-container w3-padding w3-center originpractice-alphas">
-        <div class="w3-col s6 m6 l6">
-          <div class="w3-margin-top w3-margin-bottom wordbeginpractice-word-container">
-            <mon-word data-origintext="{{$ctrl.word}}"></mon-word>
+        <div class="w3-col s3">&nbsp;</div>
+        <div class="w3-col s3">
+          <div ng-click="$ctrl.wordClick()" class="w3-margin-top w3-margin-bottom wordbeginpractice-word-container">
+            <mon-word data-origintext="{{::$ctrl.originword}}"></mon-word>
           </div>
         </div>
-        <div class="w3-col s6 m6 l6">
-          <div class="w3-margin-top w3-margin-bottom wordbeginpractice-word-container">
-            <mon-word data-origintext="{{$ctrl.word}}"></mon-word>
+        <div class="w3-col s3">
+          <div ng-click="$ctrl.answerClick()" class="w3-margin-top w3-margin-bottom wordbeginpractice-word-answer-container">
+            <mon-word data-origintext="{{$ctrl.answerword}}"></mon-word>
           </div>
         </div>
+        <div class="w3-col s3">&nbsp;</div>
       </div>
 
       <div class="originpractice-done" ng-show="$ctrl.allCorrect">
@@ -44,7 +46,4 @@
   </div>
 </div>
 
-<audio style="display: none">
-  <source src="{{$ctrl.mediasUrl.audios.ogg}}" type="audio/ogg">
-  <source src="{{$ctrl.mediasUrl.audios.mpeg}}" type="audio/mpeg"> {{::$ctrl.pageLangs.notSupportHtml5Audio}}
-</audio>
+<app-wordplayer></app-wordplayer>

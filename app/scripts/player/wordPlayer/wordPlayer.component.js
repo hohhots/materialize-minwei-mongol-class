@@ -97,7 +97,7 @@
     }
 
     function playWordAudios(event, word) {
-      setAudioElem(word.word);
+      setAudioElem(word);
       playWordAudio();
     }
 
@@ -178,7 +178,7 @@
     function playWordAnimation(event, word) {
       $element.css('visibility', 'hidden');
       self.showWordPlayer = true;
-      self.word = word.word;
+      self.word = word;
       //broadcast after word rendring completed, so time must set largger than word rendring.
       var dd = $interval(function () {
         $scope.$broadcast(config.events.wordGetWordSpans);

@@ -31,17 +31,37 @@
     self.templateUrl = config.templateUrl.wordbeginpractice;
     self.pageLangs = {};
     self.allCorrect = false;
+    self.originword = '';
+    self.answerword = '';
     
     self.$onInit = function () {
       self.pageLangs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.pageLangs.exit = config.alphaLangs.exit;
       self.pageLangs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.pageLangs.nextTest = config.alphaLangs.nextTest;
+      setOriginWord();
     };
 
     self.exitPractice = function () {
       util.changePath(config.pagesUrl.wordBegin);
     };
+
+    self.wordClick = function () {
+      $scope.$broadcast(config.events.playWordAnimation, self.originword);
+    };
+
+    var practiceWords = [];
+
+    function setOriginWord () {
+      practiceWords = self.subData[0].words;
+
+      var position = Math.floor(Math.random() * (practiceWords.length));
+      var word = practiceWords[position].word;
+      console.log(word);
+
+      self.originword = word;
+
+    }
 
     // add listener and hold on to deregister function
     var deregister = [];
