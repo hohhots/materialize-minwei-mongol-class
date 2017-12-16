@@ -1,0 +1,14 @@
+.wordinput-container {
+  text-align: center;
+  transform-origin: left top;
+  transform: rotate(-90deg) rotateY(180deg);
+  background-color: #fff;
+}
+
+.wordinput-container-cell {
+  border: 0;
+  padding: 0 !important;
+  background-color: rgb(97, 114, 37);
+  cursor: vertical-text;
+  color: rgb(255,255,255);
+}

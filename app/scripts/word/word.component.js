@@ -51,7 +51,7 @@
       }
     };
 
-    var setDimension = function () {
+    function setDimension () {
       var dd = $interval(function () {
         if (!parentElem) {
           parentElem = $element.parent();
@@ -71,7 +71,7 @@
     };
 
     //must called after rendering, so use $interval for call this function.
-    var getWordSpan = function () {
+    function getWordSpan () {
       var dd = $interval(function () {
         textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();
         $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, parentElem, wordConfig.getVowels()]);

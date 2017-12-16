@@ -39,7 +39,9 @@
       self.pageLangs.exit = config.alphaLangs.exit;
       self.pageLangs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.pageLangs.nextTest = config.alphaLangs.nextTest;
-      setOriginWord();
+      
+      practiceWords = self.subData[0].words;      
+      setOriginWordRandom();
     };
 
     self.exitPractice = function () {
@@ -50,23 +52,20 @@
       $scope.$broadcast(config.events.playWordAnimation, self.originword);
     };
 
+    self.answerClick = function () {
+      $scope.$broadcast(config.events.startWordIme, self.originword);
+    };
+
     var practiceWords = [];
 
-    function setOriginWord () {
-      practiceWords = self.subData[0].words;
-
+    function setOriginWordRandom () {
       var position = Math.floor(Math.random() * (practiceWords.length));
-      var word = practiceWords[position].word;
-      console.log(word);
-
-      self.originword = word;
-
+      self.originword = practiceWords[position].word;
     }
 
     // add listener and hold on to deregister function
     var deregister = [];
     //deregister.push($scope.$on(config.events.stopPlayers, stopPlayers));
-    //deregister.push($scope.$on(config.events.selectRandomAlphas, selectRandomAlphas));
 
     //deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed

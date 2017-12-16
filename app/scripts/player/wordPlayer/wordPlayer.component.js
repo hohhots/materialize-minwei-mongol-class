@@ -170,7 +170,7 @@
         for (var i = 0; i < len; i++) {
           var j = i * 3;
           textArray[i] = word.substring(j, j + 3);
-        } console.log(word);
+        }
         return textArray;
       };
     };

@@ -13,7 +13,8 @@
     'app.footer',
     'app.player',
     'app.filter',
-    'app.word'
+    'app.word',
+    'app.ime'
   ]);
 
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',

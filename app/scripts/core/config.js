@@ -167,8 +167,11 @@
       subject: 'scripts/subject/subject.template.html',
       footer: 'scripts/footer/footer.template.html',
       simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
+
       word: "scripts/word/word.template.html",
+      mwordInput: "scripts/word/input/mwordInput.template.html",
       wordPlayer: "scripts/player/wordPlayer/wordPlayer.template.html",
+      wordIme: "scripts/ime/word/wordIme.template.html"
     },
 
     dataPath: {
@@ -226,7 +229,8 @@
 
       wordGetWordSpans: 'wordGetWordSpansEvent',
       setWordAnimationElement: 'setWordAnimationElementEvent',
-      playWordAnimation: 'playWordAnimationEvents'
+      playWordAnimation: 'playWordAnimationEvents',
+      startWordIme: 'startWordImeEvents'
     }
   };
 
