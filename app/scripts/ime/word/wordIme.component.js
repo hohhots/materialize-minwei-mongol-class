@@ -37,10 +37,16 @@
       self.word = word;
       $scope.$broadcast(config.events.setDimension);
       console.log(String.fromCharCode(0xe9e5));
-    };
+    }
+
+    function mwordInputFocused () {
+      console.log('focused');
+    }
+
     //add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.startWordIme, startWordIme));
+    deregister.push($scope.$on(config.events.mwordInputFocused, mwordInputFocused));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {

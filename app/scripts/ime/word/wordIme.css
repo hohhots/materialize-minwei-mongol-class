@@ -1,1 +1,10 @@
-
+.wordime-word-container {
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: content-box;
+  border: 1px solid #999;
+  width: 36px;
+  height: 120px;
+  padding: 2px;
+  font-size: 34px;
+}
