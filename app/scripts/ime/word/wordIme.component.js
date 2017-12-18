@@ -38,6 +38,7 @@
     function startWordIme(event, word) {
       self.showWordIme = true;
       self.word = word;
+<<<<<<< fab6997bca17c4574d94ad6d1a0aa7276afb9e2c
 
       var dd = $interval(function () {
         if (!wordImeBoard || !wordContainer) {
@@ -50,6 +51,23 @@
       }, 20);
 
       $scope.$broadcast(config.events.setDimension);
+||||||| merged common ancestors
+      $scope.$broadcast(config.events.setDimension);
+=======
+
+      var dd = $interval(function () {
+        if (!wordImeBoard || !wordContainer) {
+          wordImeBoard = $element.find('.wordime-board');
+          wordContainer = $element.find('.wordime-word-container');
+        } else {
+          resizeComponents();
+          setInnerEvent();
+          $interval.cancel(dd);
+        }
+      }, 20);
+
+      //$scope.$broadcast(config.events.setDimension);
+>>>>>>> Change word ime layout.
       console.log(String.fromCharCode(0xe9e5));
     }
 
