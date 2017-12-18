@@ -33,7 +33,7 @@
 
     var parentElem;
     var input;
-    var preventDefaultKeyCodes = [37,38,39,40];
+    var preventDefaultKeyCodes = [37, 38, 39, 40];
     var eventSetted = false;
 
     function setDimension(event) {
@@ -66,14 +66,13 @@
     };
 
     function setInnerEvent() {
-      if (eventSetted) {
-        return;
+      if (!eventSetted) {
+        eventSetted = true;
+        input.focus(inputFocued);
+        input.keydown(inputKeydown);
+        input.keypress(inputKeypress);
+        input.keyup(inputKeyup);
       }
-      eventSetted = true;
-      input.focus(inputFocued);
-      input.keydown(inputKeydown);
-      input.keypress(inputKeypress);
-      input.keyup(inputKeyup);
     }
 
     function inputFocued(event) {
@@ -86,7 +85,7 @@
       var code = (event.keyCode ? event.keyCode : event.which); //to support both methods;
 
       if (preventDefaultKeyCodes.includes(code)) {
-        event.preventDefault();      
+        event.preventDefault();
       }
 
       if (code == 38) {

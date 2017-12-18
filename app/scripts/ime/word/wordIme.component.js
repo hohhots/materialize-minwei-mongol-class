@@ -44,12 +44,13 @@
           wordImeBoard = $element.find('.wordime-board');
           wordContainer = $element.find('.wordime-word-container');
         } else {
+          resizeComponents();
           setInnerEvent();
           $interval.cancel(dd);
         }
       }, 20);
 
-      $scope.$broadcast(config.events.setDimension);
+      //$scope.$broadcast(config.events.setDimension);
       console.log(String.fromCharCode(0xe9e5));
     }
 
