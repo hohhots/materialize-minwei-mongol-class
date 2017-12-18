@@ -31,16 +31,42 @@
     self.word = '';
 
     // ser value for self variables
-   
+    var wordImeBoard;
+    var wordContainer;
+    var wordImeBoardInitHeight = 120;
+
     function startWordIme(event, word) {
       self.showWordIme = true;
       self.word = word;
+
+      var dd = $interval(function () {
+        if (!wordImeBoard || !wordContainer) {
+          wordImeBoard = $element.find('.wordime-board');
+          wordContainer = $element.find('.wordime-word-container');
+        } else {
+          setInnerEvent();
+          $interval.cancel(dd);
+        }
+      }, 20);
+
       $scope.$broadcast(config.events.setDimension);
       console.log(String.fromCharCode(0xe9e5));
     }
 
-    function mwordInputFocused () {
+    function mwordInputFocused() {
       console.log('focused');
+    }
+
+    function setInnerEvent() {
+      $(window).resize(resizeComponents);
+    }
+
+    function resizeComponents(event) {
+      wordContainer.height(0);
+      wordContainer.outerHeight(wordImeBoard.height());
+
+      $scope.$broadcast(config.events.setDimension);
+      console.log(wordImeBoard.height());
     }
 
     //add listener and hold on to deregister function

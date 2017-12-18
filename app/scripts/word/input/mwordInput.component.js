@@ -34,20 +34,18 @@
     var parentElem;
     var input;
     var preventDefaultKeyCodes = [37,38,39,40];
+    var eventSetted = false;
 
-    function setDimension() {
+    function setDimension(event) {
       self.showElement = true;
 
       var dd = $interval(function () {
         if (!parentElem || !input) {
           parentElem = $element.parent();
           input = $element.find('input');
-        } else {
-          console.log('find');
           return;
         }
         input.val("");
-        console.log(input[0].selectionStart);
         var ow = parentElem.css('Width');
         var oh = parentElem.css('height');
 
@@ -68,6 +66,10 @@
     };
 
     function setInnerEvent() {
+      if (eventSetted) {
+        return;
+      }
+      eventSetted = true;
       input.focus(inputFocued);
       input.keydown(inputKeydown);
       input.keypress(inputKeypress);
@@ -82,7 +84,6 @@
     function inputKeydown(event) {
 
       var code = (event.keyCode ? event.keyCode : event.which); //to support both methods;
-
 
       if (preventDefaultKeyCodes.includes(code)) {
         event.preventDefault();      
@@ -100,15 +101,13 @@
     }
 
     function inputKeypress(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log('press');
+      preventDefault(event);
+      //console.log('press');
     }
 
     function inputKeyup(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log('up');
+      preventDefault(event);
+      //console.log('up');
     }
 
     function nextAlpha() {
@@ -126,7 +125,7 @@
       var currentCaretPosition = input[0].selectionStart;
 
       var previousPosition = currentCaretPosition - 1;
-      console.log(input.selectionStart);
+
       if (previousPosition < 0) {
         input.selectRange(0);
       } else {
@@ -158,6 +157,11 @@
         }
       });
     };
+
+    function preventDefault(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     // add listener and hold on to deregister function
     var deregister = [];
