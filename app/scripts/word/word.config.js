@@ -10,7 +10,7 @@
   var setMonWord = function (str) {
     $.each(config.wordToReplaceMap, function (key, value) {
       var replace = key;
-      var re = new RegExp(replace,"g");
+      var re = new RegExp(replace, "g");
       str = str.replace(re, '<span class="hawang-' + value + '"></span>');
     });
 
@@ -66,7 +66,6 @@
   }
 
   var convertAlphas = function (tag) {
-
     var position = tag.substring(tag.length - 1);
     var name = tag.substring(0, tag.length - 1);
     var converted = '';
@@ -91,31 +90,39 @@
       converted = tag;
     }
 
+    if (converted.substring(converted.length - 1) == '0') {
+      converted = converted.substring(0, converted.length - 1);
+    }
+
     return converted;
   };
 
-  var fontPosition = [1, 2, 3];
+  var fontPosition = [0, 1, 2, 3];
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
-  var letters = ['a', 'n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
+  var letters = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
   var getVowels = function () {
     return vowels;
   };
 
-  var createAlphaPosition = function (alpha) {
-    $.each(vowels, function (index1, value1) {
-      if ((alpha == letters[16]) && (index1 > 1)) {
-        return;
-      }
-      $.each(fontPosition, function (index2, value2) {
-        var va = alpha;
-        if (alpha == value1) {
-          value1 = '';
+  function createVowelPosition() {
+    $.each(vowels, function (index, vowel) {
+      $.each(fontPosition, function (index1, position) {
+        config.wordToReplaceMap['a' + (index + 1) + position] = convertAlphas(vowel + position);
+      });
+    });
+  }
+
+  function createLetterPosition() {
+    $.each(vowels, function (index, vowel) {
+      $.each(letters, function (index1, letter) {
+        // Letter 'w' has two alphas.
+        if ((letter == 'w') && (vowel != 'a' || vowel != 'e')) {
+          return;
         }
-        if ((index1 != 0) && (alpha == letters[0])) {
-          va = '';
-        }
-        config.wordToReplaceMap[alpha + (index1 + 1) + value2] = convertAlphas(va + value1 + value2);
+        $.each(fontPosition, function (index2, position) {
+          config.wordToReplaceMap[letter + (index + 1) + position] = convertAlphas(letter + vowel + position);
+        });
       });
     });
   };
@@ -143,15 +150,8 @@
     setMonWord: setMonWord
   };
 
-
-  $.each(letters, function (index, value) {
-    var conv = value;
-    if (value != vowels[0]) {
-      conv = conv + vowels[0];
-    }
-    config.wordToReplaceMap[value + '00'] = conv;
-    createAlphaPosition(value);
-  });
+  createVowelPosition();
+  createLetterPosition();
 
   createFourthAlphas();
 
