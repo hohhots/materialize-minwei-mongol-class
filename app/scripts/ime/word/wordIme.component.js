@@ -36,6 +36,10 @@
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
 
+    var wordImeKeyAlphas = ['n00', 'b00', 'p00', 'h00', 'g00', 'm00', 'l00', 's00', 'x00',
+      't00', 'd00', 'q00', 'j00', 'y00', 'r00', 'w00',
+      'a00', 'e00', 'a00', 'a00', 'a00', 'a00', 'a00'];
+
     function startWordIme(event, word) {
       self.showWordIme = true;
       self.word = word;
@@ -72,7 +76,7 @@
       wordimeButtonContainer.outerHeight(wordImeBoard.height());
 
       $scope.$broadcast(config.events.setDimension);
-      console.log(wordImeBoard.height());
+      //console.log(wordImeBoard.height());
     }
 
     //add listener and hold on to deregister function

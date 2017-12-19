@@ -31,44 +31,46 @@
     self.containerStyle = {};
     self.inputStyle = {};
 
-    var parentElem;
-    var input;
-    var preventDefaultKeyCodes = [37, 38, 39, 40];
-    var eventSetted = false;
-
-    function setDimension(event) {
-      self.showElement = true;
-
+    self.$postLink = function () {
       var dd = $interval(function () {
-        if (!parentElem || !input) {
+        if (!parentElem.length || !input.length) {
           parentElem = $element.parent();
           input = $element.find('input');
           return;
         }
-        input.val("");
-        var ow = parentElem.css('Width');
-        var oh = parentElem.css('height');
 
-        //self.containerStyle.position = "absolute";
-        self.containerStyle.boxSizing = 'content-box';
-        self.containerStyle.width = parentElem.css('height');
-        self.containerStyle.height = parentElem.css('Width');
-
-        self.inputStyle.position = "absolute";
-        self.inputStyle.top = 0;
-        self.inputStyle.left = 0;
-
-        setInnerEvent();
+        input.val(originWord);
 
         $interval.cancel(dd);
+      }, 10);
+    };
 
-      }, 20);
+    var parentElem = [];
+    var input = [];
+    var preventDefaultKeyCodes = [37, 38, 39, 40];
+    var eventSetted = false;
+    var originWord = '';
+
+    function setDimension(event) {
+      self.showElement = true;
+
+      //self.containerStyle.position = "absolute";
+      self.containerStyle.boxSizing = 'content-box';
+      self.containerStyle.width = parentElem.css('height');
+      self.containerStyle.height = parentElem.css('Width');
+
+      self.inputStyle.position = "absolute";
+      self.inputStyle.top = 0;
+      self.inputStyle.left = 0;
+
+      setInnerEvent();
     };
 
     function setInnerEvent() {
       if (!eventSetted) {
         eventSetted = true;
         input.focus(inputFocued);
+        input.blur(inputBlured);
         input.keydown(inputKeydown);
         input.keypress(inputKeypress);
         input.keyup(inputKeyup);
@@ -76,8 +78,16 @@
     }
 
     function inputFocued(event) {
-      event.stopPropagation();
+      console.log('focus');
+      preventDefault(event);
+      input.val(originWord);
       $scope.$emit(config.events.mwordInputFocused);
+    }
+
+    function inputBlured(event) {
+      console.log('blur');
+      preventDefault(event);
+      originWord = input.val();
     }
 
     function inputKeydown(event) {
@@ -165,7 +175,6 @@
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.setDimension, setDimension));
-    //deregister.push($scope.$on(config.events.setDimension, getWordSpan));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {

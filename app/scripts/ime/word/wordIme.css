@@ -1,6 +1,8 @@
 .wordime-board {
+  padding: 8px;
   background-color: rgba(0, 0, 0, 0.7);
   color: rgba(255, 255, 255, 1);
+  text-align: center;
 }
 
 .wordime-word-container {
@@ -25,4 +27,22 @@
   margin-left: 16px;
   width: 36px;
   border: 1px solid #999;
+  display: table;
+  font-size: 1.1em;
+}
+
+.wordime-button {
+  border: 1px solid #ffaf0f;
+  border-radius: 5px;
+  background: #f58400 url(img/button.png) 50% 50% repeat-x;
+}
+
+.wordime-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.wordime-button-text {
+  line-height: 1.5em;
+  font-weight: bold;
 }
