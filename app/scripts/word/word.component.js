@@ -57,12 +57,9 @@
           parentElem = $element.parent();
         }
 
-        var ow = parentElem[0].clientWidth;
-        var oh = parentElem[0].clientHeight;
-
         self.containerStyle.position = "absolute";
-        self.containerStyle.width = oh + 'px';
-        self.containerStyle.height = ow + 'px';
+        self.containerStyle.width = parentElem[0].clientHeight + 'px';
+        self.containerStyle.height = parentElem[0].clientWidth + 'px';
 
         $interval.cancel(dd);
 
@@ -82,6 +79,7 @@
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.wordGetWordSpans, getWordSpan));
+    deregister.push($scope.$on(config.events.setDimension, setDimension));
     //deregister.push($scope.$on(config.events.playIntroductionVideo, playIntroductionVideo));
 
     // clean up listener when directive's scope is destroyed

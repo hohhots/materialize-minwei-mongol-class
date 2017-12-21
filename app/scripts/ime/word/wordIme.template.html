@@ -13,7 +13,6 @@
           </div>
           <br>
           <br>
-          <br>
           <div class="wordime-button" ng-click="$ctrl.cancel()">
             <span class="wordime-button-text">取消</span>
           </div>
@@ -22,13 +21,12 @@
 
       <div class="wordime-keyboard-container">
 
-        <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="w3-padding alpha5-col s4 m3 l1">
-          <div ng-click="$ctrl.wordClick(word)" class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
-            <div ng-class="$ctrl.wordbeginWordClass">
-              <mon-word data-origintext="{{::word}}"></mon-word>
-            </div>
+        <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="w3-col s3">
+          <div ng-click="$ctrl.wordClick(word)" class="wordime-key">
+            <mon-word data-origintext="{{::word}}"></mon-word>
           </div>
         </div>
+
       </div>
 
     </div>

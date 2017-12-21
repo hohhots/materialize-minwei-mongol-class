@@ -46,6 +46,7 @@
     // ser value for self variables
     var wordImeBoard;
     var wordContainer;
+    var wordimeKeysContainer;
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
 
@@ -64,6 +65,7 @@
         if (!wordImeBoard || !wordContainer || !wordimeButtonContainer) {
           wordImeBoard = $element.find('.wordime-board');
           wordContainer = $element.find('.wordime-word-container');
+          wordimeKeysContainer = $element.find('.wordime-keyboard-container');
           wordimeButtonContainer = $element.find('.wordime-button-container');
         } else {
           resizeComponents();
@@ -90,6 +92,7 @@
       wordimeButtonContainer.height(0);
 
       wordContainer.outerHeight(wordImeBoard.height());
+      wordimeKeysContainer.outerHeight(wordImeBoard.height());
       wordimeButtonContainer.outerHeight(wordImeBoard.height());
 
       $scope.$broadcast(config.events.setDimension);
