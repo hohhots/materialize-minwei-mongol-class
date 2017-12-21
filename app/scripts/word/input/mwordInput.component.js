@@ -28,14 +28,14 @@
     //define self variables
     self.templateUrl = config.templateUrl.mwordInput;
     self.showElement = false;
-    self.containerStyle = {};
     self.inputStyle = {};
 
     self.$postLink = function () {
       var dd = $interval(function () {
-        if (!parentElem.length || !input.length) {
+        if (!parentElem.length || !container.length || !input.length) {
           parentElem = $element.parent();
           input = $element.find('input');
+          container = input.parent();
           return;
         }
 
@@ -46,6 +46,7 @@
     };
 
     var parentElem = [];
+    var container = [];
     var input = [];
     var preventDefaultKeyCodes = [37, 38, 39, 40];
     var eventSetted = false;
@@ -55,13 +56,13 @@
       self.showElement = true;
 
       //self.containerStyle.position = "absolute";
-      self.containerStyle.boxSizing = 'content-box';
-      self.containerStyle.width = parentElem.css('height');
-      self.containerStyle.height = parentElem.css('Width');
+      container.css('boxSizing', 'content-box');
+      container.width(parentElem.css('height'));
+      container.height(parentElem.css('Width'));
 
-      self.inputStyle.position = "absolute";
-      self.inputStyle.top = 0;
-      self.inputStyle.left = 0;
+      //self.inputStyle.position = "absolute";
+      //self.inputStyle.top = 0;
+      //self.inputStyle.left = 0;
 
       setInnerEvent();
     };

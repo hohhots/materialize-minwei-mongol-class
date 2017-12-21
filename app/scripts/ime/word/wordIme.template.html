@@ -8,25 +8,27 @@
 
       <div class="wordime-button-container">
         <span class="wordime-table-cell">
-          <div class="wordime-button">
+          <div class="wordime-button" ng-click="$ctrl.done()">
             <span class="wordime-button-text">确定</span>
           </div>
           <br>
           <br>
           <br>
-          <div class="wordime-button">
+          <div class="wordime-button" ng-click="$ctrl.cancel()">
             <span class="wordime-button-text">取消</span>
           </div>
         </span>
       </div>
 
       <div class="wordime-keyboard-container">
-        asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg
-        asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg
-        asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg
-        asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg
-        asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg
-        asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g asdf asdfg asdf gasd g
+
+        <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="w3-padding alpha5-col s4 m3 l1">
+          <div ng-click="$ctrl.wordClick(word)" class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
+            <div ng-class="$ctrl.wordbeginWordClass">
+              <mon-word data-origintext="{{::word}}"></mon-word>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

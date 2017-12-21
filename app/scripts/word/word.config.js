@@ -117,7 +117,7 @@
     $.each(vowels, function (index, vowel) {
       $.each(letters, function (index1, letter) {
         // Letter 'w' has two alphas.
-        if ((letter == 'w') && (vowel != 'a' || vowel != 'e')) {
+        if ((letter == 'w') && ($.inArray(vowel, ['a','e']) == -1)) {
           return;
         }
         $.each(fontPosition, function (index2, position) {

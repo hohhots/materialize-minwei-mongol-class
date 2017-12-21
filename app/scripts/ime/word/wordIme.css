@@ -35,6 +35,7 @@
   border: 1px solid #ffaf0f;
   border-radius: 5px;
   background: #f58400 url(img/button.png) 50% 50% repeat-x;
+  cursor: pointer;
 }
 
 .wordime-table-cell {
