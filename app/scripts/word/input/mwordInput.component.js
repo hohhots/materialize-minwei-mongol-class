@@ -81,19 +81,17 @@
     function inputFocued(event) {
       console.log('focus');
       preventDefault(event);
-      input.val(originWord);
-      $scope.$emit(config.events.mwordInputFocused);
     }
 
     function inputBlured(event) {
       console.log('blur');
       preventDefault(event);
-      originWord = input.val();
     }
 
     function inputKeydown(event) {
+      console.log('down');
 
-      var code = (event.keyCode ? event.keyCode : event.which); //to support both methods;
+      var code = util.getEventKeyCode(event); //to support both methods;
 
       if (preventDefaultKeyCodes.includes(code)) {
         event.preventDefault();
@@ -112,12 +110,12 @@
 
     function inputKeypress(event) {
       preventDefault(event);
-      //console.log('press');
+      console.log('press');
     }
 
     function inputKeyup(event) {
-      preventDefault(event);
-      //console.log('up');
+      //preventDefault(event);
+      console.log('up');
     }
 
     function nextAlpha() {
@@ -129,6 +127,8 @@
       } else {
         input.selectRange(nextPosition);
       }
+
+      triggerEvent();
     }
 
     function previousAlpha() {
@@ -141,6 +141,13 @@
       } else {
         input.selectRange(previousPosition);
       }
+
+      triggerEvent();
+    }
+
+    function triggerEvent() {
+      input.focus();
+      input.trigger({ type: 'keydown' });
     }
 
     $.fn.setCursorToTextEnd = function () {
@@ -171,6 +178,7 @@
     function preventDefault(event) {
       event.preventDefault();
       event.stopPropagation();
+      var code = util.getEventKeyCode(event);
     }
 
     // add listener and hold on to deregister function

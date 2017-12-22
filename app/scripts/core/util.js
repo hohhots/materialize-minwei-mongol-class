@@ -195,7 +195,12 @@
       //value form must like '88px'
       getNumOfDim: function (value) {
         return value.substr(0, value.lastIndexOf("p"));
-      }
+      },
+
+      // Get the key code that trigg event.
+      getEventKeyCode: function (event) {
+        return event.keyCode ? event.keyCode : event.which; 
+      }   
 
     };
 

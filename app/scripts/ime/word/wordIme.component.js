@@ -15,6 +15,7 @@
       '$scope',
       '$element',
       '$interval',
+      '$timeout',
       'Config',
       'wordConfig',
       'Util',
@@ -22,7 +23,7 @@
       controller]
   });
 
-  function controller($scope, $element, $interval, config, wordConfig, util, json) {
+  function controller($scope, $element, $interval, $timeout, config, wordConfig, util, json) {
     var self = this;
 
     //define self variables
@@ -33,7 +34,7 @@
     self.wordImeKeyAlphas = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
       'x10', 't10', 'd10', 'q10', 'j10', 'y10', 'r10', 'w10'];
 
-    self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a50', 'a60', 'a70'];
+    self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
     self.done = function () {
       closeIme();
@@ -71,16 +72,14 @@
           resizeComponents();
           setInnerEvent();
           $interval.cancel(dd);
-          // After all set to display element.
-          $element.css('visibility', 'visible');
+          // After all set delay 30 to display all element.
+          setTimeout(function(){         
+            $element.css('visibility', 'visible');
+          },20);
         }
       }, 20);
 
       console.log(String.fromCharCode(0xe9e5));
-    }
-
-    function mwordInputFocused() {
-      console.log('focused');
     }
 
     function setInnerEvent() {
@@ -102,7 +101,6 @@
     //add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.startWordIme, startWordIme));
-    deregister.push($scope.$on(config.events.mwordInputFocused, mwordInputFocused));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {

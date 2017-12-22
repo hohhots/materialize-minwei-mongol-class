@@ -46,6 +46,10 @@
   font-weight: bold;
 }
 
+.wordime-keys-wrapper {
+  padding: 3px 5px;
+}
+
 .wordime-key {
   margin-left: auto;
   margin-right: auto;

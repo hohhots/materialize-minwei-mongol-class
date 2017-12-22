@@ -21,10 +21,21 @@
 
       <div class="wordime-keyboard-container">
 
-        <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="w3-col s3">
-          <div ng-click="$ctrl.wordClick(word)" class="wordime-key">
-            <mon-word data-origintext="{{::word}}"></mon-word>
+        <div>
+          <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="wordime-keys-wrapper w3-col s3">
+            <div ng-click="$ctrl.wordClick(word)" class="wordime-key">
+              <mon-word data-origintext="{{::word}}"></mon-word>
+            </div>
           </div>
+          <br class="clear" />
+        </div>
+        <div>
+          <div ng-repeat="word in $ctrl.wordImeKeyVowels" class="wordime-keys-wrapper alpha5-col s4">
+            <div ng-click="$ctrl.wordClick(word)" class="wordime-key">
+              <mon-word data-origintext="{{::word}}"></mon-word>
+            </div>
+          </div>
+          <br class="clear" />
         </div>
 
       </div>
