@@ -8,7 +8,6 @@
 .wordime-word-container {
   float: left;
   box-sizing: content-box;
-  border: 1px solid #999;
   width: 36px;
   height: 200px;
   padding: 2px;
@@ -18,14 +17,13 @@
 .wordime-keyboard-container {
   overflow: hidden;
   margin-left: 0 !important;
-  border: 1px solid #999;
+  
 }
 
 .wordime-button-container {
+  display: table;
   float: right;
   width: 36px;
-  border: 1px solid #999;
-  display: table;
   font-size: 1.1em;
 }
 
@@ -50,15 +48,22 @@
   padding: 3px 5px;
 }
 
-.wordime-key {
+.wordime-key,
+.wordime-key-vowel {
   margin-left: auto;
   margin-right: auto;
   width: 36px;
   height: 50px;
-  background-color: #085a9d;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: rgba(100,100,100,0.5);
   font-size: 2em;
   cursor: pointer;
   color: rgba(255,255,255,1);
+}
+
+.wordime-key-vowel {
+  background-color: rgba(150,150,150,0.5);
 }
 
 .clear {

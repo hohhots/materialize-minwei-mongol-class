@@ -48,7 +48,7 @@
     var parentElem = [];
     var container = [];
     var input = [];
-    var preventDefaultKeyCodes = [37, 38, 39, 40];
+    var preventDefaultKeyCodes = [38, 40];
     var eventSetted = false;
     var originWord = '';
 
@@ -122,37 +122,31 @@
       var currentCaretPosition = input[0].selectionStart;
 
       var nextPosition = currentCaretPosition + 1;
-      if (nextPosition < 0) {
+      console.log(input[0].width + ' - ' + currentCaretPosition + ' - ' + input.val().length);
+      if (nextPosition > input.val().length) {
         input.setCursorToTextEnd();
       } else {
         input.selectRange(nextPosition);
       }
 
-      triggerEvent();
     }
 
     function previousAlpha() {
       var currentCaretPosition = input[0].selectionStart;
 
       var previousPosition = currentCaretPosition - 1;
-
+      console.log(currentCaretPosition + ' - ' + input.val().length);
       if (previousPosition < 0) {
         input.selectRange(0);
       } else {
         input.selectRange(previousPosition);
       }
 
-      triggerEvent();
     }
 
-    function triggerEvent() {
-      input.focus();
-      input.trigger({ type: 'keydown' });
-    }
-
-    $.fn.setCursorToTextEnd = function () {
-      var $initialVal = this.val();
-      this.val($initialVal);
+    $.fn.setCursorToTextEnd = function () {console.log('end');
+      var $initVal = this.val();
+      this.val($initVal);
     };
 
     $.fn.selectRange = function (start, end) {
