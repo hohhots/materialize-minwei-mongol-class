@@ -198,6 +198,7 @@
     },
 
     events: {
+      setInputFocus: "setInputFocusEvent",
       stopPlayers: 'stopPlayersEvent',
       playAlphaVideo: 'playAlphaVideoEvent',
       playIntroductionVideo: 'playIntroductionVideoEvent',

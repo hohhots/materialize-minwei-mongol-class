@@ -175,9 +175,14 @@
       var code = util.getEventKeyCode(event);
     }
 
+    function setInputFocus(event) {
+      input.focus();
+    }
+
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.setDimension, setDimension));
+    deregister.push($scope.$on(config.events.setInputFocus, setInputFocus));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {

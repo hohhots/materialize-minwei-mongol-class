@@ -72,9 +72,10 @@
           resizeComponents();
           setInnerEvent();
           $interval.cancel(dd);
-          // After all set delay 30 to display all element.
+          // After all set delay 20 to display all element.
           setTimeout(function(){         
             $element.css('visibility', 'visible');
+            $scope.$broadcast(config.events.setInputFocus);
           },20);
         }
       }, 20);

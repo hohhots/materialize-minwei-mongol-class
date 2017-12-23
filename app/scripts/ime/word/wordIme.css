@@ -24,6 +24,8 @@
   display: table;
   float: right;
   width: 36px;
+  padding-left: 4px;
+  border-left: 1px dashed #999;
   font-size: 1.1em;
 }
 
@@ -32,6 +34,11 @@
   border-radius: 5px;
   background: #f58400 url(img/button.png) 50% 50% repeat-x;
   cursor: pointer;
+}
+
+.wordime-button:hover {
+  border: 1px solid #fff;
+  color: rgb(49, 100, 7);
 }
 
 .wordime-table-cell {
@@ -59,11 +66,17 @@
   background-color: rgba(100,100,100,0.5);
   font-size: 2em;
   cursor: pointer;
-  color: rgba(255,255,255,1);
+  color: rgb(255,255,255);
 }
 
 .wordime-key-vowel {
-  background-color: rgba(150,150,150,0.5);
+  background-color: rgba(50,50,50,0.8);
+}
+
+.wordime-key:hover,
+.wordime-key-vowel:hover {
+  border: 1px solid rgb(221, 163, 5);
+  color: rgb(221, 163, 5);
 }
 
 .clear {
