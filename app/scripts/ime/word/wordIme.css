@@ -56,7 +56,9 @@
 }
 
 .wordime-key,
-.wordime-key-vowel {
+.wordime-key-vowel,
+.wordime-key-variant,
+.wordime-tail-alpha {
   margin-left: auto;
   margin-right: auto;
   width: 36px;
@@ -77,6 +79,24 @@
 .wordime-key-vowel:hover {
   border: 1px solid rgb(221, 163, 5);
   color: rgb(221, 163, 5);
+}
+
+.wordime-variant-wrapper {
+  padding: 15px 5px;
+}
+
+.wordime-key-variant {
+  background-color: rgba(100,100,100,0.5);
+}
+
+.wordime-tail-alpha {
+  height: 60px;
+}
+
+.wordime-two-alpha-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 108px;
 }
 
 .clear {

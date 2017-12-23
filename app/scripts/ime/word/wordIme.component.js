@@ -36,6 +36,9 @@
 
     self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
+    // Auto setted according to originAlpha variable. 
+    self.alphaVariants = ['a10', 'a20', 'b10', 'w10'];
+
     self.done = function () {
       closeIme();
     };
@@ -44,39 +47,58 @@
       closeIme();
     };
 
+    self.originAlphaSelected = function () {
+      console.log(originAlpha ? true : false);
+      return originAlpha ? true : false;
+    };
+
+    self.hasFourVariants = function () {
+      var fourth = false;
+      if (self.alphaVariants.length == 4) {
+        fourth = true;
+      }
+      return fourth;
+    };
+
+    self.hasFourAlphaclass = function () {
+      var cssClass = '';
+      if (self.alphaVariants.length == 4) {
+        cssClass = 'w3-col s4';
+      }
+      return cssClass;
+    }
+
     // ser value for self variables
     var wordImeBoard;
     var wordContainer;
-    var wordimeKeysContainer;
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
+    var originAlpha = 'd';
 
     function closeIme() {
       self.showWordIme = false;
     };
 
-    function startWordIme(event, word) {
+    function startWordIme(event) {
       //hide to solve flash problem when display and set components dimension.
       $element.css('visibility', 'hidden');
 
       self.showWordIme = true;
-      self.word = word;
 
       var dd = $interval(function () {
         if (!wordImeBoard || !wordContainer || !wordimeButtonContainer) {
           wordImeBoard = $element.find('.wordime-board');
           wordContainer = $element.find('.wordime-word-container');
-          wordimeKeysContainer = $element.find('.wordime-keyboard-container');
           wordimeButtonContainer = $element.find('.wordime-button-container');
         } else {
           resizeComponents();
           setInnerEvent();
           $interval.cancel(dd);
           // After all set delay 20 to display all element.
-          setTimeout(function(){         
+          setTimeout(function () {
             $element.css('visibility', 'visible');
             $scope.$broadcast(config.events.setInputFocus);
-          },20);
+          }, 20);
         }
       }, 20);
 
@@ -88,11 +110,10 @@
     }
 
     function resizeComponents(event) {
-      wordContainer.height(0);
-      wordimeButtonContainer.height(0);
+      wordContainer.outerHeight(0);
+      wordimeButtonContainer.outerHeight(0);
 
       wordContainer.outerHeight(wordImeBoard.height());
-      wordimeKeysContainer.outerHeight(wordImeBoard.height());
       wordimeButtonContainer.outerHeight(wordImeBoard.height());
 
       $scope.$broadcast(config.events.setDimension);
