@@ -7,16 +7,6 @@
   var mongolPrefix = '<span class="';
   var mongolSuffix = '"></span>';
 
-  var setMonWord = function (str) {
-    $.each(config.wordToReplaceMap, function (key, value) {
-      var replace = key;
-      var re = new RegExp(replace, "g");
-      str = str.replace(re, '<span class="hawang-' + value + '"></span>');
-    });
-
-    return str;
-  };
-
   var alphaListNamesMap = {
     o2: "o", u2: "u",
     ne: "na", no2: "no", nu2: "nu",
@@ -56,16 +46,27 @@
     yu: "yo", yu2: "yo",
     ru: "ro", ru2: "ro",
   });
-  var alphaVariantNamesMap3 = {};
+  var alphaVariantNamesMap3 = alphaVariantNamesMap2;//{};
 
-  var result = alphaVariantNamesMap3, key, obj = alphaVariantNamesMap2;
+  /**var result = alphaVariantNamesMap3, key, obj = alphaVariantNamesMap2;
   for (key in obj) {
     if (obj.hasOwnProperty(key) && (key !== 'we')) {
       result[key] = obj[key];
     }
   }
+  **/
 
-  var convertAlphas = function (tag) {
+  function setMonWord(str) {
+    $.each(config.wordToReplaceMap, function (key, value) {
+      var replace = key;
+      var re = new RegExp(replace, "g");
+      str = str.replace(re, '<span class="hawang-' + value + '"></span>');
+    });
+
+    return str;
+  }
+
+  function convertAlphas(tag) {
     var position = tag.substring(tag.length - 1);
     var name = tag.substring(0, tag.length - 1);
     var converted = '';
@@ -101,7 +102,7 @@
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
   var letters = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
-  var getVowels = function () {
+  function getVowels() {
     return vowels;
   };
 
@@ -127,7 +128,7 @@
     });
   };
 
-  var createFourthAlphas = function () {
+  function createFourthAlphas() {
     config.wordToReplaceMap['n14'] = convertAlphas('na4');
     config.wordToReplaceMap['n24'] = convertAlphas('na4');
     config.wordToReplaceMap['m14'] = convertAlphas('ma4');
@@ -141,12 +142,22 @@
     config.wordToReplaceMap['w14'] = convertAlphas('wa4');
   };
 
+  function getAlphaAllVariants(listalpha) {
+    var prefix = listalpha.substr(0,2);
+    var lists = [prefix + '1',prefix + '2',prefix + '3'];
+    if (config.wordToReplaceMap[prefix + '4']) {
+      lists.push(prefix + '4');
+    }
+    return lists;
+  }
+
 
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
     wordToReplaceMap: {},
     getVowels: getVowels,
+    getAlphaAllVariants: getAlphaAllVariants,
     setMonWord: setMonWord
   };
 

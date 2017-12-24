@@ -36,15 +36,16 @@
 
     self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
-    // Auto setted according to selectedConsonant variable. 
-    self.alphaVariants = ['a10', 'a20', 'n10', 'w10'];
-
-    self.done = function () {
-      closeIme();
-    };
+    // Auto setted according to selectedOriginAlpha variable. 
+    self.alphaVariants = [];
 
     self.cancel = function () {
-      closeIme();
+      if (self.alphaVariants.length == 0) {
+        console.log(self.alphaVariants.length);
+        closeIme();
+      } else {
+        closeVariantKeys();
+      }
     };
 
     self.originAlphaSelected = function () {
@@ -65,23 +66,48 @@
         cssClass = 'w3-col s4';
       }
       return cssClass;
-    }
+    };
 
     self.consonantClick = function (consonant) {
-      if (selectedConsonant != consonant){
-        selectedConsonant = consonant;        
+      if (selectedConsonant != consonant) {
+        selectedConsonant = consonant;
       } else {
         selectedConsonant = '';
       }
-    }
+    };
 
     self.getConsonantClass = function (consonant) {
       var cssClass = '';
       if (consonant == selectedConsonant) {
-        cssClass = 'wordime-key-consonant-selected';
+        cssClass = keySelectedClass;
       }
       return cssClass;
-    }
+    };
+
+    self.vowelClick = function (vowel) {
+      // Alpha w just has two alpha.
+      if ((selectedConsonant == 'w10') && disabledVowels.includes(vowel)) {
+        return;
+      }
+      selectedVowel = vowel;
+      if (!selectedConsonant) {
+        selectedOriginAlpha = selectedVowel;
+      } else {
+        selectedOriginAlpha = selectedConsonant.substr(0, 1) + selectedVowel.substr(1, 1) + '0';
+      }
+      self.alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);
+
+      startWordIme();
+      console.log(self.alphaVariants);
+    };
+
+    self.getVowelClass = function (vowel) {
+      var cssClass = 'wordime-key-vowel';
+      if ((selectedConsonant == 'w10') && disabledVowels.includes(vowel)) {
+        cssClass = 'wordime-key-vowel-disable';
+      }
+      return cssClass;
+    };
 
     // set value for self variables
     var wordImeBoard;
@@ -91,16 +117,31 @@
     var selectedConsonant = '';
     var selectedVowel = '';
     var selectedOriginAlpha = '';
+    var keySelectedClass = 'wordime-key-selected';
+    var disabledVowels = ['a30', 'a40', 'a60'];
 
     function closeIme() {
       self.showWordIme = false;
-    };
+      closeVariantKeys();
+    }
+
+    function closeVariantKeys() {
+      console.log('ff');
+      selectedConsonant = '';
+      selectedVowel = '';
+      selectedOriginAlpha = '';
+      self.alphaVariants = [];
+      setTimeout(function () {
+        resizeComponents();
+      }, 10);
+    }
 
     function startWordIme(event) {
       //hide to solve flash problem when display and set components dimension.
-      $element.css('visibility', 'hidden');
-
-      self.showWordIme = true;
+      if (event) {
+        $element.css('visibility', 'hidden');
+        self.showWordIme = true;
+      }
 
       var dd = $interval(function () {
         if (!wordImeBoard || !wordContainer || !wordimeButtonContainer) {
@@ -119,7 +160,7 @@
         }
       }, 20);
 
-      console.log(String.fromCharCode(0xe9e5));
+      console.log(String.fromCharCode('0xe9e5'));
     }
 
     function setInnerEvent() {

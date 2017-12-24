@@ -58,7 +58,8 @@
 .wordime-key-consonant,
 .wordime-key-vowel,
 .wordime-key-variant,
-.wordime-tail-alpha {
+.wordime-tail-alpha,
+.wordime-key-vowel-disable {
   margin-left: auto;
   margin-right: auto;
   width: 36px;
@@ -75,7 +76,12 @@
   background-color: rgba(50,50,50,0.8);
 }
 
-.wordime-key-consonant-selected,
+.wordime-key-vowel-disable {
+  cursor: not-allowed;
+  color: rgb(100,100,100) !important;
+}
+
+.wordime-key-selected,
 .wordime-key-consonant:hover,
 .wordime-key-vowel:hover,
 .wordime-key-variant:hover,
