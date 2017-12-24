@@ -26,17 +26,17 @@
 
       <div class="wordime-keyboard-container">
         <div ng-hide="$ctrl.originAlphaSelected()">
-          <div ng-repeat="word in $ctrl.wordImeKeyAlphas" class="wordime-keys-wrapper w3-col s3">
-            <div ng-click="$ctrl.wordClick(word)" class="wordime-key">
-              <mon-word data-origintext="{{::word}}"></mon-word>
+          <div ng-repeat="consonant in $ctrl.wordImeKeyConsonants" class="wordime-keys-wrapper w3-col s3">
+            <div ng-click="$ctrl.consonantClick(consonant)" class="wordime-key-consonant" ng-class="$ctrl.getConsonantClass(consonant)">
+              <mon-word data-origintext="{{::consonant}}"></mon-word>
             </div>
           </div>
           <br class="clear" />
         </div>
         <div ng-hide="$ctrl.originAlphaSelected()">
-          <div ng-repeat="word in $ctrl.wordImeKeyVowels" class="wordime-keys-wrapper alpha5-col s1">
-            <div ng-click="$ctrl.wordClick(word)" class="wordime-key-vowel">
-              <mon-word data-origintext="{{::word}}"></mon-word>
+          <div ng-repeat="vowel in $ctrl.wordImeKeyVowels" class="wordime-keys-wrapper alpha5-col s1">
+            <div ng-click="$ctrl.wordClick(vowel)" class="wordime-key-vowel">
+              <mon-word data-origintext="{{::vowel}}"></mon-word>
             </div>
           </div>
           <br class="clear" />

@@ -31,13 +31,13 @@
     self.showWordIme = false;
     self.word = '';
 
-    self.wordImeKeyAlphas = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
+    self.wordImeKeyConsonants = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
       'x10', 't10', 'd10', 'q10', 'j10', 'y10', 'r10', 'w10'];
 
     self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
-    // Auto setted according to originAlpha variable. 
-    self.alphaVariants = ['a10', 'a20', 'b10', 'w10'];
+    // Auto setted according to selectedConsonant variable. 
+    self.alphaVariants = ['a10', 'a20', 'n10', 'w10'];
 
     self.done = function () {
       closeIme();
@@ -48,8 +48,7 @@
     };
 
     self.originAlphaSelected = function () {
-      console.log(originAlpha ? true : false);
-      return originAlpha ? true : false;
+      return selectedOriginAlpha ? true : false;
     };
 
     self.hasFourVariants = function () {
@@ -68,12 +67,30 @@
       return cssClass;
     }
 
-    // ser value for self variables
+    self.consonantClick = function (consonant) {
+      if (selectedConsonant != consonant){
+        selectedConsonant = consonant;        
+      } else {
+        selectedConsonant = '';
+      }
+    }
+
+    self.getConsonantClass = function (consonant) {
+      var cssClass = '';
+      if (consonant == selectedConsonant) {
+        cssClass = 'wordime-key-consonant-selected';
+      }
+      return cssClass;
+    }
+
+    // set value for self variables
     var wordImeBoard;
     var wordContainer;
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
-    var originAlpha = 'd';
+    var selectedConsonant = '';
+    var selectedVowel = '';
+    var selectedOriginAlpha = '';
 
     function closeIme() {
       self.showWordIme = false;
