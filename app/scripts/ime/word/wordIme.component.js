@@ -34,7 +34,9 @@
     self.wordImeKeyConsonants = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
       'x10', 't10', 'd10', 'q10', 'j10', 'y10', 'r10', 'w10'];
 
-    self.wordImeKeyVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
+    self.wordImeKeyVowels = ['a11', 'a21', 'a31', 'a41', 'a61'];
+
+    self.wordImeKeyOriVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
     // Auto setted according to selectedOriginAlpha variable. 
     self.alphaVariants = [];
@@ -74,6 +76,15 @@
       } else {
         selectedConsonant = '';
       }
+      resizeComponents();
+    };
+
+    self.consonantSelected = function () {
+      var selected = false;
+      if (selectedConsonant != '') {
+        selected = true;
+      }
+      return selected;
     };
 
     self.getConsonantClass = function (consonant) {
@@ -126,7 +137,6 @@
     }
 
     function closeVariantKeys() {
-      console.log('ff');
       selectedConsonant = '';
       selectedVowel = '';
       selectedOriginAlpha = '';

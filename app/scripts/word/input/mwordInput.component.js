@@ -79,17 +79,17 @@
     }
 
     function inputFocued(event) {
-      console.log('focus');
+      //console.log('focus');
       preventDefault(event);
     }
 
     function inputBlured(event) {
-      console.log('blur');
+      //console.log('blur');
       preventDefault(event);
     }
 
     function inputKeydown(event) {
-      console.log('down');
+      //console.log('down');
 
       var code = util.getEventKeyCode(event); //to support both methods;
 

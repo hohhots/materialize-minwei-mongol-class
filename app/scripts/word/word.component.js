@@ -15,6 +15,7 @@
       '$sce',
       '$element',
       '$interval',
+      '$timeout',
       'Config',
       'wordConfig',
       'Util',
@@ -22,7 +23,7 @@
       controller]
   });
 
-  function controller($scope, $sce, $element, $interval, config, wordConfig, util, json) {
+  function controller($scope, $sce, $element, $interval, $timeout, config, wordConfig, util, json) {
     var self = this;
 
     //define self variables
@@ -51,24 +52,28 @@
       }
     };
 
-    function setDimension () {
-      var dd = $interval(function () {
+    function setDimension() {
+      var dd = $interval(function () {console.log('dd');
         if (!parentElem) {
           parentElem = $element.parent();
+          return;
         }
 
-        self.containerStyle.position = "absolute";
-        self.containerStyle.width = parentElem[0].clientHeight + 'px';
-        self.containerStyle.height = parentElem[0].clientWidth + 'px';
+        $interval.cancel(dd);                
 
-        $interval.cancel(dd);
+        if ($element.closest('div:hidden').length == 0) {
+          self.containerStyle.position = "absolute";
+          self.containerStyle.width = parentElem[0].clientHeight + 'px';
+          self.containerStyle.height = parentElem[0].clientWidth + 'px';
+  
+          self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext));
+        }
 
-        self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext));
       }, 20);
     };
 
     //must called after rendering, so use $interval for call this function.
-    function getWordSpan () {
+    function getWordSpan() {
       var dd = $interval(function () {
         textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();
         $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, parentElem, wordConfig.getVowels()]);
