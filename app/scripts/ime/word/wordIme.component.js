@@ -71,6 +71,8 @@
     };
 
     self.consonantClick = function (consonant) {
+      setInputFocus();
+
       if (selectedConsonant != consonant) {
         selectedConsonant = consonant;
       } else {
@@ -96,20 +98,26 @@
     };
 
     self.vowelClick = function (vowel) {
+      setInputFocus();
       // Alpha w just has two alpha.
       if ((selectedConsonant == 'w10') && disabledVowels.includes(vowel)) {
         return;
       }
-      selectedVowel = vowel;
-      if (!selectedConsonant) {
-        selectedOriginAlpha = selectedVowel;
-      } else {
-        selectedOriginAlpha = selectedConsonant.substr(0, 1) + selectedVowel.substr(1, 1) + '0';
+
+      // Consonant didn't selected and vowel is in head form.
+      if (!selectedConsonant && (vowel.lastIndexOf('1') == 2)) {
+        $scope.$broadcast(config.events.setImeAlpha, vowel);
+        return;
       }
+
+      if (selectedConsonant && (vowel.lastIndexOf('0') == 2)) {
+        selectedOriginAlpha = selectedConsonant.substr(0, 1) + vowel.substr(1, 1) + '0';
+      }
+
       self.alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);
 
       startWordIme();
-      console.log(self.alphaVariants);
+      //console.log(self.alphaVariants);
     };
 
     self.getVowelClass = function (vowel) {
@@ -120,13 +128,18 @@
       return cssClass;
     };
 
+    self.alphaClick = function (order) {
+      setInputFocus();
+      $scope.$broadcast(config.events.setImeAlpha, self.alphaVariants[order]);
+      closeVariantKeys();
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
     var selectedConsonant = '';
-    var selectedVowel = '';
     var selectedOriginAlpha = '';
     var keySelectedClass = 'wordime-key-selected';
     var disabledVowels = ['a30', 'a40', 'a60'];
@@ -138,7 +151,6 @@
 
     function closeVariantKeys() {
       selectedConsonant = '';
-      selectedVowel = '';
       selectedOriginAlpha = '';
       self.alphaVariants = [];
       setTimeout(function () {
@@ -170,7 +182,7 @@
         }
       }, 20);
 
-      console.log(String.fromCharCode('0xe9e5'));
+      console.log(String.fromCharCode('0x' + 'e9e5'));
     }
 
     function setInnerEvent() {
@@ -186,6 +198,10 @@
 
       $scope.$broadcast(config.events.setDimension);
       //console.log(wordImeBoard.height());
+    }
+
+    function setInputFocus() {
+      $scope.$broadcast(config.events.setInputFocus);
     }
 
     //add listener and hold on to deregister function

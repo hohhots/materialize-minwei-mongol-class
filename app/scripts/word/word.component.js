@@ -53,7 +53,7 @@
     };
 
     function setDimension() {
-      var dd = $interval(function () {console.log('dd');
+      var dd = $interval(function () {
         if (!parentElem) {
           parentElem = $element.parent();
           return;

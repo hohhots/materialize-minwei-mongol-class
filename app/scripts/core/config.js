@@ -230,10 +230,11 @@
 
       wordGetWordSpans: 'wordGetWordSpansEvent',
       setWordAnimationElement: 'setWordAnimationElementEvent',
-      playWordAnimation: 'playWordAnimationEvents',
-      startWordIme: 'startWordImeEvents',
+      playWordAnimation: 'playWordAnimationEvent',
+      startWordIme: 'startWordImeEvent',
 
-      mwordInputFocused: "mwordInputFocusedEvents"
+      mwordInputFocused: 'mwordInputFocusedEvent',
+      setImeAlpha: 'setImeAlphaEvent'
     }
   };
 

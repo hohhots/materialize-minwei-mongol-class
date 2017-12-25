@@ -105,24 +105,25 @@
         nextAlpha();
       }
 
-      console.log(code);
+      //console.log(code);
     }
 
     function inputKeypress(event) {
       preventDefault(event);
-      console.log('press');
+      //console.log('press');
     }
 
     function inputKeyup(event) {
       //preventDefault(event);
-      console.log('up');
+      //console.log('up');
+      originWord = input.val();
     }
 
     function nextAlpha() {
       var currentCaretPosition = input[0].selectionStart;
 
       var nextPosition = currentCaretPosition + 1;
-      console.log(input[0].width + ' - ' + currentCaretPosition + ' - ' + input.val().length);
+      //console.log(input[0].width + ' - ' + currentCaretPosition + ' - ' + input.val().length);
       if (nextPosition > input.val().length) {
         input.setCursorToTextEnd();
       } else {
@@ -135,7 +136,7 @@
       var currentCaretPosition = input[0].selectionStart;
 
       var previousPosition = currentCaretPosition - 1;
-      console.log(currentCaretPosition + ' - ' + input.val().length);
+      //console.log(currentCaretPosition + ' - ' + input.val().length);
       if (previousPosition < 0) {
         input.selectRange(0);
       } else {
@@ -179,10 +180,17 @@
       input.focus();
     }
 
+    function addImeAlpha(event, alpha) {
+      console.log(alpha);
+      originWord += String.fromCharCode('0x' + wordConfig.getUnicode(alpha));
+      input.val(originWord);
+    }
+
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.setDimension, setDimension));
     deregister.push($scope.$on(config.events.setInputFocus, setInputFocus));
+    deregister.push($scope.$on(config.events.setImeAlpha, addImeAlpha));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
