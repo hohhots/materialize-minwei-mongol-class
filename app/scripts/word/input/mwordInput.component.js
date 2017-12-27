@@ -193,10 +193,26 @@
       input.val(originUnicode);
     }
 
+    function backAlphaUnicode () {
+      var position = input[0].selectionStart;
+      var val = input.val();
+      input.val(val.substr(0,position - 1) + val.substr(position));
+    }
+
+    function backSpace() {
+      //console.log('back');
+      input.focus();
+      backAlphaUnicode();
+
+      inputKeyup();
+      console.log(originUnicode);
+    }
+
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.setDimension, setDimension));
     deregister.push($scope.$on(config.events.setInputFocus, setInputFocus));
+    deregister.push($scope.$on(config.events.wordInputBackSpace, backSpace));
     deregister.push($scope.$on(config.events.setImeAlpha, addImeAlpha));
 
     // clean up listener when directive's scope is destroyed

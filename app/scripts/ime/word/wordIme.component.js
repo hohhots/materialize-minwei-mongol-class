@@ -128,9 +128,14 @@
     };
 
     self.alphaClick = function (order) {
-      setInputFocus();
+      // setInputFocus();
       $scope.$broadcast(config.events.setImeAlpha, self.alphaVariants[order]);
       closeVariantKeys();
+    };
+
+    self.backSpace = function () {
+      //console.log('back');
+      $scope.$broadcast(config.events.wordInputBackSpace);
     };
 
     // set value for self variables
