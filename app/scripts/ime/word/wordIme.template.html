@@ -48,28 +48,28 @@
         </div>
         <div ng-show="$ctrl.originAlphaSelected()">
           <div class="wordime-variant-wrapper">
-            <div ng-click="$ctrl.alphaClick(0)" class="wordime-key-variant">
-              <mon-word data-origintext="{{$ctrl.alphaVariants[0]}}"></mon-word>
-            </div>
-          </div>
-          <div class="wordime-variant-wrapper">
             <div ng-click="$ctrl.alphaClick(1)" class="wordime-key-variant">
               <mon-word data-origintext="{{$ctrl.alphaVariants[1]}}"></mon-word>
             </div>
           </div>
           <div class="wordime-variant-wrapper">
+            <div ng-click="$ctrl.alphaClick(2)" class="wordime-key-variant">
+              <mon-word data-origintext="{{$ctrl.alphaVariants[2]}}"></mon-word>
+            </div>
+          </div>
+          <div class="wordime-variant-wrapper">
             <div class="wordime-two-alpha-wrapper">
               <div ng-class="$ctrl.hasFourAlphaclass()">
-                <div ng-click="$ctrl.alphaClick(2)" class="wordime-tail-alpha">
-                  <mon-word data-origintext="{{$ctrl.alphaVariants[2]}}"></mon-word>
+                <div ng-click="$ctrl.alphaClick(3)" class="wordime-tail-alpha">
+                  <mon-word data-origintext="{{$ctrl.alphaVariants[3]}}"></mon-word>
                 </div>
               </div>
               <div class="w3-col s4" ng-show="$ctrl.hasFourVariants()">
                 <div style="width:36px;height:50px"></div>
               </div>
               <div class="w3-col s4" ng-show="$ctrl.hasFourVariants()">
-                <div ng-click="$ctrl.alphaClick(3)" class="wordime-tail-alpha">
-                  <mon-word data-origintext="{{$ctrl.alphaVariants[3]}}"></mon-word>
+                <div ng-click="$ctrl.alphaClick(4)" class="wordime-tail-alpha">
+                  <mon-word data-origintext="{{$ctrl.alphaVariants[4]}}"></mon-word>
                 </div>
               </div>
               <br class="clear" ng-show="$ctrl.hasFourVariants()" />

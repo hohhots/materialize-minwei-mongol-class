@@ -228,7 +228,7 @@
 
   function getAlphaAllVariants(listalpha) {
     var prefix = listalpha.substr(0,2);
-    var lists = [prefix + '1',prefix + '2',prefix + '3'];
+    var lists = [listalpha,prefix + '1',prefix + '2',prefix + '3'];
     if (config.wordToReplaceMap[prefix + '4']) {
       lists.push(prefix + '4');
     }
@@ -236,8 +236,7 @@
   }
 
   function getUnicode(alpha) {
-    console.log(unicodeMap);
-    return 'e910';
+    return unicodeMap[config.wordToReplaceMap[alpha]];
   }
 
   var config = {

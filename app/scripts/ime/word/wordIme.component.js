@@ -55,7 +55,7 @@
 
     self.hasFourVariants = function () {
       var fourth = false;
-      if (self.alphaVariants.length == 4) {
+      if (self.alphaVariants.length == 5) {
         fourth = true;
       }
       return fourth;
@@ -63,7 +63,7 @@
 
     self.hasFourAlphaclass = function () {
       var cssClass = '';
-      if (self.alphaVariants.length == 4) {
+      if (self.alphaVariants.length == 5) {
         cssClass = 'w3-col s4';
       }
       return cssClass;
@@ -139,6 +139,7 @@
     var wordimeButtonContainer;
     var wordImeBoardInitHeight = 120;
     var selectedConsonant = '';
+    // If has value, display variant keyboard
     var selectedOriginAlpha = '';
     var keySelectedClass = 'wordime-key-selected';
     var disabledVowels = ['a30', 'a40', 'a60'];

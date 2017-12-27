@@ -39,7 +39,7 @@
           return;
         }
 
-        input.val(originWord);
+        input.val(originUnicode);
 
         $interval.cancel(dd);
       }, 10);
@@ -50,7 +50,8 @@
     var input = [];
     var preventDefaultKeyCodes = [38, 40];
     var eventSetted = false;
-    var originWord = '';
+    // Save input unicode value.
+    var originUnicode = '';
 
     function setDimension(event) {
       self.showElement = true;
@@ -118,7 +119,8 @@
     function inputKeyup(event) {
       //preventDefault(event);
       //console.log('up');
-      originWord = input.val();
+      console.log(input.val().charCodeAt(0).toString(16));
+      originUnicode = input.val();
     }
 
     function nextAlpha() {
@@ -147,7 +149,7 @@
 
     }
 
-    $.fn.setCursorToTextEnd = function () {console.log('end');
+    $.fn.setCursorToTextEnd = function () {
       var $initVal = this.val();
       this.val($initVal);
     };
@@ -183,8 +185,12 @@
     }
 
     function addImeAlpha(event, alpha) {
-      originWord += String.fromCharCode('0x' + wordConfig.getUnicode(alpha));
-      input.val(originWord);
+      addAlphaUnicode(alpha);
+    }
+
+    function addAlphaUnicode(alpha) {
+      originUnicode += String.fromCharCode('0x' + wordConfig.getUnicode(alpha));
+      input.val(originUnicode);
     }
 
     // add listener and hold on to deregister function
