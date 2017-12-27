@@ -88,7 +88,7 @@
     ro:  'e90e', ro1: 'e90f', ro2: 'e910', ro3: 'e911',
     ru:  'e912', ru1: 'e913',
 
-    wa:  'e900', wa1: 'e901', wa2: 'e902', wa3: 'e903', wa4: 'e904',
+    wa:  'e900', wa1: 'e901', wa2: 'e902', wa3: 'e903', wa4: 'e904'
   };
 
   var alphaListNamesMap = {
@@ -236,6 +236,7 @@
   }
 
   function getUnicode(alpha) {
+    console.log(unicodeMap);
     return 'e910';
   }
 

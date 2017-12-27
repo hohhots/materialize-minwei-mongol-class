@@ -65,6 +65,8 @@
       //self.inputStyle.left = 0;
 
       setInnerEvent();
+
+      input.focus();
     };
 
     function setInnerEvent() {
@@ -181,7 +183,6 @@
     }
 
     function addImeAlpha(event, alpha) {
-      console.log(alpha);
       originWord += String.fromCharCode('0x' + wordConfig.getUnicode(alpha));
       input.val(originWord);
     }

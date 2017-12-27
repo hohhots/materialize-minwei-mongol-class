@@ -43,7 +43,6 @@
 
     self.cancel = function () {
       if (self.alphaVariants.length == 0) {
-        console.log(self.alphaVariants.length);
         closeIme();
       } else {
         closeVariantKeys();
@@ -71,7 +70,7 @@
     };
 
     self.consonantClick = function (consonant) {
-      setInputFocus();
+      //setInputFocus();
 
       if (selectedConsonant != consonant) {
         selectedConsonant = consonant;
