@@ -151,7 +151,11 @@
 
     function closeIme() {
       self.showWordIme = false;
-      closeVariantKeys();
+      if (self.alphaVariants.length) {
+        closeVariantKeys();
+      } else {
+        $scope.$broadcast(config.events.closeIme);
+      }
     }
 
     function closeVariantKeys() {

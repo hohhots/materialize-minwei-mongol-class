@@ -222,12 +222,18 @@
       console.log(originUnicode);
     }
 
+    function selfClear() {
+      originUnicode = '';
+      input.val(originUnicode);
+    }
+
     // add listener and hold on to deregister function
     var deregister = [];
     deregister.push($scope.$on(config.events.setDimension, setDimension));
     deregister.push($scope.$on(config.events.setInputFocus, setInputFocus));
     deregister.push($scope.$on(config.events.wordInputBackSpace, backSpace));
     deregister.push($scope.$on(config.events.setImeAlpha, addImeAlpha));
+    deregister.push($scope.$on(config.events.closeIme, selfClear));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
