@@ -123,8 +123,11 @@
       originUnicode = input.val();
     }
 
-    function nextAlpha() {
-      var currentCaretPosition = input[0].selectionStart;
+    function nextAlpha(position) {
+      var currentCaretPosition = position;      
+      if (!position) {
+        currentCaretPosition = input[0].selectionStart;      
+      }
 
       var nextPosition = currentCaretPosition + 1;
       //console.log(input[0].width + ' - ' + currentCaretPosition + ' - ' + input.val().length);
@@ -136,8 +139,11 @@
 
     }
 
-    function previousAlpha() {
-      var currentCaretPosition = input[0].selectionStart;
+    function previousAlpha(position) {
+      var currentCaretPosition = position;      
+      if (!position) {
+        currentCaretPosition = input[0].selectionStart;      
+      }
 
       var previousPosition = currentCaretPosition - 1;
       //console.log(currentCaretPosition + ' - ' + input.val().length);
@@ -189,19 +195,27 @@
     }
 
     function addAlphaUnicode(alpha) {
-      originUnicode += String.fromCharCode('0x' + wordConfig.getUnicode(alpha));
+      input.focus();
+
+      var position = input[0].selectionStart;
+      var val = input.val();
+      originUnicode = val.substr(0,position) + String.fromCharCode('0x' + wordConfig.getUnicode(alpha)) + val.substr(position);
       input.val(originUnicode);
+      nextAlpha(position);
     }
 
     function backAlphaUnicode () {
+      input.focus();
+
       var position = input[0].selectionStart;
       var val = input.val();
       input.val(val.substr(0,position - 1) + val.substr(position));
+      previousAlpha(position);
     }
 
     function backSpace() {
       //console.log('back');
-      input.focus();
+      //input.focus();
       backAlphaUnicode();
 
       inputKeyup();
