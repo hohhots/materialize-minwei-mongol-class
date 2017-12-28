@@ -138,6 +138,12 @@
       $scope.$broadcast(config.events.wordInputBackSpace);
     };
 
+    self.done = function() {
+      console.log('done');
+
+      closeIme(true);
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
@@ -149,12 +155,13 @@
     var keySelectedClass = 'wordime-key-selected';
     var disabledVowels = ['a30', 'a40', 'a60'];
 
-    function closeIme() {
+    function closeIme(done) {
       self.showWordIme = false;
+
       if (self.alphaVariants.length) {
         closeVariantKeys();
       } else {
-        $scope.$broadcast(config.events.closeIme);
+        $scope.$broadcast(config.events.closeIme, done);
       }
     }
 

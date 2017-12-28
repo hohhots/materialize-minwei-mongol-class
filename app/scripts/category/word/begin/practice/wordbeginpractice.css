@@ -12,7 +12,8 @@
 
 .wordbeginpractice-word-answer-container {
   border: 1px dashed black;
-  background: rgba(0,0,0,0); 
+  background: rgba(0,0,0,0);
+  color: #000;
 }
 
 @media (min-width:601px) {

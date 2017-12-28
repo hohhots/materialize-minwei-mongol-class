@@ -236,7 +236,8 @@
       mwordInputFocused: 'mwordInputFocusedEvent',
       wordInputBackSpace: 'wordInputBackSpaceEvent',
       setImeAlpha: 'setImeAlphaEvent',
-      closeIme: 'closeImeEvent'
+      closeIme: 'closeImeEvent',
+      wordImeDone: 'wordImeDoneEvent'
     }
   };
 

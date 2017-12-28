@@ -31,8 +31,8 @@
     self.templateUrl = config.templateUrl.wordbeginpractice;
     self.pageLangs = {};
     self.allCorrect = false;
-    self.originword = '';
-    self.answerword = '';
+    self.originWord = '';
+    self.answerWord = '';
     
     self.$onInit = function () {
       self.pageLangs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -49,22 +49,30 @@
     };
 
     self.wordClick = function () {
-      $scope.$broadcast(config.events.playWordAnimation, self.originword);
+      $scope.$broadcast(config.events.playWordAnimation, self.originWord);
     };
 
     self.answerClick = function () {
-      $scope.$broadcast(config.events.startWordIme, self.originword);
+      $scope.$broadcast(config.events.startWordIme, self.originWord);
     };
 
     var practiceWords = [];
 
     function setOriginWordRandom () {
       var position = Math.floor(Math.random() * (practiceWords.length));
-      self.originword = practiceWords[position].word;
+      self.originWord = practiceWords[position].word;
+    }
+
+    function wordImeDone(event, word) {
+      console.log(word);
+      console.log(self.originWord);
+      
+      self.answerWord = word;
     }
 
     // add listener and hold on to deregister function
     var deregister = [];
+    deregister.push($scope.$on(config.events.wordImeDone, wordImeDone));
     //deregister.push($scope.$on(config.events.stopPlayers, stopPlayers));
 
     //deregister.push(videoElem.on('ended', videoEnded));

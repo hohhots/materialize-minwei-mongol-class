@@ -235,8 +235,31 @@
     return lists;
   }
 
+  // Convert a11 to e9da
   function getUnicode(alpha) {
     return unicodeMap[config.wordToReplaceMap[alpha]];
+  }
+
+  // Convert e9da to a11
+  function getMongolCode(unicode) {
+    var code = '';
+    var positionCode = '';
+    $.each(unicodeMap, function (k, v) {
+      if(unicode.charCodeAt(0).toString(16) == v) {
+        positionCode = k;
+        $.each(config.wordToReplaceMap, function (k1, v1) {
+          if(k == v1) {
+            code = k1;
+            console.log(k1);
+            // Exit each() loop.
+            return false;
+          }
+        });
+        // Exit each() loop.
+        return false;
+      }
+    });
+    return code;
   }
 
   var config = {
@@ -246,6 +269,7 @@
     getVowels: getVowels,
     getAlphaAllVariants: getAlphaAllVariants,
     getUnicode: getUnicode,
+    getMongolCode: getMongolCode,
     setMonWord: setMonWord
   };
 

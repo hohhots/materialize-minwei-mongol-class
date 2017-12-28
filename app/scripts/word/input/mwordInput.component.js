@@ -124,9 +124,9 @@
     }
 
     function nextAlpha(position) {
-      var currentCaretPosition = position;      
+      var currentCaretPosition = position;
       if (!position) {
-        currentCaretPosition = input[0].selectionStart;      
+        currentCaretPosition = input[0].selectionStart;
       }
 
       var nextPosition = currentCaretPosition + 1;
@@ -140,9 +140,9 @@
     }
 
     function previousAlpha(position) {
-      var currentCaretPosition = position;      
+      var currentCaretPosition = position;
       if (!position) {
-        currentCaretPosition = input[0].selectionStart;      
+        currentCaretPosition = input[0].selectionStart;
       }
 
       var previousPosition = currentCaretPosition - 1;
@@ -199,17 +199,17 @@
 
       var position = input[0].selectionStart;
       var val = input.val();
-      originUnicode = val.substr(0,position) + String.fromCharCode('0x' + wordConfig.getUnicode(alpha)) + val.substr(position);
+      originUnicode = val.substr(0, position) + String.fromCharCode('0x' + wordConfig.getUnicode(alpha)) + val.substr(position);
       input.val(originUnicode);
       nextAlpha(position);
     }
 
-    function backAlphaUnicode () {
+    function backAlphaUnicode() {
       input.focus();
 
       var position = input[0].selectionStart;
       var val = input.val();
-      input.val(val.substr(0,position - 1) + val.substr(position));
+      input.val(val.substr(0, position - 1) + val.substr(position));
       previousAlpha(position);
     }
 
@@ -222,7 +222,18 @@
       console.log(originUnicode);
     }
 
-    function selfClear() {
+    function closeIme(event, done) {
+      var word = input.val();
+      var codes = '';
+      // If done is true, emit input value.
+      if (done) {
+        for (var i = 0; i < word.length; i++) {
+          codes += wordConfig.getMongolCode(word[i]);
+        }
+
+        $scope.$emit(config.events.wordImeDone, codes);
+      }
+
       originUnicode = '';
       input.val(originUnicode);
     }
@@ -233,7 +244,7 @@
     deregister.push($scope.$on(config.events.setInputFocus, setInputFocus));
     deregister.push($scope.$on(config.events.wordInputBackSpace, backSpace));
     deregister.push($scope.$on(config.events.setImeAlpha, addImeAlpha));
-    deregister.push($scope.$on(config.events.closeIme, selfClear));
+    deregister.push($scope.$on(config.events.closeIme, closeIme));
 
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
