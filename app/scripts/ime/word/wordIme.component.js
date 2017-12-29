@@ -100,7 +100,7 @@
         selectedOriginAlpha = vowel;
         //return;
       } else {
-        selectedOriginAlpha = selectedConsonant.charAt(0) + '10';
+        selectedOriginAlpha = selectedConsonant.charAt(0) + vowel.charAt(1) + '0';
       }
 
       self.alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);
@@ -129,7 +129,7 @@
     };
 
     self.done = function() {
-      console.log('done');
+      //console.log('done');
 
       closeIme(true);
     };
@@ -151,6 +151,7 @@
       if (self.alphaVariants.length) {
         closeVariantKeys();
       } else {
+        selectedConsonant = '';
         $scope.$broadcast(config.events.closeIme, done);
       }
     }
@@ -187,8 +188,6 @@
           }, 20);
         }
       }, 20);
-
-      console.log(String.fromCharCode('0x' + 'e9e5'));
     }
 
     function setInnerEvent() {

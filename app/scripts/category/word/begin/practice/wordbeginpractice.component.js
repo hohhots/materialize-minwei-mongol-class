@@ -64,9 +64,6 @@
     }
 
     function wordImeDone(event, word) {
-      console.log(word);
-      console.log(self.originWord);
-      
       self.answerWord = word;
     }
 

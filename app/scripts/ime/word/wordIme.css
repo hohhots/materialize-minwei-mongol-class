@@ -83,8 +83,6 @@
 }
 
 .wordime-key-selected,
-.wordime-key-consonant:hover,
-.wordime-key-vowel:hover,
 .wordime-key-variant:hover,
 .wordime-tail-alpha:hover {
   border: 1px solid rgb(221, 163, 5) !important;

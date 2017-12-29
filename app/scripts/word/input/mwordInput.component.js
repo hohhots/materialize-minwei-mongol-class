@@ -119,7 +119,6 @@
     function inputKeyup(event) {
       //preventDefault(event);
       //console.log('up');
-      console.log(input.val().charCodeAt(0).toString(16));
       originUnicode = input.val();
     }
 
