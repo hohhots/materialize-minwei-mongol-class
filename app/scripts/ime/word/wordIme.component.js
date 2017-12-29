@@ -80,14 +80,6 @@
       resizeComponents();
     };
 
-    self.consonantSelected = function () {
-      var selected = false;
-      if (selectedConsonant != '') {
-        selected = true;
-      }
-      return selected;
-    };
-
     self.getConsonantClass = function (consonant) {
       var cssClass = '';
       if (consonant == selectedConsonant) {
@@ -103,14 +95,12 @@
         return;
       }
 
-      // Consonant didn't selected and vowel is in head form.
-      if (!selectedConsonant && (vowel.lastIndexOf('1') == 2)) {
-        $scope.$broadcast(config.events.setImeAlpha, vowel);
-        return;
-      }
-
-      if (selectedConsonant && (vowel.lastIndexOf('0') == 2)) {
-        selectedOriginAlpha = selectedConsonant.substr(0, 1) + vowel.substr(1, 1) + '0';
+      // Consonant didn't selected and vowel is in origin form.
+      if (!selectedConsonant) {
+        selectedOriginAlpha = vowel;
+        //return;
+      } else {
+        selectedOriginAlpha = selectedConsonant.charAt(0) + '10';
       }
 
       self.alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);

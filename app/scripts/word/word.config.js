@@ -226,7 +226,7 @@
     config.wordToReplaceMap['w14'] = convertAlphas('wa4');
   }
 
-  function getAlphaAllVariants(listalpha) {
+  function getAlphaAllVariants(listalpha) {console.log(listalpha);
     var prefix = listalpha.substr(0,2);
     var lists = [listalpha,prefix + '1',prefix + '2',prefix + '3'];
     if (config.wordToReplaceMap[prefix + '4']) {
