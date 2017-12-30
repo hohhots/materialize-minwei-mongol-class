@@ -140,11 +140,15 @@
   }
   **/
 
-  function setMonWord(str) {
+  function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
       var replace = key;
-      var re = new RegExp(replace, "g");
-      str = str.replace(re, '<span class="hawang-' + value + '"></span>');
+      var re = new RegExp(key, "g");
+      if (div) {
+        str = str.replace(re, '<span class="hawang-' + value + '"></span>');
+      } else {
+        str = str.replace(re, value);
+      }
     });
 
     return str;

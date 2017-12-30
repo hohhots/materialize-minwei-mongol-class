@@ -29,14 +29,14 @@
           </div>
         </div>
         <div class="w3-col s3">
-          <div ng-click="$ctrl.answerClick()" class="w3-margin-top w3-margin-bottom wordbeginpractice-word-answer-container">
+          <div ng-click="$ctrl.answerClick()" class="w3-margin-top w3-margin-bottom wordbeginpractice-word-answer-container" ng-class="$ctrl.getAnswerClass()">
             <mon-word data-origintext="{{$ctrl.answerWord}}"></mon-word>
           </div>
         </div>
         <div class="w3-col s3">&nbsp;</div>
       </div>
 
-      <div class="originpractice-done" ng-show="$ctrl.allCorrect">
+      <div class="originpractice-done" ng-show="$ctrl.answerCorrect">
         <button class="w3-margin w3-btn w3-teal" ng-click="$ctrl.nextTestClick()">
           {{::$ctrl.pageLangs.nextTest}}
         </button>

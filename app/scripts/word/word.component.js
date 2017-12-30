@@ -66,7 +66,7 @@
           self.containerStyle.width = parentElem[0].clientHeight + 'px';
           self.containerStyle.height = parentElem[0].clientWidth + 'px';
   
-          self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext));
+          self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext, true));
         }
 
       }, 20);

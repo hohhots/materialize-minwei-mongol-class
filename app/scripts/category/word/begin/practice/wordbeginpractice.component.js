@@ -19,12 +19,13 @@
       '$interval',
       '$timeout',
       'Config',
+      'wordConfig',
       'Util',
       'Json',
       controller]
   });
 
-  function controller($scope, $state, $element, $location, $interval, $timeout, config, util, json) {
+  function controller($scope, $state, $element, $location, $interval, $timeout, config, wordConfig, util, json) {
     var self = this;
 
     //define self variables
@@ -33,6 +34,7 @@
     self.allCorrect = false;
     self.originWord = '';
     self.answerWord = '';
+    self.answerCorrect = false;    
     
     self.$onInit = function () {
       self.pageLangs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -56,6 +58,26 @@
       $scope.$broadcast(config.events.startWordIme, self.originWord);
     };
 
+    self.getAnswerClass = function() {
+      if (self.answerWord == '') {
+        return '';
+      }
+
+      var cssClass = '';
+      
+      if (self.answerCorrect) {
+        cssClass = 'wordbeginpractice-right';
+      } else {
+        cssClass = 'wordbeginpractice-wrong';
+      }
+
+      return cssClass;
+    }
+
+    self.nextTestClick = function () {
+      $state.reload();
+    };
+
     var practiceWords = [];
 
     function setOriginWordRandom () {
@@ -65,6 +87,20 @@
 
     function wordImeDone(event, word) {
       self.answerWord = word;
+      checkAnswerCorrect();
+    }
+
+    function checkAnswerCorrect() {
+      //wordConfig.setMonWord(self.origintext)
+      //self.originWord = '';
+      //self.answerWord = '';
+      console.log();
+      console.log();
+      if ( wordConfig.setMonWord(self.originWord) == wordConfig.setMonWord(self.answerWord) ) {
+        self.answerCorrect = true;
+      } else {
+        self.answerCorrect = false;
+      }
     }
 
     // add listener and hold on to deregister function

@@ -13,9 +13,17 @@
 .wordbeginpractice-word-answer-container {
   border: 1px dashed black;
   background: rgba(0,0,0,0);
-  color: #000;
+  color: #fff;
 }
 
+.wordbeginpractice-wrong {
+  background-color: #f44336;
+}
+
+.wordbeginpractice-right {
+  background-color: #4CAF50;
+
+}
 @media (min-width:601px) {
   
 }
