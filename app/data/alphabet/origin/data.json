@@ -1,102 +1,119 @@
 [
   {
     "id": 1,
+    "text": "a10",
     "name": "根字母“a”",
     "fileName": "a",
     "introduction": "传统蒙古文字母“a”。"
   },
   {
     "id": 2,
+    "text": "n10",
     "name": "根字母“na”",
     "fileName": "na",
     "introduction": "传统蒙古文字母“na”。"
   },
   {
     "id": 3,
+    "text": "b10",
     "name": "根字母“ba”",
     "fileName": "ba",
     "introduction": "传统蒙古文字母“ba”。"
   },
   {
     "id": 4,
+    "text": "p10",
     "name": "根字母“pa”",
     "fileName": "pa",
     "introduction": "传统蒙古文字母“pa”。"
   },
   {
     "id": 5,
+    "text": "h10",
     "name": "根字母“ha”",
     "fileName": "ha",
     "introduction": "传统蒙古文字母“ha”。"
   },
   {
     "id": 6,
+    "text": "g10",
     "name": "根字母“ga”",
     "fileName": "ga",
     "introduction": "传统蒙古文字母“ga”。"
   },
   {
     "id": 7,
+    "text": "m10",
     "name": "根字母“ma”",
     "fileName": "ma",
     "introduction": "传统蒙古文字母“ma”。"
   },
   {
     "id": 8,
+    "text": "l10",
     "name": "根字母“la”",
     "fileName": "la",
     "introduction": "传统蒙古文字母“la”。"
   },
   {
     "id": 9,
+    "text": "s10",
     "name": "根字母“sa”",
     "fileName": "sa",
     "introduction": "传统蒙古文字母“sa”。"
   },
   {
     "id": 10,
+    "text": "x10",
     "name": "根字母“xa”",
     "fileName": "xa",
     "introduction": "传统蒙古文字母“xa”。"
   },
   {
     "id": 11,
+    "text": "t10",
     "name": "根字母“ta”",
     "fileName": "ta",
     "introduction": "传统蒙古文字母“ta”。"
   },
   {
     "id": 12,
+    "text": "d10",
     "name": "根字母“da”",
     "fileName": "da",
     "introduction": "传统蒙古文字母“da”。"
   },
   {
     "id": 13,
+    "text": "q10",
     "name": "根字母“qa”",
     "fileName": "qa",
     "introduction": "传统蒙古文字母“qa”。"
   },
   {
     "id": 14,
+    "text": "j10",
     "name": "根字母“ja”",
     "fileName": "ja",
     "introduction": "传统蒙古文字母“ja”。"
   },
   {
     "id": 15,
+    "text": "y10",
     "name": "根字母“ya”",
     "fileName": "ya",
     "introduction": "传统蒙古文字母“ya”。"
   },
   {
     "id": 16,
+    "text": "r10",
     "name": "根字母“ra”",
     "fileName": "ra",
     "introduction": "传统蒙古文字母“ra”。"
   },
   {
     "id": 17,
+    "text": "w10",
     "name": "根字母“wa”",
     "fileName": "wa",
     "introduction": "传统蒙古文字母“wa”。"

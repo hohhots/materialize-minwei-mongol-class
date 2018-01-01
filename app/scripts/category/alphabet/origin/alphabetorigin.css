@@ -28,7 +28,7 @@
 .alphabetorigin-view {
   margin-left: auto !important;
   margin-right: auto !important;
-  width: 45px;
+  width: 42px;
   background-color: #085a9d;
   cursor: pointer;
 }
@@ -37,6 +37,18 @@
   width: 100% !important;
   color: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.origin-font,
+.origin-font:hover {
+  width: 42px;
+  height: 70px;
+  color: #fff;
+  font-size: 2em;
+}
+
+.origin-font:hover {
+  color: rgb(221, 163, 5);
 }
 
 @media (min-width:601px) {
