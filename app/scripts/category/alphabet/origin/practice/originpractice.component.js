@@ -62,10 +62,10 @@
       util.changePath(config.pagesUrl.alphaOrigin);
     };
 
-    self.getAlphaClass = function (alpha) {
-      var name = config.alphaCss.practiceEmpty;
+    self.getAlphaText = function (alpha) {
+      var name = '';
       if (answered()) {
-        name = 'originFont-' + alpha.fileName;
+        name = alpha.text;
       }
       return name;
     };

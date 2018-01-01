@@ -119,6 +119,7 @@
     var displayOriginRandom = function () {
       selectedAlphas = [];
       self.showOriginRandom = true;
+      $scope.$broadcast(config.events.setDimension);
     };
 
     var removeSelectedAlpha = function (selectedOrder) {
