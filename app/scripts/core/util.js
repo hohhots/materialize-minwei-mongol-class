@@ -58,8 +58,8 @@
 
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
-      convertAlphaNameToCode: function(name) {console.log(wordConfig.convertAlphaNameToCode(name));
-        return wordConfig.convertAlphaNameToCode(name);
+      convertAlphaNameToCode: function(name) {
+        return wordConfig.convertAlphaNameToCode(this.convertVideoAlphaName(name));
       },
 
       getPlayerIconClass: function (playedAudioId) {

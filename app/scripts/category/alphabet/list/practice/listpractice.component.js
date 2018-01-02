@@ -56,14 +56,6 @@
       return util.allAnswerCorrect(self.answerAlphas);
     };
 
-    self.getAlphaClass = function (alpha) {
-      var name = config.alphaCss.practiceEmpty;
-      if (util.alphaAnswered(alpha)) {
-        name = 'originFont-' + alpha.name;
-      }
-      return name;
-    };
-
     self.getAlphaCheckedClass = function (alpha) {
       var stat = 'originpractice-blue';
       if (util.allAlphaAnswered(util.alphaAnswered, self.answerAlphas)) {
@@ -98,6 +90,17 @@
 
     self.nextTestClick = function () {
       $state.reload();
+    };
+
+    // 'alpha.name' format is like 'a' 'e' 'ji' 'go'
+    // return 'a10' 'e10' 'j10' 'g40'
+    self.getAlphaText = function(alpha) {
+      //console.log(name);
+      var text = '';
+      if (util.alphaAnswered(alpha)) {
+        text = util.convertAlphaNameToCode(alpha.name);
+      }
+      return text;
     };
 
     var audioElem = null;

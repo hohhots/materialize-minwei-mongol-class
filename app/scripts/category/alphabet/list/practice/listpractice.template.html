@@ -33,7 +33,9 @@
         <div ng-repeat="alpha in $ctrl.answerAlphas" ng-class="$ctrl.realAlphaClass" ng-click="$ctrl.selectAlphaClick($index)">
           <div class="w3-margin listpractice-view" ng-class="$ctrl.getAlphaCheckedClass(alpha)">
             <div class="originpractice-num">{{::($index + 1)}}</div>
-            <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
+            <div class="origin-font">
+              <mon-word data-origintext="{{$ctrl.getAlphaText(alpha)}}"></mon-word>
+            </div>
           </div>
         </div>
       </div>
