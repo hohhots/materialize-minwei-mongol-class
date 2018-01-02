@@ -8,13 +8,11 @@
 }
 
 @media (min-width:601px) {
-  .alpha-col.m3 {
-    width: 24.99999%;
+  .alpha-col.m1 {
+    width: 14.28571%;
   }
 }
 
 @media (min-width:993px) {
-  .alpha-col.l1 {
-    width: 14.28571%;
-  }
+  
 }

@@ -57,6 +57,12 @@
     self.practiceClick = function () {
       util.changePath(config.pagesUrl.listPractice);
     };
+
+    // 'vowelName' format is like 'a' 'e' 'ji' 'go'
+    // return 'a10' 'e10' 'j10' 'g40'
+    self.getAlphaText = function(vowelName) {
+      return util.convertAlphaNameToCode(vowelName);
+    };
   };
 
 })();
