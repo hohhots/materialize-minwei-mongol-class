@@ -6,7 +6,7 @@
     'core.config'
   ]);
 
-  app.service('Util', ['$location', 'Config', function ($location, config) {
+  app.service('Util', ['$location', 'Config', 'wordConfig', function ($location, config, wordConfig) {
     var isTouchScreen = 'init';
 
     var currentExerciseId = {};
@@ -54,6 +54,12 @@
           alphaName = temp;
         }
         return alphaName;
+      },
+
+      // 'name' format is like 'a' 'e' 'ji' 'go'
+      // return 'a10' 'e10' 'j10' 'g40'
+      convertAlphaNameToCode: function(name) {console.log(wordConfig.convertAlphaNameToCode(name));
+        return wordConfig.convertAlphaNameToCode(name);
       },
 
       getPlayerIconClass: function (playedAudioId) {

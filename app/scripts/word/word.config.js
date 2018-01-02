@@ -154,6 +154,7 @@
     return str;
   }
 
+  // convert a0 a1 a2 a3 to a a1 a2 a3
   function convertAlphas(code) {
     var position = code.substring(code.length - 1);
     var name = code.substring(0, code.length - 1);
@@ -233,6 +234,7 @@
     config.wordToReplaceMap['w14'] = convertAlphas('wa4');
   }
 
+  //listalpha format is like 'a10' 'b20' 's30'
   function getAlphaAllVariants(listalpha) {
     var prefix = listalpha.substr(0, 2);
     var lists = [listalpha, prefix + '1', prefix + '2', prefix + '3'];
@@ -268,6 +270,22 @@
     return code;
   }
 
+  // 'name' format is like 'a' 'e' 'ji' 'go'
+  // return 'a10' 'e10' 'j10' 'g40'
+  function convertAlphaNameToCode(name) {
+    var code = '';
+
+    $.each(config.wordToReplaceMap, function (key, value) {
+      if (value == name) {
+        code = key;
+        // exit each loop
+        return false;
+      }
+    });
+
+    return code;
+  }
+
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
@@ -276,7 +294,8 @@
     getAlphaAllVariants: getAlphaAllVariants,
     getUnicode: getUnicode,
     getMongolCode: getMongolCode,
-    setMonWord: setMonWord
+    setMonWord: setMonWord,
+    convertAlphaNameToCode: convertAlphaNameToCode
   };
 
   createVowelPosition();
