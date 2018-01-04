@@ -20,9 +20,13 @@
       <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClicked(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)"
         class="alpha-col s4 m3 l1">
         <div class="w3-margin alphabetorigin-view">
-          <div class="originFont-{{::vowel.name}}"></div>
+          <div class="origin-font">
+            <mon-word data-origintext="{{$ctrl.getAlphaText(vowel.name)}}"></mon-word>
+          </div>
         </div>
-        <div class="originFont-{{::vowel.name}}-1 w3-border-bottom"></div>
+        <div class="origin-font alphabetvariant-fonts">
+          <mon-word data-origintext="{{$ctrl.getAlphaText(vowel.name)}}"></mon-word>
+        </div>
         <div class="originFont-{{::vowel.name}}-2 w3-border-bottom"></div>
         <div class="originFont-{{::vowel.name}}-3"></div>
       </div>

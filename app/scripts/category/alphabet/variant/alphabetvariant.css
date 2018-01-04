@@ -3,6 +3,13 @@
   background-color: #f1f1f1 !important;
 }
 
+.alphabetvariant-fonts {
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
 @media (min-width:601px) {
 
 }

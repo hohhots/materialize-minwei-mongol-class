@@ -48,6 +48,12 @@
       util.changePath(config.pagesUrl.variantPractice);
     };
 
+    // 'vowelName' format is like 'a' 'e' 'ji' 'go'
+    // return 'a10' 'e10' 'j10' 'g40'
+    self.getAlphaText = function(vowelName) {
+      return util.convertAlphaNameToCode(vowelName);
+    };
+
     var filtAlphaVariants = function (event, alphaIds) {
       if (alphaIds.length == 0) {
         self.$onInit();
