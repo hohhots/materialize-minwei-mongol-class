@@ -221,17 +221,17 @@
   }
 
   function createFourthAlphas() {
-    config.wordToReplaceMap['n14'] = convertAlphas('na4');
-    config.wordToReplaceMap['n24'] = convertAlphas('na4');
-    config.wordToReplaceMap['m14'] = convertAlphas('ma4');
-    config.wordToReplaceMap['m24'] = convertAlphas('ma4');
-    config.wordToReplaceMap['l14'] = convertAlphas('la4');
-    config.wordToReplaceMap['l24'] = convertAlphas('la4');
-    config.wordToReplaceMap['y14'] = convertAlphas('ya4');
-    config.wordToReplaceMap['y24'] = convertAlphas('ya4');
-    config.wordToReplaceMap['r14'] = convertAlphas('ra4');
-    config.wordToReplaceMap['r24'] = convertAlphas('ra4');
-    config.wordToReplaceMap['w14'] = convertAlphas('wa4');
+    config.wordToReplaceMap['n14'] = 'na4';
+    config.wordToReplaceMap['n24'] = 'na4';
+    config.wordToReplaceMap['m14'] = 'ma4';
+    config.wordToReplaceMap['m24'] = 'ma4';
+    config.wordToReplaceMap['l14'] = 'la4';
+    config.wordToReplaceMap['l24'] = 'la4';
+    config.wordToReplaceMap['y14'] = 'ya4';
+    config.wordToReplaceMap['y24'] = 'ya4';
+    config.wordToReplaceMap['r14'] = 'ra4';
+    config.wordToReplaceMap['r24'] = 'ra4';
+    config.wordToReplaceMap['w14'] = 'wa4';
   }
 
   //listalpha format is like 'a10' 'b20' 's30'
@@ -286,6 +286,13 @@
     return code;
   }
 
+  function fourthAlphaExist(alpha) {
+    if (config.wordToReplaceMap[alpha]) {
+      return true;
+    }
+    return false;
+  }
+
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
@@ -294,6 +301,7 @@
     getAlphaAllVariants: getAlphaAllVariants,
     getUnicode: getUnicode,
     getMongolCode: getMongolCode,
+    fourthAlphaExist: fourthAlphaExist,
     setMonWord: setMonWord,
     convertAlphaNameToCode: convertAlphaNameToCode
   };

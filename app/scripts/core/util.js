@@ -62,6 +62,30 @@
         return wordConfig.convertAlphaNameToCode(this.convertVideoAlphaName(name));
       },
 
+      // 'name' format is like 'a' 'e' 'ji' 'go'
+      // return 'a10' 'e10' 'j10' 'g40'
+      convertVariantNameToCode: function(name, position) {
+        var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position));
+
+        if (temp != '') {
+          temp = temp.substr(0,2) + position;
+        }
+        
+        if ((position == 4) && (!wordConfig.fourthAlphaExist(temp))) {
+          temp = '';
+        }
+
+        return temp;
+      },
+
+      fourthAlphaExist: function(vowelName) {
+        var temp = this.convertVariantNameToCode(vowelName, 4);
+        if (wordConfig.fourthAlphaExist(temp)) {
+          return true;
+        }
+        return false;
+      },
+
       getPlayerIconClass: function (playedAudioId) {
         var css = "fa-play-circle-o";
         if (playedAudioId != 0) {

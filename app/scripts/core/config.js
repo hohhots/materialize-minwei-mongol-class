@@ -245,7 +245,7 @@
     ge: "he", gi: "hi", gu: "hu", gu2: "hu"
   });
 
-  config.alphaVariantNamesMap1 = config.alphaListNamesMap;
+  config.alphaVariantNamesMap1 = config.alphaVideoNamesMap;
   config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
     e: "a", u: "o", u2: "o",
     nu: "no", nu2: "no",
@@ -263,12 +263,8 @@
     ru: "ro", ru2: "ro",
   });
 
-  var result = config.alphaVariantNamesMap3, key, obj = config.alphaVariantNamesMap2;
-  for (key in obj) {
-    if (obj.hasOwnProperty(key) && (key !== 'we')) {
-      result[key] = obj[key];
-    }
-  }
+  config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
+
   // Define the `core.config` module
   angular.module('core.config', []).
     constant('Config', config);

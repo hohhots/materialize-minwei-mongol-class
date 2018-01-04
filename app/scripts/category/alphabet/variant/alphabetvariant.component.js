@@ -50,9 +50,34 @@
 
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaText = function(vowelName) {
+    self.getAlphaText = function (vowelName) {
       return util.convertAlphaNameToCode(vowelName);
     };
+
+    // vowelName is like 'a' 'u2' 'ta' 'ji'
+    // return ''
+    self.getVariantText = function (vowelName, position) {
+      return util.convertVariantNameToCode(vowelName, position);
+    };
+
+    self.fourthClass = function (vowelName) {
+      var cssClass = 'alphabetvariant-fonts-none';
+
+      var alpha = vowelName.substr(0, 1);
+      if (fourthClasses[alpha]) {
+        return 'alphabetvariant-fonts-end';
+      }
+      
+      if (util.fourthAlphaExist(vowelName)) {
+        cssClass = 'alphabetvariant-fonts-end';
+        if (!fourthClasses[alpha]) {
+          fourthClasses[alpha] = true;
+        }
+      }
+      return cssClass;
+    };
+
+    var fourthClasses = {};
 
     var filtAlphaVariants = function (event, alphaIds) {
       if (alphaIds.length == 0) {
