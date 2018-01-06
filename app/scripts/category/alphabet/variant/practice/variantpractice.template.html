@@ -1,4 +1,4 @@
-<header class="w3-container w3-center w3-dark-gray alphabetorigin-header">
+<header class="w3-container w3-center w3-win8-olive alphabetorigin-header">
   <div class="app-container">
     {{::$ctrl.langs.name}}
   </div>
@@ -33,7 +33,9 @@
         <div ng-repeat="alpha in $ctrl.testAlphas" ng-click="$ctrl.selectAlphaClick($index)" ng-class="$ctrl.realAlphaClass">
           <div class="w3-margin listpractice-view originpractice-blue">
             <div class="originpractice-num">{{::($index + 1)}}</div>
-            <div ng-class="$ctrl.getAlphaClass(alpha)"></div>
+            <div class="origin-font">
+              <mon-word data-origintext="{{::alpha.text}}"></mon-word>
+            </div>
           </div>
           <div ng-class="$ctrl.getAnswerAlphaClass($index)">
             <span class="variantpractice-opacity">{{$ctrl.getSelectText($index)}}</span>

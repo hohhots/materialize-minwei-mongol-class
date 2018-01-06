@@ -131,6 +131,7 @@
       selectAlpha: "选择字母",
       selectAll: "全选",
       checkAnswer: "检查答案",
+      originAlphaFilterTitle: "筛选字母",
       notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
       nextTest: '下一练习',
       top: '首',
@@ -237,7 +238,9 @@
       wordInputBackSpace: 'wordInputBackSpaceEvent',
       setImeAlpha: 'setImeAlphaEvent',
       closeIme: 'closeImeEvent',
-      wordImeDone: 'wordImeDoneEvent'
+      wordImeDone: 'wordImeDoneEvent',
+
+      setDimension: "setDimensionEvent"
     }
   };
 
@@ -260,7 +263,7 @@
     qu: "qo", qu2: "qo",
     ju: "jo", ju2: "jo",
     yu: "yo", yu2: "yo",
-    ru: "ro", ru2: "ro",
+    ru: "ro", ru2: "ro"
   });
 
   config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;

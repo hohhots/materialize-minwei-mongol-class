@@ -5,6 +5,10 @@
 
   app.component('appAlphaoriginfilter', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
+    bindings: {
+      jsondata: '<',
+      subdata: '<'
+    },
     controller: [
       '$scope',
       '$element',
@@ -22,11 +26,17 @@
     //define self variables
     self.templateUrl = config.templateUrl.alphaOriginFilter;
 
+    self.title = config.alphaLangs.originAlphaFilterTitle;
     self.showAlphaOriginFilter = false;
     self.selectOriginAlpha = config.alphaLangs.selectOriginAlpha;
     self.subData = [];
     self.selectAll = config.alphaLangs.selectAll;
     self.ok = config.alphaLangs.ok;
+
+    self.$onInit = function () {
+      self.jsonData = self.jsondata;
+      self.subData = self.subdata;
+    };
 
     self.selectAllClick = function () {
       var len = selectedAlphaIds.length;
@@ -67,21 +77,17 @@
 
     var displayAlphaFilter = function() {
       self.showAlphaOriginFilter = true;
+      $scope.$broadcast(config.events.setDimension);
     };
 
-    var init = function () {
+   // var httpData = function (name) {
+   //   $http.get(config.dataPath[name].data, { cache: true })
+   //     .then(function (resp) {
+   //       self.subData = resp.data;
+   //     });
+   // };
 
-    };
-
-    var httpData = function (name) {
-      $http.get(config.dataPath[name].data, { cache: true })
-        .then(function (resp) {
-          self.subData = resp.data;
-          init();
-        });
-    };
-
-    httpData('alphabetorigin');
+   // httpData('alphabetorigin');
 
 
     // add listener and hold on to deregister function

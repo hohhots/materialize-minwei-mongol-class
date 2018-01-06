@@ -1,7 +1,7 @@
 <div id="player" class="w3-modal origin-filter" ng-show="$ctrl.showAlphaOriginFilter">
   <div class="w3-modal-content">
     <header class="w3-container w3-padding w3-center w3-theme-d5">
-      {{::$ctrl.selectOriginAlpha}}
+      {{::$ctrl.title}}
     </header>
 
     <div class="w3-container w3-center alphabetorigin-filter">
@@ -18,7 +18,9 @@
         <div class="w3-card w3-light-grey alphabetorigin-content">
           <div ng-repeat="alpha in $ctrl.subData" ng-click="$ctrl.alphaClick(alpha.id)" class="w3-col s4 m3 l2">
             <div class="w3-card w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
-              <div class="originFont-{{::alpha.fileName}}"></div>
+              <div class="origin-font">
+                <mon-word data-origintext="{{::alpha.text}}"></mon-word>
+              </div>
             </div>
           </div>
         </div>

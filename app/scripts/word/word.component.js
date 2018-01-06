@@ -59,8 +59,7 @@
           return;
         }
 
-        $interval.cancel(dd);                
-
+        $interval.cancel(dd);
         if ($element.closest('div:hidden').length == 0) {
           self.containerStyle.position = "absolute";
           self.containerStyle.width = parentElem[0].clientHeight + 'px';
