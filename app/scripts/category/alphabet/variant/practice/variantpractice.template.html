@@ -34,7 +34,7 @@
           <div class="w3-margin listpractice-view originpractice-blue">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div class="origin-font">
-              <mon-word data-origintext="{{::alpha.text}}"></mon-word>
+              <mon-word data-origintext="{{::$ctrl.getAlphaText(alpha.name)}}"></mon-word>
             </div>
           </div>
           <div ng-class="$ctrl.getAnswerAlphaClass($index)">

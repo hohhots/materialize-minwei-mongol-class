@@ -73,6 +73,13 @@
       }
     };
 
+    // 'name' format is like 'a' 'e' 'ji' 'go'
+    // return 'a10' 'e10' 'j10' 'g40'
+    self.getAlphaText = function(name) {
+      //console.log(name);
+      return util.convertAlphaNameToCode(name);
+    };
+
     var selectedAlphaIds = [];
 
     var displayAlphaFilter = function() {

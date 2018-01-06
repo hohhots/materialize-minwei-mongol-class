@@ -19,7 +19,7 @@
           <div ng-repeat="alpha in $ctrl.subData" ng-click="$ctrl.alphaClick(alpha.id)" class="w3-col s4 m3 l2">
             <div class="w3-card w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
               <div class="origin-font">
-                <mon-word data-origintext="{{::alpha.text}}"></mon-word>
+                <mon-word data-origintext="{{::$ctrl.getAlphaText(alpha.name)}}"></mon-word>
               </div>
             </div>
           </div>
