@@ -42,6 +42,7 @@
       textSpansArray = [],
       parentElem;
 
+
     function setTextArray() {
       textArray = [];
       var len = self.origintext.length / 3;
@@ -53,19 +54,22 @@
     };
 
     function setDimension() {
+      //console.log('before word dimension');
+      
       var dd = $interval(function () {
-        if (!parentElem) {
+        if (parentElem) {
+          $interval.cancel(dd);
+
+          if ($element.closest('div:hidden').length == 0) {
+            //console.log('after word dimension');
+            self.containerStyle.position = "absolute";
+            self.containerStyle.width = parentElem[0].clientHeight + 'px';
+            self.containerStyle.height = parentElem[0].clientWidth + 'px';
+
+            self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext, true));
+          }
+        } else {
           parentElem = $element.parent();
-          return;
-        }
-
-        $interval.cancel(dd);
-        if ($element.closest('div:hidden').length == 0) {
-          self.containerStyle.position = "absolute";
-          self.containerStyle.width = parentElem[0].clientHeight + 'px';
-          self.containerStyle.height = parentElem[0].clientWidth + 'px';
-
-          self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext, true));
         }
 
       }, 20);
