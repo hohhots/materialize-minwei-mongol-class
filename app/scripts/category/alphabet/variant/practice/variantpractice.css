@@ -5,9 +5,19 @@
   background-color: #085a9d;
 }
 
+.variant-font {
+  width: 42px;
+  height: 70px;
+  color: #000;
+  font-size: 2em;
+}
+
 .variantview-view-value {
   margin-left: auto !important;
   margin-right: auto !important;
+  width: 42px;
+  height: 70px;
+  color: #000;
 }
 
 .variantpractice-alpha-click {

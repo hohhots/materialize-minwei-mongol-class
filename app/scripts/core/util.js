@@ -65,6 +65,7 @@
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertVariantNameToCode: function(name, position) {
+        //console.log(name + ' - ' + position);
         var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position));
 
         if (temp != '') {

@@ -49,6 +49,22 @@
       return 'originFont-' + alpha.name + '-' + variantPosition;
     };
 
+    self.alphaClick = function (alpha) {
+      $scope.$emit(config.events.variantRandomAlphaSelected, alpha);
+      $scope.$broadcast(config.events.variantHideRandomAlpha);
+    };
+
+    self.exitPractice = function () {
+      $scope.$broadcast(config.events.variantHideRandomAlpha);
+    };
+
+    // 'name' format is like 'a' 'e' 'ji' 'go'
+    // return 'a10' 'e10' 'j10' 'g40'
+    self.getAlphaText = function(name) {
+      //console.log(name);
+      return util.convertVariantNameToCode(name, variantPosition);
+    };
+
     var oneAlphaClass = 'w3-col s12 m12 l12';
     var twoAlphaClass = 'w3-col s6 m6 l6';
     var threeAlphaClass = 'w3-col s4 m4 l4';
@@ -56,7 +72,7 @@
     var fiveAlphaClass = 'alpha5-col s4 m3 l1';
     var variantPosition = 0;
 
-    var init = function (tests) {
+    function init(tests) {
       variantPosition = tests.variantPosition;
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));
       self.realAlphaClass = fiveAlphaClass;
@@ -78,9 +94,9 @@
           break;
         default:
       }
-    };
+    }
 
-    var setAlphasRandom = function (array) {
+    function setAlphasRandom(array) {
       var len = array.length;
       if (len == 0) {
         return;
@@ -92,9 +108,9 @@
         array.splice(random, 1)[0];
       }
       setAlphasRandom(angular.copy(array));
-    };
+    }
 
-    var displayRandomAlpha = function (event, tests) {
+    function displayRandomAlpha(event, tests) {
       self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
       if (self.randomAlphas.length == 0) {
         init(tests);
@@ -104,18 +120,9 @@
         setAlphasRandom(temp);
       }
       self.showVariantRandom = true;
-    };
+    }
 
-    self.alphaClick = function (alpha) {
-      $scope.$emit(config.events.variantRandomAlphaSelected, alpha);
-      $scope.$broadcast(config.events.variantHideRandomAlpha);
-    };
-
-    self.exitPractice = function () {
-      $scope.$broadcast(config.events.variantHideRandomAlpha);
-    };
-
-    var hideRandomAlpha = function () {
+    function hideRandomAlpha() {
       self.showVariantRandom = false;
     };
 

@@ -38,7 +38,10 @@
             </div>
           </div>
           <div ng-class="$ctrl.getAnswerAlphaClass($index)">
-            <span class="variantpractice-opacity">{{$ctrl.getSelectText($index)}}</span>
+            <span class="variantpractice-opacity" ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText($index)}}</span>
+            <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
+              <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
+            </div>
           </div>
         </div>
       </div>
