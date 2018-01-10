@@ -51,9 +51,9 @@
       $scope.$broadcast(config.events.listHideRandomAlpha);
     };
 
-    var fiveAlphaClass = 'alpha5-col s4 m3 l1';
-    var fourAlphaClass = 'w3-col s4 m3 l3';
-    var oneAlphaClass = 'w3-col s12 m12 l12';
+    var fiveAlphaClass = 'alpha5-col s1';
+    var fourAlphaClass = 'w3-col s3';
+    var oneAlphaClass = 'w3-col s12';
 
     var init = function (tests) {
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));

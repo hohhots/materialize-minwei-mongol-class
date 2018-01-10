@@ -24,7 +24,7 @@
     <div class="w3-container w3-margin w3-center app-container">
       <div class="w3-row w3-grayscale-min w3-center">
         <div class="alphabetorigin-content">
-          <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)" class="w3-col s4 m3 l2">
+          <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)" class="w3-col s3 m2">
             <div class="w3-margin w3-display-container alphabetorigin-view" ng-class="$ctrl.ifAlphaSelected('css',alpha.id)">
               <div ng-class="$ctrl.getAlphaCss(alpha.id)">{{$ctrl.getSelectedOrder(alpha.id)}}</div>
               <div class="origin-font">

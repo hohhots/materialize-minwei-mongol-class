@@ -176,8 +176,8 @@
     var variantPosition = 0;
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaList;
-    var sevenAlphaClass = 'alpha-col s4 m3 l1';
-    var twoAlphaClass = 'w3-col s6 m6 l6';
+    var sevenAlphaClass = 'alpha-col s3 l1';
+    var twoAlphaClass = 'w3-col s6';
 
     function setAnswerAlphas() {
       variantPosition = Math.floor(Math.random() * 3) + 1;

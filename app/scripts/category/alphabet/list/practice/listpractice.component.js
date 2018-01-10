@@ -109,10 +109,10 @@
     var testAlpha = {};
     var playedAudioId = 0;
     var url = config.mediaUrl.alphaList;
-    var sevenAlphaClass = 'alpha-col s4 m3 l1';
+    var sevenAlphaClass = 'w3-col s3 alpha-col m3 l1';
     var twoAlphaClass = 'w3-col s6 m6 l6';
 
-    var setAnswerAlphas = function () {
+    function setAnswerAlphas() {
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       testAlphas = testOriginAlpha.vowel;
@@ -123,7 +123,7 @@
       }
     };
 
-    var setAnswerAlphaState = function (alpha) {
+    function setAnswerAlphaState(alpha) {
       alpha.correct = false;
       alpha.error = false;
       if (alpha.name == util.convertAlphaName(testAlpha.name)) {
@@ -133,7 +133,7 @@
       }
     };
 
-    var playAudio = function () {
+    function playAudio() {
       var dirName = testOriginAlpha.name.substr(0,1);
       if (playedAudioId == testAlphas.length) {
         $scope.$broadcast(config.events.stopPlayers, true);
@@ -153,7 +153,7 @@
       playedAudioId++;
     };
 
-    var stopPlayers = function (event, outScope) {
+    function stopPlayers(event, outScope) {
       audioElem.pause();
       playedAudioId = 0;
       if (outScope) {
@@ -161,7 +161,7 @@
       }
     };
 
-    var randomAlphaSelected = function (event, alpha) {
+    function randomAlphaSelected(event, alpha) {
       setAnswerAlphaState(alpha);
       self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };

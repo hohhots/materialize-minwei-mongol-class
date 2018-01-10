@@ -65,11 +65,11 @@
       return util.convertVariantNameToCode(name, variantPosition);
     };
 
-    var oneAlphaClass = 'w3-col s12 m12 l12';
-    var twoAlphaClass = 'w3-col s6 m6 l6';
-    var threeAlphaClass = 'w3-col s4 m4 l4';
-    var fourAlphaClass = 'w3-col s4 m3 l3';
-    var fiveAlphaClass = 'alpha5-col s4 m3 l1';
+    var oneAlphaClass = 'w3-col s12';
+    var twoAlphaClass = 'w3-col s6';
+    var threeAlphaClass = 'w3-col s4';
+    var fourAlphaClass = 'w3-col s3';
+    var fiveAlphaClass = 'alpha5-col s1';
     var variantPosition = 0;
 
     function init(tests) {

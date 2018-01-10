@@ -44,3 +44,21 @@
 .variantpractice-opacity {
   opacity: 0.3;
 }
+
+.variantpractice-alphas {
+  overflow: auto;
+  margin: auto;
+  width: 100% !important;
+}
+
+@media (min-width: 601px) {
+  .variantpractice-alphas {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 993px){
+  .variantpractice-alphas {
+    width: 80% !important;
+  }
+}

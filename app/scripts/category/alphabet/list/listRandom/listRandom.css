@@ -17,13 +17,17 @@
   width: 20%;
 }
 
+.alpha5-col.s3 {
+  width: 24.99999%;
+}
+
 .alpha5-col.s4 {
   width: 33.33333%;
 }
 
 @media (min-width:601px) {
-  .alpha5-col.m3 {
-    width: 24.99999%;
+  .alpha5-col.m1 {
+    width: 20%;
   }
 }
 
