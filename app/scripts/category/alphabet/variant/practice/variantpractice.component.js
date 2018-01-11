@@ -31,10 +31,10 @@
     self.templateUrl = config.templateUrl.variantpractice;
     self.langs = {};
     self.testAlphas = [];
+    self.testFourthAlphas = [];
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
-    self.fourthInAlphas = false;
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -151,8 +151,26 @@
       return false;
     };
 
-    self.hasFourthAlpha = function (index) {
+    self.hasFourthAlpha = function () {
+      if (self.testFourthAlphas.length == 0) {
+        return false;
+      }
       return true;
+    };
+
+    self.AlphaHasFourth = function(alphaId) {
+      if (alphaId > 2) {
+        return false;
+      }
+
+      var fourth = false;
+      $.each(self.testFourthAlphas, function (index, val) {
+        if (val.id == alphaId) {
+          fourth = true;
+          return false;
+        }
+      });
+      return fourth;
     };
 
     // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -202,15 +220,23 @@
       $.each(self.testAlphas, function (index, val) {
         val.text = util.convertVariantNameToCode(val.name, variantPosition);
       });
-      console.log(self.testAlphas);
-      setFourthInAlphasFour();
+      //console.log(self.testAlphas);
+      setFourthInAlphas();
     }
 
-    function setFourthInAlphasFour() {
+    function setFourthInAlphas() {
+      if (variantPosition != 3) {
+        return;
+      }
       $.each(self.testAlphas, function (index, val) {
-        console.log(val);
+        if (index < 2) {
+          if (util.fourthAlphaExist(val.name)) {
+            var alpha = angular.copy(val);
+            alpha.text = alpha.text.replace(3, 4);
+            self.testFourthAlphas.push(alpha);
+          }
+        }
       });
-      self.fourthInAlphas = false;
     }
 
     function setAnswerAlphaState(alpha) {

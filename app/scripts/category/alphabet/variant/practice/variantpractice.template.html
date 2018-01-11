@@ -43,8 +43,8 @@
               <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
             </div>
           </div>
-          <div class="variantpractice-alpha-click" ng-class="$ctrl.getAnswerAlphaClass($index)" ng-show="$ctrl.fourthInAlphas">
-            <div ng-show="$ctrl.hasFourthAlpha($index)">
+          <div class="variantpractice-alpha-click" ng-class="$ctrl.getAnswerAlphaClass($index)" ng-show="$ctrl.hasFourthAlpha()">
+            <div ng-show="$ctrl.AlphaHasFourth(alpha.id)">
               <span ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText($index)}}</span>
               <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
                 <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
