@@ -1,20 +1,26 @@
 .variantpractice-view {
   margin-left: auto !important;
   margin-right: auto !important;
-  width: 45px;
+  width: 42px;
   background-color: #085a9d;
 }
 
+.variant-font-head,
 .variant-font {
   width: 42px;
   height: 70px;
-  color: #000;
+  color: #fff;
   font-size: 2em;
+}
+
+.variant-font {
+  color: #000;
 }
 
 .variantview-view-value {
   margin-left: auto !important;
   margin-right: auto !important;
+  margin-bottom: 10px;
   width: 42px;
   height: 70px;
   color: #000;
@@ -22,6 +28,13 @@
 
 .variantpractice-alpha-click {
   cursor: pointer;
+  opacity: 0.3;
+}
+
+.variantpractice-alpha-click:hover {
+  background-color: #ccc;
+  opacity: 1;
+  color: #fff;
 }
 
 .variantpractice-empty-alpha {
@@ -35,14 +48,11 @@
 .variantpractice-position-fill {
   margin-left: auto !important;
   margin-right: auto !important;
+  margin-bottom: 10px;
 }
 
 .variantpractice-position-fill {
   background-color: #085a9d;
-}
-
-.variantpractice-opacity {
-  opacity: 0.3;
 }
 
 .variantpractice-alphas {

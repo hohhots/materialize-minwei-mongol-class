@@ -58,13 +58,6 @@
       $scope.$broadcast(config.events.variantHideRandomAlpha);
     };
 
-    // 'name' format is like 'a' 'e' 'ji' 'go'
-    // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaText = function(name) {
-      //console.log(name);
-      return util.convertVariantNameToCode(name, variantPosition);
-    };
-
     var oneAlphaClass = 'w3-col s12';
     var twoAlphaClass = 'w3-col s6';
     var threeAlphaClass = 'w3-col s4';
@@ -96,18 +89,32 @@
       }
     }
 
-    function setAlphasRandom(array) {
-      var len = array.length;
+    function setAlphasRandom(vowels) {
+      //console.log(angular.copy(vowels));
+      var len = vowels.length;
       if (len == 0) {
         return;
       }
       var random = Math.floor(Math.random() * len);
-      if (array[random].name == util.convertAlphaName(array[random].name, variantPosition)) {
-        self.randomAlphas.push(array.splice(random, 1)[0]);
+      if (!includeTextInVowels(vowels[random].text)) {
+        self.randomAlphas.push(vowels.splice(random, 1)[0]);
       } else {
-        array.splice(random, 1)[0];
+        vowels.splice(random, 1)[0];
       }
-      setAlphasRandom(angular.copy(array));
+      setAlphasRandom(angular.copy(vowels));
+    }
+
+    function includeTextInVowels(text) {
+      var include = false;
+
+      $.each(self.randomAlphas, function (index, val) {
+        if (val.text == text) {
+          include = true;
+          return true;
+        }
+      });
+
+      return include;
     }
 
     function displayRandomAlpha(event, tests) {

@@ -34,6 +34,7 @@
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
+    self.fourthInAlphas = false;
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -143,23 +144,27 @@
       $state.reload();
     };
 
-    self.alphaAnswered = function(index) {
+    self.alphaAnswered = function (index) {
       if (util.alphaAnswered(answerAlphas[index])) {
         return true;
       }
       return false;
     };
 
+    self.hasFourthAlpha = function (index) {
+      return true;
+    };
+
     // 'name' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaText = function(name) {
+    self.getAlphaText = function (name) {
       //console.log(name);
       return util.convertAlphaNameToCode(name);
     };
 
     // 'name' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaAnswerText = function(index) {
+    self.getAlphaAnswerText = function (index) {
       //console.log(index);
       var alpha = answerAlphas[index];
       if (util.alphaAnswered(alpha)) {
@@ -170,6 +175,7 @@
     };
 
     var audioElem = null;
+    // with text like 'a10' 'a11' 'a12' 'a13'
     var testOriginAlpha = '';
     var answerAlphas = [];
     var testAlpha = {};
@@ -184,18 +190,33 @@
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       self.testAlphas = testOriginAlpha.vowel;
+      setTestAlphasText();
       answerAlphas = angular.copy(self.testAlphas);
       self.realAlphaClass = sevenAlphaClass;
       if (self.testAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;
       }
-      self.realAlphaClass = self.realAlphaClass + ' variantpractice-alpha-click';
+    }
+
+    function setTestAlphasText() {
+      $.each(self.testAlphas, function (index, val) {
+        val.text = util.convertVariantNameToCode(val.name, variantPosition);
+      });
+      console.log(self.testAlphas);
+      setFourthInAlphasFour();
+    }
+
+    function setFourthInAlphasFour() {
+      $.each(self.testAlphas, function (index, val) {
+        console.log(val);
+      });
+      self.fourthInAlphas = false;
     }
 
     function setAnswerAlphaState(alpha) {
       alpha.correct = false;
       alpha.error = false;
-      if (alpha.name == util.convertAlphaName(testAlpha.name, variantPosition)) {
+      if (alpha.text == testAlpha.text) {
         alpha.correct = true;
       } else {
         alpha.error = true;
@@ -231,6 +252,7 @@
     }
 
     function randomAlphaSelected(event, alpha) {
+      //console.log(alpha);
       setAnswerAlphaState(alpha);
       answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     }

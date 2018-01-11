@@ -18,7 +18,7 @@
           <div ng-repeat="alpha in $ctrl.randomAlphas" ng-click="$ctrl.alphaClick(alpha)" ng-class="$ctrl.realAlphaClass">
             <div class="w3-margin w3-display-container alphabetvariant-view">
               <div class="origin-font">
-                <mon-word data-origintext="{{::$ctrl.getAlphaText(alpha.name)}}"></mon-word>
+                <mon-word data-origintext="{{::alpha.text}}"></mon-word>
               </div>
             </div>
           </div>
