@@ -66,9 +66,9 @@
     var variantPosition = 0;
 
     function init(tests) {
-      variantPosition = tests.variantPosition;
+      variantPosition = tests.variantPosition;//console.log(tests);
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));
-      self.realAlphaClass = fiveAlphaClass;
+      self.realAlphaClass = fiveAlphaClass;//console.log(self.randomAlphas);
       switch (self.randomAlphas.length) {
         case 1:
           self.realAlphaClass = oneAlphaClass;
@@ -118,6 +118,8 @@
     }
 
     function displayRandomAlpha(event, tests) {
+      //console.log(tests);
+      // Display as title
       self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
       if (self.randomAlphas.length == 0) {
         init(tests);

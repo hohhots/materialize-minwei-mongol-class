@@ -40,6 +40,9 @@
           case 3:
             temp = config.alphaVariantNamesMap3[alphaName];
             break;
+          case 4:
+            temp = config.alphaVariantNamesMap4[alphaName];
+            break;
           default:
         }
         if (temp) {
@@ -64,8 +67,7 @@
 
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
-      convertVariantNameToCode: function(name, position) {
-        //console.log(name + ' - ' + position);
+      convertVariantNameToCode: function(name, position) {//console.log(name + ' - ' + position);
         var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position));
 
         if (temp != '') {
@@ -79,8 +81,8 @@
         return temp;
       },
 
-      fourthAlphaExist: function(vowelName) {
-        var temp = this.convertVariantNameToCode(vowelName, 4);
+      fourthAlphaExist: function(vowelName) {//console.log(vowelName);
+        var temp = this.convertVariantNameToCode(vowelName, 4);//console.log(temp);
         if (wordConfig.fourthAlphaExist(temp)) {
           return true;
         }

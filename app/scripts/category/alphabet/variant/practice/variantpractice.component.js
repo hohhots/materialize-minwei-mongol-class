@@ -31,7 +31,6 @@
     self.templateUrl = config.templateUrl.variantpractice;
     self.langs = {};
     self.testAlphas = [];
-    self.testFourthAlphas = [];
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
@@ -111,15 +110,26 @@
       }
     };
 
-    self.selectAlphaClick = function (index) {
+    self.selectAlphaClick = function (alpha, fourth) {
       //$scope.$broadcast(config.events.stopPlayers);
       if (util.allAnswerCorrect(answerAlphas)) { return; }
-      testAlpha = self.testAlphas[index];
-      var tests = {
-        testOrigin: testOriginAlpha,
+
+      if (!fourth) {
+        testAlpha = alpha;
+      } else {
+        testAlpha = getFourthTestAlpha(alpha);
+      }
+
+      var tests = {};
+
+      var t = angular.copy(testOriginAlpha);
+      concatenateFourthAlphas(t);
+      tests = {
+        testOrigin: t,
         testAlpha: testAlpha,
         variantPosition: variantPosition
       };
+
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
     };
 
@@ -151,20 +161,32 @@
       return false;
     };
 
+    self.alphaFourthAnswered = function (alphaId) {
+      //console.log(alphaId);
+      if (alphaId < 2) {
+        var t = answerFourthAlphas[alphaId - 1];
+        if (t && util.alphaAnswered(t)) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
     self.hasFourthAlpha = function () {
-      if (self.testFourthAlphas.length == 0) {
+      if (testFourthAlphas.length == 0) {
         return false;
       }
       return true;
     };
 
-    self.AlphaHasFourth = function(alphaId) {
+    self.AlphaHasFourth = function (alphaId) {
       if (alphaId > 2) {
         return false;
       }
 
       var fourth = false;
-      $.each(self.testFourthAlphas, function (index, val) {
+      $.each(testFourthAlphas, function (index, val) {
         if (val.id == alphaId) {
           fourth = true;
           return false;
@@ -186,16 +208,30 @@
       //console.log(index);
       var alpha = answerAlphas[index];
       if (util.alphaAnswered(alpha)) {
-        return util.convertVariantNameToCode(alpha.name, variantPosition);
+        return alpha.text;//util.convertVariantNameToCode(alpha.name, variantPosition);
       }
 
+      return '';
+    };
+
+    self.getAlphaFourthAnswerText = function (alphaId) {
+      if (alphaId > 2) {
+        return '';
+      }
+      //console.log(alphaId);
+      var alpha = answerFourthAlphas[alphaId - 1];
+      if (alpha) {
+        return alpha.text;
+      }
       return '';
     };
 
     var audioElem = null;
     // with text like 'a10' 'a11' 'a12' 'a13'
     var testOriginAlpha = '';
+    var testFourthAlphas = [];
     var answerAlphas = [];
+    var answerFourthAlphas = [];
     var testAlpha = {};
     var variantPosition = 0;
     var playedAudioId = 0;
@@ -204,7 +240,7 @@
     var twoAlphaClass = 'w3-col s6';
 
     function setAnswerAlphas() {
-      variantPosition = Math.floor(Math.random() * 3) + 1;
+      variantPosition = 3;//Math.floor(Math.random() * 3) + 1;
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       self.testAlphas = testOriginAlpha.vowel;
@@ -233,10 +269,13 @@
           if (util.fourthAlphaExist(val.name)) {
             var alpha = angular.copy(val);
             alpha.text = alpha.text.replace(3, 4);
-            self.testFourthAlphas.push(alpha);
+            testFourthAlphas.push(alpha);
           }
         }
       });
+      answerFourthAlphas = angular.copy(testFourthAlphas);
+
+      //console.log(testFourthAlphas);
     }
 
     function setAnswerAlphaState(alpha) {
@@ -247,6 +286,27 @@
       } else {
         alpha.error = true;
       }
+      //console.log(testAlpha);
+      //console.log(alpha);
+    }
+
+    function concatenateFourthAlphas(t) {//console.log(testFourthAlphas);
+      $.each(testFourthAlphas, function (key, val) {
+        t.vowel.push(val);
+      });
+    }
+
+    function getFourthTestAlpha(alpha) {
+      //console.log(alpha);
+      var ta = alpha;
+      $.each(testFourthAlphas, function (index, val) {
+        if (val.id = alpha.id) {
+          ta = val;
+          return false;
+        }
+      });
+      //console.log(ta);
+      return ta;
     }
 
     function playAudio() {
@@ -278,9 +338,15 @@
     }
 
     function randomAlphaSelected(event, alpha) {
-      //console.log(alpha);
       setAnswerAlphaState(alpha);
-      answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
+      var t = angular.copy(alpha);
+      var index = testAlpha.id - 1;
+      if (testAlpha.text.indexOf('4') == 2) {
+        answerFourthAlphas[index] = t;
+      } else {
+        answerAlphas[index] = t;
+      }
+      //console.log(answerFourthAlphas);
     }
 
     // add listener and hold on to deregister function

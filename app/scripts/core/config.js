@@ -81,6 +81,7 @@
     alphaVariantNamesMap1: {},
     alphaVariantNamesMap2: {},
     alphaVariantNamesMap3: {},
+    alphaVariantNamesMap4: {},
 
     alphaCss: {
       practiceEmpty: 'originpractice-empty-alpha',
@@ -267,6 +268,12 @@
   });
 
   config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
+
+  $.each(config.alphaVariantNamesMap3, function (key, val) {
+    if (key != 'we') {
+      config.alphaVariantNamesMap4[key] = val;
+    }
+  });
 
   // Define the `core.config` module
   angular.module('core.config', []).
