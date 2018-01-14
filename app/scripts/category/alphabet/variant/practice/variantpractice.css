@@ -28,7 +28,6 @@
 
 .variantpractice-alpha-click {
   cursor: pointer;
-  opacity: 0.3;
 }
 
 .variantpractice-alpha-click:hover {
@@ -37,11 +36,16 @@
   color: #fff;
 }
 
+.variantpractice-none,
 .variantpractice-empty-alpha {
   border: 1px solid #ccc;
   width: 42px;
   height: 70px;
   padding-top: 25px;
+}
+
+.variantpractice-none {
+  border: 0 solid #ccc;
 }
 
 .variantpractice-position,

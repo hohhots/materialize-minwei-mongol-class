@@ -76,39 +76,50 @@
         css = 'variantview-view-value';
       }
 
-      var stat = '';
+      var stat = ' variantpractice-alpha-click';
       if ((testFourthAlphas.length == answerFourthAlphas.length)
         && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
         if (alpha.correct) {
           stat = ' originpractice-green';
         }
         if (alpha.error) {
-          stat = ' originpractice-red';
+          stat = ' originpractice-red variantpractice-alpha-click';
         }
       }
       return css + stat;
     };
 
     self.getAnswerFourthAlphaClass = function (alphaId) {
-      var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
-      if (self.alphaFourthAnswered(alphaId)) {
-        css = 'variantview-view-value';
+      var ans = self.alphaFourthAnswered(alphaId);
+      var css = 'variantpractice-position ';
+      if (ans) {
+        css = 'variantview-view-value ';
       }
 
       if (alphaId < 3) {
+        if (ans) {
+          css += ' variantpractice-alpha-click';
+        } else {
+          css += config.alphaCss.variantpracticeEmpty + ' variantpractice-alpha-click';
+        }
         var alpha = answerFourthAlphas[alphaId - 1];
         if (alpha) {
           var stat = '';
           if ((testFourthAlphas.length == answerFourthAlphas.length)
             && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
+
             if (alpha.correct) {
               stat = ' originpractice-green';
             }
             if (alpha.error) {
-              stat = ' originpractice-red';
+              stat = ' originpractice-red variantpractice-alpha-click';
             }
           }
           css += stat;
+        }
+      } else {
+        if ((alphaId == 3) || (alphaId == 4)) {
+          css += ' variantpractice-none';
         }
       }
 
@@ -129,7 +140,18 @@
 
     self.selectAlphaClick = function (alpha, fourth) {
       //$scope.$broadcast(config.events.stopPlayers);
-      if (fourth && (alpha.id > 2)) { return; }
+      var answers = answerAlphas;
+      if (fourth) {
+        answers = answerFourthAlphas;
+        if (alpha.id > 2) {
+          return;
+        }
+      }
+
+      var tAlpha = answers[alpha.id - 1];
+      if (tAlpha && tAlpha.correct) {
+        return;
+      }
 
       if (util.allAnswerCorrect($.merge($.merge([], answerAlphas), answerFourthAlphas))) { return; }
 
