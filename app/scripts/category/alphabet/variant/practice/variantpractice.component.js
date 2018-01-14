@@ -90,6 +90,7 @@
     };
 
     self.getAnswerFourthAlphaClass = function (alphaId) {
+      //console.log(testFourthAlphas);
       var ans = self.alphaFourthAnswered(alphaId);
       var css = 'variantpractice-position ';
       if (ans) {
@@ -117,6 +118,12 @@
           }
           css += stat;
         }
+        // Set css for 'we' alpha 3 position
+        if (testFourthAlphas.length == 1) {
+          if ((alphaId == 2) && (testFourthAlphas[0].text == 'w14')) {
+            css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position variantpractice-none';
+          }
+        }
       } else {
         if ((alphaId == 3) || (alphaId == 4)) {
           css += ' variantpractice-none';
@@ -140,22 +147,30 @@
 
     self.selectAlphaClick = function (alpha, fourth) {
       //$scope.$broadcast(config.events.stopPlayers);
+      //console.log(answerFourthAlphas);
       var answers = answerAlphas;
       if (fourth) {
         answers = answerFourthAlphas;
         if (alpha.id > 2) {
           return;
         }
+        if ((alpha.id == 2) && (testFourthAlphas[0].text == 'w14')) {
+          return;
+        }
       }
 
-      var all = $.merge($.merge([], answerAlphas), answerFourthAlphas);
+      if ((answerAlphas.length == self.testAlphas.length) &&
+        (answerFourthAlphas.length == testFourthAlphas.length)) {
+        var all = $.merge($.merge([], answerAlphas), answerFourthAlphas);
+        var tAlpha = answers[alpha.id - 1];
+        if (tAlpha && tAlpha.correct) {
+          return;
+        }
 
-      var tAlpha = answers[alpha.id - 1];
-      if (tAlpha && tAlpha.correct && util.allAlphaAnswered(all)) {
-        return;
+        if (util.allAnswerCorrect(all)) {
+          return;
+        }
       }
-
-      if (util.allAnswerCorrect(all)) { return; }
 
       if (!fourth) {
         testAlpha = alpha;
@@ -283,7 +298,7 @@
     var twoAlphaClass = 'w3-col s6';
 
     function setAnswerAlphas() {
-      variantPosition = 3;//Math.floor(Math.random() * 3) + 1;
+      variantPosition = Math.floor(Math.random() * 3) + 1;
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       self.testAlphas = testOriginAlpha.vowel;
