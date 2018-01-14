@@ -59,7 +59,10 @@
     };
 
     self.allCorrect = function () {
-      return util.allAnswerCorrect(answerAlphas);
+      if (testFourthAlphas.length == answerFourthAlphas.length) {
+        return util.allAnswerCorrect($.merge($.merge([], answerAlphas), answerFourthAlphas));
+      }
+      return false;
     };
 
     self.getAlphaClass = function (alpha) {
@@ -74,7 +77,8 @@
       }
 
       var stat = '';
-      if (util.allAlphaAnswered(util.alphaAnswered, answerAlphas)) {
+      if ((testFourthAlphas.length == answerFourthAlphas.length)
+        && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
         if (alpha.correct) {
           stat = ' originpractice-green';
         }
@@ -85,21 +89,34 @@
       return css + stat;
     };
 
-    self.getPlayerIconClass = function () {
-      return util.getPlayerIconClass(playedAudioId);
-    };
+    self.getAnswerFourthAlphaClass = function (alphaId) {
+      var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
+      if (self.alphaFourthAnswered(alphaId)) {
+        css = 'variantview-view-value';
+      }
 
-    self.getAlphaCheckedClass = function (alpha) {
-      var stat = 'originpractice-blue';
-      if (util.allAlphaAnswered(util.alphaAnswered, answerAlphas)) {
-        if (alpha.correct) {
-          stat = 'originpractice-green';
-        }
-        if (alpha.error) {
-          stat = 'originpractice-red';
+      if (alphaId < 3) {
+        var alpha = answerFourthAlphas[alphaId - 1];
+        if (alpha) {
+          var stat = '';
+          if ((testFourthAlphas.length == answerFourthAlphas.length)
+            && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
+            if (alpha.correct) {
+              stat = ' originpractice-green';
+            }
+            if (alpha.error) {
+              stat = ' originpractice-red';
+            }
+          }
+          css += stat;
         }
       }
-      return stat;
+
+      return css;
+    };
+
+    self.getPlayerIconClass = function () {
+      return util.getPlayerIconClass(playedAudioId);
     };
 
     self.playAudios = function () {
@@ -112,7 +129,9 @@
 
     self.selectAlphaClick = function (alpha, fourth) {
       //$scope.$broadcast(config.events.stopPlayers);
-      if (util.allAnswerCorrect(answerAlphas)) { return; }
+      if (fourth && (alpha.id > 2)) { return; }
+
+      if (util.allAnswerCorrect($.merge($.merge([], answerAlphas), answerFourthAlphas))) { return; }
 
       if (!fourth) {
         testAlpha = alpha;
@@ -163,9 +182,8 @@
 
     self.alphaFourthAnswered = function (alphaId) {
       //console.log(alphaId);
-      if (alphaId < 2) {
-        var t = answerFourthAlphas[alphaId - 1];
-        if (t && util.alphaAnswered(t)) {
+      if (alphaId < 3) {
+        if (answerFourthAlphas[alphaId - 1]) {
           return true;
         }
       }
@@ -180,14 +198,15 @@
       return true;
     };
 
-    self.AlphaHasFourth = function (alphaId) {
+    self.alphaHasFourth = function (alphaId) {
       if (alphaId > 2) {
         return false;
       }
 
       var fourth = false;
+      //console.log(testFourthAlphas);
       $.each(testFourthAlphas, function (index, val) {
-        if (val.id == alphaId) {
+        if (testFourthAlphas[alphaId - 1]) {
           fourth = true;
           return false;
         }
@@ -273,7 +292,7 @@
           }
         }
       });
-      answerFourthAlphas = angular.copy(testFourthAlphas);
+      //answerFourthAlphas = angular.copy(testFourthAlphas);
 
       //console.log(testFourthAlphas);
     }
@@ -338,8 +357,9 @@
     }
 
     function randomAlphaSelected(event, alpha) {
-      setAnswerAlphaState(alpha);
+      //console.log(answerFourthAlphas);
       var t = angular.copy(alpha);
+      setAnswerAlphaState(t);
       var index = testAlpha.id - 1;
       if (testAlpha.text.indexOf('4') == 2) {
         answerFourthAlphas[index] = t;

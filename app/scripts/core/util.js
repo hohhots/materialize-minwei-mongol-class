@@ -100,6 +100,7 @@
       allAnswerCorrect: function (answerAlphas) {
         var correct = true;
         $.each(answerAlphas, function (i, v) {
+          if(!v) { return; }
           if (v.error || !v.correct) {
             correct = false;
           }
@@ -108,18 +109,20 @@
       },
 
       alphaAnswered: function (alpha) {
-        var ans = false;
         if (!!alpha.error || !!alpha.correct) {
-          ans = true;
+          return true;
         }
-        return ans;
+        return false;
       },
   
-      allAlphaAnswered: function (alphaAnswered, answerAlphas) {
+      allAlphaAnswered: function (answerAlphas) {
+        //console.log(answerAlphas);
+        var self = this;
         var ans = true;
         $.each(answerAlphas, function (i, alpha) {
-          if (!alphaAnswered(alpha)) {
+          if (!self.alphaAnswered(alpha)) {
             ans = false;
+            return false;
           }
         });
         return ans;

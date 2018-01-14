@@ -58,7 +58,7 @@
 
     self.getAlphaCheckedClass = function (alpha) {
       var stat = 'originpractice-blue';
-      if (util.allAlphaAnswered(util.alphaAnswered, self.answerAlphas)) {
+      if (util.allAlphaAnswered(self.answerAlphas)) {
         if (alpha.correct) {
           stat = 'originpractice-green';
         }
