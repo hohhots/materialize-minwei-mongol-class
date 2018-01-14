@@ -148,12 +148,14 @@
         }
       }
 
+      var all = $.merge($.merge([], answerAlphas), answerFourthAlphas);
+
       var tAlpha = answers[alpha.id - 1];
-      if (tAlpha && tAlpha.correct) {
+      if (tAlpha && tAlpha.correct && util.allAlphaAnswered(all)) {
         return;
       }
 
-      if (util.allAnswerCorrect($.merge($.merge([], answerAlphas), answerFourthAlphas))) { return; }
+      if (util.allAnswerCorrect(all)) { return; }
 
       if (!fourth) {
         testAlpha = alpha;
