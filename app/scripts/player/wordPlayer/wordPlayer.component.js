@@ -117,6 +117,7 @@
         audioDone = true;
         nextAnimation();
       };
+
       self.mediasUrl = { audios: wordAudios[playWord[playingIndex]] };
       if (outsideScope) {
         $scope.$digest();
@@ -133,7 +134,8 @@
         audioDone = true;
         setClosePlayer();
       };
-      self.mediasUrl = self.mediasUrl;//wordAudios[playWord[playingIndex]];
+      console.log(wordAudios);
+      self.mediasUrl = { audios: wordAudios[playWord[playingIndex]] };
       $scope.$digest();
 
       audioElem.load();
@@ -145,6 +147,8 @@
 
       playWord = setTextArray(word);
 
+      var url = config.mediaUrl.alphaList;
+
       $.each(playWord, function (index, val) {
 
         //if val is vowels
@@ -155,13 +159,19 @@
           name = f + name;
         }
 
-        var url = config.mediaUrl.alphaList;
         var audios = {
           mpeg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[1],
           ogg: url + config.data.audios + '/' + f + '/' + name + gender + config.dataTypes.audios[0]
         };
         wordAudios[val] = audios;
       });
+
+      url = config.mediaUrl.wordBegin;
+      var word = playWord.join('');
+      wordAudios[word] = {
+        mpeg: url + config.data.audios + '/' +  + '/' + name + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' +  + '/' + name + gender + config.dataTypes.audios[0]
+      };
 
       function setTextArray(word) {
         var textArray = [];
@@ -180,10 +190,10 @@
       self.showWordPlayer = true;
       self.word = word;
       //broadcast after word rendring completed, so time must set largger than word rendring.
-      var dd = $interval(function () {
+      //var dd = $interval(function () {
         $scope.$broadcast(config.events.wordGetWordSpans);
-        $interval.cancel(dd);
-      }, 30);
+      //  $interval.cancel(dd);
+     // }, 30);
     }
 
     function setWordAnimationElement(event, words) {

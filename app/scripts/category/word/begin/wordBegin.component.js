@@ -51,6 +51,17 @@
       $scope.$broadcast(config.events.playWordAnimation, word.word);
     };
 
+    self.introductionClick = function () {
+      var names = {};
+      var url = config.mediaUrl.wordBegin;
+      names.videos = {
+        ogv: url + config.data.videos + '/word' + config.dataTypes.videos[0],
+        webm: url + config.data.videos + '/word' + config.dataTypes.videos[1]
+      };
+      names.name = self.jsonData[0].name;
+      $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
     self.practiceClick = function () {
       util.changePath(config.pagesUrl.wordbeginPractice);
     };
