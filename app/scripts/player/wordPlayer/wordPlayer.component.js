@@ -48,7 +48,7 @@
 
     self.closePlayer = function () {
       var pare = $element.find('.w3-modal');
-      pare.stop(true, true).fadeTo(2000, 0, function () {
+      pare.stop(true, true).fadeTo(500, 0, function () {
         //run before display to none.
         playWordSpans.stop();
         playingIndex = 0;
@@ -135,7 +135,7 @@
         setClosePlayer();
       };
       console.log(wordAudios);
-      self.mediasUrl = { audios: wordAudios[playWord[playingIndex]] };
+      self.mediasUrl = { audios: wordAudios.word };
       $scope.$digest();
 
       audioElem.load();
@@ -167,10 +167,10 @@
       });
 
       url = config.mediaUrl.wordBegin;
-      var word = playWord.join('');
-      wordAudios[word] = {
-        mpeg: url + config.data.audios + '/' +  + '/' + name + gender + config.dataTypes.audios[1],
-        ogg: url + config.data.audios + '/' +  + '/' + name + gender + config.dataTypes.audios[0]
+      var tword = playWord.join('');
+      wordAudios.word = {
+        mpeg: url + config.data.audios + '/' + tword + gender + config.dataTypes.audios[1],
+        ogg: url + config.data.audios + '/' + tword + gender + config.dataTypes.audios[0]
       };
 
       function setTextArray(word) {
