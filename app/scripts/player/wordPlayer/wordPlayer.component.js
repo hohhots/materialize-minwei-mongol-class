@@ -190,10 +190,10 @@
       self.showWordPlayer = true;
       self.word = word;
       //broadcast after word rendring completed, so time must set largger than word rendring.
-      //var dd = $interval(function () {
+      var dd = $interval(function () {
         $scope.$broadcast(config.events.wordGetWordSpans);
-      //  $interval.cancel(dd);
-     // }, 30);
+        $interval.cancel(dd);
+      }, 30);
     }
 
     function setWordAnimationElement(event, words) {

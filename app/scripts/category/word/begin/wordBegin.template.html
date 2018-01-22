@@ -18,7 +18,7 @@
 
   <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
     <div class="w3-row w3-border-bottom alphabetorigin-content">
-      <div ng-repeat="word in alpha.words" class="w3-padding alpha5-col s4 m3 l1">
+      <div ng-repeat="word in alpha.words" class="w3-padding w3-col s3 alpha5-col m1 l1">
         <div ng-click="$ctrl.wordClick(word)" class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
           <div ng-class="$ctrl.wordbeginWordClass">
             <mon-word data-origintext="{{::word.word}}"></mon-word>
