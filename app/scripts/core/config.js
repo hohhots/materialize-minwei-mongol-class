@@ -31,7 +31,7 @@
     },
 
     dataTypes: {
-      images: [".png"],
+      images: [".png", ".jpg"],
       audios: [".ogg", ".mp3"],
       videos: [".ogv", ".webm"]
     },

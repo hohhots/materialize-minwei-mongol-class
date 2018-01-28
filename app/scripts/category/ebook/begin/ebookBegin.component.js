@@ -81,7 +81,7 @@
     var audioPlaying = 0;
 
     var setcurrentStates = function () {
-      self.currentImageUrl = url + config.data.images + '/' + currentPageNum + config.dataTypes.images[0];
+      self.currentImageUrl = url + config.data.images + '/' + currentPageNum + config.dataTypes.images[1];
       $scope.$broadcast(config.events.stopPlayers);
     };
 
