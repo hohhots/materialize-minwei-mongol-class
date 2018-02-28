@@ -148,6 +148,7 @@
       header: 'scripts/header/header.template.html',
       mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
       home: 'scripts/home/home.template.html',
+      levelshome: 'scripts/levelshome/levelshome.template.html',
       category: 'scripts/category/category.template.html',
 
       alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',

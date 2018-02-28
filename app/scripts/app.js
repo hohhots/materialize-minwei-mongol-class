@@ -57,6 +57,11 @@
           component: 'appHome'
         },
         {
+          name: 'root.levelshome',
+          url: '/levelshome',
+          component: 'levelsHome'
+        },
+        {
           name: 'root.alphaorigin',
           url: '/alphabetorigin',
           component: 'appAlphaorigin',
@@ -113,7 +118,7 @@
       ];
 
       // Must redirection before set and state
-      $urlRouterProvider.when('/root', '/root/home');
+      $urlRouterProvider.when('/root', '/root/levelshome');
 
       // Loop over the state definitions and register them
       states.forEach(function(state) {
