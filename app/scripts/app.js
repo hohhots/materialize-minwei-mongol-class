@@ -118,7 +118,7 @@
       ];
 
       // Must redirection before set and state
-      $urlRouterProvider.when('/root', '/root/levelshome');
+      $urlRouterProvider.when('/root', '/root/home');
 
       // Loop over the state definitions and register them
       states.forEach(function(state) {
