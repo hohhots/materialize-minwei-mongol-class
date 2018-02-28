@@ -2,12 +2,7 @@
 
 (function() {
   // Define the `header` module
-  var app = angular.module('app.home', [
-    'core.config',
-    'core.json',
-    'core.util',
-    'core.anchorScroll'
-  ]);
+  var app = angular.module('app.home');
 
   // Register `headerList` component, along with its associated controller and template
   app.component('levelsHome', {
