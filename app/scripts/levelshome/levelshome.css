@@ -59,6 +59,8 @@ h1,h2,h3,p  {
 /* section A */
 #section-a {
   padding-bottom: 2em;
+  background: #eaeaea;
+  color: #333;
 }
 
 /* section B */S
@@ -100,6 +102,11 @@ h1,h2,h3,p  {
   .content-wrap,
   #section-b ul {
     grid-column: 2/4;
+  }
+
+  #section-a {
+    background: #333;
+    color: #fff;
   }
 
   #section-b ul {
