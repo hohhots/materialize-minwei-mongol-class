@@ -1,22 +1,32 @@
 'use strict';
 
-(function ($) {
+(function($) {
   // Define the `core.util` module
   var app = angular.module('core.util', [
-    'core.config'
+    'core.config',
+    'core.anchorScroll'
   ]);
 
-  app.service('Util', ['$location', 'Config', 'wordConfig', function ($location, config, wordConfig) {
+  app.service('Util', ['$location', 'Config', 'wordConfig', 'anchorSmoothScroll', function($location, config, wordConfig, anchorScroll) {
     var isTouchScreen = 'init';
 
     var currentExerciseId = {};
 
     var utils = {
-      scrollToTop: function () {
+      scrollToTop: function() {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
       },
 
-      getRandomGender: function () {
+      gotoElement: function(eID) {
+        // set the location.hash to the id of
+        // the element you wish to scroll to.
+        //$location.hash('bottom'`)`;
+  
+        // call $anchorScroll()
+        anchorScroll.scrollTo(eID);
+      },
+
+      getRandomGender: function() {
         var gender = config.gender['man'];
         if (Math.random() >= 0.5) {
           gender = config.gender['woman'];
@@ -24,7 +34,7 @@
         return gender;
       },
 
-      convertAlphaName: function (alphaName, variantPosition) {
+      convertAlphaName: function(alphaName, variantPosition) {
         variantPosition = variantPosition || 0;
         var temp = '';
         switch (variantPosition) {
@@ -51,7 +61,7 @@
         return alphaName;
       },
 
-      convertVideoAlphaName: function (alphaName) {
+      convertVideoAlphaName: function(alphaName) {
         var temp = config.alphaVideoNamesMap[alphaName];
         if (temp) {
           alphaName = temp;
@@ -89,7 +99,7 @@
         return false;
       },
 
-      getPlayerIconClass: function (playedAudioId) {
+      getPlayerIconClass: function(playedAudioId) {
         var css = "fa-play-circle-o";
         if (playedAudioId != 0) {
           css = "fa-stop-circle-o w3-text-red";
@@ -97,9 +107,9 @@
         return css;
       },
 
-      allAnswerCorrect: function (answerAlphas) {
+      allAnswerCorrect: function(answerAlphas) {
         var correct = true;
-        $.each(answerAlphas, function (i, v) {
+        $.each(answerAlphas, function(i, v) {
           if(!v) { return; }
           if (v.error || !v.correct) {
             correct = false;
@@ -108,18 +118,18 @@
         return correct;
       },
 
-      alphaAnswered: function (alpha) {
+      alphaAnswered: function(alpha) {
         if (!!alpha.error || !!alpha.correct) {
           return true;
         }
         return false;
       },
   
-      allAlphaAnswered: function (answerAlphas) {
+      allAlphaAnswered: function(answerAlphas) {
         //console.log(answerAlphas);
         var self = this;
         var ans = true;
-        $.each(answerAlphas, function (i, alpha) {
+        $.each(answerAlphas, function(i, alpha) {
           if (!self.alphaAnswered(alpha)) {
             ans = false;
             return false;
@@ -131,7 +141,7 @@
       //for slide down and up animation,
       //elem is jquery element.
       //down, if down or up
-      slideDownUp: function (elem, down) {
+      slideDownUp: function(elem, down) {
         if (down) {
           elem.slideDown();
         } else {
@@ -140,7 +150,7 @@
       },
 
       // Determine if browse form touchable screen
-      isTouchScreen: function () {
+      isTouchScreen: function() {
         if (isTouchScreen == 'init') {
           try {
             document.createEvent("TouchEvent");
@@ -154,7 +164,7 @@
         return isTouchScreen;
       },
 
-      getUrlPath: function (type) {
+      getUrlPath: function(type) {
         var path = $location.path();
         if (type === 'category') {
           path = path.replace('/' + config.app.url + '/', '')
@@ -163,35 +173,35 @@
         return path;
       },
 
-      upperFirstLetter: function (str) {
+      upperFirstLetter: function(str) {
         var f = str.substring(0, 1);
         return str.replace(f, f.toUpperCase());
       },
 
-      changePath: function (path) {
+      changePath: function(path) {
         $location.path("/" + config.app.url + "/" + path);
       },
 
-      convertUrl: function (url) {
+      convertUrl: function(url) {
         url = url ? url : '';
 
         return config.app.urlPrefix + "/" + config.app.url + "/" + url;
       },
 
-      deconvertUrl: function (url) {
+      deconvertUrl: function(url) {
         url = url ? url : '';
         var pre = config.app.url + "/";
         return url.substring(+pre.length);
       },
 
-      setAudio: function (path, audiosConfig) {
+      setAudio: function(path, audiosConfig) {
         var audios = {};
 
-        $.each(audiosConfig.genderProfix, function (i, val) {
+        $.each(audiosConfig.genderProfix, function(i, val) {
           if (!audios[val]) {
             audios[val] = {};
           }
-          $.each(audiosConfig.audioProfix, function (j, v1) {
+          $.each(audiosConfig.audioProfix, function(j, v1) {
             audios[val][v1] = path + val + "." + v1;
           });
         });
@@ -199,7 +209,7 @@
         return audios;
       },
 
-      setCurrentExerciseId: function (categoryId, subjectId, taskCategoryId, taskId, exerciseId) {
+      setCurrentExerciseId: function(categoryId, subjectId, taskCategoryId, taskId, exerciseId) {
         if (!currentExerciseId[categoryId]) {
           currentExerciseId[categoryId] = {};
         }
@@ -216,7 +226,7 @@
         return exerciseId;
       },
 
-      getCurrentExerciseId: function (categoryId, subjectId, taskCategoryId, taskId) {
+      getCurrentExerciseId: function(categoryId, subjectId, taskCategoryId, taskId) {
         try {
           if (!currentExerciseId[categoryId][subjectId][taskCategoryId][taskId]) {
             return 0;
@@ -229,12 +239,12 @@
       },
 
       //value form must like '88px'
-      getNumOfDim: function (value) {
+      getNumOfDim: function(value) {
         return value.substr(0, value.lastIndexOf("p"));
       },
 
       // Get the key code that trigg event.
-      getEventKeyCode: function (event) {
+      getEventKeyCode: function(event) {
         return event.keyCode ? event.keyCode : event.which; 
       }   
 
