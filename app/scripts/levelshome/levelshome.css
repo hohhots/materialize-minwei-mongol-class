@@ -72,7 +72,7 @@ h1,h2,h3,p  {
   height: 450px;
   z-index: -1;
   opacity: 0.8;
-  background: #068d9d url('images/grassland.jpeg');
+  background: #3f3f3f url('images/grassland.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
