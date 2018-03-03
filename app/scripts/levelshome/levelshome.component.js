@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function($) {
   // Define the `header` module
   var app = angular.module('app.home');
 
@@ -33,6 +33,15 @@
     self.showMonDetail = function() {
       self.monDetailShow = !self.monDetailShow;
     };
+
+    var background = $('body').css('background');
+    $('body').css('background', '#3f3f3f');
+
+    var restoreBackground = function() {
+      $('body').css('background', background);
+    };
+
+    $scope.$on('$destroy', restoreBackground);
   }
 
-})();
+})(jQuery);
