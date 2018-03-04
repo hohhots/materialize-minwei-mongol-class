@@ -311,7 +311,7 @@
 
   createFourthAlphas();
 
-  console.log(config.wordToReplaceMap);
+  //console.log(config.wordToReplaceMap);
   angular.module('app.word').
     constant('wordConfig', config);
 

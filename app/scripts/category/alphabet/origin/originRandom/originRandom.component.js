@@ -132,7 +132,7 @@
     deregister.push($scope.$on(config.events.displayOriginRandom, displayOriginRandom));
     deregister.push($scope.$on(config.events.closeOriginRandom, self.closeRandom));
 
-    //deregister.push(videoElem.on('ended', videoEnded));
+    // deregister.push(videoElem.on('ended', videoEnded));
     // clean up listener when directive's scope is destroyed
     $.each(deregister, function (i, val) {
       $scope.$on('$destroy', val);

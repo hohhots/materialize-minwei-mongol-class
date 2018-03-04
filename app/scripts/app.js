@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
   var app = angular.module('app', [
     'ui.router',
     'app.root',
@@ -19,29 +19,26 @@
 
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',
     function config($stateProvider, $urlRouterProvider, config) {
-      var httpJson = function(name) {
-        return function($http) {
-          return $http.get(config.dataPath[name].json, {cache: true})
-            .then(function(resp) {
+      var ajax = function (url) {
+        return function ($http) {
+          return $http.get(url, { cache: true })
+            .then(function (resp) {
               return resp.data;
             });
         };
       };
 
-      var httpData = function(name) {
-        return function($http) {
-          return $http.get(config.dataPath[name].data, {
-            cache: true
-          }).then(function(resp) {
-            return resp.data;
-          });
+      var resolve = function (name) {
+        return {
+          jsonData: ajax(config.dataPath[name].json),
+          subData: ajax(config.dataPath[name].data)
         };
       };
 
-      var resolve = function(path) {
+      var getLevelsJson = function (name) {
         return {
-          jsonData: httpJson(path),
-          subData: httpData(path)
+          introductionData: ajax(config.data.data + '/' + config.json.introduction),
+          levelsData: ajax(config.dataPath[name].json)
         };
       };
 
@@ -59,7 +56,8 @@
         {
           name: 'root.levelshome',
           url: '/levelshome',
-          component: 'levelsHome'
+          component: 'levelsHome',
+          resolve: getLevelsJson('levelshome')
         },
         {
           name: 'root.alphaorigin',
@@ -121,7 +119,7 @@
       $urlRouterProvider.when('/root', '/root/home');
 
       // Loop over the state definitions and register them
-      states.forEach(function(state) {
+      states.forEach(function (state) {
         $stateProvider.state(state);
       });
 

@@ -32,9 +32,12 @@ h1,h2,h3,p  {
 }
 
 .card-content br,
-.content-text p,
-.card-content p {
+.content-text p {
   text-indent: 1em;
+}
+
+.card-content p {
+  text-align: left;
 }
 
 #showcase {

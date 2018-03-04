@@ -90,10 +90,11 @@
     },
 
     json: {
-      categories: "categories.json",
-      footer: "footer.json",
-      contact: "contact.json",
-      about: "about.json",
+      categories: 'categories.json',
+      footer: 'footer.json',
+      contact: 'contact.json',
+      about: 'about.json',
+      introduction: 'introduction.json'
     },
 
     home: {
@@ -198,6 +199,9 @@
       ebookbegin: {
         json: 'data/ebook/begin/begin.json',
         data: 'data/ebook/begin/data.json'
+      },
+      levelshome: {
+        json: 'data/levels/levels.json'
       }
     },
 
