@@ -37,13 +37,13 @@
   <!-- section B -->
   <section id="section-b" class="grid">
     <ul>
-      <li ng-repeat="level in $ctrl.levelsData">
+      <li ng-repeat="level in $ctrl.subData">
         <div class="card">
           <img ng-src="{{::level.image}}" alt="alphabet">
           <div class="card-content">
             <h3 class="card-title">{{::level.title}}</h3>
             <p>{{::level.text}}</p>
-            <a class="btn2" href="" ng-click="$ctrl.ddd()">进入学习</a>
+            <a class="btn2" ng-href="#!/root/levels?id={{level.id}}">进入学习</a>
           </div>
         </div>
       </li>

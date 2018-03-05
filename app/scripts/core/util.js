@@ -12,6 +12,8 @@
 
     var currentExerciseId = {};
 
+    var currentBackgroundColor = '';
+
     var utils = {
       scrollToTop: function() {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
@@ -24,6 +26,14 @@
   
         // call $anchorScroll()
         anchorScroll.scrollTo(eID);
+      },
+
+      restoreBackgroundColor: function() {
+        $('body').css('background', currentBackgroundColor);
+      },
+
+      setCurrentBackgroundColor: function() {
+        currentBackgroundColor = $('body').css('background');
       },
 
       getRandomGender: function() {

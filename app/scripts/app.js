@@ -35,13 +35,6 @@
         };
       };
 
-      var getLevelsJson = function (name) {
-        return {
-          introductionData: ajax(config.data.data + '/' + config.json.introduction),
-          levelsData: ajax(config.dataPath[name].json)
-        };
-      };
-
       var states = [
         {
           name: 'root',
@@ -57,7 +50,12 @@
           name: 'root.levelshome',
           url: '/levelshome',
           component: 'levelsHome',
-          resolve: getLevelsJson('levelshome')
+          resolve: resolve('levelshome')
+        },
+        {
+          name: 'root.levels',
+          url: '/levels',
+          component: 'appLevels'
         },
         {
           name: 'root.alphaorigin',

@@ -8,8 +8,8 @@
   app.component('levelsHome', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      introductionData: '<',
-      levelsData: '<'
+      jsonData: '<',
+      subData: '<'
     },
     controller: [
       '$scope',
@@ -22,7 +22,7 @@
   function Controller($scope, $sce, config, util) {
     var self = this;
 
-    self.templateUrl = config.templateUrl.levelshome;
+    self.templateUrl = config.templateUrl.levelsHome;
 
     self.appDetailShow = false;
     self.monDetailShow = false;
@@ -30,8 +30,10 @@
     self.langs = {};
 
     self.$onInit = function () {
-      self.langs.suixin = self.introductionData[0];
-      self.langs.mongol = self.introductionData[1];
+      self.langs.suixin = self.jsonData[0];
+      self.langs.mongol = self.jsonData[1];
+      
+      util.setCurrentBackgroundColor();
       
       $('body').css('background', '#3f3f3f');
     };
@@ -50,7 +52,7 @@
       $('body').css('background', background);
     };
 
-    $scope.$on('$destroy', restoreBackground);
+    $scope.$on('$destroy', util.restoreBackgroundColor);
   }
 
 })(jQuery);

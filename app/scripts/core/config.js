@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function ($location) {
 
   //set global file cache for $.ajax().
   $.ajaxSetup({
@@ -149,7 +149,8 @@
       header: 'scripts/header/header.template.html',
       mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
       home: 'scripts/home/home.template.html',
-      levelshome: 'scripts/levelshome/levelshome.template.html',
+      levelsHome: 'scripts/levelshome/levelshome.template.html',
+      appLevels: 'scripts/levelshome/levels/levels.template.html',
       category: 'scripts/category/category.template.html',
 
       alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
@@ -201,7 +202,12 @@
         data: 'data/ebook/begin/data.json'
       },
       levelshome: {
-        json: 'data/levels/levels.json'
+        json: 'data/introduction.json',
+        data: 'data/levels/levels.json'
+      },
+      appLevels: {
+        json: 'data/introduction.json',
+        data: 'data/levels/'
       }
     },
 
@@ -282,7 +288,7 @@
   });
 
   // Define the `core.config` module
-  angular.module('core.config', []).
-    constant('Config', config);
+  angular.module('core.config', [])
+    .constant('Config', config);
 
 })();
