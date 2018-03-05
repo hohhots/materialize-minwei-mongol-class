@@ -26,7 +26,10 @@
 
     self.templateUrl = config.templateUrl.appLevels;
     self.langs = {};
-    self.id = 0;
+    self.levelid = 0;
+    self.classId = 1;
+    self.classes = [];
+    self.classesShow = false;
 
     self.headerStyle = {backgroundColor: '#336699'};
 
@@ -41,6 +44,10 @@
       util.scrollToTop();
     };
 
+    self.showClasses = function() {
+      self.classesShow = !self.classesShow;
+    };
+
     var setIntroduction = function(resp) {
       // console.log(resp.data);
       setLevelIntroduction(resp.data);
@@ -48,22 +55,22 @@
 
     var getLevelsJson = function() {
       var json = angular.copy(config.dataPath['appLevels']);
-      self.id = config.getParameterByName('id');
-      json.data = json.data + self.id + '/' + self.id + '.json';
+      self.levelid = config.getParameterByName('levelid');
+      json.data = json.data + self.levelid + '/' + self.levelid + '.json';
       // console.log(json);
       return json;
     };
 
     var setClasses = function(resp) {
-      // console.log(resp.data);
-      self.langs.classes = resp.data;
+      console.log((resp.data)[0].classesDir);
+      self.classes = (resp.data)[0].classesDir;
     };
 
     var setLevelIntroduction = function(data) {
       var introduction = '';
       $.each(data, function(index, val) {
         // console.log(val);
-        if(val.id == self.id) {
+        if(val.id == self.levelid) {
           self.langs.introduction = val;
           setHeaderStyle(val);
           return false;
