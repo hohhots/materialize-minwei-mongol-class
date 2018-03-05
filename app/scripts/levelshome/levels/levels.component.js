@@ -28,6 +28,8 @@
     self.langs = {};
     self.id = 0;
 
+    self.headerStyle = {backgroundColor: '#336699'};
+
     self.$onInit = function () {console.log($location.search());
       var json = getLevelsJson();
       $http.get(json.json, { cache: true }).then(setIntroduction);
@@ -35,16 +37,13 @@
 
       util.setCurrentBackgroundColor();
       $('body').css('background', '#3f3f3f');
+      
+      util.scrollToTop();
     };
 
     var setIntroduction = function(resp) {
       // console.log(resp.data);
       setLevelIntroduction(resp.data);
-    };
-
-    var setClasses = function(resp) {
-      // console.log(resp.data);
-      self.langs.classes = resp.data;
     };
 
     var getLevelsJson = function() {
@@ -55,15 +54,27 @@
       return json;
     };
 
+    var setClasses = function(resp) {
+      // console.log(resp.data);
+      self.langs.classes = resp.data;
+    };
+
     var setLevelIntroduction = function(data) {
       var introduction = '';
       $.each(data, function(index, val) {
         // console.log(val);
         if(val.id == self.id) {
           self.langs.introduction = val;
+          setHeaderStyle(val);
           return false;
         }
       });
+    };
+
+    var setHeaderStyle = function(val) {
+      var styles = self.headerStyle;
+      styles.backgroundColor = val.backcolor;
+      styles.color = val.color;
     };
 
     $scope.$on('$destroy', util.restoreBackgroundColor);

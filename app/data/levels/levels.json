@@ -4,20 +4,20 @@
     "title": "初级",
     "text": "学习蒙古文字、词汇、语句及对话等内容，通过学习语音和记忆800个以上词汇，基本听懂、读懂普通蒙古书面语词句和口语会话，能写出简单句子，达到蒙古语文入门水平。",
     "image": "scripts/levelshome/images/leaves.jpeg",
-    "color": "#696773"
+    "backcolor": "#696773"
   },
   {
     "id": "b",
     "title": "中级",
     "text": "学习蒙古文字、词汇、语句及谚语、应用文等内容，着力学习语音和记忆1200个以上词汇，大体听懂、读懂普通蒙古书面语词句和口语会话，能写出一般应用文，达到较好的蒙古语日常会话水平。",
     "image": "scripts/levelshome/images/tree.jpeg",
-    "color": "#819595"
+    "backcolor": "#315659"
   },
   {
     "id": "c",
     "title": "高级",
     "text": "学习蒙古文字、词汇、语句及短文等内容，通过学习语音和掌握1800个以上词汇，完全听懂、读懂普通蒙古书面语词句和口语会话，能写抒写各类常规叙述文章，达到蒙古语读写与会话水平。",
     "image": "scripts/levelshome/images/forest.jpeg",
-    "color": "#b1b6a6"
+    "backcolor": "#28587B"
   }
 ]

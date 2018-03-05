@@ -1,15 +1,18 @@
-<header id="levels-showcase" class="levels-grid">
- 
+<header id="levels-showcase" class="levels-grid" ng-style="{{$ctrl.headerStyle}}">
+  <div class="content-wrap">
+    <h2>{{$ctrl.langs.introduction.title}}</h2>
+    <p>{{$ctrl.langs.introduction.text}}</p>
+  </div>
 </header>
 
 <main id="levelsmain" class="homeContainer">
   <!-- section A -->
   <section id="section-a" class="levels-grid">
-    {{::$ctrl.langs.introduction}}
+    {{$ctrl.langs.introduction}}
   </section>
 
   <!-- section B -->
   <section id="section-b" class="levels-grid">
-    {{::$ctrl.langs.classes}}
+    {{$ctrl.langs.classes}}
   </section>
 </main>

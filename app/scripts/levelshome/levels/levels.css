@@ -1,0 +1,16 @@
+#levels-showcase {
+  min-height: 250px;
+  padding-top: 50px;
+  line-height: 2em;
+  font-size: 1.1em;
+  text-align: center;
+  color: #fff;
+}
+
+#levels-showcase .content-wrap {
+  padding: 0 1.5em;
+}
+
+#levels-showcase h2 {
+  padding-bottom: 0;
+}
