@@ -19,19 +19,11 @@
 
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',
     function config($stateProvider, $urlRouterProvider, config) {
-      var ajax = function (url) {
-        return function ($http) {
-          return $http.get(url, { cache: true })
-            .then(function (resp) {
-              return resp.data;
-            });
-        };
-      };
 
-      var resolve = function (name) {
+      var resolve = function(name) {
         return {
-          jsonData: ajax(config.dataPath[name].json),
-          subData: ajax(config.dataPath[name].data)
+          jsonData: config.ajax(config.dataPath[name].json),
+          subData: config.ajax(config.dataPath[name].data)
         };
       };
 
