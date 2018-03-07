@@ -8,6 +8,7 @@
   app.component('appLevels', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
+      levelid: '<',
       jsonData: '<',
       subData: '<'
     },
@@ -73,7 +74,7 @@
 
     var getLevelsJson = function() {
       var json = angular.copy(config.dataPath['appLevels']);
-      self.levelid = config.getParameterByName('levelid');
+
       json.data = json.data + self.levelid + '/' + self.levelid + '.json';
       // console.log(json);
       return json;

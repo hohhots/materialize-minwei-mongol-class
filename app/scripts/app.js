@@ -46,8 +46,18 @@
         },
         {
           name: 'root.levels',
-          url: '/levels',
-          component: 'appLevels'
+          url: '/level/{levelid}',
+          component: 'appLevels',
+          resolve: {
+            levelid: function($stateParams) {
+              return $stateParams.levelid;
+            }
+          }
+        },
+        {
+          name: 'root.levels.classroom',
+          url: '/classroom/{classroomid}',
+          component: 'appClassroom'
         },
         {
           name: 'root.alphaorigin',
