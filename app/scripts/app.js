@@ -56,7 +56,7 @@
         },
         {
           name: 'root.levels.classroom',
-          url: '/classroom/{classroomid}',
+          url: '/{classroomid}',
           component: 'appClassroom'
         },
         {

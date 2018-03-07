@@ -9,8 +9,12 @@
 
 #levels-showcase .content-wrap {
   display: inline-block;
-  max-width: 1200px;
+  max-width: 700px;
   padding: 0 1.5em;
+}
+
+#levels-showcase .content-wrap p{
+  text-align: left;  
 }
 
 #levels-showcase h2 {
@@ -37,8 +41,8 @@
 .level-class,
 .level-btn {
   display: inline-block;
-  margin: 1em;
-  padding: 0.3em 4em;
+  margin: 1em 0.1em 2em;
+  padding: 0.3em 1.5em;
   border: 1px solid #666;
   background: #eaeaea;
   color: #333;

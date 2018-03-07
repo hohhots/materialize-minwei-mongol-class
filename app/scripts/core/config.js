@@ -9,8 +9,8 @@
 
   var config = {
     app: {
-      urlPrefix: "#!",
-      url: "root"
+      urlPrefix: '#!',
+      url: 'root'
     },
 
     type: {
@@ -23,17 +23,17 @@
     },
 
     data: {
-      data: "data",
-      images: "images",
-      audios: "audios",
-      videos: "videos",
-      tasks: "tasks"
+      data: 'data',
+      images: 'images',
+      audios: 'audios',
+      videos: 'videos',
+      tasks: 'tasks'
     },
 
     dataTypes: {
-      images: [".png", ".jpg"],
-      audios: [".ogg", ".mp3"],
-      videos: [".ogv", ".webm"]
+      images: ['.png', '.jpg'],
+      audios: ['.ogg', '.mp3'],
+      videos: ['.ogv', '.webm']
     },
 
     mediaUrl: {
@@ -58,23 +58,23 @@
     },
 
     alphaListNamesMap: {
-      o2: "o", u2: "u",
-      ne: "na", no2: "no", nu2: "nu",
-      be: "ba", bo2: "bo", bu2: "bu",
-      pe: "pa", po2: "po", pu2: "pu",
-      ho2: "ho", hu2: "hu",
-      go2: "go", gu2: "gu",
-      me: "ma", mo2: "mo", mu2: "mu",
-      le: "la", lo2: "lo", lu2: "lu",
-      se: "sa", so2: "so", su2: "su",
-      xe: "xa", xo2: "xo", xu2: "xu",
-      te: "ta", to2: "to", tu2: "tu",
-      de: "da", do2: "do", du2: "du",
-      qe: "qa", qo2: "qo", qu2: "qu",
-      je: "ja", jo2: "jo", ju2: "ju",
-      ye: "ya", yo2: "yo", yu2: "yu",
-      re: "ra", ro2: "ro", ru2: "ru",
-      we: "wa"
+      o2: 'o', u2: 'u',
+      ne: 'na', no2: 'no', nu2: 'nu',
+      be: 'ba', bo2: 'bo', bu2: 'bu',
+      pe: 'pa', po2: 'po', pu2: 'pu',
+      ho2: 'ho', hu2: 'hu',
+      go2: 'go', gu2: 'gu',
+      me: 'ma', mo2: 'mo', mu2: 'mu',
+      le: 'la', lo2: 'lo', lu2: 'lu',
+      se: 'sa', so2: 'so', su2: 'su',
+      xe: 'xa', xo2: 'xo', xu2: 'xu',
+      te: 'ta', to2: 'to', tu2: 'tu',
+      de: 'da', do2: 'do', du2: 'du',
+      qe: 'qa', qo2: 'qo', qu2: 'qu',
+      je: 'ja', jo2: 'jo', ju2: 'ju',
+      ye: 'ya', yo2: 'yo', yu2: 'yu',
+      re: 'ra', ro2: 'ro', ru2: 'ru',
+      we: 'wa'
     },
 
     alphaVideoNamesMap: {},
@@ -98,29 +98,29 @@
     },
 
     home: {
-      welcome: "学 - 优美蒙古语<br>懂 - 人与大自然"
+      welcome: '学 - 优美蒙古语<br>懂 - 人与大自然'
     },
 
     subject: {
-      progress: "进度",
-      targetProgress: "目标进度",
-      practice: "练习",
-      close: "关闭",
-      taskContainer: "subjectTaskContainer",
-      workArea: "subjectWorkArea",
-      loadFileFail: "下载文件错误！",
-      exerciseTag: "app-exercise",
-      tasksTitle: { 1: "请做", 2: "个练习！" },
-      excerciseHtmlId: "exercise",
-      answer: "答案",
-      checkAnswer: "检查答案",
-      noAnswerSelected: "您必须选择一个答案！",
-      answerSelectedWrong: "选择不正确！",
-      answerSequenceWrong: "您在重复答题或还没有做前一个练习！",
-      exerciseNext: "正确！转到下一个",
-      watchVideo: "有困难？看视频学习",
-      notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
-      notSupportHtml5Video: "您的浏览器不支持 HTML5 播放视频。"
+      progress: '进度',
+      targetProgress: '目标进度',
+      practice: '练习',
+      close: '关闭',
+      taskContainer: 'subjectTaskContainer',
+      workArea: 'subjectWorkArea',
+      loadFileFail: '下载文件错误！',
+      exerciseTag: 'app-exercise',
+      tasksTitle: { 1: '请做', 2: '个练习！' },
+      excerciseHtmlId: 'exercise',
+      answer: '答案',
+      checkAnswer: '检查答案',
+      noAnswerSelected: '您必须选择一个答案！',
+      answerSelectedWrong: '选择不正确！',
+      answerSequenceWrong: '您在重复答题或还没有做前一个练习！',
+      exerciseNext: '正确！转到下一个',
+      watchVideo: '有困难？看视频学习',
+      notSupportHtml5Audio: '您的浏览器不支持 HTML5 播放音频。',
+      notSupportHtml5Video: '您的浏览器不支持 HTML5 播放视频。'
     },
 
     alphaLangs: {
@@ -150,17 +150,22 @@
       nextClass: '下一节'
     },
 
+    classroomLangs: {
+      interact: '互动课'
+    },
+
     templateUrl: {
       header: 'scripts/header/header.template.html',
       mobileDropDown: 'scripts/header/mobileDropDown/mobiledropdown.template.html',
       home: 'scripts/home/home.template.html',
       levelsHome: 'scripts/levelshome/levelshome.template.html',
       appLevels: 'scripts/levelshome/levels/levels.template.html',
+      appClassroom: 'scripts/levelshome/levels/classroom/classroom.template.html',
       category: 'scripts/category/category.template.html',
 
       alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
       originpractice: 'scripts/category/alphabet/origin/practice/originpractice.template.html',
-      alphaOriginFilter: "scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html",
+      alphaOriginFilter: 'scripts/filter/alphaOriginFilter/alphaOriginFilter.template.html',
       originRandom: 'scripts/category/alphabet/origin/originRandom/originRandom.template.html',
 
       alphabetlist: 'scripts/category/alphabet/list/alphabetlist.template.html',
@@ -177,12 +182,12 @@
 
       subject: 'scripts/subject/subject.template.html',
       footer: 'scripts/footer/footer.template.html',
-      simplePlayer: "scripts/player/simplePlayer/simplePlayer.template.html",
+      simplePlayer: 'scripts/player/simplePlayer/simplePlayer.template.html',
 
-      word: "scripts/word/word.template.html",
-      mwordInput: "scripts/word/input/mwordInput.template.html",
-      wordPlayer: "scripts/player/wordPlayer/wordPlayer.template.html",
-      wordIme: "scripts/ime/word/wordIme.template.html"
+      word: 'scripts/word/word.template.html',
+      mwordInput: 'scripts/word/input/mwordInput.template.html',
+      wordPlayer: 'scripts/player/wordPlayer/wordPlayer.template.html',
+      wordIme: 'scripts/ime/word/wordIme.template.html'
     },
 
     dataPath: {
@@ -217,7 +222,7 @@
     },
 
     events: {
-      setInputFocus: "setInputFocusEvent",
+      setInputFocus: 'setInputFocusEvent',
       stopPlayers: 'stopPlayersEvent',
       playAlphaVideo: 'playAlphaVideoEvent',
       playIntroductionVideo: 'playIntroductionVideoEvent',
@@ -258,7 +263,7 @@
       closeIme: 'closeImeEvent',
       wordImeDone: 'wordImeDoneEvent',
 
-      setDimension: "setDimensionEvent"
+      setDimension: 'setDimensionEvent'
     },
 
     ajax: function (url) {
@@ -273,25 +278,25 @@
   };
 
   config.alphaVideoNamesMap = $.extend({}, config.alphaListNamesMap, {
-    ge: "he", gi: "hi", gu: "hu", gu2: "hu"
+    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
 
   config.alphaVariantNamesMap1 = config.alphaVideoNamesMap;
   config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
-    e: "a", u: "o", u2: "o",
-    nu: "no", nu2: "no",
-    bu: "bo", bu2: "bo",
-    pu: "po", pu2: "po",
-    mu: "mo", mu2: "mo",
-    lu: "lo", lu2: "lo",
-    su: "so", su2: "so",
-    xu: "xo", xu2: "xo",
-    tu: "to", tu2: "to",
-    du: "do", du2: "do",
-    qu: "qo", qu2: "qo",
-    ju: "jo", ju2: "jo",
-    yu: "yo", yu2: "yo",
-    ru: "ro", ru2: "ro"
+    e: 'a', u: 'o', u2: 'o',
+    nu: 'no', nu2: 'no',
+    bu: 'bo', bu2: 'bo',
+    pu: 'po', pu2: 'po',
+    mu: 'mo', mu2: 'mo',
+    lu: 'lo', lu2: 'lo',
+    su: 'so', su2: 'so',
+    xu: 'xo', xu2: 'xo',
+    tu: 'to', tu2: 'to',
+    du: 'do', du2: 'do',
+    qu: 'qo', qu2: 'qo',
+    ju: 'jo', ju2: 'jo',
+    yu: 'yo', yu2: 'yo',
+    ru: 'ro', ru2: 'ro'
   });
 
   config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
