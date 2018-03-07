@@ -124,18 +124,18 @@
     },
 
     alphaLangs: {
-      introduction: "简介",
-      translate: "翻译",
-      practice: "练习",
+      introduction: '简介',
+      translate: '翻译',
+      practice: '练习',
       clear: '清除',
-      ok: "确定",
-      exit: "退出",
-      filter: "筛选",
-      selectAlpha: "选择字母",
-      selectAll: "全选",
-      checkAnswer: "检查答案",
-      originAlphaFilterTitle: "筛选字母",
-      notSupportHtml5Audio: "您的浏览器不支持 HTML5 播放音频。",
+      ok: '确定',
+      exit: '退出',
+      filter: '筛选',
+      selectAlpha: '选择字母',
+      selectAll: '全选',
+      checkAnswer: '检查答案',
+      originAlphaFilterTitle: '筛选字母',
+      notSupportHtml5Audio: '您的浏览器不支持 HTML5 播放音频。',
       nextTest: '下一练习',
       top: '首',
       middle: '中',
@@ -143,6 +143,11 @@
       pagePrevious: '前一页',
       pageNext: '下一页',
       audioPlay: '播放音频'
+    },
+
+    levelsLangs: {
+      previousClass: '上一节',
+      nextClass: '下一节'
     },
 
     templateUrl: {

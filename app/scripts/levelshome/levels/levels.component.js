@@ -30,10 +30,15 @@
     self.classId = 1;
     self.classes = [];
     self.classesShow = false;
+    self.firstClass = true;
+    self.endClass = false;
 
     self.headerStyle = {backgroundColor: '#336699'};
 
-    self.$onInit = function () {console.log($location.search());
+    self.$onInit = function () {console.log($location.search());   
+      self.langs.previousClass = config.levelsLangs.previousClass;
+      self.langs.nextClass = config.levelsLangs.nextClass;
+      
       var json = getLevelsJson();
       $http.get(json.json, { cache: true }).then(setIntroduction);
       $http.get(json.data, { cache: true }).then(setClasses);
@@ -46,6 +51,19 @@
 
     self.showClasses = function() {
       self.classesShow = !self.classesShow;
+    };
+
+    self.previousClass = function() {
+      // console.log('ddd');
+    };
+
+    self.nextClass = function() {
+      // console.log('dddg');
+    };
+
+    var isFirstClass = function() {
+      self.firstClass = (self.classId === 1);
+      self.endClass = (self.classId === self.classes.length);
     };
 
     var setIntroduction = function(resp) {
@@ -64,6 +82,8 @@
     var setClasses = function(resp) {
       console.log((resp.data)[0].classesDir);
       self.classes = (resp.data)[0].classesDir;
+
+      isFirstClass();
     };
 
     var setLevelIntroduction = function(data) {
