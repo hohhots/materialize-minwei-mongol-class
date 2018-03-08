@@ -36,7 +36,11 @@
 
     self.headerStyle = {backgroundColor: '#336699'};
 
-    self.$onInit = function () {console.log($location.search());   
+    self.$onInit = function () {console.log($location.path());
+      if (redirect()) {
+        return;
+      };
+
       self.langs.previousClass = config.levelsLangs.previousClass;
       self.langs.nextClass = config.levelsLangs.nextClass;
       
@@ -60,6 +64,29 @@
 
     self.nextClass = function() {
       // console.log('dddg');
+    };
+
+    var redirect = function() {
+      var url = $location.path();
+
+      if(!self.levelid){
+        url += 'a/1';
+      } else {
+        if(!/[a|b|c]/g.test(self.levelid)) {
+          $location.path('/root');
+          return false;
+        }
+        var count = (url.match(/\//g) || []).length;
+        if(count == 3) {
+          url += '/1';
+        }
+      }
+
+      if(url != $location.path()) {
+        $location.path(url);
+        return true;
+      }
+      return false;
     };
 
     var isFirstClass = function() {
