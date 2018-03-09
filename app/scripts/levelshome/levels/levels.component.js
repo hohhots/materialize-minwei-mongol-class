@@ -8,9 +8,7 @@
   app.component('appLevels', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      levelid: '<',
-      jsonData: '<',
-      subData: '<'
+      levelid: '<'
     },
     controller: [
       '$location',
@@ -36,7 +34,7 @@
 
     self.headerStyle = {backgroundColor: '#336699'};
 
-    self.$onInit = function () {console.log($location.path());
+    self.$onInit = function () {
       if (redirect()) {
         return;
       };
@@ -64,6 +62,10 @@
 
     self.nextClass = function() {
       // console.log('dddg');
+    };
+
+    self.getDirectoryHash = function(order) {
+      return self.classes[--order];
     };
 
     var redirect = function() {
@@ -111,7 +113,6 @@
     };
 
     var setClasses = function(resp) {
-      console.log((resp.data)[0].classesDir);
       self.classes = (resp.data)[0].classesDir;
 
       isFirstClass();

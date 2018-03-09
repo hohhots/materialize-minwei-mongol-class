@@ -17,9 +17,16 @@
   text-decoration: none;
 }
 
-
-
 #classroom-showcase .btn:hover {
   background: #333;
   color: #fff;
+}
+
+.classroomImg{
+  box-sizing: content-box;
+  margin: 1em 0;
+  width: 100%;
+  max-width: 404px;
+  height: auto;
+  border: 1px solid #333;
 }

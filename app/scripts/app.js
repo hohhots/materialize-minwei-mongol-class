@@ -57,7 +57,12 @@
         {
           name: 'root.levels.classroom',
           url: '/{classroomid}',
-          component: 'appClassroom'
+          component: 'appClassroom',
+          resolve: {
+            classroomid: function($stateParams) {
+              return $stateParams.classroomid;
+            }
+          }
         },
         {
           name: 'root.alphaorigin',

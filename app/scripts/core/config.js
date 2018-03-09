@@ -40,7 +40,8 @@
       alphaOrigin: 'data/alphabet/list/',
       alphaList: 'data/alphabet/list/',
       wordBegin: 'data/word/begin/',
-      ebookBegin: 'data/ebook/begin/'
+      ebookBegin: 'data/ebook/begin/',
+      classroom: 'data/ebook/begin/'
     },
 
     pagesUrl: {

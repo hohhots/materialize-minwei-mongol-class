@@ -1,7 +1,6 @@
 [
   {
-    "pdfImage": "",
-    "audio": "",
+    "pdfImages": ["1.jpg","2.jpg"],
     "interactionClass":""
   }
 ]

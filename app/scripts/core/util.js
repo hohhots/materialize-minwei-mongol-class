@@ -111,7 +111,7 @@
 
       getPlayerIconClass: function(playedAudioId) {
         var css = "fa-play-circle-o";
-        if (playedAudioId != 0) {
+        if (playedAudioId) {
           css = "fa-stop-circle-o w3-text-red";
         }
         return css;

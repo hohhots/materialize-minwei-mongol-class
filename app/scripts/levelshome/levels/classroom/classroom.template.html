@@ -1,8 +1,14 @@
 <header id="classroom-showcase" class="classroom-grid">
   <div class="content-wrap">
     <div class="classroom-btns">
-      <a class="btn" href ng-click="$ctrl.previousClass()">听音频</a>
-      <a class="btn" href ng-click="$ctrl.displayInteractClass()">互动课{{::$ctrl.langs.nextClass}}</a>
+      <a class="btn" href ng-click="$ctrl.playAudio()">
+        听音频
+        <i class="fa fa-play-circle" ng-class="$ctrl.getPlayerIconClass()" aria-hidden="true"></i>
+      </a>
+      <a class="btn" href ng-click="$ctrl.displayInteractClass()">互动课</a>
+    </div>
+    <div class="classroomImg-Container">
+      <img ng-repeat="image in $ctrl.json.pdfImages" ng-src="{{image}}" alt="" class="classroomImg">
     </div>
   </div>
 </header>
