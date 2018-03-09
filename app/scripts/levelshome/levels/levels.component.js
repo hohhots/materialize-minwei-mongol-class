@@ -79,6 +79,9 @@
         var count = (url.match(/\//g) || []).length;
         if(count == 3) {
           url += '/1';
+          // run two times will change the child state
+          // this is first time.
+          $location.path(url);
         }
       }
 
