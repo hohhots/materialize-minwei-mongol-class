@@ -61,12 +61,10 @@
   cursor: pointer;
 }
 
-.level-class:hover,
-.level-btn:hover {
-  background: #333;
-  color: #fff;
-}
-
 @media screen and (min-width: 767px) {
-
+  .level-class:hover,
+  .level-btn:hover {
+    background: #333;
+    color: #fff;
+  }
 }

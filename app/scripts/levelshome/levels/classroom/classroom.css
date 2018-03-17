@@ -24,9 +24,15 @@
 
 .classroomImg{
   box-sizing: content-box;
-  margin: 1em 0;
+  margin: 0 0 -10px 0;
   width: 100%;
   max-width: 404px;
   height: auto;
   border: 1px solid #666;
+}
+
+@media screen and (min-width: 767px) {
+  .classroomImg{
+    margin: 1em 0;
+  }
 }
