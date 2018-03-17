@@ -37,6 +37,7 @@
     self.$onInit = function () {
       self.dirHash = self.parent.getDirectoryHash(self.classroomid);
       self.levelid = self.parent.levelid;
+      self.parent.setClassroomId(parseInt(self.classroomid));
 
       var json = getClassroomUrl();
       $http.get(json, { cache: true }).then(setJson);

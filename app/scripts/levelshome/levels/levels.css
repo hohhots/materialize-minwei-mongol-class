@@ -34,6 +34,10 @@
   max-width: 500px;
 }
 
+.level-detail p{
+  text-align: center !important;
+}
+
 .levelClasses {
   text-align: center;
 }
@@ -53,12 +57,11 @@
 .level-class {
   margin: 1em;
   width: 5em;
-  padding: 0.5em 2em;
-  background: #666;
   font-size: 1em;
-  color: #fff;
+  cursor: pointer;
 }
 
+.level-class:hover,
 .level-btn:hover {
   background: #333;
   color: #fff;

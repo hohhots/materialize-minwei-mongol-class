@@ -3,16 +3,16 @@
     <h2>{{$ctrl.langs.introduction.title}}</h2>
     <p>{{$ctrl.langs.introduction.text}}</p>
     <div class="level-btns">
-      <a class="level-btn" href ng-click="$ctrl.previousClass()" ng-hide="$ctrl.firstClass">{{::$ctrl.langs.previousClass}}</a>
+      <a class="level-btn" ui-sref="root.levels.classroom({classroomid: $ctrl.classId - 1})" ng-hide="$ctrl.firstClass">{{::$ctrl.langs.previousClass}}</a>
       <a class="level-btn" href ng-click="$ctrl.showClasses()">第 {{$ctrl.classId}} 课</a>
-      <a class="level-btn" href ng-click="$ctrl.nextClass()" ng-hide="$ctrl.endClass">{{::$ctrl.langs.nextClass}}</a>
+      <a class="level-btn" ui-sref="root.levels.classroom({classroomid: $ctrl.classId + 1})" ng-hide="$ctrl.endClass">{{::$ctrl.langs.nextClass}}</a>
     </div>
     <div class="w3-modal level-class-container" ng-show="$ctrl.classesShow">
       <div class="level-detail">
         <h2 class="level-content-title">{{$ctrl.langs.introduction.title}}</h2>
         <p>请选择课节</p>
         <div class="levelClasses">
-          <div ng-repeat="class in $ctrl.classes" class="level-class">{{$index + 1}}</div>
+          <div ng-repeat="class in $ctrl.classes" class="level-class" ui-sref="root.levels.classroom({classroomid: $index + 1})" ng-click="$ctrl.showClasses()">{{$index + 1}}</div>
         </div>
         <a class="level-btn" href="" ng-click="$ctrl.showClasses()">关闭</a>
       </div>

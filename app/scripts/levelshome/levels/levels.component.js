@@ -56,16 +56,13 @@
       self.classesShow = !self.classesShow;
     };
 
-    self.previousClass = function() {
-      // console.log('ddd');
-    };
-
-    self.nextClass = function() {
-      // console.log('dddg');
-    };
-
     self.getDirectoryHash = function(order) {
       return self.classes[--order];
+    };
+
+    self.setClassroomId = function(classroomid) {
+      self.classId = classroomid;
+      isFirstClass();
     };
 
     var redirect = function() {
