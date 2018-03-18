@@ -55,7 +55,8 @@
     };
 
     self.playAudio = function () {
-      if (audioPlaying) {
+      $scope.$broadcast(config.events.startAudioPlay);
+     /** if (audioPlaying) {
         $scope.$broadcast(config.events.stopPlayers);
         return;
       };
@@ -65,7 +66,19 @@
       };
       audioElem.load();
       audioElem.play();
-      audioPlaying = true;
+      audioPlaying = true; **/
+    };
+
+    self.getAudios = function() {
+      var audioUrl = config.mediaUrl.classroom;
+
+      var ta = $.map(self.json.audioIds, function(id) {
+        return {
+          mpeg: audioUrl + config.data.audios + '/' + id + config.dataTypes.audios[1],
+          ogg: audioUrl + config.data.audios + '/' + id + config.dataTypes.audios[0]
+        };
+      });
+      return ta;
     };
 
     self.getPlayerIconClass = function () {
@@ -73,7 +86,6 @@
     };
 
     var audioElem;
-    var audioUrl = config.mediaUrl.classroom;
     var audioPlaying = false;
 
     var getClassroomUrl = function() {

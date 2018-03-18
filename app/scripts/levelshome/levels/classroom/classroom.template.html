@@ -13,7 +13,4 @@
   </div>
 </header>
 
-<audio style="display: none">
-  <source src="{{$ctrl.audio.ogg}}" type="audio/ogg">
-  <source src="{{$ctrl.audio.mpeg}}" type="audio/mpeg"> {{::$ctrl.langs.notSupportHtml5Audio}}
-</audio>
+<app-audioplayer get-audios="$ctrl.getAudios()" ng-hide="true"></app-audioplayer>

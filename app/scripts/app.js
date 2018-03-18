@@ -20,7 +20,7 @@
   app.config(['$stateProvider', '$urlRouterProvider', 'Config',
     function config($stateProvider, $urlRouterProvider, config) {
 
-      var resolve = function(name) {
+      var resolve = function (name) {
         return {
           jsonData: config.ajax(config.dataPath[name].json),
           subData: config.ajax(config.dataPath[name].data)
@@ -49,7 +49,7 @@
           url: '/level/{levelid}',
           component: 'appLevels',
           resolve: {
-            levelid: function($stateParams) {
+            levelid: function ($stateParams) {
               return $stateParams.levelid;
             }
           }
@@ -59,7 +59,7 @@
           url: '/{classroomid}',
           component: 'appClassroom',
           resolve: {
-            classroomid: function($stateParams) {
+            classroomid: function ($stateParams) {
               return $stateParams.classroomid;
             }
           }

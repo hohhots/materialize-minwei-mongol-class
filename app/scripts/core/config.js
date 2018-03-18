@@ -184,6 +184,7 @@
       subject: 'scripts/subject/subject.template.html',
       footer: 'scripts/footer/footer.template.html',
       simplePlayer: 'scripts/player/simplePlayer/simplePlayer.template.html',
+      audioPlayer: 'scripts/player/audioPlayer/audioPlayer.template.html',
 
       word: 'scripts/word/word.template.html',
       mwordInput: 'scripts/word/input/mwordInput.template.html',
@@ -264,7 +265,9 @@
       closeIme: 'closeImeEvent',
       wordImeDone: 'wordImeDoneEvent',
 
-      setDimension: 'setDimensionEvent'
+      setDimension: 'setDimensionEvent',
+
+      startAudioPlay: 'startAudioPlayEvent'
     },
 
     ajax: function (url) {
