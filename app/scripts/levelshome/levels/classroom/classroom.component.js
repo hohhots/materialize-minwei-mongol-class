@@ -22,10 +22,11 @@
       '$element',
       'Config',
       'Util',
+      'audioPlayerService',
       Controller]
   });
 
-  function Controller($location, $scope, $sce, $http, $interval, $element, config, util) {
+  function Controller($location, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
     var self = this;
 
     self.templateUrl = config.templateUrl.appClassroom;
@@ -55,30 +56,7 @@
     };
 
     self.playAudio = function () {
-      $scope.$broadcast(config.events.startAudioPlay);
-     /** if (audioPlaying) {
-        $scope.$broadcast(config.events.stopPlayers);
-        return;
-      };
-      self.audio = {
-        mpeg: audioUrl + config.data.audios + '/' + self.classroomid + config.dataTypes.audios[1],
-        ogg: audioUrl + config.data.audios + '/' + self.classroomid + config.dataTypes.audios[0]
-      };
-      audioElem.load();
-      audioElem.play();
-      audioPlaying = true; **/
-    };
-
-    self.getAudios = function() {
-      var audioUrl = config.mediaUrl.classroom;
-
-      var ta = $.map(self.json.audioIds, function(id) {
-        return {
-          mpeg: audioUrl + config.data.audios + '/' + id + config.dataTypes.audios[1],
-          ogg: audioUrl + config.data.audios + '/' + id + config.dataTypes.audios[0]
-        };
-      });
-      return ta;
+      audioPlayerService.play(getAudios());
     };
 
     self.getPlayerIconClass = function () {
@@ -87,6 +65,19 @@
 
     var audioElem;
     var audioPlaying = false;
+
+    var getAudios = function() {
+      var audioUrl = config.mediaUrl.classroom;
+
+      var ta = $.map(self.json.audioIds, function(id) {
+        return {
+          url: audioUrl + config.data.audios + '/',
+          mpeg: id + config.dataTypes.audios[1],
+          ogg: id + config.dataTypes.audios[0]
+        };
+      });
+      return ta;
+    };
 
     var getClassroomUrl = function() {
       var url = angular.copy(config.dataPath['appLevels'].data);
@@ -104,6 +95,8 @@
       self.json.pdfImages = $.map(self.json.pdfImages, function(url) {
         return purl + 'images/' + url;
       });
+
+      audioPlayerService.init(getAudios());      
     };
 
     var autoStopAudio = function () {
