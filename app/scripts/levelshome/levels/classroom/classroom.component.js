@@ -60,7 +60,6 @@
         audioPlayerService.play(getAudios());
       } else {
         audioPlayerService.pauseAudios();
-        audioPlaying = false;
       }
     };
 

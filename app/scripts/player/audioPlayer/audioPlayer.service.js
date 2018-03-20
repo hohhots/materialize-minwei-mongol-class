@@ -39,27 +39,38 @@
 
   playAudios.prototype.play = function () {
     var self = this;
-    var i = -1;
+
+    if(self.pausedAudio) {
+      self.pausedAudio.play();
+      self.pausedAudio = null;
+      self.ctrl.audioPlayed();
+      return;
+    }
+
+    self.playingId = -1;
     var sounds = self.sounds;
     playSnd();
 
-    function playSnd() {console.log(i);
-      i++;
-      if (i == sounds.length) {
+    function playSnd() {
+      self.playingId++;
+      if (self.playingId == sounds.length) {
         self.ctrl.audioPaused();
         return;
       }
-      sounds[i].onended = playSnd;
-      sounds[i].play();
+      sounds[self.playingId].onended = playSnd;
+      sounds[self.playingId].play();
       self.ctrl.audioPlayed();
     }
   };
 
   playAudios.prototype.pauseAudios = function () {
     var self = this;
-    $.each(self.sounds, function(i,audio) {
-      audio.pause();
-    });
+
+    if(self.playingId > -1) {
+      self.sounds[self.playingId].pause();
+      self.pausedAudio = self.sounds[self.playingId];
+      self.ctrl.audioPaused();
+    }
   };
 
   app.service('audioPlayerService', playAudios);
