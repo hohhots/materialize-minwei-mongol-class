@@ -56,7 +56,13 @@
     };
 
     self.playAudio = function () {
-      audioPlayerService.play(getAudios());
+      if(!audioPlaying) {
+        audioPlayerService.play(getAudios());
+        audioPlaying = true;
+      } else {
+        audioPlayerService.pauseAudios();
+        audioPlaying = false;
+      }
     };
 
     self.getPlayerIconClass = function () {
@@ -96,7 +102,7 @@
         return purl + 'images/' + url;
       });
 
-      audioPlayerService.init(getAudios());      
+      audioPlayerService.init(getAudios());
     };
 
     var autoStopAudio = function () {

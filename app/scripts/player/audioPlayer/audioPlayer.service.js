@@ -4,17 +4,19 @@
   var app = angular.module('app.player');
 
   var playAudios = function () {
-    this.sounds = [];
   };
 
   playAudios.prototype.init = function (audios) {
     var self = this;
+    
+    self.pauseAudios();
 
     self.audios = audios;
+    self.sounds = [];
 
     $.each(self.audios, function (index, audio) {
       self.sounds.push(self.audioX(audio));
-    });
+    });console.log(self.sounds);
   };
 
   playAudios.prototype.audioX = function (audio) {
@@ -45,6 +47,13 @@
       sounds[i].addEventListener('ended', playSnd);
       sounds[i].play();
     }
+  };
+
+  playAudios.prototype.pauseAudios = function () {
+    var self = this;
+    $.each(self.sounds, function(i,audio) {
+      audio.pause();
+    });
   };
 
   app.service('audioPlayerService', playAudios);
