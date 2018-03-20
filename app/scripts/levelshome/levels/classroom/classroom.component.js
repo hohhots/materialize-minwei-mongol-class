@@ -58,7 +58,6 @@
     self.playAudio = function () {
       if(!audioPlaying) {
         audioPlayerService.play(getAudios());
-        audioPlaying = true;
       } else {
         audioPlayerService.pauseAudios();
         audioPlaying = false;
@@ -67,6 +66,14 @@
 
     self.getPlayerIconClass = function () {
       return util.getPlayerIconClass(audioPlaying);
+    };
+
+    self.audioPlayed = function () {
+      audioPlaying = true;
+    };
+
+    self.audioPaused = function () {
+      audioPlaying = false;
     };
 
     var audioElem;
@@ -102,7 +109,7 @@
         return purl + 'images/' + url;
       });
 
-      audioPlayerService.init(getAudios());
+      audioPlayerService.init(self, getAudios());
     };
 
     var autoStopAudio = function () {

@@ -6,10 +6,12 @@
   var playAudios = function () {
   };
 
-  playAudios.prototype.init = function (audios) {
+  playAudios.prototype.init = function (ctrl, audios) {
     var self = this;
     
     self.pauseAudios();
+
+    self.ctrl = ctrl;
 
     self.audios = audios;
     self.sounds = [];
@@ -41,11 +43,15 @@
     var sounds = self.sounds;
     playSnd();
 
-    function playSnd() {
+    function playSnd() {console.log(i);
       i++;
-      if (i == sounds.length) return;
-      sounds[i].addEventListener('ended', playSnd);
+      if (i == sounds.length) {
+        self.ctrl.audioPaused();
+        return;
+      }
+      sounds[i].onended = playSnd;
       sounds[i].play();
+      self.ctrl.audioPlayed();
     }
   };
 
