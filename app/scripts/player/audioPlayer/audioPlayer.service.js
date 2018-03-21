@@ -15,6 +15,7 @@
 
     self.audios = audios;
     self.sounds = [];
+    self.pausedAudio = null;
 
     $.each(self.audios, function (index, audio) {
       self.sounds.push(self.audioX(audio));
