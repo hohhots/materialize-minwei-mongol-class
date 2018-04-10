@@ -33,7 +33,7 @@
     self.langs = {};
     self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
     self.dirHash = '';
-
+    self.pdfImages = [];
 
     self.$onInit = function () {
       self.dirHash = self.parent.getDirectoryHash(self.classroomid);
@@ -104,9 +104,9 @@
 
       self.json = (resp.data)[0];
       // using map change images url
-      self.json.pdfImages = $.map(self.json.pdfImages, function(url) {
-        return purl + 'images/' + url;
-      });
+      for (var i = 1; i <= self.json.pdfImagesNum; i++) {
+        self.pdfImages.push(purl + 'images/' + self.classroomid + '-' + i + config.dataTypes.images[1]);
+      }
 
       audioPlayerService.init(self, getAudios());
     };
