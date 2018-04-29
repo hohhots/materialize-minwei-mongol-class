@@ -8,6 +8,8 @@
   app.component('appAlphaorigin', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
+      levelid: '<',
+      classroomid: '<',
       jsonData: '<',
       subData: '<'
     },
@@ -16,7 +18,7 @@
 
   function controller($scope, $element, config, util, json) {
     var self = this;
-
+console.log(self);
     //define self variables
     self.templateUrl = config.templateUrl.alphabetorigin;
     self.introduction = config.alphaLangs.introduction;

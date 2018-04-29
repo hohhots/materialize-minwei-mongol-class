@@ -32,7 +32,9 @@
     self.$onInit = function () {
       self.langs.suixin = self.jsonData[0];
       self.langs.mongol = self.jsonData[1];
-      
+      self.suixinFullText = self.langs.suixin.description + self.langs.suixin.text;
+      self.monFullText = self.langs.mongol.description + self.langs.mongol.text;      
+
       util.setCurrentBackgroundColor();
       
       $('body').css('background', '#3f3f3f');

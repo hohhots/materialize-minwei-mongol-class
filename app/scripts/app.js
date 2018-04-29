@@ -66,9 +66,16 @@
         },
         {
           name: 'root.alphaorigin',
-          url: '/alphabetorigin',
+          url: '/alphaorigin/{levelid}/{classroomid}',
           component: 'appAlphaorigin',
-          resolve: resolve('alphabetorigin')
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            classroomid: function ($stateParams) {
+              return $stateParams.classroomid;
+            }
+          }
         },
         {
           name: 'root.originpractice',

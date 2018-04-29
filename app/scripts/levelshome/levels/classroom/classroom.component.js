@@ -75,6 +75,10 @@
       audioPlaying = false;
     };
 
+    self.displayInteractClass = function () {
+      console.log('ddd');
+    }
+
     var audioElem;
     var audioPlaying = false;
 
