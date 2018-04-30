@@ -270,6 +270,15 @@
       startAudioPlay: 'startAudioPlayEvent'
     },
 
+    uiState: {
+      root: {name: 'root', url: '/root'},
+      home: {name: 'root.home', url: '/home', component: 'appHome'},
+      levelsHome: {name: 'root.levelshome', url: '/levelshome', component: 'levelsHome'},
+      levels: {name: 'root.levels', url: '/level/{levelid}', component: 'appLevels'},
+      classRoom: {name: 'root.levels.classroom', url: '/{classroomid}', component: 'appClassroom'},
+      alphaOrigin: {name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{classroomid}', component: 'appAlphaorigin'}
+    },
+
     ajax: function (url) {
       return function ($http) {
         return $http.get(url, { cache: true })

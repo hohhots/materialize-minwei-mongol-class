@@ -18,7 +18,7 @@
 
   function controller($scope, $element, config, util, json) {
     var self = this;
-console.log(self);
+
     //define self variables
     self.templateUrl = config.templateUrl.alphabetorigin;
     self.introduction = config.alphaLangs.introduction;

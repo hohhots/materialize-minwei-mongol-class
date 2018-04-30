@@ -8,12 +8,14 @@
   app.component('appClassroom', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
+      levelid: '<',
       classroomid: '<'
     },
     require: {
       parent: '^^appLevels'
     },
     controller: [
+      '$state',
       '$location',
       '$scope',
       '$sce',
@@ -26,18 +28,19 @@
       Controller]
   });
 
-  function Controller($location, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
+  function Controller($state, $location, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
     var self = this;
-
+console.log($state.href('root', {}, {absolute: true}));
     self.templateUrl = config.templateUrl.appClassroom;
     self.langs = {};
     self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
     self.dirHash = '';
     self.pdfImages = [];
+    self.interactUrl = '';
 
     self.$onInit = function () {
       self.dirHash = self.parent.getDirectoryHash(self.classroomid);
-      self.levelid = self.parent.levelid;
+      //self.levelid = self.parent.levelid;
       self.parent.setClassroomId(parseInt(self.classroomid));
 
       var json = getClassroomUrl();
@@ -75,9 +78,9 @@
       audioPlaying = false;
     };
 
-    self.displayInteractClass = function () {
-      console.log('ddd');
-    }
+    self.click = function () {
+      $state.go('root.alphaorigin', {levelid: self.levelid, classroomid: self.classroomid});
+    };
 
     var audioElem;
     var audioPlaying = false;

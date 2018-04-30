@@ -27,27 +27,29 @@
         };
       };
 
+      var uiState = config.uiState;
+
       var states = [
         {
-          name: 'root',
-          url: '/root',
+          name: uiState.root.name,
+          url: uiState.root.url,
           template: '<app-header /><ui-view /><app-footer />'
         },
         {
-          name: 'root.home',
-          url: '/home',
-          component: 'appHome'
+          name: uiState.home.name,
+          url: uiState.home.url,
+          component: uiState.home.component
         },
         {
-          name: 'root.levelshome',
-          url: '/levelshome',
-          component: 'levelsHome',
+          name: uiState.levelsHome.name,
+          url: uiState.levelsHome.url,
+          component: uiState.levelsHome.component,
           resolve: resolve('levelshome')
         },
         {
-          name: 'root.levels',
-          url: '/level/{levelid}',
-          component: 'appLevels',
+          name: uiState.levels.name,
+          url: uiState.levels.url,
+          component: uiState.levels.component,
           resolve: {
             levelid: function ($stateParams) {
               return $stateParams.levelid;
@@ -55,19 +57,9 @@
           }
         },
         {
-          name: 'root.levels.classroom',
-          url: '/{classroomid}',
-          component: 'appClassroom',
-          resolve: {
-            classroomid: function ($stateParams) {
-              return $stateParams.classroomid;
-            }
-          }
-        },
-        {
-          name: 'root.alphaorigin',
-          url: '/alphaorigin/{levelid}/{classroomid}',
-          component: 'appAlphaorigin',
+          name: uiState.classRoom.name,
+          url: uiState.classRoom.url,
+          component: uiState.classRoom.component,
           resolve: {
             levelid: function ($stateParams) {
               return $stateParams.levelid;
@@ -75,6 +67,21 @@
             classroomid: function ($stateParams) {
               return $stateParams.classroomid;
             }
+          }
+        },
+        {
+          name: uiState.alphaOrigin.name,
+          url: uiState.alphaOrigin.url,
+          component: uiState.alphaOrigin.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            classroomid: function ($stateParams) {
+              return $stateParams.classroomid;
+            },
+            jsonData: config.ajax(config.dataPath['alphabetorigin'].json),
+            subData: config.ajax(config.dataPath['alphabetorigin'].data)
           }
         },
         {
@@ -128,14 +135,14 @@
       ];
 
       // Must redirection before set and state
-      $urlRouterProvider.when('/root', '/root/levelshome');
+      $urlRouterProvider.when(uiState.root.name, uiState.root.url);
 
       // Loop over the state definitions and register them
       states.forEach(function (state) {
         $stateProvider.state(state);
       });
 
-      $urlRouterProvider.otherwise('/root/levelshome');
+      $urlRouterProvider.otherwise(uiState.root.url + uiState.levelsHome.url);
     }
   ]);
 })();
