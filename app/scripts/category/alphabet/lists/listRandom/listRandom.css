@@ -1,0 +1,38 @@
+.listpractice-exit {
+  position: absolute;
+  top: -20px;
+  right: -17px;
+  z-index: 1050;
+  padding: 5px;
+  cursor: pointer;
+  color: #009688;
+}
+
+.alpha5-col {
+  float: left;
+  width: 100%;
+}
+
+.alpha5-col.s1 {
+  width: 20%;
+}
+
+.alpha5-col.s3 {
+  width: 24.99999%;
+}
+
+.alpha5-col.s4 {
+  width: 33.33333%;
+}
+
+@media (min-width:601px) {
+  .alpha5-col.m1 {
+    width: 20%;
+  }
+}
+
+@media (min-width:993px) {
+  .alpha5-col.l1 {
+    width: 20%;
+  }
+}

@@ -5,7 +5,7 @@
   var app = angular.module('app.category');
 
   // Register `headerList` component, along with its associated controller and template
-  app.component('appAlphalist', {
+  app.component('appAlphaslist', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
       levelid: '<',
@@ -23,11 +23,6 @@
     self.templateUrl = config.templateUrl.alphabetlist;
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
-
-    self.$onInit = function () {
-      self.alphabets = self.subData.slice(self.classroomid - 1, self.classroomid);
-      console.log(self.alphabets);
-    };
 
     self.alphaClick = function (originName, originDirName, alphaId, alphaName) {
       var dirName = originDirName.substr(0, 1);

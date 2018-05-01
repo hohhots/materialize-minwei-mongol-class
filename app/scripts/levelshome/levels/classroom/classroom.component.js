@@ -78,8 +78,8 @@ console.log($state.href('root', {}, {absolute: true}));
       audioPlaying = false;
     };
 
-    self.click = function () {
-      $state.go('root.alphaorigin', {levelid: self.levelid, classroomid: self.classroomid});
+    self.gotoInteractClass = function () {
+      $state.go('root.alphalist', {levelid: self.levelid, classroomid: self.classroomid});
     };
 
     var audioElem;

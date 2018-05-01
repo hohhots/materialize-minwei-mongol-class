@@ -91,10 +91,19 @@
           resolve: resolve('alphabetorigin')
         },
         {
-          name: 'root.alphalist',
-          url: '/alphabetlist',
-          component: 'appAlphalist',
-          resolve: resolve('alphabetlist')
+          name: uiState.alphaList.name,
+          url: uiState.alphaList.url,
+          component: uiState.alphaList.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            classroomid: function ($stateParams) {
+              return $stateParams.classroomid;
+            },
+            jsonData: config.ajax(config.dataPath['alphabetlist'].json),
+            subData: config.ajax(config.dataPath['alphabetlist'].data)
+          }
         },
         {
           name: 'root.listpractice',

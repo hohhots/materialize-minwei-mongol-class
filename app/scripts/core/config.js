@@ -276,7 +276,8 @@
       levelsHome: {name: 'root.levelshome', url: '/levelshome', component: 'levelsHome'},
       levels: {name: 'root.levels', url: '/level/{levelid}', component: 'appLevels'},
       classRoom: {name: 'root.levels.classroom', url: '/{classroomid}', component: 'appClassroom'},
-      alphaOrigin: {name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{classroomid}', component: 'appAlphaorigin'}
+      alphaOrigin: {name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{classroomid}', component: 'appAlphaorigin'},
+      alphaList: {name: 'root.alphalist', url: '/alphalist/{levelid}/{classroomid}', component: 'appAlphalist'}
     },
 
     ajax: function (url) {
