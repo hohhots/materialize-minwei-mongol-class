@@ -27,7 +27,8 @@
     self.langs = {};
     self.levelid = 0;
     self.classId = 1;
-    self.classes = [];
+    // alpha list data directory hash names array
+    self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
     self.classesShow = false;
     self.firstClass = true;
     self.endClass = false;
@@ -42,14 +43,17 @@
       self.langs.previousClass = config.levelsLangs.previousClass;
       self.langs.nextClass = config.levelsLangs.nextClass;
       
-      var json = getLevelsJson();
+      var json = util.getLevelsJson(self.levelid);
       $http.get(json.json, { cache: true }).then(setIntroduction);
-      $http.get(json.data, { cache: true }).then(setClasses);
 
+      if(!self.classes){
+        $http.get(json.data, { cache: true }).then(setClasses);
+      }
+      
       util.setCurrentBackgroundColor();
       $('body').css('background', '#3f3f3f');
       
-      util.scrollToTop();
+      //util.scrollToTop();
     };
 
     self.showClasses = function() {
@@ -112,6 +116,8 @@
     var setClasses = function(resp) {
       self.classes = (resp.data)[0].classesDir;
 
+      util.setLevelsSubDirectoryHashNames(self.levelid, self.classes);
+      
       isFirstClass();
     };
 

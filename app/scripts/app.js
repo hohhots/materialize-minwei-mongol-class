@@ -101,7 +101,6 @@
             classroomid: function ($stateParams) {
               return $stateParams.classroomid;
             },
-            jsonData: config.ajax(config.dataPath['alphabetlist'].json),
             subData: config.ajax(config.dataPath['alphabetlist'].data)
           }
         },

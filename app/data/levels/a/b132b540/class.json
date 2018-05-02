@@ -2,6 +2,9 @@
   {
     "pdfImagesNum": 1,
     "audioIds": [1],
-    "interactionClass":"alphaorigin"
+    
+    "interactType": "alphaList",
+    "interactTitle": "元音字母",
+    "orderInList": 1
   }
 ]

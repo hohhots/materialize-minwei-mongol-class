@@ -19,11 +19,10 @@
 
     $.each(self.audios, function (index, audio) {
       self.sounds.push(self.audioX(audio));
-    });console.log(self.sounds);
+    });
   };
 
   playAudios.prototype.audioX = function (audio) {
-    console.log(audio);
     var a = new Audio();
     a.preload = 'auto';
     

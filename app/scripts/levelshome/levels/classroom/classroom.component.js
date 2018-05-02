@@ -34,9 +34,12 @@ console.log($state.href('root', {}, {absolute: true}));
     self.templateUrl = config.templateUrl.appClassroom;
     self.langs = {};
     self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
+    // classroom directory hash name
     self.dirHash = '';
     self.pdfImages = [];
     self.interactUrl = '';
+    // json data
+    self.json = '';
 
     self.$onInit = function () {
       self.dirHash = self.parent.getDirectoryHash(self.classroomid);
@@ -79,11 +82,13 @@ console.log($state.href('root', {}, {absolute: true}));
     };
 
     self.gotoInteractClass = function () {
-      $state.go('root.alphalist', {levelid: self.levelid, classroomid: self.classroomid});
+      $state.go(config.uiState[self.json.interactType].name, {levelid: self.levelid, classroomid: self.classroomid});
     };
 
     var audioElem;
     var audioPlaying = false;
+    // classroom data directory url
+    var dataUrl = config.dataPath['appLevels'].data;
 
     var getAudios = function() {
       var audioUrl = config.mediaUrl.classroom;
@@ -99,20 +104,15 @@ console.log($state.href('root', {}, {absolute: true}));
     };
 
     var getClassroomUrl = function() {
-      var url = angular.copy(config.dataPath['appLevels'].data);
-
-      url = url + self.levelid + '/' + self.dirHash + '/class.json';
-      // console.log(json);
+      var url = dataUrl + self.levelid + '/' + self.dirHash + '/class.json';
       return url;
     };
 
     var setJson = function(resp) {
-      var purl = config.dataPath['appLevels'].data;
-
       self.json = (resp.data)[0];
       // using map change images url
       for (var i = 1; i <= self.json.pdfImagesNum; i++) {
-        self.pdfImages.push(purl + 'images/' + self.classroomid + '-' + i + config.dataTypes.images[1]);
+        self.pdfImages.push(dataUrl + 'images/' + self.classroomid + '-' + i + config.dataTypes.images[1]);
       }
 
       audioPlayerService.init(self, getAudios());
