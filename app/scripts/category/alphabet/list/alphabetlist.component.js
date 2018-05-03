@@ -10,19 +10,21 @@
     bindings: {
       levelid: '<',
       classroomid: '<',
-
       subData: '<'
     },
-    controller: ['$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
+    controller: ['$state', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($scope, $element, $http, config, util, json) {
+  function controller($state, $scope, $element, $http, config, util, json) {
     var self = this;
 
     // variable for outside access 
     self.templateUrl = config.templateUrl.alphabetlist;
     self.introduction = config.alphaLangs.introduction;
     self.practice = config.alphaLangs.practice;
+    self.lang = {
+      back: config.alphaLangs.back
+    };
 
     // alpha list data directory hash names array
     self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
@@ -70,12 +72,17 @@
         ogv: url + config.data.videos + '/list' + config.dataTypes.videos[0],
         webm: url + config.data.videos + '/list' + config.dataTypes.videos[1]
       };
-      names.name = self.jsonData[0].name;
+      names.name = self.json.videoTitle;
       $scope.$broadcast(config.events.playIntroductionVideo, names);
     };
 
     self.practiceClick = function () {
       util.changePath(config.pagesUrl.listPractice);
+    };
+
+    self.backClick = function () {
+      console.log($state.current.name);
+      $state.go(config.uiState.classRoom.name, {levelid: self.levelid, classroomid: self.classroomid});
     };
 
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'

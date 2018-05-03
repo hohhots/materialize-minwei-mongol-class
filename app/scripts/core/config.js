@@ -131,6 +131,7 @@
       clear: '清除',
       ok: '确定',
       exit: '退出',
+      back: '返回',
       filter: '筛选',
       selectAlpha: '选择字母',
       selectAll: '全选',
