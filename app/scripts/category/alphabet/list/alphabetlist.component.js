@@ -33,13 +33,14 @@
     self.json = util.getClassroomJson(self.levelid, self.classroomid);
 
     self.$onInit = function () {
-      var json = util.getLevelsJson(self.levelid);
+      util.setClasses(self);
+      /**var json = util.getLevelsJson(self.levelid);
       if (!self.classes) {
         $http.get(json.data, { cache: true }).then(setClasses);
       } else {
         self.dirHash = self.classes[self.classroomid - 1];
         getJsonFile();
-      }
+      }**/
 
     };
 
@@ -123,7 +124,7 @@
       util.setClassroomJson(self.levelid, self.classroomid, self.json);
     };
 
-    var setViews = function () {
+    self.setViews = function () {
       var order = self.json.orderInList;
       self.alphabets = self.subData.slice(order - 1, order);
     };

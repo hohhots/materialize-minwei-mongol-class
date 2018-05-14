@@ -7,7 +7,7 @@
     'core.anchorScroll'
   ]);
 
-  app.service('Util', ['$location', 'Config', 'wordConfig', 'anchorSmoothScroll', function ($location, config, wordConfig, anchorScroll) {
+  app.service('Util', ['$location', '$http', 'Config', 'wordConfig', 'anchorSmoothScroll', function ($location, $http, config, wordConfig, anchorScroll) {
     var isTouchScreen = 'init';
 
     var currentExerciseId = {};
@@ -279,14 +279,43 @@
       },
 
       // call from other object, to set it's classes.
-      setClasses: function () {
-        var json = util.getLevelsJson(self.levelid);
+      setClasses: function (self) {
+        utils.self = self;
+        var json = utils.getLevelsJson(self.levelid);
         if (!self.classes) {
-          $http.get(json.data, { cache: true }).then(setClasses);
+          $http.get(json.data, { cache: true }).then(function (resp) {
+            utils.setLevelsSubDirectoryHashNames(utils.self.levelid, (resp.data)[0].classesDir);
+          });
         } else {
           self.dirHash = self.classes[self.classroomid - 1];
-          getJsonFile();
+          utils.getJsonFile();
         }
+      },
+
+      getJsonFile: function () {
+        var self = utils.self;
+        if (!self.json) {
+          var json = utils.getClassroomUrl(self);
+          $http.get(json, { cache: true }).then(utils.setJson);
+        } else {
+          self.setViews();
+        }
+      },
+
+      setJson:function (resp) {
+        var self = utils.self;
+
+        self.json = (resp.data)[0];
+  
+        self.setViews();
+  
+        utils.setClassroomJson(self.levelid, self.classroomid, self.json);
+      },
+
+      getClassroomUrl: function (self) {
+        var dataUrl = config.dataPath['appLevels'].data;
+        var url = dataUrl + self.levelid + '/' + self.dirHash + '/class.json';
+        return url;
       },
 
       setClassroomJson: function (levelid, classroomid, json) {
