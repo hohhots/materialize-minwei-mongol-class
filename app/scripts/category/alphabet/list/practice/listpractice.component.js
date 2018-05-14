@@ -8,13 +8,14 @@
   app.component('listPractice', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      jsonData: '<',
+      levelid: '<',
+      classroomid: '<',
       subData: '<'
     },
-    controller: ['$scope', '$state', '$element', '$interval', 'Config', 'Util', 'Json', controller]
+    controller: ['$scope', '$state', '$element', '$interval', '$http', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($scope, $state, $element, $interval, config, util, json) {
+  function controller($scope, $state, $element, $interval, $http, config, util, json) {
     var self = this;
 
     //define self variables
@@ -23,6 +24,7 @@
     self.answerAlphas = [];
     self.realAlphaClass = '';
     self.allCorrect = false;
+    self.json = util.getClassroomJson(self.levelid, self.classroomid);
 
     self.$onInit = function () {
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
@@ -30,6 +32,7 @@
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
+      self.langs.text =  config.listPracticeLangs.text;console.log(self.langs);
       setAnswerAlphas();
     };
 
@@ -112,7 +115,7 @@
     var sevenAlphaClass = 'w3-col s3 alpha-col m3 l1';
     var twoAlphaClass = 'w3-col s6 m6 l6';
 
-    function setAnswerAlphas() {
+    var setAnswerAlphas = function () {
       var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[position];
       testAlphas = testOriginAlpha.vowel;
@@ -123,7 +126,7 @@
       }
     };
 
-    function setAnswerAlphaState(alpha) {
+    var setAnswerAlphaState = function (alpha) {
       alpha.correct = false;
       alpha.error = false;
       if (alpha.name == util.convertAlphaName(testAlpha.name)) {

@@ -41,7 +41,6 @@
         getJsonFile();
       }
 
-      //self.alphabets = self.subData.slice(self.classroomid - 1, self.classroomid);
     };
 
     self.alphaClick = function (originName, originDirName, alphaId, alphaName) {
@@ -77,11 +76,10 @@
     };
 
     self.practiceClick = function () {
-      util.changePath(config.pagesUrl.listPractice);
+      $state.go(config.uiState.listPractice.name, {levelid: self.levelid, classroomid: self.classroomid});
     };
 
     self.backClick = function () {
-      console.log($state.current.name);
       $state.go(config.uiState.classRoom.name, {levelid: self.levelid, classroomid: self.classroomid});
     };
 
@@ -118,7 +116,7 @@
     };
 
     var setJson = function (resp) {
-      self.json = (resp.data)[0]; console.log(self.json);
+      self.json = (resp.data)[0];
 
       setViews();
 

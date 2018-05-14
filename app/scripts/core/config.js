@@ -147,6 +147,10 @@
       audioPlay: '播放音频'
     },
 
+    listPracticeLangs: {
+      text: '点击播放按钮听字母读音，然后按读音顺序点击相应空白字母位置选择一个字母，以此类推，选择所有字母。'
+    },
+
     levelsLangs: {
       previousClass: '上一节',
       nextClass: '下一节'
@@ -199,6 +203,10 @@
         data: 'data/alphabet/origin/data.json'
       },
       alphabetlist: {
+        json: 'data/alphabet/list/list.json',
+        data: 'data/alphabet/list/data.json'
+      },
+      listpractice: {
         json: 'data/alphabet/list/list.json',
         data: 'data/alphabet/list/data.json'
       },
@@ -278,6 +286,7 @@
       levels: {name: 'root.levels', url: '/level/{levelid}', component: 'appLevels'},
       classRoom: {name: 'root.levels.classroom', url: '/{classroomid}', component: 'appClassroom'},
       alphaList: {name: 'root.alphalist', url: '/alphalist/{levelid}/{classroomid}', component: 'appAlphalist'},
+      listPractice: {name: 'root.listpractice', url: '/listpractice/{levelid}/{classroomid}', component: 'listPractice'},
       alphaOrigin: {name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{classroomid}', component: 'appAlphaorigin'}
     },
 

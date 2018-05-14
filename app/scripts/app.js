@@ -105,10 +105,17 @@
           }
         },
         {
-          name: 'root.listpractice',
-          url: '/listpractice',
-          component: 'listPractice',
-          resolve: resolve('alphabetlist')
+          name: uiState.listPractice.name,
+          url: uiState.listPractice.url,
+          component: uiState.listPractice.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            classroomid: function ($stateParams) {
+              return $stateParams.classroomid;
+            }
+          }
         },
         {
           name: 'root.alphavariant',

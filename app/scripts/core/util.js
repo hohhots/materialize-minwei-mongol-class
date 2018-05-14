@@ -278,8 +278,19 @@
         return config.levelsSubDirectoryHashNames.levelId;
       },
 
+      // call from other object, to set it's classes.
+      setClasses: function () {
+        var json = util.getLevelsJson(self.levelid);
+        if (!self.classes) {
+          $http.get(json.data, { cache: true }).then(setClasses);
+        } else {
+          self.dirHash = self.classes[self.classroomid - 1];
+          getJsonFile();
+        }
+      },
+
       setClassroomJson: function (levelid, classroomid, json) {
-        if(!config.classroomsJson[levelid]) {
+        if (!config.classroomsJson[levelid]) {
           config.classroomsJson[levelid] = {};
         }
         config.classroomsJson[levelid][classroomid] = json;
@@ -291,7 +302,7 @@
         } catch (error) {
           return '';
         }
-        
+
       }
 
     };
