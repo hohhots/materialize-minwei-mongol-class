@@ -284,16 +284,19 @@
         var json = utils.getLevelsJson(self.levelid);
         if (!self.classes) {
           $http.get(json.data, { cache: true }).then(function (resp) {
-            utils.setLevelsSubDirectoryHashNames(utils.self.levelid, (resp.data)[0].classesDir);
+            self.classes = (resp.data)[0].classesDir;
+            utils.setLevelsSubDirectoryHashNames(utils.self.levelid, self.classes);
+            utils.getJsonFile();
           });
         } else {
-          self.dirHash = self.classes[self.classroomid - 1];
           utils.getJsonFile();
         }
       },
 
       getJsonFile: function () {
         var self = utils.self;
+        self.dirHash = self.classes[self.classroomid - 1];
+
         if (!self.json) {
           var json = utils.getClassroomUrl(self);
           $http.get(json, { cache: true }).then(utils.setJson);
@@ -331,9 +334,7 @@
         } catch (error) {
           return '';
         }
-
       }
-
     };
 
     return utils;

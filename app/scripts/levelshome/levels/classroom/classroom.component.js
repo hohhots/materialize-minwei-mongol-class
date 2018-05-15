@@ -30,7 +30,7 @@
 
   function Controller($state, $location, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
     var self = this;
-console.log($state.href('root', {}, {absolute: true}));
+
     self.templateUrl = config.templateUrl.appClassroom;
     self.langs = {};
     self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
