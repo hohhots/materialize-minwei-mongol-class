@@ -27,7 +27,8 @@
     self.json = util.getClassroomJson(self.levelid, self.classroomid);
 
     self.$onInit = function () {
-      self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
+      util.setClasses(self);
+      self.langs.name = 'dd';
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
@@ -45,6 +46,8 @@
           audioElem.onended = playAudio;
         }
       }, 10);
+      console.log(self);
+      self.langs.name = self.json.practiceTitle;
     };
 
     self.getPlayerIconClass = function () {

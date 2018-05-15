@@ -284,8 +284,8 @@
         var json = utils.getLevelsJson(self.levelid);
         if (!self.classes) {
           $http.get(json.data, { cache: true }).then(function (resp) {
-            self.classes = (resp.data)[0].classesDir;
-            utils.setLevelsSubDirectoryHashNames(utils.self.levelid, self.classes);
+            utils.classes = (resp.data)[0].classesDir;
+            utils.setLevelsSubDirectoryHashNames(self.levelid, utils.classes);
             utils.getJsonFile();
           });
         } else {
@@ -295,29 +295,31 @@
 
       getJsonFile: function () {
         var self = utils.self;
-        self.dirHash = self.classes[self.classroomid - 1];
+        var classes = utils.classes || self.classes;
 
         if (!self.json) {
           var json = utils.getClassroomUrl(self);
           $http.get(json, { cache: true }).then(utils.setJson);
         } else {
-          self.setViews();
+          self.setViews(classes, self.json);
         }
       },
 
       setJson:function (resp) {
         var self = utils.self;
+        var classes = utils.classes || self.classes;
 
-        self.json = (resp.data)[0];
+        var json = (resp.data)[0];
   
-        self.setViews();
+        self.setViews(classes, json);
   
-        utils.setClassroomJson(self.levelid, self.classroomid, self.json);
+        utils.setClassroomJson(self.levelid, self.classroomid, json);
       },
 
       getClassroomUrl: function (self) {
+        var classes = utils.classes || self.classes;
         var dataUrl = config.dataPath['appLevels'].data;
-        var url = dataUrl + self.levelid + '/' + self.dirHash + '/class.json';
+        var url = dataUrl + self.levelid + '/' + classes[self.classroomid - 1] + '/class.json';
         return url;
       },
 

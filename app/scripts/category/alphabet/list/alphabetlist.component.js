@@ -82,7 +82,11 @@
       return util.convertAlphaNameToCode(vowelName);
     };
 
-    self.setViews = function () {
+    self.setViews = function (classes, json) {
+      self.classes = classes;
+      self.dirHash = classes[self.classroomid - 1];
+      self.json = json;
+
       var order = self.json.orderInList;
       self.alphabets = self.subData.slice(order - 1, order);
     };
