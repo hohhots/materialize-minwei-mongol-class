@@ -26,15 +26,14 @@
     self.allCorrect = false;
     self.json = util.getClassroomJson(self.levelid, self.classroomid);
 
+    // alpha list data directory hash names array
+    self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
+    // classroom directory hash name
+    self.dirHash = '';
+    self.json = util.getClassroomJson(self.levelid, self.classroomid);
+
     self.$onInit = function () {
       util.setClasses(self);
-      self.langs.name = 'dd';
-      self.langs.selectAlpha = config.alphaLangs.selectAlpha;
-      self.langs.exit = config.alphaLangs.exit;
-      self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
-      self.langs.nextTest = config.alphaLangs.nextTest;
-      self.langs.text =  config.listPracticeLangs.text;console.log(self.langs);
-      setAnswerAlphas();
     };
 
     self.$postLink = function () {
@@ -46,8 +45,7 @@
           audioElem.onended = playAudio;
         }
       }, 10);
-      console.log(self);
-      self.langs.name = self.json.practiceTitle;
+
     };
 
     self.getPlayerIconClass = function () {
@@ -55,7 +53,7 @@
     };
 
     self.exitPractice = function () {
-      util.changePath(config.pagesUrl.alphaList);
+      $state.go(config.uiState.alphaList.name, {levelid: self.levelid, classroomid: self.classroomid});
     };
 
     self.allCorrect = function () {
@@ -94,7 +92,7 @@
       $scope.$broadcast(config.events.listDisplayRandomAlpha, tests);
     };
 
-    self.nextTestClick = function () {
+    self.testAgainClick = function () {
       $state.reload();
     };
 
@@ -109,6 +107,21 @@
       return text;
     };
 
+    self.setModels = function (classes, json) {
+      self.classes = classes;console.log(self);
+      self.dirHash = classes[self.classroomid - 1];
+      self.json = json;
+
+      self.langs.name = self.json.practiceTitle;
+      self.langs.selectAlpha = config.alphaLangs.selectAlpha;
+      self.langs.exit = config.alphaLangs.exit;
+      self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
+      self.langs.testAgain = config.alphaLangs.testAgain;
+      self.langs.text = config.listPracticeLangs.text;
+      
+      setAnswerAlphas(); 
+    };
+
     var audioElem = null;
     var testOriginAlpha = '';
     var testAlphas = [];
@@ -119,8 +132,8 @@
     var twoAlphaClass = 'w3-col s6 m6 l6';
 
     var setAnswerAlphas = function () {
-      var position = Math.floor(Math.random() * (self.subData.length));
-      testOriginAlpha = self.subData[position];
+      //var position = Math.floor(Math.random() * (self.subData.length));self.subData.slice(order - 1, order)
+      testOriginAlpha = self.subData[self.json.orderInList - 1];
       testAlphas = testOriginAlpha.vowel;
       self.answerAlphas = angular.copy(testAlphas);
       self.realAlphaClass = sevenAlphaClass;

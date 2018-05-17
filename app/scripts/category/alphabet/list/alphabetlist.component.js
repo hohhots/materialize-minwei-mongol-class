@@ -82,7 +82,7 @@
       return util.convertAlphaNameToCode(vowelName);
     };
 
-    self.setViews = function (classes, json) {
+    self.setModels = function (classes, json) {
       self.classes = classes;
       self.dirHash = classes[self.classroomid - 1];
       self.json = json;

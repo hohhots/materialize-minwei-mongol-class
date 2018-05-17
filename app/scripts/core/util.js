@@ -301,7 +301,7 @@
           var json = utils.getClassroomUrl(self);
           $http.get(json, { cache: true }).then(utils.setJson);
         } else {
-          self.setViews(classes, self.json);
+          self.setModels(classes, self.json);
         }
       },
 
@@ -311,7 +311,7 @@
 
         var json = (resp.data)[0];
   
-        self.setViews(classes, json);
+        self.setModels(classes, json);
   
         utils.setClassroomJson(self.levelid, self.classroomid, json);
       },
