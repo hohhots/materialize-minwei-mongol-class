@@ -57,15 +57,15 @@
           }
         },
         {
-          name: uiState.classRoom.name,
-          url: uiState.classRoom.url,
-          component: uiState.classRoom.component,
+          name: uiState.books.name,
+          url: uiState.books.url,
+          component: uiState.books.component,
           resolve: {
             levelid: function ($stateParams) {
               return $stateParams.levelid;
             },
-            classroomid: function ($stateParams) {
-              return $stateParams.classroomid;
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
             }
           }
         },

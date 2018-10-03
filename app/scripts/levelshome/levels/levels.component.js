@@ -26,7 +26,7 @@
     self.templateUrl = config.templateUrl.appLevels;
     self.langs = {};
     self.levelid = 0;
-    self.classId = 1;
+    self.pageNum = 1;
     // alpha list data directory hash names array
     self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
     self.classesShow = false;
@@ -40,8 +40,10 @@
         return;
       };
 
-      self.langs.previousClass = config.levelsLangs.previousClass;
-      self.langs.nextClass = config.levelsLangs.nextClass;
+      self.langs.previousPage = config.levelsLangs.previousPage;
+      self.langs.nextPage = config.levelsLangs.nextPage;
+      self.langs.selectPage = config.levelsLangs.selectPage;
+      
       
       var json = util.getLevelsJson(self.levelid);
       $http.get(json.json, { cache: true }).then(setIntroduction);
@@ -64,8 +66,8 @@
       return self.classes[--order];
     };
 
-    self.setClassroomId = function(classroomid) {
-      self.classId = classroomid;
+    self.setPageNum = function(pagenum) {
+      self.pageNum = pagenum;
       isFirstClass();
     };
 
@@ -96,8 +98,8 @@
     };
 
     var isFirstClass = function() {
-      self.firstClass = (self.classId === 1);
-      self.endClass = (self.classId === self.classes.length);
+      self.firstClass = (self.pageNum === 1);
+      self.endClass = (self.pageNum === self.classes.length);
     };
 
     var setIntroduction = function(resp) {

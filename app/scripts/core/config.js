@@ -153,8 +153,9 @@
     },
 
     levelsLangs: {
-      previousClass: '上一节',
-      nextClass: '下一节'
+      previousPage: '上一页',
+      nextPage: '下一页',
+      selectPage: '选择页'
     },
 
     classroomLangs: {
@@ -167,7 +168,7 @@
       home: 'scripts/home/home.template.html',
       levelsHome: 'scripts/levelshome/levelshome.template.html',
       appLevels: 'scripts/levelshome/levels/levels.template.html',
-      appClassroom: 'scripts/levelshome/levels/classroom/classroom.template.html',
+      appBooks: 'scripts/levelshome/levels/books/books.template.html',
       category: 'scripts/category/category.template.html',
 
       alphabetorigin: 'scripts/category/alphabet/origin/alphabetorigin.template.html',
@@ -281,21 +282,21 @@
     },
 
     uiState: {
-      root: {name: 'root', url: '/root'},
-      home: {name: 'root.home', url: '/home', component: 'appHome'},
-      levelsHome: {name: 'root.levelshome', url: '/levelshome', component: 'levelsHome'},
-      levels: {name: 'root.levels', url: '/level/{levelid}', component: 'appLevels'},
-      classRoom: {name: 'root.levels.classroom', url: '/{classroomid}', component: 'appClassroom'},
-      alphaList: {name: 'root.alphalist', url: '/alphalist/{levelid}/{classroomid}', component: 'appAlphalist'},
-      listPractice: {name: 'root.listpractice', url: '/listpractice/{levelid}/{classroomid}', component: 'listPractice'},
-      alphaOrigin: {name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{classroomid}', component: 'appAlphaorigin'}
+      root: { name: 'root', url: '/root' },
+      home: { name: 'root.home', url: '/home', component: 'appHome' },
+      levelsHome: { name: 'root.levelshome', url: '/levelshome', component: 'levelsHome' },
+      levels: { name: 'root.levels', url: '/level/{levelid}', component: 'appLevels' },
+      books: { name: 'root.levels.books', url: '/{pagenum}', component: 'appBooks' },
+      alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{booksid}', component: 'appAlphalist' },
+      listPractice: { name: 'root.listpractice', url: '/listpractice/{levelid}/{booksid}', component: 'listPractice' },
+      alphaOrigin: { name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{booksid}', component: 'appAlphaorigin' }
     },
 
     //  set value in util file, and cache value.
     levelsSubDirectoryHashNames: {},
 
-    // set value in util file, and cache all classroom json data.
-    classroomsJson: {},
+    // set value in util file, and cache all books json data.
+    booksJson: {},
 
     ajax: function (url) {
       return function ($http) {

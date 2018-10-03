@@ -3,11 +3,11 @@
     <h2>{{$ctrl.langs.introduction.title}}</h2>
     <p>{{$ctrl.langs.introduction.text}}</p>
     <div class="level-btns">
-      <a class="level-btn" ui-sref="root.levels.classroom({classroomid: $ctrl.classId - 1})" ng-hide="$ctrl.firstClass" title="{{::$ctrl.langs.previousClass}}">
+      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum - 1})" ng-hide="$ctrl.firstClass" title="{{::$ctrl.langs.previousPage}}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
       </a>
-      <a class="level-btn" href ng-click="$ctrl.showClasses()">第{{$ctrl.classId}}课</a>
-      <a class="level-btn" ui-sref="root.levels.classroom({classroomid: $ctrl.classId + 1})" ng-hide="$ctrl.endClass" title="{{::$ctrl.langs.nextClass}}">
+      <a class="level-btn" href ng-click="$ctrl.showClasses()" title="{{::$ctrl.langs.selectPage}}">第{{$ctrl.pageNum}}页</a>
+      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum + 1})" ng-hide="$ctrl.endClass" title="{{::$ctrl.langs.nextPage}}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -16,7 +16,7 @@
         <h2 class="level-content-title">{{$ctrl.langs.introduction.title}}</h2>
         <p>请选择课节</p>
         <div class="levelClasses">
-          <div ng-repeat="class in $ctrl.classes" class="level-class" ui-sref="root.levels.classroom({classroomid: $index + 1})" ng-click="$ctrl.showClasses()">{{$index + 1}}</div>
+          <div ng-repeat="class in $ctrl.classes" class="level-class" ui-sref="root.levels.classroom({pagenum: $index + 1})" ng-click="$ctrl.showClasses()">{{$index + 1}}</div>
         </div>
         <a class="level-btn" href="" ng-click="$ctrl.showClasses()">关闭</a>
       </div>

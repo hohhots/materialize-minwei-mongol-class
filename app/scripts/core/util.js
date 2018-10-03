@@ -110,7 +110,7 @@
       },
 
       getPlayerIconClass: function (playedAudioId) {
-        var css = "fa-play-circle-o";
+        var css = "fa-play-circle-o w3-text-teal";
         if (playedAudioId) {
           css = "fa-stop-circle-o w3-text-red";
         }
@@ -298,7 +298,7 @@
         var classes = utils.classes || self.classes;
 
         if (!self.json) {
-          var json = utils.getClassroomUrl(self);
+          var json = utils.getBooksUrl(self);
           $http.get(json, { cache: true }).then(utils.setJson);
         } else {
           self.setModels(classes, self.json);
@@ -313,21 +313,21 @@
   
         self.setModels(classes, json);
   
-        utils.setClassroomJson(self.levelid, self.classroomid, json);
+        utils.setBooksJson(self.levelid, self.pagenum, json);
       },
 
-      getClassroomUrl: function (self) {
+      getBooksUrl: function (self) {
         var classes = utils.classes || self.classes;
         var dataUrl = config.dataPath['appLevels'].data;
-        var url = dataUrl + self.levelid + '/' + classes[self.classroomid - 1] + '/class.json';
+        var url = dataUrl + self.levelid + '/' + classes[self.pagenum - 1] + '/class.json';
         return url;
       },
 
-      setClassroomJson: function (levelid, classroomid, json) {
-        if (!config.classroomsJson[levelid]) {
-          config.classroomsJson[levelid] = {};
+      setBooksJson: function (levelid, classroomid, json) {
+        if (!config.booksJson[levelid]) {
+          config.booksJson[levelid] = {};
         }
-        config.classroomsJson[levelid][classroomid] = json;
+        config.booksJson[levelid][classroomid] = json;
       },
 
       getClassroomJson: function (levelid, classroomid) {
