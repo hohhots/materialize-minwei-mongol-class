@@ -26,6 +26,7 @@
     self.templateUrl = config.templateUrl.appLevels;
     self.langs = {};
     self.levelid = 0;
+    self.bookPath = '';
     self.pageNum = 1;
     // alpha list data directory hash names array
     self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
@@ -69,6 +70,10 @@
     self.setPageNum = function(pagenum) {
       self.pageNum = pagenum;
       isFirstClass();
+    };
+
+    self.getBookPath = function() {
+      return self.bookPath;
     };
 
     var redirect = function() {
@@ -116,7 +121,8 @@
     };
 
     var setClasses = function(resp) {
-      self.classes = (resp.data)[0].classesDir;
+      self.classes = (resp.data)[0].pages;
+      self.bookPath = (resp.data)[0].bookPath;console.log(self.bookPath);
 
       util.setLevelsSubDirectoryHashNames(self.levelid, self.classes);
       

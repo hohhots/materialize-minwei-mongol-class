@@ -262,7 +262,7 @@
       getLevelsJson: function (levelId) {
         var json = angular.copy(config.dataPath['appLevels']);
 
-        json.data = json.data + levelId + '/' + levelId + '.json';
+        json.data = json.data + levelId + '/main.json';
         return json;
       },
 

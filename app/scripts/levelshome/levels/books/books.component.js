@@ -36,7 +36,7 @@
     self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
     // classroom directory hash name
     self.dirHash = '';
-    self.pdfImages = [];
+    self.pdfImage = '';
     self.interactUrl = '';
     // json data
     self.json = '';
@@ -46,7 +46,7 @@
       //self.levelid = self.parent.levelid;
       self.parent.setPageNum(parseInt(self.pagenum));
 
-      var json = getBookesUrl();
+      var json = getPageJsonUrl();
       $http.get(json, { cache: true }).then(setJson);
     };
 
@@ -103,17 +103,15 @@
       return ta;
     };
 
-    var getBookesUrl = function() {
-      var url = dataUrl + self.levelid + '/' + self.dirHash + '/class.json';
+    var getPageJsonUrl = function() {
+      var url = dataUrl + self.levelid + '/' + self.dirHash + '.json';
       return url;
     };
 
     var setJson = function(resp) {
       self.json = (resp.data)[0];
       // using map change images url
-      for (var i = 1; i <= self.json.pdfImagesNum; i++) {
-        self.pdfImages.push(dataUrl + 'images/' + self.pagenum + '-' + i + config.dataTypes.images[1]);
-      }
+      self.pdfImage = self.parent.getBookPath() + '/images/' + self.pagenum + config.dataTypes.images[1];
 
       audioPlayerService.init(self, getAudios());
     };
