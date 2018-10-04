@@ -267,15 +267,14 @@
       },
 
       // Set LvelsSubDirectoryHashNames
-      setLevelsSubDirectoryHashNames: function (levelId, hashNames) {
-        var names = config.levelsSubDirectoryHashNames.levelId;
-        if (!names) {
-          config.levelsSubDirectoryHashNames.levelId = hashNames;
+      setBookPagesName: function (levelId, hashNames) {
+        if (!config.bookPagesName.levelId) {
+          config.bookPagesName.levelId = hashNames;
         }
       },
 
-      getLevelsSubDirectoryHashNames: function (levelid) {
-        return config.levelsSubDirectoryHashNames.levelId;
+      getBookPagesName: function (levelid) {
+        return config.bookPagesName.levelId;
       },
 
       // call from other object, to set it's classes.
@@ -285,7 +284,7 @@
         if (!self.classes) {
           $http.get(json.data, { cache: true }).then(function (resp) {
             utils.classes = (resp.data)[0].classesDir;
-            utils.setLevelsSubDirectoryHashNames(self.levelid, utils.classes);
+            utils.setBookPagesName(self.levelid, utils.classes);
             utils.getJsonFile();
           });
         } else {

@@ -293,7 +293,7 @@
     },
 
     //  set value in util file, and cache value.
-    levelsSubDirectoryHashNames: {},
+    bookPagesName: {},
 
     // set value in util file, and cache all books json data.
     booksJson: {},

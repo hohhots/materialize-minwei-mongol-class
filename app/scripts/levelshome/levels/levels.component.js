@@ -29,7 +29,7 @@
     self.bookPath = '';
     self.pageNum = 1;
     // alpha list data directory hash names array
-    self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
+    self.pagesName = util.getBookPagesName(self.levelid);
     self.classesShow = false;
     self.firstClass = true;
     self.endClass = false;
@@ -49,7 +49,7 @@
       var json = util.getLevelsJson(self.levelid);
       $http.get(json.json, { cache: true }).then(setIntroduction);
 
-      if(!self.classes){
+      if(!self.pagesName){
         $http.get(json.data, { cache: true }).then(setClasses);
       }
       
@@ -63,8 +63,8 @@
       self.classesShow = !self.classesShow;
     };
 
-    self.getDirectoryHash = function(order) {
-      return self.classes[--order];
+    self.getFileName = function(order) {
+      return self.pagesName[--order];
     };
 
     self.setPageNum = function(pagenum) {
@@ -74,6 +74,17 @@
 
     self.getBookPath = function() {
       return self.bookPath;
+    };
+
+    self.validPageNum = function(pageNum) {
+      var path = $location.path();
+      path = path.substr(0, path.lastIndexOf('/') + 1);
+      var length = this.pagesName.length;
+      if (pageNum < 1 || pageNum > length) {
+        $location.path(path + 1);
+        return false;
+      }
+      return true;
     };
 
     var redirect = function() {
@@ -104,7 +115,7 @@
 
     var isFirstClass = function() {
       self.firstClass = (self.pageNum === 1);
-      self.endClass = (self.pageNum === self.classes.length);
+      self.endClass = (self.pageNum === self.pagesName.length);
     };
 
     var setIntroduction = function(resp) {
@@ -121,10 +132,10 @@
     };
 
     var setClasses = function(resp) {
-      self.classes = (resp.data)[0].pages;
-      self.bookPath = (resp.data)[0].bookPath;console.log(self.bookPath);
+      self.pagesName = (resp.data)[0].pages;
+      self.bookPath = (resp.data)[0].bookPath;
 
-      util.setLevelsSubDirectoryHashNames(self.levelid, self.classes);
+      util.setBookPagesName(self.levelid, self.pagesName);
       
       isFirstClass();
     };
