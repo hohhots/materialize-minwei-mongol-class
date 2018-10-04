@@ -28,6 +28,7 @@
     self.levelid = 0;
     self.bookPath = '';
     self.pageNum = 1;
+    self.selectPages = false;
     // alpha list data directory hash names array
     self.pagesName = util.getBookPagesName(self.levelid);
     self.classesShow = false;
@@ -59,8 +60,8 @@
       //util.scrollToTop();
     };
 
-    self.showClasses = function() {
-      self.classesShow = !self.classesShow;
+    self.showSelectPages = function() {
+      self.selectPages = !self.selectPages;
     };
 
     self.getFileName = function(order) {
@@ -85,6 +86,17 @@
         return false;
       }
       return true;
+    };
+
+    self.setSeletedPageNum = function() {
+      console.log('ok');
+    };
+
+    self.getSeletedPageNum = function() {
+      if (self.seletedPageNum < 1 || self.seletedPageNum > this.pagesName.length) {
+        return self.pagenum;
+      }
+      return self.seletedPageNum;
     };
 
     var redirect = function() {

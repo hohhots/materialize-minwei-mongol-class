@@ -21,28 +21,7 @@
   padding-bottom: 0;
 }
 
-.level-class-container {
-  padding-top: 0;
-  z-index: 2000;
-  background: #40434E;
-  text-align: center;
-  color: #fff;
-}
-
-.level-detail {
-  display: inline-block;
-  max-width: 500px;
-}
-
-.level-detail p{
-  text-align: center !important;
-}
-
-.levelClasses {
-  text-align: center;
-}
-
-.level-class,
+.level-input,
 .level-btn {
   display: inline-block;
   margin: 1em 0.1em 2em;
@@ -54,15 +33,11 @@
   text-decoration: none;
 }
 
-.level-class {
-  margin: 1em;
-  width: 5em;
-  font-size: 1em;
-  cursor: pointer;
+.level-input {
+  width: 6em;
 }
 
 @media screen and (min-width: 767px) {
-  .level-class:hover,
   .level-btn:hover {
     background: #333;
     color: #fff;
