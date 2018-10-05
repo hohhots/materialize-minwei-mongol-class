@@ -14,9 +14,11 @@
     </div>
 
     <div ng-show="$ctrl.selectPages">
-      选择页（共{{::$ctrl.pagesName.length}}页)
-      <input class="level-input" type="text" name="pagenum" maxlength="4" size="4" ng-model="$ctrl.seletedPageNum">
-      <a class="level-btn" ng-click="$ctrl.showSelectPages()" ui-sref="root.levels.books({pagenum: $ctrl.getSeletedPageNum()})">
+      共{{::$ctrl.pagesName.length}}页 - 第
+      <input class="level-input" type="text" name="pagenum" maxlength="4" size="4" 
+      ng-model="$ctrl.seletedPageNum" ng-keypress="$ctrl.displayPageOnkey($event)">
+      页
+      <a class="level-btn" ng-click="$ctrl.showSelectedPage()">
         确定
       </a>
     </div>

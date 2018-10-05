@@ -64,6 +64,16 @@
       self.selectPages = !self.selectPages;
     };
 
+    self.showSelectedPage = function() {
+      self.showSelectPages();
+      var page = self.getSeletedPageNum();
+      if (page !== self.pageNum) {
+        var path = $location.path();
+        path = path.substr(0, path.lastIndexOf('/') + 1);
+        $location.path(path + page);
+      }
+    };
+
     self.getFileName = function(order) {
       return self.pagesName[--order];
     };
@@ -88,15 +98,17 @@
       return true;
     };
 
-    self.setSeletedPageNum = function() {
-      console.log('ok');
+    self.getSeletedPageNum = function() {
+      if (self.seletedPageNum && (self.seletedPageNum > 0 && self.seletedPageNum <= this.pagesName.length)) {
+        return self.seletedPageNum;
+      }
+      return self.pageNum;
     };
 
-    self.getSeletedPageNum = function() {
-      if (self.seletedPageNum < 1 || self.seletedPageNum > this.pagesName.length) {
-        return self.pagenum;
+    self.displayPageOnkey = function(event) {
+      if (event.keyCode === 13) {
+        self.showSelectedPage();
       }
-      return self.seletedPageNum;
     };
 
     var redirect = function() {

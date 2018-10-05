@@ -61,9 +61,6 @@
           url: uiState.books.url,
           component: uiState.books.component,
           resolve: {
-            levelid: function ($stateParams) {
-              return $stateParams.levelid;
-            },
             pagenum: function ($stateParams) {
               return $stateParams.pagenum;
             }

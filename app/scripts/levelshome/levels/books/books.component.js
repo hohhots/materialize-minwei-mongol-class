@@ -8,7 +8,6 @@
   app.component('appBooks', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      levelid: '<',
       pagenum: '<'
     },
     require: {
@@ -45,8 +44,8 @@
       if (!self.parent.validPageNum(self.pagenum)) {
         return;
       }
+      self.levelid = self.parent.levelid;
       self.fileName = self.parent.getFileName(self.pagenum);
-      //self.levelid = self.parent.levelid;
       self.parent.setPageNum(parseInt(self.pagenum));
 
       var json = getPageJsonUrl();
