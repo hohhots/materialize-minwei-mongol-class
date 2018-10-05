@@ -13,14 +13,13 @@
     controller: [
       '$location',
       '$scope',
-      '$sce',
       '$http',
       'Config',
       'Util',
       Controller]
   });
 
-  function Controller($location, $scope, $sce, $http, config, util) {
+  function Controller($location, $scope, $http, config, util) {
     var self = this;
 
     self.templateUrl = config.templateUrl.appLevels;
@@ -32,8 +31,8 @@
     // alpha list data directory hash names array
     self.pagesName = util.getBookPagesName(self.levelid);
     self.classesShow = false;
-    self.firstClass = true;
-    self.endClass = false;
+    self.firstPage = true;
+    self.endPage = false;
 
     self.headerStyle = {backgroundColor: '#336699'};
 
@@ -51,7 +50,7 @@
       $http.get(json.json, { cache: true }).then(setIntroduction);
 
       if(!self.pagesName){
-        $http.get(json.data, { cache: true }).then(setClasses);
+        $http.get(json.data, { cache: true }).then(setBook);
       }
       
       util.setCurrentBackgroundColor();
@@ -62,16 +61,18 @@
 
     self.showSelectPages = function() {
       self.selectPages = !self.selectPages;
+      focusInput();
     };
 
     self.showSelectedPage = function() {
       self.showSelectPages();
       var page = self.getSeletedPageNum();
-      if (page !== self.pageNum) {
+      if (page && (page !== self.pageNum)) {
         var path = $location.path();
         path = path.substr(0, path.lastIndexOf('/') + 1);
         $location.path(path + page);
       }
+      self.seletedPageNum = '';
     };
 
     self.getFileName = function(order) {
@@ -80,7 +81,7 @@
 
     self.setPageNum = function(pagenum) {
       self.pageNum = pagenum;
-      isFirstClass();
+      isFirstPage();
     };
 
     self.getBookPath = function() {
@@ -100,7 +101,7 @@
 
     self.getSeletedPageNum = function() {
       if (self.seletedPageNum && (self.seletedPageNum > 0 && self.seletedPageNum <= this.pagesName.length)) {
-        return self.seletedPageNum;
+        return parseInt(self.seletedPageNum, 10);
       }
       return self.pageNum;
     };
@@ -109,6 +110,10 @@
       if (event.keyCode === 13) {
         self.showSelectedPage();
       }
+    };
+
+    var focusInput = function() {
+      console.log($scope);
     };
 
     var redirect = function() {
@@ -137,9 +142,9 @@
       return false;
     };
 
-    var isFirstClass = function() {
-      self.firstClass = (self.pageNum === 1);
-      self.endClass = (self.pageNum === self.pagesName.length);
+    var isFirstPage = function() {
+      self.firstPage = (self.pageNum === 1);
+      self.endPage = (self.pageNum === self.pagesName.length);
     };
 
     var setIntroduction = function(resp) {
@@ -155,13 +160,13 @@
       return json;
     };
 
-    var setClasses = function(resp) {
+    var setBook = function(resp) {
       self.pagesName = (resp.data)[0].pages;
       self.bookPath = (resp.data)[0].bookPath;
 
       util.setBookPagesName(self.levelid, self.pagesName);
       
-      isFirstClass();
+      isFirstPage();
     };
 
     var setLevelIntroduction = function(data) {

@@ -41,12 +41,13 @@
     self.json = '';
 
     self.$onInit = function () {
+      self.pagenum = parseInt(self.pagenum, 10);
       if (!self.parent.validPageNum(self.pagenum)) {
         return;
       }
       self.levelid = self.parent.levelid;
       self.fileName = self.parent.getFileName(self.pagenum);
-      self.parent.setPageNum(parseInt(self.pagenum));
+      self.parent.setPageNum(self.pagenum);
 
       var json = getPageJsonUrl();
       $http.get(json, { cache: true }).then(setJson);

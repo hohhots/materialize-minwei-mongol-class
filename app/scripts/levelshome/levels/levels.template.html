@@ -4,11 +4,11 @@
     <p>{{$ctrl.langs.introduction.text}}</p>
 
     <div ng-hide="$ctrl.selectPages">
-      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum - 1})" ng-hide="$ctrl.firstClass" title="{{::$ctrl.langs.previousPage}}">
+      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum - 1})" ng-hide="$ctrl.firstPage" title="{{::$ctrl.langs.previousPage}}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
       </a>
       <a class="level-btn" href ng-click="$ctrl.showSelectPages()" title="{{::$ctrl.langs.selectPage}}">第{{$ctrl.pageNum}}页</a>
-      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum + 1})" ng-hide="$ctrl.endClass" title="{{::$ctrl.langs.nextPage}}">
+      <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum + 1})" ng-hide="$ctrl.endPage" title="{{::$ctrl.langs.nextPage}}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
