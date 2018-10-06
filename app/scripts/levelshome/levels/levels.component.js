@@ -61,7 +61,6 @@
 
     self.showSelectPages = function() {
       self.selectPages = !self.selectPages;
-      focusInput();
     };
 
     self.showSelectedPage = function() {
@@ -110,10 +109,6 @@
       if (event.keyCode === 13) {
         self.showSelectedPage();
       }
-    };
-
-    var focusInput = function() {
-      console.log($scope);
     };
 
     var redirect = function() {

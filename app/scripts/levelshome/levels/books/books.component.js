@@ -65,10 +65,10 @@
     };
 
     self.playAudio = function () {
-      if(!audioPlaying) {
-        audioPlayerService.play(getAudios());
+      if (!audioPlaying) {
+        audioPlayerService.play();
       } else {
-        audioPlayerService.pauseAudios();
+        audioPlayerService.pauseAudio();
       }
     };
 
@@ -85,7 +85,7 @@
     };
 
     self.gotoInteractClass = function () {
-      $state.go(config.uiState[self.json.interactType].name, {levelid: self.levelid, pagenum: self.pagenum});
+      $state.go(config.uiState[self.json.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
     };
 
     var audioElem;
@@ -93,30 +93,25 @@
     // classroom data directory url
     var dataUrl = config.dataPath['appLevels'].data;
 
-    var getAudios = function() {
-      var audioUrl = config.mediaUrl.classroom;
-
-      var ta = $.map(self.json.audioIds, function(id) {
-        return {
-          url: audioUrl + config.data.audios + '/',
-          mpeg: id + config.dataTypes.audios[1],
-          ogg: id + config.dataTypes.audios[0]
-        };
-      });
-      return ta;
+    var getAudio = function () {
+      return {
+        url: self.parent.getBookPath() + '/' + config.data.audios + '/',
+        mpeg: self.pagenum + config.dataTypes.audios[1],
+        ogg: self.pagenum + config.dataTypes.audios[0]
+      };
     };
 
-    var getPageJsonUrl = function() {
+    var getPageJsonUrl = function () {
       var url = dataUrl + self.levelid + '/' + self.fileName + '.json';
       return url;
     };
 
-    var setJson = function(resp) {
+    var setJson = function (resp) {
       self.json = (resp.data)[0];
       // using map change images url
-      self.pdfImage = self.parent.getBookPath() + '/images/' + self.fileName + config.dataTypes.images[1];
+      self.pdfImage = self.parent.getBookPath() + '/' + config.data.images + '/' + self.fileName + config.dataTypes.images[1];
 
-      audioPlayerService.init(self, getAudios());
+      audioPlayerService.init(self, getAudio());
     };
 
     var autoStopAudio = function () {

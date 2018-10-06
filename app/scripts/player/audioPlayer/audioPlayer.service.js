@@ -6,26 +6,23 @@
   var playAudios = function () {
   };
 
-  playAudios.prototype.init = function (ctrl, audios) {
+  playAudios.prototype.init = function (ctrl, audio) {
     var self = this;
-    
-    self.pauseAudios();
+
+    self.pauseAudio();
 
     self.ctrl = ctrl;
 
-    self.audios = audios;
-    self.sounds = [];
-    self.pausedAudio = null;
+    self.sound = self.audioX(audio);
 
-    $.each(self.audios, function (index, audio) {
-      self.sounds.push(self.audioX(audio));
-    });
+    self.playing = false;
+    self.pausedAudio = null;
   };
 
   playAudios.prototype.audioX = function (audio) {
     var a = new Audio();
     a.preload = 'auto';
-    
+
     var f = '';
     if (a.canPlayType("audio/ogg") != "")
       f = audio.ogg;
@@ -47,28 +44,28 @@
       return;
     }
 
-    self.playingId = -1;
-    var sounds = self.sounds;
+    var sound = self.sound;
     playSnd();
 
     function playSnd() {
-      self.playingId++;
-      if (self.playingId == sounds.length) {
+      if (self.playing) {
         self.ctrl.audioPaused();
         return;
       }
-      sounds[self.playingId].onended = playSnd;
-      sounds[self.playingId].play();
+      sound.onended = playSnd;
+      sound.play();
+
+      self.playing = true;
       self.ctrl.audioPlayed();
     }
   };
 
-  playAudios.prototype.pauseAudios = function () {
+  playAudios.prototype.pauseAudio = function () {
     var self = this;
 
-    if(self.playingId > -1) {
-      self.sounds[self.playingId].pause();
-      self.pausedAudio = self.sounds[self.playingId];
+    if (self.playing) {
+      self.sound.pause();
+      self.pausedAudio = self.sound;
       self.ctrl.audioPaused();
     }
   };
