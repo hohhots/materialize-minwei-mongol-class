@@ -1,8 +1,5 @@
-#book-showcase {
-  margin: 1em;
-}
-
 #book-showcase .book-btns{
+  margin-top: 1em;
   text-align: center;
 }
 
@@ -24,16 +21,14 @@
 
 .bookImg{
   box-sizing: content-box;
-  margin: 0 0 -10px 0;
+  margin: 1em 0;
   width: 100%;
-  max-width: 415px;
   height: auto;
   border: 1px solid #666;
 }
 
 @media screen and (min-width: 767px) {
   .bookImg{
-    margin: 1em 0;
     max-width: 550px;
   }
 }

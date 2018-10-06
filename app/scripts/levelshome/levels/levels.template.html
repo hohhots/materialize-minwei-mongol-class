@@ -3,21 +3,23 @@
     <h2>{{$ctrl.langs.introduction.title}}</h2>
     <p>{{$ctrl.langs.introduction.text}}</p>
 
-    <div ng-hide="$ctrl.selectPages">
+    <div class="level-btn-container" ng-hide="$ctrl.selectPages">
       <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum - 1})" ng-hide="$ctrl.firstPage" title="{{::$ctrl.langs.previousPage}}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
       </a>
+      &nbsp;
       <a class="level-btn" href ng-click="$ctrl.showSelectPages()" title="{{::$ctrl.langs.selectPage}}">第{{$ctrl.pageNum}}页</a>
+      &nbsp;
       <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum + 1})" ng-hide="$ctrl.endPage" title="{{::$ctrl.langs.nextPage}}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
 
-    <div ng-show="$ctrl.selectPages">
-      共{{::$ctrl.pagesName.length}}页 - 第
+    <div class="level-btn-container" ng-show="$ctrl.selectPages">
+      共{{::$ctrl.pagesName.length}}页 - 第&nbsp;
       <input class="level-input" type="text" name="pagenum" maxlength="4" size="4" 
       ng-model="$ctrl.seletedPageNum" ng-keypress="$ctrl.displayPageOnkey($event)">
-      页
+      &nbsp;页&nbsp;
       <a class="level-btn" ng-click="$ctrl.showSelectedPage()">
         确定
       </a>

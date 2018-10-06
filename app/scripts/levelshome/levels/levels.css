@@ -21,10 +21,16 @@
   padding-bottom: 0;
 }
 
+.level-btn-container {
+  display: flex;
+  margin-bottom: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
 .level-input,
 .level-btn {
   display: inline-block;
-  margin: 1em 0.1em 2em;
   padding: 0.3em 1.5em;
   border: 1px solid #666;
   background: #eaeaea;
@@ -34,10 +40,9 @@
 }
 
 .level-input {
-  width: 50px;
-  padding: 0;
+  width: 60px;
+  padding: 4px;
   background: gray;
-  border: 0;
   color: white;
   font-size: 1.2em;
 }
