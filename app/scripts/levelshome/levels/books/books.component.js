@@ -38,6 +38,7 @@
     self.interactUrl = '';
     // json data
     self.json = '';
+    self.showClass = false;
 
     self.$onInit = function () {
       self.pagenum = parseInt(self.pagenum, 10);
@@ -111,6 +112,10 @@
       self.pdfImage = self.parent.getBookPath() + '/' + config.data.images + '/' + self.fileName + config.dataTypes.images[1];
 
       audioPlayerService.init(self, getAudio());
+
+      if (self.json.interactType) {
+        self.showClass = true;
+      }
     };
 
     var autoStopAudio = function () {
