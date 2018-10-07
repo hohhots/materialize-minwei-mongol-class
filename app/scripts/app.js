@@ -109,8 +109,8 @@
             levelid: function ($stateParams) {
               return $stateParams.levelid;
             },
-            classroomid: function ($stateParams) {
-              return $stateParams.classroomid;
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
             },
             subData: config.ajax(config.dataPath['alphabetlist'].data)
           }

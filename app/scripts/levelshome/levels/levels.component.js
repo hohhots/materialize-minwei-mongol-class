@@ -30,7 +30,6 @@
     self.selectPages = false;
     // alpha list data directory hash names array
     self.pagesName = util.getBookPagesName(self.levelid);
-    self.classesShow = false;
     self.firstPage = true;
     self.endPage = false;
 

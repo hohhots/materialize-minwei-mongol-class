@@ -9,7 +9,7 @@
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
       levelid: '<',
-      classroomid: '<',
+      pagenum: '<',
       subData: '<'
     },
     controller: ['$scope', '$state', '$element', '$interval', '$http', 'Config', 'Util', 'Json', controller]
@@ -24,16 +24,14 @@
     self.answerAlphas = [];
     self.realAlphaClass = '';
     self.allCorrect = false;
-    self.json = util.getClassroomJson(self.levelid, self.classroomid);
+    self.json = util.getBookJson(self.levelid, self.pagenum);
 
     // alpha list data directory hash names array
-    self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
+    self.book = util.getBookPagesName(self.levelid);
     // classroom directory hash name
-    self.dirHash = '';
-    self.json = util.getClassroomJson(self.levelid, self.classroomid);
 
     self.$onInit = function () {
-      util.setClasses(self);
+      util.setBook(self);
     };
 
     self.$postLink = function () {
@@ -53,7 +51,7 @@
     };
 
     self.exitPractice = function () {
-      $state.go(config.uiState.alphaList.name, {levelid: self.levelid, classroomid: self.classroomid});
+      $state.go(config.uiState.alphaList.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
     self.allCorrect = function () {
@@ -107,9 +105,8 @@
       return text;
     };
 
-    self.setModels = function (classes, json) {
-      self.classes = classes;console.log(self);
-      self.dirHash = classes[self.classroomid - 1];
+    self.setModels = function (book, json) {
+      self.book = book;
       self.json = json;
 
       self.langs.name = self.json.practiceTitle;

@@ -37,3 +37,9 @@
   background-color: #D3D616;
   z-index: -1;
 }
+
+@media (max-width: 600px) {
+  .w3-modal-content {
+    margin:auto !important;
+  }
+}

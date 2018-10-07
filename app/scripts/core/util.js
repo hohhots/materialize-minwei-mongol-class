@@ -288,7 +288,7 @@
       },
 
       // call from other object, to set it's classes.
-      setClasses: function (self) {
+      setBook: function (self) {
         utils.self = self;
         var json = utils.getLevelsJson(self.levelid);
         if (!self.classes) {

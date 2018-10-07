@@ -27,13 +27,12 @@
     };
 
     // alpha list data directory hash names array
-    self.classes = util.getBookPagesName(self.levelid);
+    self.book = util.getBookPagesName(self.levelid);
     // classroom directory hash name
-    self.dirHash = '';
     self.json = util.getBookJson(self.levelid, self.pagenum);
 
     self.$onInit = function () {
-      util.setClasses(self);
+      util.setBook(self);
     };
 
     self.alphaClick = function (originName, originDirName, alphaId, alphaName) {
@@ -82,9 +81,8 @@
       return util.convertAlphaNameToCode(vowelName);
     };
 
-    self.setModels = function (classes, json) {
-      self.classes = classes;
-      self.dirHash = classes[self.pagenum - 1];
+    self.setModels = function (book, json) {
+      self.book = book;
       self.json = json;
 
       var order = self.json.orderInList;
