@@ -9,7 +9,7 @@
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
       levelid: '<',
-      classroomid: '<',
+      pagenum: '<',
       subData: '<'
     },
     controller: ['$state', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
@@ -27,10 +27,10 @@
     };
 
     // alpha list data directory hash names array
-    self.classes = util.getLevelsSubDirectoryHashNames(self.levelid);
+    self.classes = util.getBookPagesName(self.levelid);
     // classroom directory hash name
     self.dirHash = '';
-    self.json = util.getClassroomJson(self.levelid, self.classroomid);
+    self.json = util.getBookJson(self.levelid, self.pagenum);
 
     self.$onInit = function () {
       util.setClasses(self);
@@ -69,11 +69,11 @@
     };
 
     self.practiceClick = function () {
-      $state.go(config.uiState.listPractice.name, {levelid: self.levelid, classroomid: self.classroomid});
+      $state.go(config.uiState.listPractice.name, {levelid: self.levelid, classroomid: self.pagenum});
     };
 
     self.backClick = function () {
-      $state.go(config.uiState.classRoom.name, {levelid: self.levelid, classroomid: self.classroomid});
+      $state.go(config.uiState.classRoom.name, {levelid: self.levelid, classroomid: self.pagenum});
     };
 
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'
@@ -84,7 +84,7 @@
 
     self.setModels = function (classes, json) {
       self.classes = classes;
-      self.dirHash = classes[self.classroomid - 1];
+      self.dirHash = classes[self.pagenum - 1];
       self.json = json;
 
       var order = self.json.orderInList;

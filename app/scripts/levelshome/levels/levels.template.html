@@ -15,10 +15,11 @@
       </a>
     </div>
 
+    <div ng-show="$ctrl.selectPages">共{{::$ctrl.pagesName.length}}页</div>
     <div class="level-btn-container" ng-show="$ctrl.selectPages">
-      共{{::$ctrl.pagesName.length}}页 - 第&nbsp;
-      <input class="level-input" type="text" name="pagenum" maxlength="4" size="4" 
-      ng-model="$ctrl.seletedPageNum" ng-keypress="$ctrl.displayPageOnkey($event)">
+      第&nbsp;
+      <input class="level-input" type="text" name="pagenum" maxlength="4" size="4" ng-model="$ctrl.seletedPageNum"
+        ng-keypress="$ctrl.displayPageOnkey($event)">
       &nbsp;页&nbsp;
       <a class="level-btn" ng-click="$ctrl.showSelectedPage()">
         确定

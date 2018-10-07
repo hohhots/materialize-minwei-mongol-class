@@ -84,7 +84,7 @@
       audioPlaying = false;
     };
 
-    self.gotoInteractClass = function () {
+    self.gotoClass = function () {console.log(config.uiState[self.json.interactType].name);
       $state.go(config.uiState[self.json.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
     };
 

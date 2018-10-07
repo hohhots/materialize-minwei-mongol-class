@@ -283,7 +283,7 @@
         var json = utils.getLevelsJson(self.levelid);
         if (!self.classes) {
           $http.get(json.data, { cache: true }).then(function (resp) {
-            utils.classes = (resp.data)[0].classesDir;
+            utils.classes = (resp.data)[0].pages;
             utils.setBookPagesName(self.levelid, utils.classes);
             utils.getJsonFile();
           });
@@ -318,7 +318,7 @@
       getBooksUrl: function (self) {
         var classes = utils.classes || self.classes;
         var dataUrl = config.dataPath['appLevels'].data;
-        var url = dataUrl + self.levelid + '/' + classes[self.pagenum - 1] + '/class.json';
+        var url = dataUrl + self.levelid + '/' + classes[self.pagenum - 1] + '.json';
         return url;
       },
 
@@ -329,9 +329,9 @@
         config.booksJson[levelid][classroomid] = json;
       },
 
-      getClassroomJson: function (levelid, classroomid) {
+      getBookJson: function (levelid, classroomid) {
         try {
-          return config.classroomsJson.levelId.classroomid;
+          return config.booksJson.levelId.classroomid;
         } catch (error) {
           return '';
         }
