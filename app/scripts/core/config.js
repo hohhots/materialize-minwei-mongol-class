@@ -293,6 +293,7 @@
 
     //  set value in util file, and cache value.
     bookPagesName: {},
+    bookPaths: {},
 
     // set value in util file, and cache all books json data.
     booksJson: {},

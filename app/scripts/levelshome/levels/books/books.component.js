@@ -15,7 +15,6 @@
     },
     controller: [
       '$state',
-      '$location',
       '$scope',
       '$sce',
       '$http',
@@ -27,7 +26,7 @@
       Controller]
   });
 
-  function Controller($state, $location, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
+  function Controller($state, $scope, $sce, $http, $interval, $element, config, util, audioPlayerService) {
     var self = this;
 
     self.templateUrl = config.templateUrl.appBooks;
@@ -84,7 +83,7 @@
       audioPlaying = false;
     };
 
-    self.gotoClass = function () {console.log(config.uiState[self.json.interactType].name);
+    self.gotoClass = function () {
       $state.go(config.uiState[self.json.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
     };
 

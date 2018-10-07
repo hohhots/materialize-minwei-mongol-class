@@ -273,8 +273,18 @@
         }
       },
 
+      setBookPath: function (levelId, bookPath) {
+        if (!config.bookPaths.levelId) {
+          config.bookPaths.levelId = bookPath;
+        }
+      },
+
       getBookPagesName: function (levelid) {
         return config.bookPagesName.levelId;
+      },
+
+      getBookPath: function (levelid) {
+        return config.bookPaths.levelId;
       },
 
       // call from other object, to set it's classes.

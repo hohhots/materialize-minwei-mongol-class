@@ -12,10 +12,10 @@
       pagenum: '<',
       subData: '<'
     },
-    controller: ['$state', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
+    controller: ['$state', '$location', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($state, $scope, $element, $http, config, util, json) {
+  function controller($state, $location, $scope, $element, $http, config, util, json) {
     var self = this;
 
     // variable for outside access 
@@ -69,11 +69,11 @@
     };
 
     self.practiceClick = function () {
-      $state.go(config.uiState.listPractice.name, {levelid: self.levelid, classroomid: self.pagenum});
+      $state.go(config.uiState.listPractice.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
     self.backClick = function () {
-      $state.go(config.uiState.classRoom.name, {levelid: self.levelid, classroomid: self.pagenum});
+      $state.go(config.uiState.books.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'

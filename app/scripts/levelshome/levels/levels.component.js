@@ -25,7 +25,7 @@
     self.templateUrl = config.templateUrl.appLevels;
     self.langs = {};
     self.levelid = 0;
-    self.bookPath = '';
+    self.bookPath = util.getBookPath(self.levelid);
     self.pageNum = 1;
     self.selectPages = false;
     // alpha list data directory hash names array
@@ -49,7 +49,7 @@
       var json = util.getLevelsJson(self.levelid);
       $http.get(json.json, { cache: true }).then(setIntroduction);
 
-      if(!self.pagesName){
+      if(!self.bookPath){
         $http.get(json.data, { cache: true }).then(setBook);
       }
       
@@ -159,6 +159,7 @@
       self.pagesName = (resp.data)[0].pages;
       self.bookPath = (resp.data)[0].bookPath;
 
+      util.setBookPath(self.levelid, self.bookPath);
       util.setBookPagesName(self.levelid, self.pagesName);
       
       isFirstPage();
