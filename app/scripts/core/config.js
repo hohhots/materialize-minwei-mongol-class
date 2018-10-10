@@ -288,7 +288,7 @@
       books: { name: 'root.levels.books', url: '/{pagenum}', component: 'appBooks' },
       alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{pagenum}', component: 'appAlphalist' },
       listPractice: { name: 'root.listpractice', url: '/listpractice/{levelid}/{pagenum}', component: 'listPractice' },
-      alphaOrigin: { name: 'root.alphaorigin', url: '/alphaorigin/{levelid}/{booksid}', component: 'appAlphaorigin' }
+      alphaVariant: { name: 'root.alphavariant', url: '/alphavariant/{levelid}/{pagenum}', component: 'alphaVariant' }
     },
 
     //  set value in util file, and cache value.

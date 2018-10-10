@@ -5,10 +5,11 @@
   var app = angular.module('app.category');
 
   // Register `headerList` component, along with its associated controller and template
-  app.component('appAlphavariant', {
+  app.component('alphaVariant', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      jsonData: '<',
+      levelid: '<',
+      pagenum: '<',
       subData: '<'
     },
     controller: ['$scope', '$element', 'Config', 'Util', 'Json', controller]

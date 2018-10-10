@@ -67,27 +67,6 @@
           }
         },
         {
-          name: uiState.alphaOrigin.name,
-          url: uiState.alphaOrigin.url,
-          component: uiState.alphaOrigin.component,
-          resolve: {
-            levelid: function ($stateParams) {
-              return $stateParams.levelid;
-            },
-            classroomid: function ($stateParams) {
-              return $stateParams.classroomid;
-            },
-            jsonData: config.ajax(config.dataPath['alphabetorigin'].json),
-            subData: config.ajax(config.dataPath['alphabetorigin'].data)
-          }
-        },
-        {
-          name: 'root.originpractice',
-          url: '/originpractice',
-          component: 'originPractice',
-          resolve: resolve('alphabetorigin')
-        },
-        {
           name: uiState.alphaList.name,
           url: uiState.alphaList.url,
           component: uiState.alphaList.component,
@@ -116,9 +95,9 @@
           }
         },
         {
-          name: 'root.alphavariant',
-          url: '/alphabetvariant',
-          component: 'appAlphavariant',
+          name: uiState.alphaVariant.name,
+          url: uiState.alphaVariant.url,
+          component: uiState.alphaVariant.component,
           resolve: resolve('alphabetvariant')
         },
         {
