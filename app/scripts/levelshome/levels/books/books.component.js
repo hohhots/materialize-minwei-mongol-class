@@ -85,6 +85,7 @@
     };
 
     self.gotoClass = function () {
+      audioPlayerService.pauseAudio();
       $state.go(config.uiState[self.json.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
     };
 
