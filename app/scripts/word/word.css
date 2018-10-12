@@ -25,8 +25,9 @@
   font-family: 'hawang';
   src:  url('fonts/hawang.eot?d4wmk8');
   src:  url('fonts/hawang.eot?d4wmk8#iefix') format('embedded-opentype'),
-    url('fonts/hawang.ttf?d4wmk8') format('truetype'),
+    url('fonts/hawang.woff2?d4wmk8') format('woff2'),
     url('fonts/hawang.woff?d4wmk8') format('woff'),
+    url('fonts/hawang.ttf?d4wmk8') format('truetype'),
     url('fonts/hawang.svg?d4wmk8#hawang') format('svg');
   font-weight: normal;
   font-style: normal;
