@@ -239,26 +239,14 @@ span {
 .hawang-da:before {
   content: "\e531";
 }
-.hawang-da1:before {
-  content: "\e532";
-}
 .hawang-di:before {
   content: "\e533";
-}
-.hawang-di1:before {
-  content: "\e534";
 }
 .hawang-do:before {
   content: "\e535";
 }
-.hawang-do1:before {
-  content: "\e536";
-}
 .hawang-du:before {
   content: "\e537";
-}
-.hawang-du1:before {
-  content: "\e538";
 }
 .hawang-ta:before {
   content: "\e51b";
@@ -723,15 +711,18 @@ span {
   content: "\e416";
 }
 .hawang-o:before {
-  content: "\e41e";
+  content: "\e41d";
 }
 .hawang-o1:before {
-  content: "\e41f";
+  content: "\e41e";
 }
 .hawang-o2:before {
-  content: "\e420";
+  content: "\e41f";
 }
 .hawang-o3:before {
+  content: "\e420";
+}
+.hawang-o4:before {
   content: "\e421";
 }
 .hawang-u:before {

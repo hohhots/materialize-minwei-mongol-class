@@ -141,7 +141,7 @@
       testAgain: '重复练习',
       top: '首',
       middle: '中',
-      bottom: '尾',
+      bottom: '末',
       pagePrevious: '前一页',
       pageNext: '下一页',
       audioPlay: '播放音频'
@@ -313,7 +313,9 @@
     ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
 
-  config.alphaVariantNamesMap1 = config.alphaVideoNamesMap;
+  config.alphaVariantNamesMap1 = $.extend({}, config.alphaVideoNamesMap, {
+    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
+  });
   config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
@@ -324,7 +326,7 @@
     su: 'so', su2: 'so',
     xu: 'xo', xu2: 'xo',
     tu: 'to', tu2: 'to',
-    du: 'do', du2: 'do',
+    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'to', du2: 'to',
     qu: 'qo', qu2: 'qo',
     ju: 'jo', ju2: 'jo',
     yu: 'yo', yu2: 'yo',

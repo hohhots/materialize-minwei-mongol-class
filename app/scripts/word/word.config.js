@@ -63,10 +63,10 @@
     to: 'e527', to1: 'e528', to2: 'e529', to3: 'e52a',
     tu: 'e52d', tu1: 'e52e',
 
-    da: 'e531', da1: 'e532',
-    di: 'e533', di1: 'e534',
-    do: 'e535', do1: 'e536',
-    du: 'e537', du1: 'e538',
+    da: 'e531',// da1: 'e532',
+    di: 'e533',// di1: 'e534',
+    do: 'e535',// do1: 'e536',
+    du: 'e537',// du1: 'e538',
 
     qa: 'e539', qa1: 'e53a', qa2: 'e53b', qa3: 'e53c',
     qi: 'e53f', qi1: 'e540', qi2: 'e541', qi3: 'e542',
@@ -93,53 +93,44 @@
   };
 
   var alphaListNamesMap = {
-    o2: "o", u2: "u",
-    ne: "na", no2: "no", nu2: "nu",
-    be: "ba", bo2: "bo", bu2: "bu",
-    pe: "pa", po2: "po", pu2: "pu",
-    ho2: "ho", hu2: "hu",
-    go2: "go", gu2: "gu",
-    me: "ma", mo2: "mo", mu2: "mu",
-    le: "la", lo2: "lo", lu2: "lu",
-    se: "sa", so2: "so", su2: "su",
-    xe: "xa", xo2: "xo", xu2: "xu",
-    te: "ta", to2: "to", tu2: "tu",
-    de: "da", do2: "do", du2: "du",
-    qe: "qa", qo2: "qo", qu2: "qu",
-    je: "ja", jo2: "jo", ju2: "ju",
-    ye: "ya", yo2: "yo", yu2: "yu",
-    re: "ra", ro2: "ro", ru2: "ru",
-    we: "wa"
+    o2: 'o', u2: 'u',
+    ne: 'na', no2: 'no', nu2: 'nu',
+    be: 'ba', bo2: 'bo', bu2: 'bu',
+    pe: 'pa', po2: 'po', pu2: 'pu',
+    ho2: 'ho', hu2: 'hu',
+    go2: 'go', gu2: 'gu',
+    me: 'ma', mo2: 'mo', mu2: 'mu',
+    le: 'la', lo2: 'lo', lu2: 'lu',
+    se: 'sa', so2: 'so', su2: 'su',
+    xe: 'xa', xo2: 'xo', xu2: 'xu',
+    te: 'ta', to2: 'to', tu2: 'tu',
+    de: 'da', do2: 'do', du2: 'du',
+    qe: 'qa', qo2: 'qo', qu2: 'qu',
+    je: 'ja', jo2: 'jo', ju2: 'ju',
+    ye: 'ya', yo2: 'yo', yu2: 'yu',
+    re: 'ra', ro2: 'ro', ru2: 'ru',
+    we: 'wa'
   };
 
   var alphaVariantNamesMap1 = $.extend({}, alphaListNamesMap, {
-    ge: "he", gi: "hi", gu: "hu", gu2: "hu"
+    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
   var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
-    e: "a", u: "o", u2: "o",
-    nu: "no", nu2: "no",
-    bu: "bo", bu2: "bo",
-    pu: "po", pu2: "po",
-    mu: "mo", mu2: "mo",
-    lu: "lo", lu2: "lo",
-    su: "so", su2: "so",
-    xu: "xo", xu2: "xo",
-    tu: "to", tu2: "to",
-    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: "to", du2: "to",
-    qu: "qo", qu2: "qo",
-    ju: "jo", ju2: "jo",
-    yu: "yo", yu2: "yo",
-    ru: "ro", ru2: "ro",
+    e: 'a', u: 'o', u2: 'o',
+    nu: 'no', nu2: 'no',
+    bu: 'bo', bu2: 'bo',
+    pu: 'po', pu2: 'po',
+    mu: 'mo', mu2: 'mo',
+    lu: 'lo', lu2: 'lo',
+    su: 'so', su2: 'so',
+    xu: 'xo', xu2: 'xo',
+    tu: 'to', tu2: 'to',
+    qu: 'qo', qu2: 'qo',
+    ju: 'jo', ju2: 'jo',
+    yu: 'yo', yu2: 'yo',
+    ru: 'ro', ru2: 'ro'
   });
-  var alphaVariantNamesMap3 = alphaVariantNamesMap2;//{};
-
-  /**var result = alphaVariantNamesMap3, key, obj = alphaVariantNamesMap2;
-  for (key in obj) {
-    if (obj.hasOwnProperty(key) && (key !== 'we')) {
-      result[key] = obj[key];
-    }
-  }
-  **/
+  var alphaVariantNamesMap3 = alphaVariantNamesMap2;
 
   function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
@@ -222,6 +213,7 @@
   }
 
   function createFourthAlphas() {
+    config.wordToReplaceMap['a14'] = 'a4';
     config.wordToReplaceMap['n14'] = 'na4';
     config.wordToReplaceMap['n24'] = 'na4';
     config.wordToReplaceMap['m14'] = 'ma4';
@@ -312,7 +304,6 @@
 
   createFourthAlphas();
 
-  //console.log(config.wordToReplaceMap);
   angular.module('app.word').
     constant('wordConfig', config);
 
