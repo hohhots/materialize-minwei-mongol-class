@@ -309,7 +309,7 @@
 
   };
 
-  config.alphaVideoNamesMap = $.extend({}, config.alphaListNamesMap, {
+  config.alphaVideoNamesMap = $.extend(config.alphaListNamesMap, {
     ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
 
@@ -319,10 +319,10 @@
     }
   });
 
-  config.alphaVariantNamesMap1 = $.extend(config.alphaVariantNamesMap1, {
+  config.alphaVariantNamesMap1 = $.extend({}, config.alphaVariantNamesMap1, {
     da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
   });
-  config.alphaVariantNamesMap2 = $.extend(config.alphaVariantNamesMap1, {
+  config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
     bu: 'bo', bu2: 'bo',

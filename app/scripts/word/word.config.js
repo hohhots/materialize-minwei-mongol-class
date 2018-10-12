@@ -109,9 +109,7 @@
     we: 'wa'
   };
 
-  var alphaVariantNamesMap1 = $.extend(alphaVariantNamesMap1, {
-    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
-  });
+  var alphaVariantNamesMap1 = {};
 
   $.each(alphaListNamesMap, function (key, val) {
     if (key != 'we') {
@@ -119,7 +117,11 @@
     }
   });
 
-  var alphaVariantNamesMap2 = $.extend(alphaVariantNamesMap1, {
+  alphaVariantNamesMap1 = $.extend({}, alphaVariantNamesMap1, {
+    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
+  });
+
+  var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
     bu: 'bo', bu2: 'bo',
