@@ -98,7 +98,16 @@
           name: uiState.alphaVariant.name,
           url: uiState.alphaVariant.url,
           component: uiState.alphaVariant.component,
-          resolve: resolve('alphabetvariant')
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
+            },
+            jsonData: config.ajax(config.dataPath['alphabetvariant'].json),
+            subData: config.ajax(config.dataPath['alphabetvariant'].data)
+          }
         },
         {
           name: 'root.variantpractice',

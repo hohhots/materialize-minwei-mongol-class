@@ -286,7 +286,7 @@
       levelsHome: { name: 'root.levelshome', url: '/levelshome', component: 'levelsHome' },
       levels: { name: 'root.levels', url: '/level/{levelid}', component: 'appLevels' },
       books: { name: 'root.levels.books', url: '/{pagenum}', component: 'appBooks' },
-      alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{pagenum}', component: 'appAlphalist' },
+      alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{pagenum}', component: 'alphaList' },
       listPractice: { name: 'root.listpractice', url: '/listpractice/{levelid}/{pagenum}', component: 'listPractice' },
       alphaVariant: { name: 'root.alphavariant', url: '/alphavariant/{levelid}/{pagenum}', component: 'alphaVariant' }
     },

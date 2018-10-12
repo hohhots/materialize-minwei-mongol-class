@@ -5,17 +5,17 @@
   var app = angular.module('app.category');
 
   // Register `headerList` component, along with its associated controller and template
-  app.component('appAlphalist', {
+  app.component('alphaList', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
       levelid: '<',
       pagenum: '<',
       subData: '<'
     },
-    controller: ['$state', '$location', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
+    controller: ['$state', '$scope', '$element', '$http', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($state, $location, $scope, $element, $http, config, util, json) {
+  function controller($state, $scope, $element, $http, config, util, json) {
     var self = this;
 
     // variable for outside access 

@@ -10,26 +10,28 @@
     bindings: {
       levelid: '<',
       pagenum: '<',
-      subData: '<',
-      jsonData: '<'
+      subData: '<'
     },
-    controller: ['$state', '$scope', '$element', 'Config', 'Util', 'Json', controller]
+    controller: ['$scope', '$element', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($state, $scope, $element, config, util, json) {
+  function controller($scope, $element, config, util, json) {
     var self = this;
 
     // variable for outside access
-    self.bookJson = [];
     self.data = [];
     self.langs = {};
     self.langs.practice = config.alphaLangs.practice;
     self.langs.introduction = config.alphaLangs.introduction;
-    self.langs.back = config.alphaLangs.back;
+    self.langs.alphaFilter = config.alphaLangs.filter;
     self.templateUrl = config.templateUrl.alphabetvariant;
 
     self.$onInit = function () {
-      util.setBook(self);
+      self.data = self.subData;
+    };
+
+    self.alphaFilterClick = function () {
+      $scope.$broadcast(config.events.displayAlphaFilter);
     };
 
     self.introductionClicked = function () {
@@ -76,18 +78,29 @@
       return cssClass;
     };
 
-    self.backClick = function () {
-      $state.go(config.uiState.books.name, {levelid: self.levelid, pagenum: self.pagenum});
-    };
-
-    self.setModels = function (book, json) {
-      self.bookJson = json;
-
-      var order = self.bookJson.orderInList;
-      self.data = self.subData.slice(order - 1, order);
-    };
-
     var fourthClasses = {};
+
+    var filtAlphaVariants = function (event, alphaIds) {
+      if (alphaIds.length == 0) {
+        self.$onInit();
+        return;
+      }
+      var td = angular.copy(self.subData);
+      td = td.filter(function (alpha) {
+        return alphaIds.indexOf(alpha.id) > -1;
+      });
+      self.data = td;
+    };
+
+    // add listener and hold on to deregister function
+    var deregister = [];
+    deregister.push($scope.$on(config.events.filtAlphaVariants, filtAlphaVariants));
+
+    //deregister.push(videoElem.on('ended', videoEnded));
+    // clean up listener when directive's scope is destroyed
+    $.each(deregister, function (i, val) {
+      $scope.$on('$destroy', val);
+    });
   };
 
 })();
