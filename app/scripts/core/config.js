@@ -313,10 +313,16 @@
     ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
 
-  config.alphaVariantNamesMap1 = $.extend({}, config.alphaVideoNamesMap, {
+  $.each(config.alphaVideoNamesMap, function (key, val) {
+    if (key != 'we') {
+      config.alphaVariantNamesMap1[key] = val;
+    }
+  });
+
+  config.alphaVariantNamesMap1 = $.extend(config.alphaVariantNamesMap1, {
     da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
   });
-  config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
+  config.alphaVariantNamesMap2 = $.extend(config.alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
     bu: 'bo', bu2: 'bo',
@@ -326,7 +332,7 @@
     su: 'so', su2: 'so',
     xu: 'xo', xu2: 'xo',
     tu: 'to', tu2: 'to',
-    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'to', du2: 'to',
+    du: 'to', du2: 'to',
     qu: 'qo', qu2: 'qo',
     ju: 'jo', ju2: 'jo',
     yu: 'yo', yu2: 'yo',
@@ -334,12 +340,12 @@
   });
 
   config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
-
-  $.each(config.alphaVariantNamesMap3, function (key, val) {
-    if (key != 'we') {
-      config.alphaVariantNamesMap4[key] = val;
-    }
-  });
+  config.alphaVariantNamesMap4 = config.alphaVariantNamesMap3;
+  //$.each(config.alphaVariantNamesMap3, function (key, val) {
+  //  if (key != 'we') {
+  //    config.alphaVariantNamesMap4[key] = val;
+  //  }
+  //});
 
   // Define the `core.config` module
   angular.module('core.config', [])

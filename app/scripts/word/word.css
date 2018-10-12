@@ -63,6 +63,15 @@ span {
 .hawang-wa4:before {
   content: "\e596";
 }
+.hawang-we1:before {
+  content: "\e599";
+}
+.hawang-we2:before {
+  content: "\e59a";
+}
+.hawang-we3:before {
+  content: "\e59b";
+}
 .hawang-ra:before {
   content: "\e57b";
 }

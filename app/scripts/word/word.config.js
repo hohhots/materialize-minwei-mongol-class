@@ -63,10 +63,7 @@
     to: 'e527', to1: 'e528', to2: 'e529', to3: 'e52a',
     tu: 'e52d', tu1: 'e52e',
 
-    da: 'e531',// da1: 'e532',
-    di: 'e533',// di1: 'e534',
-    do: 'e535',// do1: 'e536',
-    du: 'e537',// du1: 'e538',
+    da: 'e531', di: 'e533', do: 'e535', du: 'e537',
 
     qa: 'e539', qa1: 'e53a', qa2: 'e53b', qa3: 'e53c',
     qi: 'e53f', qi1: 'e540', qi2: 'e541', qi3: 'e542',
@@ -112,10 +109,17 @@
     we: 'wa'
   };
 
-  var alphaVariantNamesMap1 = $.extend({}, alphaListNamesMap, {
+  var alphaVariantNamesMap1 = $.extend(alphaVariantNamesMap1, {
     ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
   });
-  var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
+
+  $.each(alphaListNamesMap, function (key, val) {
+    if (key != 'we') {
+      alphaVariantNamesMap1[key] = val;
+    }
+  });
+
+  var alphaVariantNamesMap2 = $.extend(alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
     bu: 'bo', bu2: 'bo',
