@@ -1,9 +1,9 @@
 [
   {
-    "interactType": "alphaVariant",
-    "interactTitle": "字母变形",
+    "interactType": "alphaList",
+    "interactTitle": "元音字母",
     "orderInList": 13,
-    "videoTitle": "字母变形表",
-    "practiceTitle": "字母变形练习"
+    "videoTitle": "字母表",
+    "practiceTitle": "元音字母练习"
   }
 ]

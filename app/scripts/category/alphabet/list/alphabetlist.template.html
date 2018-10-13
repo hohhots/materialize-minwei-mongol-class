@@ -17,7 +17,7 @@
   </div>
 
   <div ng-repeat="alpha in $ctrl.alphabets" class="w3-row w3-grayscale-min w3-center">
-    <div class="alphabetorigin-content">
+    <div class="alphabetlist-content">
       <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClick(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)" class="w3-col s3 alpha-col m1">
         <div class="w3-margin alphabetorigin-view">
           <div class="alphabetorigin-num">{{::vowel.id}}</div>

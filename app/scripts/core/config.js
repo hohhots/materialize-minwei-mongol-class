@@ -57,33 +57,6 @@
       wordbeginPractice: 'wordbeginpractice'
     },
 
-    alphaListNamesMap: {
-      o2: 'o', u2: 'u',
-      ne: 'na', no2: 'no', nu2: 'nu',
-      be: 'ba', bo2: 'bo', bu2: 'bu',
-      pe: 'pa', po2: 'po', pu2: 'pu',
-      ho2: 'ho', hu2: 'hu',
-      go2: 'go', gu2: 'gu',
-      me: 'ma', mo2: 'mo', mu2: 'mu',
-      le: 'la', lo2: 'lo', lu2: 'lu',
-      se: 'sa', so2: 'so', su2: 'su',
-      xe: 'xa', xo2: 'xo', xu2: 'xu',
-      te: 'ta', to2: 'to', tu2: 'tu',
-      de: 'da', do2: 'do', du2: 'du',
-      qe: 'qa', qo2: 'qo', qu2: 'qu',
-      je: 'ja', jo2: 'jo', ju2: 'ju',
-      ye: 'ya', yo2: 'yo', yu2: 'yu',
-      re: 'ra', ro2: 'ro', ru2: 'ru',
-      we: 'wa'
-    },
-
-    alphaVideoNamesMap: {},
-
-    alphaVariantNamesMap1: {},
-    alphaVariantNamesMap2: {},
-    alphaVariantNamesMap3: {},
-    alphaVariantNamesMap4: {},
-
     alphaCss: {
       practiceEmpty: 'originpractice-empty-alpha',
       variantpracticeEmpty: 'variantpractice-empty-alpha'
@@ -308,44 +281,6 @@
     }
 
   };
-
-  config.alphaVideoNamesMap = $.extend(config.alphaListNamesMap, {
-    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
-  });
-
-  $.each(config.alphaVideoNamesMap, function (key, val) {
-    if (key != 'we') {
-      config.alphaVariantNamesMap1[key] = val;
-    }
-  });
-
-  config.alphaVariantNamesMap1 = $.extend({}, config.alphaVariantNamesMap1, {
-    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
-  });
-  config.alphaVariantNamesMap2 = $.extend({}, config.alphaVariantNamesMap1, {
-    e: 'a', u: 'o', u2: 'o',
-    nu: 'no', nu2: 'no',
-    bu: 'bo', bu2: 'bo',
-    pu: 'po', pu2: 'po',
-    mu: 'mo', mu2: 'mo',
-    lu: 'lo', lu2: 'lo',
-    su: 'so', su2: 'so',
-    xu: 'xo', xu2: 'xo',
-    tu: 'to', tu2: 'to',
-    du: 'to', du2: 'to',
-    qu: 'qo', qu2: 'qo',
-    ju: 'jo', ju2: 'jo',
-    yu: 'yo', yu2: 'yo',
-    ru: 'ro', ru2: 'ro'
-  });
-
-  config.alphaVariantNamesMap3 = config.alphaVariantNamesMap2;
-  config.alphaVariantNamesMap4 = config.alphaVariantNamesMap3;
-  //$.each(config.alphaVariantNamesMap3, function (key, val) {
-  //  if (key != 'we') {
-  //    config.alphaVariantNamesMap4[key] = val;
-  //  }
-  //});
 
   // Define the `core.config` module
   angular.module('core.config', [])

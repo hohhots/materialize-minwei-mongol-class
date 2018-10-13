@@ -49,19 +49,19 @@
         var temp = '';
         switch (variantPosition) {
           case 0:
-            temp = config.alphaListNamesMap[alphaName];
+            temp = wordConfig.alphaListNamesMap[alphaName];
             break;
           case 1:
-            temp = config.alphaVariantNamesMap1[alphaName];
+            temp = wordConfig.alphaVariantNamesMap1[alphaName];
             break;
           case 2:
-            temp = config.alphaVariantNamesMap2[alphaName];
+            temp = wordConfig.alphaVariantNamesMap2[alphaName];
             break;
           case 3:
-            temp = config.alphaVariantNamesMap3[alphaName];
+            temp = wordConfig.alphaVariantNamesMap3[alphaName];
             break;
           case 4:
-            temp = config.alphaVariantNamesMap4[alphaName];
+            temp = wordConfig.alphaVariantNamesMap4[alphaName];
             break;
           default:
         }
@@ -72,7 +72,7 @@
       },
 
       convertVideoAlphaName: function (alphaName) {
-        var temp = config.alphaVideoNamesMap[alphaName];
+        var temp = wordConfig.alphaOriginNamesMap[alphaName];
         if (temp) {
           alphaName = temp;
         }
@@ -314,14 +314,14 @@
         }
       },
 
-      setJson:function (resp) {
+      setJson: function (resp) {
         var self = utils.self;
         var classes = utils.classes || self.classes;
 
         var json = (resp.data)[0];
-  
+
         self.setModels(classes, json);
-  
+
         utils.setBooksJson(self.levelid, self.pagenum, json);
       },
 

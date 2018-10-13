@@ -109,16 +109,20 @@
     we: 'wa'
   };
 
+  var alphaOriginNamesMap = $.extend({}, alphaListNamesMap, {
+    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
+  });
+
   var alphaVariantNamesMap1 = {};
 
-  $.each(alphaListNamesMap, function (key, val) {
+  $.each(alphaOriginNamesMap, function (key, val) {
     if (key != 'we') {
       alphaVariantNamesMap1[key] = val;
     }
   });
 
   alphaVariantNamesMap1 = $.extend({}, alphaVariantNamesMap1, {
-    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
+    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
   });
 
   var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
@@ -137,6 +141,7 @@
     ru: 'ro', ru2: 'ro'
   });
   var alphaVariantNamesMap3 = alphaVariantNamesMap2;
+  var alphaVariantNamesMap4 = alphaVariantNamesMap3;
 
   function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
@@ -160,21 +165,21 @@
 
     switch (position) {
       case '0':
-        converted = alphaVariantNamesMap1[name];
+        converted = alphaOriginNamesMap[code];
         break;
       case '1':
-        converted = alphaVariantNamesMap1[name];
+        converted = alphaVariantNamesMap1[code];
         break;
       case '2':
-        converted = alphaVariantNamesMap2[name];
+        converted = alphaVariantNamesMap2[code];
         break;
       case '3':
-        converted = alphaVariantNamesMap3[name];
+        converted = alphaVariantNamesMap3[code];
         break;
       default:
-        converted = alphaListNamesMap[name];
+        converted = alphaListNamesMap[code];
     }
-
+    
     if (converted) {
       converted = converted + position;
     } else {
@@ -216,6 +221,7 @@
         });
       });
     });
+    //config.wordToReplaceMap['w20'] = 'we';
   }
 
   function createFourthAlphas() {
@@ -275,7 +281,7 @@
     var code = '';
 
     $.each(config.wordToReplaceMap, function (key, value) {
-      if (value == name) {
+      if (value === name) {
         code = key;
         // exit each loop
         return false;
@@ -302,7 +308,13 @@
     getMongolCode: getMongolCode,
     fourthAlphaExist: fourthAlphaExist,
     setMonWord: setMonWord,
-    convertAlphaNameToCode: convertAlphaNameToCode
+    convertAlphaNameToCode: convertAlphaNameToCode,
+    alphaListNamesMap: alphaListNamesMap,
+    alphaOriginNamesMap: alphaOriginNamesMap,
+    alphaVariantNamesMap1: alphaVariantNamesMap1,
+    alphaVariantNamesMap2: alphaVariantNamesMap2,
+    alphaVariantNamesMap3: alphaVariantNamesMap3,
+    alphaVariantNamesMap4: alphaVariantNamesMap4
   };
 
   createVowelPosition();

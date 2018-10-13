@@ -1,3 +1,9 @@
 [
-  {}
+  {
+    "interactType": "alphaVariant",
+    "interactTitle": "字母变形",
+    "orderInList": 12,
+    "videoTitle": "字母变形表",
+    "practiceTitle": "字母变形练习"
+  }
 ]
