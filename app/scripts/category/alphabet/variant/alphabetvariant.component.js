@@ -87,6 +87,12 @@
       self.data = self.subData.slice(order - 1, order);
     };
 
+    self.twoAlphasStyle = function () {
+      if (self.data[0].vowel.length === 2) {
+        return 'alphabetvariant-two';
+      }
+    };
+
     var fourthClasses = {};
   };
 

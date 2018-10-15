@@ -75,6 +75,12 @@
       $state.go(config.uiState.books.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
+    self.twoAlphasStyle = function () {
+      if (self.alphabets[0].vowel.length === 2) {
+        return 'alphalist-two';
+      }
+    };
+
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaText = function (vowelName) {
