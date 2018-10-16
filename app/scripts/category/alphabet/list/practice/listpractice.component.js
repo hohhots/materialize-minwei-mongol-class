@@ -24,7 +24,7 @@
     self.answerAlphas = [];
     self.realAlphaClass = '';
     self.allCorrect = false;
-    self.json = util.getBookJson(self.levelid, self.pagenum);
+    //self.json = util.getBookJson(self.levelid, self.pagenum);
 
     // alpha list data directory hash names array
     self.book = util.getBookPagesName(self.levelid);
@@ -32,6 +32,20 @@
 
     self.$onInit = function () {
       util.setBook(self);
+    };
+
+    self.setModels = function (book, json) {
+      self.book = book;
+      self.json = json;
+
+      self.langs.name = self.json.practiceTitle;
+      self.langs.selectAlpha = config.alphaLangs.selectAlpha;
+      self.langs.exit = config.alphaLangs.exit;
+      self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
+      self.langs.testAgain = config.alphaLangs.testAgain;
+      self.langs.text = config.listPracticeLangs.text;
+      
+      setAnswerAlphas(); 
     };
 
     self.$postLink = function () {
@@ -103,20 +117,6 @@
         text = util.convertAlphaNameToCode(alpha.name);
       }
       return text;
-    };
-
-    self.setModels = function (book, json) {
-      self.book = book;
-      self.json = json;
-
-      self.langs.name = self.json.practiceTitle;
-      self.langs.selectAlpha = config.alphaLangs.selectAlpha;
-      self.langs.exit = config.alphaLangs.exit;
-      self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
-      self.langs.testAgain = config.alphaLangs.testAgain;
-      self.langs.text = config.listPracticeLangs.text;
-      
-      setAnswerAlphas(); 
     };
 
     var audioElem = null;

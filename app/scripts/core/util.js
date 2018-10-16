@@ -14,6 +14,8 @@
 
     var currentBackgroundColor = '';
 
+    var variantPracticePosition = {};
+
     var utils = {
       scrollToTop: function () {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
@@ -339,12 +341,29 @@
         config.booksJson[levelid][classroomid] = json;
       },
 
-      getBookJson: function (levelid, classroomid) {
+      getBookJson: function (levelid, pagenum) {
         try {
           return config.booksJson.levelId.classroomid;
         } catch (error) {
           return '';
         }
+      },
+
+      getVariantPracticePosition: function(levelid, pagenum) {
+        if (!variantPracticePosition[levelid]) {
+          variantPracticePosition[levelid] = {};
+        }
+        var p = variantPracticePosition[levelid][pagenum];
+        if(!p) {
+          variantPracticePosition[levelid][pagenum] = 1;
+        } else {
+          if (p === 3) {
+            variantPracticePosition[levelid][pagenum] = 1;
+          } else {
+            variantPracticePosition[levelid][pagenum] = ++p;
+          }
+        }
+        return variantPracticePosition[levelid][pagenum];
       }
     };
 

@@ -36,14 +36,27 @@
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
+    // if util has data, just get it;
+    // self.json = util.getBookJson(self.levelid, self.pagenum);
 
     self.$onInit = function () {
+      util.setBook(self);
+    };
+
+    //if util already get data, don't run this function.
+    self.setModels = function (book, json) {
+      self.book = book;
+      self.json = json;
+      self.alphaPosition = self.json.orderInList;
+
+
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
       self.langs.text = config.variantPracticeLangs.text;
-      setAnswerAlphas();
+
+      setAnswerAlphas(); 
     };
 
     self.$postLink = function () {
@@ -301,9 +314,9 @@
     var twoAlphaClass = 'w3-col s6';
 
     function setAnswerAlphas() {
-      variantPosition = Math.floor(Math.random() * 3) + 1;
-      var position = Math.floor(Math.random() * (self.subData.length));
-      testOriginAlpha = self.subData[position];
+      variantPosition = util.getVariantPracticePosition(self.levelid, self.pagenum);
+      //var position = Math.floor(Math.random() * (self.subData.length));
+      testOriginAlpha = self.subData[--self.alphaPosition];
       self.testAlphas = testOriginAlpha.vowel;
       setTestAlphasText();
       answerAlphas = angular.copy(self.testAlphas);
