@@ -5,11 +5,9 @@
   var app = angular.module('app.category');
 
   // Register `headerList` component, along with its associated controller and template
-  app.component('variantPractice', {
+  app.component('variantPractices', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      levelid: '<',
-      pagenum: '<',
       jsonData: '<',
       subData: '<'
     },
@@ -42,7 +40,6 @@
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.langs.nextTest = config.alphaLangs.nextTest;
-      self.langs.text = config.variantPracticeLangs.text;
       setAnswerAlphas();
     };
 
@@ -58,7 +55,7 @@
     };
 
     self.exitPractice = function () {
-      $state.go(config.uiState.alphaVariant.name, {levelid: self.levelid, pagenum: self.pagenum});
+      util.changePath(config.pagesUrl.alphaVariant);
     };
 
     self.allCorrect = function () {

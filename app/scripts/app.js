@@ -110,10 +110,19 @@
           }
         },
         {
-          name: 'root.variantpractice',
-          url: '/variantpractice',
-          component: 'variantPractice',
-          resolve: resolve('alphabetvariant')
+          name: uiState.variantPractice.name,
+          url: uiState.variantPractice.url,
+          component: uiState.variantPractice.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
+            },
+            jsonData: config.ajax(config.dataPath['alphabetvariant'].json),
+            subData: config.ajax(config.dataPath['alphabetvariant'].data)
+          }
         },
         {
           name: 'root.wordbegin',

@@ -44,7 +44,8 @@
     };
 
     self.practiceClick = function () {
-      util.changePath(config.pagesUrl.variantPractice);
+      //util.changePath(config.pagesUrl.variantPractice);
+      $state.go(config.uiState.variantPractice.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'

@@ -1,0 +1,78 @@
+.variantpractice-view {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 42px;
+  background-color: #085a9d;
+}
+
+.variant-font-head,
+.variant-font {
+  width: 42px;
+  height: 70px;
+  color: #fff;
+  font-size: 2em;
+}
+
+.variant-font {
+  color: #000;
+}
+
+.variantview-view-value {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px;
+  width: 42px;
+  height: 70px;
+  color: #000;
+}
+
+.variantpractice-alpha-click {
+  cursor: pointer;
+}
+
+.variantpractice-alpha-click:hover {
+  background-color: #ccc;
+  opacity: 1;
+  color: #fff;
+}
+
+.variantpractice-none,
+.variantpractice-empty-alpha {
+  border: 1px solid #ccc;
+  width: 42px;
+  height: 70px;
+  padding-top: 25px;
+}
+
+.variantpractice-none {
+  border: 0 solid #ccc;
+}
+
+.variantpractice-position,
+.variantpractice-position-fill {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px;
+}
+
+.variantpractice-position-fill {
+  background-color: #085a9d;
+}
+
+.variantpractice-alphas {
+  overflow: auto;
+  margin: auto;
+  width: 100% !important;
+}
+
+@media (min-width: 601px) {
+  .variantpractice-alphas {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 993px){
+  .variantpractice-alphas {
+    width: 80% !important;
+  }
+}

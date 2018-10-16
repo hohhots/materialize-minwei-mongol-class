@@ -124,6 +124,10 @@
       text: '点击播放按钮听字母读音，然后按读音顺序点击相应空白字母位置选择一个字母，以此类推，选择所有字母。'
     },
 
+    variantPracticeLangs: {
+      text: '点击播放按钮听字母读音，然后按读音顺序点击下面每个原形字母下面的相应位置并选择其在字首、字中、字尾的相应变形字母。'
+    },
+
     levelsLangs: {
       previousPage: '上一页',
       nextPage: '下一页',
@@ -261,7 +265,8 @@
       books: { name: 'root.levels.books', url: '/{pagenum}', component: 'appBooks' },
       alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{pagenum}', component: 'alphaList' },
       listPractice: { name: 'root.listpractice', url: '/listpractice/{levelid}/{pagenum}', component: 'listPractice' },
-      alphaVariant: { name: 'root.alphavariant', url: '/alphavariant/{levelid}/{pagenum}', component: 'alphaVariant' }
+      alphaVariant: { name: 'root.alphavariant', url: '/alphavariant/{levelid}/{pagenum}', component: 'alphaVariant' },
+      variantPractice: { name: 'root.variantpractice', url: '/variantpractice/{levelid}/{pagenum}', component: 'variantPractice' }
     },
 
     //  set value in util file, and cache value.
