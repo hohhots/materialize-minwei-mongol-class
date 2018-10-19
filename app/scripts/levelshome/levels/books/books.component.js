@@ -37,7 +37,7 @@
     self.pdfImage = '';
     self.interactUrl = '';
     // json data
-    self.json = '';
+    self.bookJson = [];
     self.showClass = false;
 
     self.$onInit = function () {
@@ -49,8 +49,7 @@
       self.fileName = self.parent.getFileName(self.pagenum);
       self.parent.setPageNum(self.pagenum);
 
-      var json = getPageJsonUrl();
-      $http.get(json, { cache: true }).then(setJson);
+      util.setBook(self);
     };
 
     self.$postLink = function () {
@@ -86,7 +85,19 @@
 
     self.gotoClass = function () {
       audioPlayerService.pauseAudio();
-      $state.go(config.uiState[self.json.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
+      $state.go(config.uiState[self.bookJson.interactType].name, { levelid: self.levelid, pagenum: self.pagenum });
+    };
+
+    self.setModels = function (book, json) {
+      self.bookJson = json;
+      // using map change images url
+      self.pdfImage = self.parent.getBookPath() + '/' + config.data.images + '/' + self.fileName + config.dataTypes.images[1];
+
+      audioPlayerService.init(self, getAudio());
+
+      if (self.bookJson.interactType) {
+        self.showClass = true;
+      }
     };
 
     var audioElem;
@@ -105,18 +116,6 @@
     var getPageJsonUrl = function () {
       var url = dataUrl + self.levelid + '/' + self.fileName + '.json';
       return url;
-    };
-
-    var setJson = function (resp) {
-      self.json = (resp.data)[0];
-      // using map change images url
-      self.pdfImage = self.parent.getBookPath() + '/' + config.data.images + '/' + self.fileName + config.dataTypes.images[1];
-
-      audioPlayerService.init(self, getAudio());
-
-      if (self.json.interactType) {
-        self.showClass = true;
-      }
     };
 
     var autoStopAudio = function () {

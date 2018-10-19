@@ -37,7 +37,7 @@
     self.correct = false;
     self.error = false;
     // if util has data, just get it;
-    // self.json = util.getBookJson(self.levelid, self.pagenum);
+    // self.bookJson = util.getBookJson(self.levelid, self.pagenum);
 
     self.$onInit = function () {
       util.setBook(self);
@@ -46,8 +46,8 @@
     //if util already get data, don't run this function.
     self.setModels = function (book, json) {
       self.book = book;
-      self.json = json;
-      self.alphaPosition = self.json.orderInList;
+      self.bookJson = json;
+      self.alphaPosition = self.bookJson.orderInList;
 
 
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;

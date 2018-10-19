@@ -125,16 +125,34 @@
           }
         },
         {
-          name: 'root.wordbegin',
-          url: '/wordbegin',
-          component: 'appWordbegin',
-          resolve: resolve('wordbegin')
+          name: uiState.wordBegin.name,
+          url: uiState.wordBegin.url,
+          component: uiState.wordBegin.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
+            },
+            jsonData: config.ajax(config.dataPath['wordbegin'].json),
+            subData: config.ajax(config.dataPath['wordbegin'].data)
+          }
         },
         {
-          name: 'root.wordbeginpractice',
-          url: '/wordbeginpractice',
-          component: 'wordbeginPractice',
-          resolve: resolve('wordbegin')
+          name: uiState.wordBeginPractice.name,
+          url: uiState.wordBeginPractice.url,
+          component: uiState.wordBeginPractice.component,
+          resolve: {
+            levelid: function ($stateParams) {
+              return $stateParams.levelid;
+            },
+            pagenum: function ($stateParams) {
+              return $stateParams.pagenum;
+            },
+            jsonData: config.ajax(config.dataPath['wordbegin'].json),
+            subData: config.ajax(config.dataPath['wordbegin'].data)
+          }
         },
         {
           name: 'root.ebookbegin',

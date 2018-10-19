@@ -24,7 +24,7 @@
     self.answerAlphas = [];
     self.realAlphaClass = '';
     self.allCorrect = false;
-    //self.json = util.getBookJson(self.levelid, self.pagenum);
+    //self.bookJson = util.getBookJson(self.levelid, self.pagenum);
 
     // alpha list data directory hash names array
     self.book = util.getBookPagesName(self.levelid);
@@ -36,9 +36,9 @@
 
     self.setModels = function (book, json) {
       self.book = book;
-      self.json = json;
+      self.bookJson = json;
 
-      self.langs.name = self.json.practiceTitle;
+      self.langs.name = self.bookJson.practiceTitle;
       self.langs.selectAlpha = config.alphaLangs.selectAlpha;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
@@ -130,7 +130,7 @@
 
     var setAnswerAlphas = function () {
       //var position = Math.floor(Math.random() * (self.subData.length));self.subData.slice(order - 1, order)
-      testOriginAlpha = self.subData[self.json.orderInList - 1];
+      testOriginAlpha = self.subData[self.bookJson.orderInList - 1];
       testAlphas = testOriginAlpha.vowel;
       self.answerAlphas = angular.copy(testAlphas);
       self.realAlphaClass = sevenAlphaClass;

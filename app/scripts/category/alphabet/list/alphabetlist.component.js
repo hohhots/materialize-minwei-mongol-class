@@ -29,7 +29,7 @@
     // alpha list data directory hash names array
     self.book = util.getBookPagesName(self.levelid);
     // classroom directory hash name
-    self.json = util.getBookJson(self.levelid, self.pagenum);
+    self.bookJson = util.getBookJson(self.levelid, self.pagenum);
 
     self.$onInit = function () {
       util.setBook(self);
@@ -63,7 +63,7 @@
         ogv: url + config.data.videos + '/list' + config.dataTypes.videos[0],
         webm: url + config.data.videos + '/list' + config.dataTypes.videos[1]
       };
-      names.name = self.json.videoTitle;
+      names.name = self.bookJson.videoTitle;
       $scope.$broadcast(config.events.playIntroductionVideo, names);
     };
 
@@ -89,9 +89,9 @@
 
     self.setModels = function (book, json) {
       self.book = book;
-      self.json = json;
+      self.bookJson = json;
 
-      var order = self.json.orderInList;
+      var order = self.bookJson.orderInList;
       self.alphabets = self.subData.slice(order - 1, order);
     };
   };

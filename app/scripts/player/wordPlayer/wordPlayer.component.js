@@ -134,7 +134,6 @@
         audioDone = true;
         setClosePlayer();
       };
-      console.log(wordAudios);
       self.mediasUrl = { audios: wordAudios.word };
       $scope.$digest();
 

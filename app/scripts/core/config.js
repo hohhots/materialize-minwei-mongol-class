@@ -266,7 +266,9 @@
       alphaList: { name: 'root.alphalist', url: '/alphalist/{levelid}/{pagenum}', component: 'alphaList' },
       listPractice: { name: 'root.listpractice', url: '/listpractice/{levelid}/{pagenum}', component: 'listPractice' },
       alphaVariant: { name: 'root.alphavariant', url: '/alphavariant/{levelid}/{pagenum}', component: 'alphaVariant' },
-      variantPractice: { name: 'root.variantpractice', url: '/variantpractice/{levelid}/{pagenum}', component: 'variantPractice' }
+      variantPractice: { name: 'root.variantpractice', url: '/variantpractice/{levelid}/{pagenum}', component: 'variantPractice' },
+      wordBegin: { name: 'root.wordbegin', url: '/wordbegin/{levelid}/{pagenum}', component: 'wordBegin' },
+      wordBeginPractice: { name: 'root.wordbeginpractice', url: '/wordbeginpractice/{levelid}/{pagenum}', component: 'wordbeginPractice' }
     },
 
     //  set value in util file, and cache value.

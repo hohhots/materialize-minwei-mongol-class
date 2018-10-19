@@ -308,11 +308,11 @@
         var self = utils.self;
         var classes = utils.classes || self.classes;
 
-        if (!self.json) {
+        if (self.bookJson !== []) {
           var json = utils.getBooksUrl(self);
           $http.get(json, { cache: true }).then(utils.setJson);
         } else {
-          self.setModels(classes, self.json);
+          self.setModels(classes, self.bookJson);
         }
       },
 
