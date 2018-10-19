@@ -334,16 +334,16 @@
         return url;
       },
 
-      setBooksJson: function (levelid, classroomid, json) {
+      setBooksJson: function (levelid, pagenum, json) {
         if (!config.booksJson[levelid]) {
           config.booksJson[levelid] = {};
         }
-        config.booksJson[levelid][classroomid] = json;
+        config.booksJson[levelid][pagenum] = json;
       },
 
       getBookJson: function (levelid, pagenum) {
         try {
-          return config.booksJson.levelId.classroomid;
+          return config.booksJson.levelId.pagenum;
         } catch (error) {
           return '';
         }

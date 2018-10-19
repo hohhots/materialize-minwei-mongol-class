@@ -36,6 +36,8 @@
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
+
+    self.bookJson = [];
     // if util has data, just get it;
     // self.bookJson = util.getBookJson(self.levelid, self.pagenum);
 
