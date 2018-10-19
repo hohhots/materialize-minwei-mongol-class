@@ -16,16 +16,14 @@
     </button>
   </div>
 
-  <div ng-repeat="alpha in $ctrl.subData" class="w3-row w3-grayscale-min w3-center">
-    <div class="w3-row alphabetorigin-content">
-      <div ng-repeat="word in alpha.words" class="w3-padding w3-col s3 alpha5-col m1 l1">
-        <div ng-click="$ctrl.wordClick(word)" class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
-          <div ng-class="$ctrl.wordbeginWordClass">
-            <mon-word data-origintext="{{::word.word}}"></mon-word>
-          </div>
-          <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
-            <span class="wordbegin-cell">{{::word.meaning}}</span>
-          </div>
+  <div class="w3-row wordbegin-content {{::$ctrl.getWordsStyle()}}">
+    <div ng-repeat="word in $ctrl.words" class="w3-padding w3-col s3 alpha5-col m1 l1">
+      <div ng-click="$ctrl.wordClick(word)" class="wordbegin-view" ng-style="$ctrl.wordbeginView.styles">
+        <div ng-class="$ctrl.wordbeginWordClass">
+          <mon-word data-origintext="{{::word.word}}"></mon-word>
+        </div>
+        <div ng-hide="$ctrl.hideMean" class="w3-col s6 m6 l6 wordbegin-mean">
+          <span class="wordbegin-cell">{{::word.china}}</span>
         </div>
       </div>
     </div>

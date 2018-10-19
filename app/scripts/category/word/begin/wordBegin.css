@@ -1,3 +1,17 @@
+.wordbegin-content {
+  overflow: auto;
+  margin: 16px;
+  margin-top: 0;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: 100% !important;
+}
+
+.wordbegin-center {
+  display: flex;
+  justify-content: center;
+}
+
 .word-header {
   background-color: #87794e !important;
 }
@@ -46,6 +60,10 @@
 }
 
 @media (min-width:601px) {
+  .wordbegin-content {
+    width: 80% !important;
+  }
+
   .alpha-col.m1 {
     width: 14.28571%;
   }
@@ -56,6 +74,10 @@
 }
 
 @media (min-width:993px) {
+  .wordbegin-content {
+    width: 70% !important;
+  }
+
   .alpha-col.l1 {
     width: 14.28571%;
   }

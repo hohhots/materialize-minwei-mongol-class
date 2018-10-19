@@ -48,6 +48,247 @@ span {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hawang-a:before {
+  content: "\e400";
+}
+.hawang-a1:before {
+  content: "\e401";
+}
+.hawang-a2:before {
+  content: "\e402";
+}
+.hawang-a3:before {
+  content: "\e403";
+}
+.hawang-a4:before {
+  content: "\e404";
+}
+.hawang-e:before {
+  content: "\e409";
+}
+.hawang-e1:before {
+  content: "\e40a";
+}
+.hawang-i:before {
+  content: "\e413";
+}
+.hawang-i1:before {
+  content: "\e414";
+}
+.hawang-i2:before {
+  content: "\e415";
+}
+.hawang-i3:before {
+  content: "\e416";
+}
+.hawang-o:before {
+  content: "\e41e";
+}
+.hawang-o1:before {
+  content: "\e41f";
+}
+.hawang-o2:before {
+  content: "\e420";
+}
+.hawang-o3:before {
+  content: "\e421";
+}
+.hawang-u:before {
+  content: "\e427";
+}
+.hawang-u1:before {
+  content: "\e428";
+}
+.hawang-na:before {
+  content: "\e432";
+}
+.hawang-na1:before {
+  content: "\e433";
+}
+.hawang-na2:before {
+  content: "\e434";
+}
+.hawang-na3:before {
+  content: "\e435";
+}
+.hawang-na4:before {
+  content: "\e436";
+}
+.hawang-ni:before {
+  content: "\e43b";
+}
+.hawang-ni1:before {
+  content: "\e43c";
+}
+.hawang-ni2:before {
+  content: "\e43d";
+}
+.hawang-ni3:before {
+  content: "\e43e";
+}
+.hawang-no:before {
+  content: "\e445";
+}
+.hawang-no1:before {
+  content: "\e446";
+}
+.hawang-no2:before {
+  content: "\e447";
+}
+.hawang-no3:before {
+  content: "\e448";
+}
+.hawang-nu:before {
+  content: "\e44f";
+}
+.hawang-nu1:before {
+  content: "\e450";
+}
+.hawang-ba:before {
+  content: "\e459";
+}
+.hawang-ba1:before {
+  content: "\e45a";
+}
+.hawang-ba2:before {
+  content: "\e45b";
+}
+.hawang-ba3:before {
+  content: "\e45c";
+}
+.hawang-bi:before {
+  content: "\e463";
+}
+.hawang-bi1:before {
+  content: "\e464";
+}
+.hawang-bi2:before {
+  content: "\e465";
+}
+.hawang-bi3:before {
+  content: "\e466";
+}
+.hawang-bo:before {
+  content: "\e46d";
+}
+.hawang-bo1:before {
+  content: "\e46e";
+}
+.hawang-bo2:before {
+  content: "\e46f";
+}
+.hawang-bo3:before {
+  content: "\e470";
+}
+.hawang-bu:before {
+  content: "\e477";
+}
+.hawang-bu1:before {
+  content: "\e478";
+}
+.hawang-pa:before {
+  content: "\e47b";
+}
+.hawang-pa1:before {
+  content: "\e47c";
+}
+.hawang-pa2:before {
+  content: "\e47d";
+}
+.hawang-pa3:before {
+  content: "\e47e";
+}
+.hawang-pi:before {
+  content: "\e483";
+}
+.hawang-pi1:before {
+  content: "\e484";
+}
+.hawang-pi2:before {
+  content: "\e485";
+}
+.hawang-pi3:before {
+  content: "\e486";
+}
+.hawang-po:before {
+  content: "\e48a";
+}
+.hawang-po1:before {
+  content: "\e48b";
+}
+.hawang-po2:before {
+  content: "\e48c";
+}
+.hawang-po3:before {
+  content: "\e48d";
+}
+.hawang-pu:before {
+  content: "\e491";
+}
+.hawang-pu1:before {
+  content: "\e492";
+}
+.hawang-ha:before {
+  content: "\e496";
+}
+.hawang-ha1:before {
+  content: "\e497";
+}
+.hawang-ha2:before {
+  content: "\e498";
+}
+.hawang-ha3:before {
+  content: "\e499";
+}
+.hawang-he:before {
+  content: "\e49d";
+}
+.hawang-he1:before {
+  content: "\e49e";
+}
+.hawang-he2:before {
+  content: "\e49f";
+}
+.hawang-he3:before {
+  content: "\e4a0";
+}
+.hawang-hi:before {
+  content: "\e4a3";
+}
+.hawang-hi1:before {
+  content: "\e4a4";
+}
+.hawang-hi2:before {
+  content: "\e4a5";
+}
+.hawang-hi3:before {
+  content: "\e4a6";
+}
+.hawang-ho:before {
+  content: "\e4a9";
+}
+.hawang-ho1:before {
+  content: "\e4aa";
+}
+.hawang-ho2:before {
+  content: "\e4ab";
+}
+.hawang-ho3:before {
+  content: "\e4ac";
+}
+.hawang-hu:before {
+  content: "\e4af";
+}
+.hawang-hu1:before {
+  content: "\e4b0";
+}
+.hawang-hu2:before {
+  content: "\e4b1";
+}
+.hawang-hu3:before {
+  content: "\e4b2";
+}
+
 .hawang-wa:before {
   content: "\e592";
 }
@@ -497,247 +738,4 @@ span {
 }
 .hawang-go3:before {
   content: "\e4be";
-}
-.hawang-ha:before {
-  content: "\e496";
-}
-.hawang-ha1:before {
-  content: "\e497";
-}
-.hawang-ha2:before {
-  content: "\e498";
-}
-.hawang-ha3:before {
-  content: "\e499";
-}
-.hawang-he:before {
-  content: "\e49d";
-}
-.hawang-he1:before {
-  content: "\e49e";
-}
-.hawang-he2:before {
-  content: "\e49f";
-}
-.hawang-he3:before {
-  content: "\e4a0";
-}
-.hawang-hi:before {
-  content: "\e4a3";
-}
-.hawang-hi1:before {
-  content: "\e4a4";
-}
-.hawang-hi2:before {
-  content: "\e4a5";
-}
-.hawang-hi3:before {
-  content: "\e4a6";
-}
-.hawang-ho:before {
-  content: "\e4a9";
-}
-.hawang-ho1:before {
-  content: "\e4aa";
-}
-.hawang-ho2:before {
-  content: "\e4ab";
-}
-.hawang-ho3:before {
-  content: "\e4ac";
-}
-.hawang-hu:before {
-  content: "\e4af";
-}
-.hawang-hu1:before {
-  content: "\e4b0";
-}
-.hawang-hu2:before {
-  content: "\e4b1";
-}
-.hawang-hu3:before {
-  content: "\e4b2";
-}
-.hawang-pa:before {
-  content: "\e47b";
-}
-.hawang-pa1:before {
-  content: "\e47c";
-}
-.hawang-pa2:before {
-  content: "\e47d";
-}
-.hawang-pa3:before {
-  content: "\e47e";
-}
-.hawang-pi:before {
-  content: "\e483";
-}
-.hawang-pi1:before {
-  content: "\e484";
-}
-.hawang-pi2:before {
-  content: "\e485";
-}
-.hawang-pi3:before {
-  content: "\e486";
-}
-.hawang-po:before {
-  content: "\e48a";
-}
-.hawang-po1:before {
-  content: "\e48b";
-}
-.hawang-po2:before {
-  content: "\e48c";
-}
-.hawang-po3:before {
-  content: "\e48d";
-}
-.hawang-pu:before {
-  content: "\e491";
-}
-.hawang-pu1:before {
-  content: "\e492";
-}
-.hawang-ba:before {
-  content: "\e459";
-}
-.hawang-ba1:before {
-  content: "\e45a";
-}
-.hawang-ba2:before {
-  content: "\e45b";
-}
-.hawang-ba3:before {
-  content: "\e45c";
-}
-.hawang-bi:before {
-  content: "\e463";
-}
-.hawang-bi1:before {
-  content: "\e464";
-}
-.hawang-bi2:before {
-  content: "\e465";
-}
-.hawang-bi3:before {
-  content: "\e466";
-}
-.hawang-bo:before {
-  content: "\e46d";
-}
-.hawang-bo1:before {
-  content: "\e46e";
-}
-.hawang-bo2:before {
-  content: "\e46f";
-}
-.hawang-bo3:before {
-  content: "\e470";
-}
-.hawang-bu:before {
-  content: "\e477";
-}
-.hawang-bu1:before {
-  content: "\e478";
-}
-.hawang-na:before {
-  content: "\e432";
-}
-.hawang-na1:before {
-  content: "\e433";
-}
-.hawang-na2:before {
-  content: "\e434";
-}
-.hawang-na3:before {
-  content: "\e435";
-}
-.hawang-na4:before {
-  content: "\e436";
-}
-.hawang-ni:before {
-  content: "\e43b";
-}
-.hawang-ni1:before {
-  content: "\e43c";
-}
-.hawang-ni2:before {
-  content: "\e43d";
-}
-.hawang-ni3:before {
-  content: "\e43e";
-}
-.hawang-no:before {
-  content: "\e445";
-}
-.hawang-no1:before {
-  content: "\e446";
-}
-.hawang-no2:before {
-  content: "\e447";
-}
-.hawang-no3:before {
-  content: "\e448";
-}
-.hawang-nu:before {
-  content: "\e44f";
-}
-.hawang-nu1:before {
-  content: "\e450";
-}
-.hawang-a:before {
-  content: "\e400";
-}
-.hawang-a1:before {
-  content: "\e401";
-}
-.hawang-a2:before {
-  content: "\e402";
-}
-.hawang-a3:before {
-  content: "\e403";
-}
-.hawang-a4:before {
-  content: "\e404";
-}
-.hawang-e:before {
-  content: "\e409";
-}
-.hawang-e1:before {
-  content: "\e40a";
-}
-.hawang-i:before {
-  content: "\e413";
-}
-.hawang-i1:before {
-  content: "\e414";
-}
-.hawang-i2:before {
-  content: "\e415";
-}
-.hawang-i3:before {
-  content: "\e416";
-}
-.hawang-o:before {
-  content: "\e41d";
-}
-.hawang-o1:before {
-  content: "\e41e";
-}
-.hawang-o2:before {
-  content: "\e41f";
-}
-.hawang-o3:before {
-  content: "\e420";
-}
-.hawang-o4:before {
-  content: "\e421";
-}
-.hawang-u:before {
-  content: "\e427";
-}
-.hawang-u1:before {
-  content: "\e428";
 }

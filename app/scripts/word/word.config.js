@@ -143,7 +143,7 @@
   var alphaVariantNamesMap3 = alphaVariantNamesMap2;
   var alphaVariantNamesMap4 = alphaVariantNamesMap3;
 
-  function setMonWord(str, div) {
+  function setMonWord(str, div) {console.log(str, div);
     $.each(config.wordToReplaceMap, function (key, value) {
       var replace = key;
       var re = new RegExp(key, "g");

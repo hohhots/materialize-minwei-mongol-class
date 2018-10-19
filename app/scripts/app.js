@@ -135,8 +135,7 @@
             pagenum: function ($stateParams) {
               return $stateParams.pagenum;
             },
-            jsonData: config.ajax(config.dataPath['wordbegin'].json),
-            subData: config.ajax(config.dataPath['wordbegin'].data)
+            jsonData: config.ajax(config.dataPath['wordbegin'].json)
           }
         },
         {

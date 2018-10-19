@@ -10,8 +10,7 @@
     bindings: {
       levelid: '<',
       pagenum: '<',
-      jsonData: '<',
-      subData: '<'
+      jsonData: '<'
     },
     controller: ['$scope', '$element', '$interval', 'Config', 'Util', 'Json', controller]
   });
@@ -28,6 +27,18 @@
     self.wordbeginView = {};
     self.wordbeginView.styles = {};
     self.wordbeginWordClass = '';
+
+    self.bookJson = util.getBookJson(self.levelid, self.pagenum);
+
+    self.$onInit = function () {
+      util.setBook(self);
+    };
+
+    self.setModels = function (book, json) {
+      self.bookJson = json;
+
+      self.words = self.bookJson.words;
+    };
 
     self.translateClick = function () {
       self.hideMean = !self.hideMean;
@@ -66,6 +77,12 @@
 
     self.practiceClick = function () {
       util.changePath(config.pagesUrl.wordbeginPractice);
+    };
+
+    self.getWordsStyle = function () {
+      if (self.bookJson && (self.words.length < 5)) {
+        return 'wordbegin-center';
+      }
     };
 
     var viewWidth = 72;
