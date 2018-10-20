@@ -143,7 +143,7 @@
   var alphaVariantNamesMap3 = alphaVariantNamesMap2;
   var alphaVariantNamesMap4 = alphaVariantNamesMap3;
 
-  function setMonWord(str, div) {console.log(str, div);
+  function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
       var replace = key;
       var re = new RegExp(key, "g");
@@ -165,19 +165,19 @@
 
     switch (position) {
       case '0':
-        converted = alphaOriginNamesMap[code];
+        converted = alphaOriginNamesMap[name];
         break;
       case '1':
-        converted = alphaVariantNamesMap1[code];
+        converted = alphaVariantNamesMap1[name];
         break;
       case '2':
-        converted = alphaVariantNamesMap2[code];
+        converted = alphaVariantNamesMap2[name];
         break;
       case '3':
-        converted = alphaVariantNamesMap3[code];
+        converted = alphaVariantNamesMap3[name];
         break;
       default:
-        converted = alphaListNamesMap[code];
+        converted = alphaListNamesMap[name];
     }
     
     if (converted) {
