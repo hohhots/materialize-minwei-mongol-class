@@ -1,9 +1,12 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "t21g22y24", "china": "好的"},
+      { "word": "h21j32y24", "china": "何时"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]

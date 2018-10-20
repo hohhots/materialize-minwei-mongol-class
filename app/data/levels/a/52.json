@@ -1,9 +1,13 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "a11g12s33", "china": "脾气"},
+      { "word": "h11s32y14", "china": "栅栏"},
+      { "word": "a21j33", "china": "妈妈"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]
