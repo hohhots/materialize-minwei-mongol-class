@@ -277,7 +277,10 @@
 
   // 'name' format is like 'a' 'e' 'ji' 'go'
   // return 'a10' 'e10' 'j10' 'g40'
-  function convertAlphaNameToCode(name) {
+  function convertAlphaNameToCode(name, position) {
+    if (position) {
+      name += position;
+    }
     var code = '';
 
     $.each(config.wordToReplaceMap, function (key, value) {

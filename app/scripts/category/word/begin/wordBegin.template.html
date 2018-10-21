@@ -6,13 +6,16 @@
 
   <div class="w3-container w3-center alphabetorigin-intro">
     <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.introductionClick()">
-      {{::$ctrl.introduction}}
+      {{::$ctrl.langs.introduction}}
     </button>
     <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.translateClick()">
-      {{::$ctrl.translate}}
+      {{::$ctrl.langs.translate}}
     </button>
     <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.practiceClick()">
-      {{::$ctrl.practice}}
+      {{::$ctrl.langs.practice}}
+    </button>
+    <button class="w3-btn w3-teal margin-8" ng-click="$ctrl.backClick()">
+      {{::$ctrl.langs.back}}
     </button>
   </div>
 

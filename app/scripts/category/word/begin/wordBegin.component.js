@@ -12,17 +12,19 @@
       pagenum: '<',
       jsonData: '<'
     },
-    controller: ['$scope', '$element', '$interval', 'Config', 'Util', 'Json', controller]
+    controller: ['$scope', '$state', '$element', '$interval', 'Config', 'Util', 'Json', controller]
   });
 
-  function controller($scope, $element, $interval, config, util, json) {
+  function controller($scope, $state, $element, $interval, config, util, json) {
     var self = this;
 
     // variable for outside access 
     self.templateUrl = config.templateUrl.wordBegin;
-    self.introduction = config.alphaLangs.introduction;
-    self.translate = config.alphaLangs.translate;
-    self.practice = config.alphaLangs.practice;
+    self.langs = {};
+    self.langs.introduction = config.alphaLangs.introduction;
+    self.langs.translate = config.alphaLangs.translate;
+    self.langs.practice = config.alphaLangs.practice;
+    self.langs.back = config.alphaLangs.back;
     self.hideMean = true;
     self.wordbeginView = {};
     self.wordbeginView.styles = {};
@@ -76,7 +78,12 @@
     };
 
     self.practiceClick = function () {
-      util.changePath(config.pagesUrl.wordbeginPractice);
+      //util.changePath(config.pagesUrl.wordbeginPractice);
+      $state.go(config.uiState.wordBeginPractice.name, {levelid: self.levelid, pagenum: self.pagenum});
+    };
+
+    self.backClick = function () {
+      $state.go(config.uiState.books.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
     self.getWordsStyle = function () {

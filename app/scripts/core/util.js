@@ -90,11 +90,11 @@
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertVariantNameToCode: function (name, position) {
-        var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position));
-
-        if (temp != '') {
-          temp = temp.substr(0, 2) + position;
-        }
+        var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position), position);
+        //console.log(name, position, this.convertAlphaName(name, position));
+        //if (temp != '') {
+        //  temp = temp.substr(0, 2) + position;
+        //}
 
         if ((position == 4) && (!wordConfig.fourthAlphaExist(temp))) {
           temp = '';
