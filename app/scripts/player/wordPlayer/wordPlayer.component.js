@@ -130,15 +130,24 @@
     function playWholeAudio() {
       audioDone = false;
 
-      audioElem.onended = function () {
-        audioDone = true;
-        setClosePlayer();
+      audioElem.onended = done;
+
+      audioElem.onerror = function () {
+        console.log('ddd');
       };
+
       self.mediasUrl = { audios: wordAudios.word };
       $scope.$digest();
 
       audioElem.load();
       audioElem.play();
+
+      setTimeout(done, 2000);
+
+      function done() {
+        audioDone = true;
+        setClosePlayer();
+      }
     }
 
     function setWordAudios(word) {
