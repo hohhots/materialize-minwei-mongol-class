@@ -8,8 +8,9 @@
   app.component('wordbeginPractice', {
     template: '<div ng-include="$ctrl.templateUrl"></div>',
     bindings: {
-      jsonData: '<',
-      subData: '<'
+      levelid: '<',
+      pagenum: '<',
+      jsonData: '<'
     },
     controller: [
       '$scope',
@@ -25,7 +26,7 @@
       controller]
   });
 
-  function controller($scope, $state, $element, $location, $interval, $timeout, config, wordConfig, util, json) {
+  function controller($scope, $state, $element, $location, $interval, $timeout, config, wordConfig, util) {
     var self = this;
 
     //define self variables
@@ -34,20 +35,29 @@
     self.allCorrect = false;
     self.originWord = '';
     self.answerWord = '';
-    self.answerCorrect = false;    
-    
+    self.answerCorrect = false;
+    self.OriginWordNum = 0;
+
+    self.bookJson = util.getBookJson(self.levelid, self.pagenum);
+
     self.$onInit = function () {
       self.pageLangs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.pageLangs.exit = config.alphaLangs.exit;
       self.pageLangs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
       self.pageLangs.nextTest = config.alphaLangs.nextTest;
-      
-      practiceWords = self.subData[0].words;      
-      setOriginWordRandom();
+
+      util.setBook(self);
+    };
+
+    self.setModels = function (book, json) {
+      self.bookJson = json;
+
+      practiceWords = self.bookJson.words;
+      setOriginWord();
     };
 
     self.exitPractice = function () {
-      util.changePath(config.pagesUrl.wordBegin);
+      $state.go(config.uiState.wordBegin.name, { levelid: self.levelid, pagenum: self.pagenum });
     };
 
     self.wordClick = function () {
@@ -58,13 +68,13 @@
       $scope.$broadcast(config.events.startWordIme, self.originWord);
     };
 
-    self.getAnswerClass = function() {
+    self.getAnswerClass = function () {
       if (self.answerWord == '') {
         return '';
       }
 
       var cssClass = '';
-      
+
       if (self.answerCorrect) {
         cssClass = 'wordbeginpractice-right';
       } else {
@@ -75,14 +85,24 @@
     }
 
     self.nextTestClick = function () {
-      $state.reload();
+      ++self.OriginWordNum;
+      self.answerCorrect = false;
+      self.answerWord = '';
+
+      setOriginWord();
+    };
+
+    self.getPracticeCount = function () {
+      return practiceWords.length;
     };
 
     var practiceWords = [];
 
-    function setOriginWordRandom () {
-      var position = Math.floor(Math.random() * (practiceWords.length));
-      self.originWord = practiceWords[position].word;
+    function setOriginWord() {
+      if ((self.OriginWordNum < 0) || (self.OriginWordNum >= practiceWords.length)) {
+        self.OriginWordNum = 0;
+      }
+      self.originWord = practiceWords[self.OriginWordNum].word;
     }
 
     function wordImeDone(event, word) {
@@ -91,12 +111,7 @@
     }
 
     function checkAnswerCorrect() {
-      //wordConfig.setMonWord(self.origintext)
-      //self.originWord = '';
-      //self.answerWord = '';
-      console.log();
-      console.log();
-      if ( wordConfig.setMonWord(self.originWord) == wordConfig.setMonWord(self.answerWord) ) {
+      if (wordConfig.setMonWord(self.originWord) === wordConfig.setMonWord(self.answerWord)) {
         self.answerCorrect = true;
       } else {
         self.answerCorrect = false;

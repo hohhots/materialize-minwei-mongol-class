@@ -78,7 +78,6 @@
     };
 
     self.practiceClick = function () {
-      //util.changePath(config.pagesUrl.wordbeginPractice);
       $state.go(config.uiState.wordBeginPractice.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 

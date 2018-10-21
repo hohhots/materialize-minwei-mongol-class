@@ -110,7 +110,7 @@
       checkAnswer: '检查答案',
       originAlphaFilterTitle: '筛选字母',
       notSupportHtml5Audio: '您的浏览器不支持 HTML5 播放音频。',
-      nextTest: '下一练习',
+      nextTest: '下一个',
       testAgain: '重复练习',
       top: '首',
       middle: '中',

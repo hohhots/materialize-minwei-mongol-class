@@ -16,7 +16,6 @@
       </div>
 
       <div class="originpractice-text">
-        <p>（共15个练习，每次随机显示其中之一。）</p>
         <br />
         <p>单击下面蒙古文单词参考学习，单击字母右面的空白方块输入正确的单词。</p>
       </div>
@@ -25,7 +24,7 @@
         <div class="w3-col s3">&nbsp;</div>
         <div class="w3-col s3">
           <div ng-click="$ctrl.wordClick()" class="w3-margin-top w3-margin-bottom wordbeginpractice-word-container">
-            <mon-word data-origintext="{{::$ctrl.originWord}}"></mon-word>
+            <mon-word data-origintext="{{$ctrl.originWord}}"></mon-word>
           </div>
         </div>
         <div class="w3-col s3">
@@ -42,6 +41,7 @@
         </button>
       </div>
 
+      <p>练习 {{$ctrl.OriginWordNum + 1}}，共 {{$ctrl.getPracticeCount()}} 个</p>
     </div>
   </div>
 </div>
