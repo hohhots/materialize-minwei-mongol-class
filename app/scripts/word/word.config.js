@@ -89,13 +89,13 @@
     we1: 'e599', we2: 'e59a', we3: 'e59b'
   };
 
-  var alphaListNamesMap = {
+  var alphaOriginNamesMap = {
     o2: 'o', u2: 'u',
     ne: 'na', no2: 'no', nu2: 'nu',
     be: 'ba', bo2: 'bo', bu2: 'bu',
     pe: 'pa', po2: 'po', pu2: 'pu',
     ho2: 'ho', hu2: 'hu',
-    go2: 'go', gu2: 'gu',
+    ge: 'he', gi: 'hi', go2: 'go', gu: 'hu', gu2: 'hu',
     me: 'ma', mo2: 'mo', mu2: 'mu',
     le: 'la', lo2: 'lo', lu2: 'lu',
     se: 'sa', so2: 'so', su2: 'su',
@@ -109,21 +109,12 @@
     we: 'wa'
   };
 
-  var alphaOriginNamesMap = $.extend({}, alphaListNamesMap, {
-    ge: 'he', gi: 'hi', gu: 'hu', gu2: 'hu'
-  });
-
   var alphaVariantNamesMap1 = {};
 
-  $.each(alphaOriginNamesMap, function (key, val) {
-    if (key != 'we') {
-      alphaVariantNamesMap1[key] = val;
-    }
-  });
-
-  alphaVariantNamesMap1 = $.extend({}, alphaVariantNamesMap1, {
+  alphaVariantNamesMap1 = $.extend({}, alphaOriginNamesMap, {
     da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
   });
+  delete alphaVariantNamesMap1.we;
 
   var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
@@ -135,13 +126,14 @@
     su: 'so', su2: 'so',
     xu: 'xo', xu2: 'xo',
     tu: 'to', tu2: 'to',
+    du: 'to', du2: 'to',
     qu: 'qo', qu2: 'qo',
     ju: 'jo', ju2: 'jo',
     yu: 'yo', yu2: 'yo',
     ru: 'ro', ru2: 'ro'
   });
-  var alphaVariantNamesMap3 = alphaVariantNamesMap2;
-  var alphaVariantNamesMap4 = alphaVariantNamesMap3;
+  var alphaVariantNamesMap3 = $.extend({},alphaVariantNamesMap2);
+  var alphaVariantNamesMap4 = $.extend({},alphaVariantNamesMap2);
 
   function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
@@ -159,8 +151,8 @@
 
   // convert a0 a1 a2 a3 to a a1 a2 a3
   function convertAlphas(code) {
-    var position = code.substring(code.length - 1);
     var name = code.substring(0, code.length - 1);
+    var position = code.substring(code.length - 1);
     var converted = '';
 
     switch (position) {
@@ -177,7 +169,6 @@
         converted = alphaVariantNamesMap3[name];
         break;
       default:
-        converted = alphaListNamesMap[name];
     }
     
     if (converted) {
@@ -221,7 +212,6 @@
         });
       });
     });
-    //config.wordToReplaceMap['w20'] = 'we';
   }
 
   function createFourthAlphas() {
@@ -312,7 +302,6 @@
     fourthAlphaExist: fourthAlphaExist,
     setMonWord: setMonWord,
     convertAlphaNameToCode: convertAlphaNameToCode,
-    alphaListNamesMap: alphaListNamesMap,
     alphaOriginNamesMap: alphaOriginNamesMap,
     alphaVariantNamesMap1: alphaVariantNamesMap1,
     alphaVariantNamesMap2: alphaVariantNamesMap2,

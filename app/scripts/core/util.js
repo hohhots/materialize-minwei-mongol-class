@@ -51,7 +51,7 @@
         var temp = '';
         switch (variantPosition) {
           case 0:
-            temp = wordConfig.alphaListNamesMap[alphaName];
+            temp = wordConfig.alphaOriginNamesMap[alphaName];
             break;
           case 1:
             temp = wordConfig.alphaVariantNamesMap1[alphaName];
