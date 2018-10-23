@@ -109,14 +109,16 @@
     we: 'wa'
   };
 
-  var alphaVariantNamesMap1 = {};
-
-  alphaVariantNamesMap1 = $.extend({}, alphaOriginNamesMap, {
+  var alphaVariantNamesMap1 = $.extend({}, alphaOriginNamesMap, {
     da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
   });
   delete alphaVariantNamesMap1.we;
 
-  var alphaVariantNamesMap2 = $.extend({}, alphaVariantNamesMap1, {
+  var alphaVariantNamesMap2 = {};
+  var alphaVariantNamesMap3 = {};
+
+  // alphaVariantNamesMap2
+  var alphaVariantNamesMap4 = $.extend({}, alphaVariantNamesMap1, {
     e: 'a', u: 'o', u2: 'o',
     nu: 'no', nu2: 'no',
     bu: 'bo', bu2: 'bo',
@@ -132,8 +134,16 @@
     yu: 'yo', yu2: 'yo',
     ru: 'ro', ru2: 'ro'
   });
-  var alphaVariantNamesMap3 = $.extend({},alphaVariantNamesMap2);
-  var alphaVariantNamesMap4 = $.extend({},alphaVariantNamesMap2);
+
+  var alphaVariantNamesMap5 = {};
+  var alphaVariantNamesMap6 = {};
+
+  // alphaVariantNamesMap3
+  var alphaVariantNamesMap7 = $.extend({},alphaVariantNamesMap4);
+  // alphaVariantNamesMap4
+  var alphaVariantNamesMap8 = $.extend({},alphaVariantNamesMap4);
+  var alphaVariantNamesMap9 = {};
+
 
   function setMonWord(str, div) {
     $.each(config.wordToReplaceMap, function (key, value) {
@@ -168,6 +178,24 @@
       case '3':
         converted = alphaVariantNamesMap3[name];
         break;
+      case '4':
+        converted = alphaVariantNamesMap4[name];
+        break;
+      case '5':
+        converted = alphaVariantNamesMap5[name];
+        break;
+      case '6':
+        converted = alphaVariantNamesMap6[name];
+        break;
+      case '7':
+        converted = alphaVariantNamesMap7[name];
+        break;
+      case '8':
+        converted = alphaVariantNamesMap8[name];
+        break;
+      case '9':
+        converted = alphaVariantNamesMap9[name];
+        break;
       default:
     }
     
@@ -184,7 +212,7 @@
     return converted;
   };
 
-  var fontPosition = [0, 1, 2, 3];
+  var fontPosition = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
   var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
@@ -215,18 +243,18 @@
   }
 
   function createFourthAlphas() {
-    config.wordToReplaceMap['a14'] = 'a4';
-    config.wordToReplaceMap['n14'] = 'na4';
-    config.wordToReplaceMap['n24'] = 'na4';
-    config.wordToReplaceMap['m14'] = 'ma4';
-    config.wordToReplaceMap['m24'] = 'ma4';
-    config.wordToReplaceMap['l14'] = 'la4';
-    config.wordToReplaceMap['l24'] = 'la4';
-    config.wordToReplaceMap['y14'] = 'ya4';
-    config.wordToReplaceMap['y24'] = 'ya4';
-    config.wordToReplaceMap['r14'] = 'ra4';
-    config.wordToReplaceMap['r24'] = 'ra4';
-    config.wordToReplaceMap['w14'] = 'wa4';
+    config.wordToReplaceMap['a18'] = 'a8';
+    config.wordToReplaceMap['n18'] = 'na8';
+    config.wordToReplaceMap['n28'] = 'na8';
+    config.wordToReplaceMap['m18'] = 'ma8';
+    config.wordToReplaceMap['m28'] = 'ma8';
+    config.wordToReplaceMap['l18'] = 'la8';
+    config.wordToReplaceMap['l28'] = 'la8';
+    config.wordToReplaceMap['y18'] = 'ya8';
+    config.wordToReplaceMap['y28'] = 'ya8';
+    config.wordToReplaceMap['r18'] = 'ra8';
+    config.wordToReplaceMap['r28'] = 'ra8';
+    config.wordToReplaceMap['w18'] = 'wa8';
   }
 
   //listalpha format is like 'a10' 'b20' 's30'
@@ -292,6 +320,7 @@
   }
 
   var config = {
+    convertAlphas: convertAlphas,
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
     wordToReplaceMap: {},
@@ -306,14 +335,19 @@
     alphaVariantNamesMap1: alphaVariantNamesMap1,
     alphaVariantNamesMap2: alphaVariantNamesMap2,
     alphaVariantNamesMap3: alphaVariantNamesMap3,
-    alphaVariantNamesMap4: alphaVariantNamesMap4
+    alphaVariantNamesMap4: alphaVariantNamesMap4,
+    alphaVariantNamesMap5: alphaVariantNamesMap5,
+    alphaVariantNamesMap6: alphaVariantNamesMap6,
+    alphaVariantNamesMap7: alphaVariantNamesMap7,
+    alphaVariantNamesMap8: alphaVariantNamesMap8,
+    alphaVariantNamesMap9: alphaVariantNamesMap9
   };
 
   createVowelPosition();
   createConsnantPosition();
 
   createFourthAlphas();
-
+console.log(config.wordToReplaceMap);
   angular.module('app.word').
     constant('wordConfig', config);
 
