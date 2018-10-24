@@ -46,30 +46,16 @@
         return gender;
       },
 
+      // a1 a; a2 a; a3 a; a4 a
+      // be1 ba; be2 ba; be3 ba; be4 ba
       convertAlphaName: function (alphaName, variantPosition) {
         variantPosition = variantPosition || 0;
-        var temp = '';
-        switch (variantPosition) {
-          case 0:
-            temp = wordConfig.alphaOriginNamesMap[alphaName];
-            break;
-          case 1:
-            temp = wordConfig.alphaVariantNamesMap1[alphaName];
-            break;
-          case 2:
-            temp = wordConfig.alphaVariantNamesMap2[alphaName];
-            break;
-          case 3:
-            temp = wordConfig.alphaVariantNamesMap3[alphaName];
-            break;
-          case 4:
-            temp = wordConfig.alphaVariantNamesMap4[alphaName];
-            break;
-          default:
-        }
+
+        var temp = wordConfig.getAlphaMapName(alphaName, variantPosition);
         if (temp) {
           alphaName = temp;
         }
+
         return alphaName;
       },
 
@@ -91,10 +77,6 @@
       // return 'a10' 'e10' 'j10' 'g40'
       convertVariantNameToCode: function (name, position) {
         var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position), position);
-        //console.log(name, position, this.convertAlphaName(name, position));
-        //if (temp != '') {
-        //  temp = temp.substr(0, 2) + position;
-        //}
 
         if ((position == 4) && (!wordConfig.fourthAlphaExist(temp))) {
           temp = '';
