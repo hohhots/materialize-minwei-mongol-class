@@ -4,7 +4,7 @@
 
   var wordContainerCellClass = '.word-container-cell';
 
-  var wordToReplaceMap = {};
+  var codeToWordMaps = {};
 
   var unicodeMap = {
     a: 'e400', a1: 'e401', a2: 'e402', a3: 'e403', a4: 'e404',
@@ -139,7 +139,7 @@
   function createVowelPosition() {
     $.each(vowels, function (index, vowel) {
       $.each(fontPosition, function (index1, position) {
-        wordToReplaceMap['a' + (index + 1) + position] = convertAlphas(vowel + position);
+        codeToWordMaps['a' + (index + 1) + position] = convertAlphas(vowel + position);
       });
     });
   }
@@ -152,25 +152,25 @@
           return;
         }
         $.each(fontPosition, function (index2, position) {
-          wordToReplaceMap[letter + (index + 1) + position] = convertAlphas(letter + vowel + position);
+          codeToWordMaps[letter + (index + 1) + position] = convertAlphas(letter + vowel + position);
         });
       });
     });
   }
 
   function createFourthAlphas() {
-    wordToReplaceMap.a14 = 'a4';
-    wordToReplaceMap.n14 = 'na4';
-    wordToReplaceMap.n24 = 'na4';
-    wordToReplaceMap.m14 = 'ma4';
-    wordToReplaceMap.m24 = 'ma4';
-    wordToReplaceMap.l14 = 'la4';
-    wordToReplaceMap.l24 = 'la4';
-    wordToReplaceMap.y14 = 'ya4';
-    wordToReplaceMap.y24 = 'ya4';
-    wordToReplaceMap.r14 = 'ra4';
-    wordToReplaceMap.r24 = 'ra4';
-    wordToReplaceMap.w14 = 'wa4';
+    codeToWordMaps.a14 = 'a4';
+    codeToWordMaps.n14 = 'na4';
+    codeToWordMaps.n24 = 'na4';
+    codeToWordMaps.m14 = 'ma4';
+    codeToWordMaps.m24 = 'ma4';
+    codeToWordMaps.l14 = 'la4';
+    codeToWordMaps.l24 = 'la4';
+    codeToWordMaps.y14 = 'ya4';
+    codeToWordMaps.y24 = 'ya4';
+    codeToWordMaps.r14 = 'ra4';
+    codeToWordMaps.r24 = 'ra4';
+    codeToWordMaps.w14 = 'wa4';
   }
 
   function createWordsMap() {
@@ -181,10 +181,9 @@
   }
 
   function setMonWord(str, div) {
-    $.each(wordToReplaceMap, function (key, value) {
+    $.each(codeToWordMaps, function (key, value) {
       var re = new RegExp(key, "g");
       if (div) {
-        //str = str.replace(re, '<span class="hawang-' + value + '"></span>');
         str = str.replace(re, String.fromCharCode(parseInt(unicodeMap[value], 16)));
       } else {
         str = str.replace(re, value);
@@ -228,7 +227,7 @@
   function getAlphaAllVariants(listalpha) {
     var prefix = listalpha.substr(0, 2);
     var lists = [listalpha, prefix + '1', prefix + '2', prefix + '3'];
-    if (wordToReplaceMap[prefix + '4']) {
+    if (codeToWordMaps[prefix + '4']) {
       lists.push(prefix + '4');
     }
     return lists;
@@ -236,17 +235,17 @@
 
   // Convert a11 to e9da
   function getUnicode(alpha) {
-    return unicodeMap[wordToReplaceMap[alpha]];
+    return unicodeMap[codeToWordMaps[alpha]];
   }
 
   // Convert e9da to a11
   function getMongolCode(unicode) {
     var code = '';
-    var positionCode = '';
+
     $.each(unicodeMap, function (k, v) {
       if (unicode.charCodeAt(0).toString(16) == v) {
         positionCode = k;
-        $.each(wordToReplaceMap, function (k1, v1) {
+        $.each(codeToWordMaps, function (k1, v1) {
           if (k == v1) {
             code = k1;
             // Exit each() loop.
@@ -280,8 +279,8 @@
     return temp;
   }
 
-  function fourthAlphaExist(alpha) {
-    if (wordToReplaceMap[alpha]) {
+  function alphaCodeExist(alpha) {
+    if (codeToWordMaps[alpha]) {
       return true;
     }
     return false;
@@ -295,7 +294,7 @@
     }
     var code = '';
 
-    $.each(wordToReplaceMap, function (key, value) {
+    $.each(codeToWordMaps, function (key, value) {
       if (value === name) {
         code = key;
         // exit each loop
@@ -309,20 +308,14 @@
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
-    wordToReplaceMap: wordToReplaceMap,
     getAlphaMapName: getAlphaMapName,
     getVowels: getVowels,
     getAlphaAllVariants: getAlphaAllVariants,
     getUnicode: getUnicode,
     getMongolCode: getMongolCode,
-    fourthAlphaExist: fourthAlphaExist,
+    alphaCodeExist: alphaCodeExist,
     setMonWord: setMonWord,
-    convertAlphaNameToCode: convertAlphaNameToCode,
-    alphaOriginNamesMap: alphaOriginNamesMap,
-    alphaVariantNamesMap1: alphaVariantNamesMap1,
-    alphaVariantNamesMap2: alphaVariantNamesMap2,
-    alphaVariantNamesMap3: alphaVariantNamesMap3,
-    alphaVariantNamesMap4: alphaVariantNamesMap4
+    convertAlphaNameToCode: convertAlphaNameToCode
   };
 
   createWordsMap();

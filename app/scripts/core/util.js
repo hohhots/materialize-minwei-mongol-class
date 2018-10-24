@@ -59,8 +59,9 @@
         return alphaName;
       },
 
-      convertVideoAlphaName: function (alphaName) {
-        var temp = wordConfig.alphaOriginNamesMap[alphaName];
+      getOriginAlphaName: function (alphaName) {
+        var temp = wordConfig.getAlphaMapName(alphaName, 0);
+        
         if (temp) {
           alphaName = temp;
         }
@@ -70,7 +71,7 @@
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertAlphaNameToCode: function (name) {
-        return wordConfig.convertAlphaNameToCode(this.convertVideoAlphaName(name));
+        return wordConfig.convertAlphaNameToCode(this.getOriginAlphaName(name));
       },
 
       // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -78,16 +79,16 @@
       convertVariantNameToCode: function (name, position) {
         var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position), position);
 
-        if ((position == 4) && (!wordConfig.fourthAlphaExist(temp))) {
+        if ((position == 4) && (!wordConfig.alphaCodeExist(temp))) {
           temp = '';
         }
 
         return temp;
       },
 
-      fourthAlphaExist: function (vowelName) {//console.log(vowelName);
-        var temp = this.convertVariantNameToCode(vowelName, 4);//console.log(temp);
-        if (wordConfig.fourthAlphaExist(temp)) {
+      fourthAlphaExist: function (alphaName) {
+        var temp = this.convertVariantNameToCode(alphaName, 4);
+        if (wordConfig.alphaCodeExist(temp)) {
           return true;
         }
         return false;

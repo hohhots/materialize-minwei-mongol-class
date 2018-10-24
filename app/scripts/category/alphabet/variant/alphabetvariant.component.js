@@ -60,18 +60,17 @@
       return util.convertVariantNameToCode(vowelName, position);
     };
 
-    self.fourthClass = function (vowelName) {
+    self.fourthClass = function (alphaName) {
       var cssClass = 'alphabetvariant-fonts-none';
 
-      var alpha = vowelName.substr(0, 1);
-      if (fourthClasses[alpha]) {
+      if (fourthClasses[alphaName]) {
         return 'alphabetvariant-fonts-end';
       }
       
-      if (util.fourthAlphaExist(vowelName)) {
+      if (util.fourthAlphaExist(alphaName)) {
         cssClass = 'alphabetvariant-fonts-end';
-        if (!fourthClasses[alpha]) {
-          fourthClasses[alpha] = true;
+        if (!fourthClasses[alphaName]) {
+          fourthClasses[alphaName] = true;
         }
       }
       return cssClass;
