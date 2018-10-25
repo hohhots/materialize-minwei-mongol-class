@@ -52,7 +52,7 @@
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaText = function (vowelName) {
-      return util.convertAlphaNameToCode(vowelName);
+      return util.convertOriginNameToCode(vowelName);
     };
 
     // vowelName is like 'a' 'u2' 'ta' 'ji'

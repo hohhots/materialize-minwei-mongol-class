@@ -50,8 +50,8 @@
       }
       dirName = originDirName.substr(0, 1);
       names.videos = {
-        webm: url + config.data.videos + '/' + dirName + '/' + util.getOriginAlphaName(alphaName) + config.dataTypes.videos[1],
-        ogv: url + config.data.videos + '/' + dirName + '/' + util.getOriginAlphaName(alphaName) + config.dataTypes.videos[0]
+        webm: url + config.data.videos + '/' + dirName + '/' + util.convertAlphaName(alphaName) + config.dataTypes.videos[1],
+        ogv: url + config.data.videos + '/' + dirName + '/' + util.convertAlphaName(alphaName) + config.dataTypes.videos[0]
       };
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
@@ -84,7 +84,7 @@
     // 'vowelName' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaText = function (vowelName) {
-      return util.convertAlphaNameToCode(vowelName);
+      return util.convertOriginNameToCode(vowelName);
     };
 
     self.setModels = function (book, json) {

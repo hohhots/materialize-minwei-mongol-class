@@ -59,19 +59,10 @@
         return alphaName;
       },
 
-      getOriginAlphaName: function (alphaName) {
-        var temp = wordConfig.getAlphaMapName(alphaName, 0);
-
-        if (temp) {
-          alphaName = temp;
-        }
-        return alphaName;
-      },
-
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
-      convertAlphaNameToCode: function (name) {
-        return wordConfig.convertAlphaNameToCode(this.getOriginAlphaName(name));
+      convertOriginNameToCode: function (name) {
+        return wordConfig.convertAlphaNameToCode(this.convertAlphaName(name));
       },
 
       // 'name' format is like 'a' 'e' 'ji' 'go'

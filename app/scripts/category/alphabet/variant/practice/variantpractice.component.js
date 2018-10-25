@@ -51,7 +51,6 @@
       self.bookJson = json;
       self.alphaPosition = self.bookJson.orderInList;
 
-
       self.langs.name = self.jsonData[0].name + config.alphaLangs.practice;
       self.langs.exit = config.alphaLangs.exit;
       self.langs.notSupportHtml5Audio = config.alphaLangs.notSupportHtml5Audio;
@@ -274,8 +273,7 @@
     // 'name' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaText = function (name) {
-      //console.log(name);
-      return util.convertAlphaNameToCode(name);
+      return util.convertOriginNameToCode(name);
     };
 
     // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -317,7 +315,6 @@
 
     function setAnswerAlphas() {
       variantPosition = util.getVariantPracticePosition(self.levelid, self.pagenum);
-      //var position = Math.floor(Math.random() * (self.subData.length));
       testOriginAlpha = self.subData[--self.alphaPosition];
       self.testAlphas = testOriginAlpha.vowel;
       setTestAlphasText();
@@ -349,9 +346,6 @@
           }
         }
       });
-      //answerFourthAlphas = angular.copy(testFourthAlphas);
-
-      //console.log(testFourthAlphas);
     }
 
     function setAnswerAlphaState(alpha) {

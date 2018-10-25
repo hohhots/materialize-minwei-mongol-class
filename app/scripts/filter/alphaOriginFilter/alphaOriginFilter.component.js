@@ -77,7 +77,7 @@
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaText = function(name) {
       //console.log(name);
-      return util.convertAlphaNameToCode(name);
+      return util.convertOriginNameToCode(name);
     };
 
     var selectedAlphaIds = [];

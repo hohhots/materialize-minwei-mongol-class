@@ -98,7 +98,7 @@
       //console.log(name);
       var text = '';
       if (util.alphaAnswered(alpha)) {
-        text = util.convertAlphaNameToCode(alpha.name);
+        text = util.convertOriginNameToCode(alpha.name);
       }
       return text;
     };
