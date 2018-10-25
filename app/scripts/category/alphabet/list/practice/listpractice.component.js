@@ -142,7 +142,7 @@
     var setAnswerAlphaState = function (alpha) {
       alpha.correct = false;
       alpha.error = false;
-      if (alpha.name == util.convertAlphaName(testAlpha.name)) {
+      if (util.convertAlphaName(alpha.name) === util.convertAlphaName(testAlpha.name)) {
         alpha.correct = true;
       } else {
         alpha.error = true;
@@ -151,7 +151,7 @@
 
     function playAudio() {
       var dirName = testOriginAlpha.name.substr(0,1);
-      if (playedAudioId == testAlphas.length) {
+      if (playedAudioId === testAlphas.length) {
         $scope.$broadcast(config.events.stopPlayers, true);
         return;
       }

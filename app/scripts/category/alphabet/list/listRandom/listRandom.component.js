@@ -54,6 +54,7 @@
     var fiveAlphaClass = 'alpha5-col s1';
     var fourAlphaClass = 'w3-col s3';
     var oneAlphaClass = 'w3-col s12';
+    var randomValues = [];
 
     var init = function (tests) {
       setAlphasRandom(angular.copy(tests.testOrigin.vowel));
@@ -71,8 +72,11 @@
       if (len == 0) {
         return;
       }
+
       var random = Math.floor(Math.random() * len);
-      if (array[random].name == util.convertAlphaName(array[random].name)) {
+      var mapName = util.convertAlphaName(array[random].name);
+      if (randomValues.indexOf(mapName) === -1) {
+        randomValues.push(mapName);
         self.randomAlphas.push(array.splice(random, 1)[0]);
       } else {
         array.splice(random, 1)[0];
@@ -83,10 +87,11 @@
     var displayRandomAlpha = function (event, tests) {
       self.showListRandom = true;
       self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
-      if (self.randomAlphas.length == 0) {
+      if (self.randomAlphas.length === 0) {
         init(tests);
       } else {
         var temp = self.randomAlphas;
+        randomValues = [];
         self.randomAlphas = [];
         setAlphasRandom(temp);
       }
