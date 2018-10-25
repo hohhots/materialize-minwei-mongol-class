@@ -324,7 +324,7 @@
       }
       $.each(self.testAlphas, function (index, val) {
         if (index < 2) {
-          if (util.fourthAlphaExist(val.name)) {
+          if (util.alphaExist(val.name)) {
             var alpha = angular.copy(val);
             alpha.text = alpha.text.replace(3, 4);
             testFourthAlphas.push(alpha);

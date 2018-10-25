@@ -4,21 +4,14 @@
 }
 
 .alphabetvariant-fonts,
-.alphabetvariant-fonts-third,
-.alphabetvariant-fonts-end {
+.alphabetvariant-fonts2 {
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px solid #aaa;
+  background-color: #ddd;
   color: #000;
 }
-
-.alphabetvariant-fonts-third {
-  border-bottom: 0 solid #fff;
-}
-
-.alphabetvariant-fonts-end {
-  border-bottom: 0 solid #fff;
-  border-top: 1px dashed #ccc;
+.alphabetvariant-fonts2 {
+  background-color: #fff;
 }
 
 .alphabetvariant-fonts-none {

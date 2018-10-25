@@ -69,7 +69,7 @@
         return 'alphabetvariant-fonts-end';
       }
       
-      if (util.fourthAlphaExist(vowelName)) {
+      if (util.alphaExist(vowelName)) {
         cssClass = 'alphabetvariant-fonts-end';
         if (!fourthClasses[alpha]) {
           fourthClasses[alpha] = true;

@@ -9,7 +9,7 @@
   var unicodeMap = {
     a: 'e400', a1: 'e401', a4: 'e402', a7: 'e403', a8: 'e404',
     e: 'e409', e1: 'e40a',
-    i: 'e413', i1: 'e414', i4: 'e415', i7: 'e417',
+    i: 'e413', i1: 'e414', i4: 'e415', i5: 'e416', i7: 'e417',
     o: 'e41d', o1: 'e41e', o4: 'e41f', o7: 'e420',
     u: 'e427', u1: 'e428',
 
@@ -140,7 +140,7 @@
   var alphaVariantNamesMap8 = $.extend({},alphaVariantNamesMap4);
   var alphaVariantNamesMap9 = {};
 
-  var fontPosition = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var fontPosition = [0, 1, 4, 7];
   var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
   var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
@@ -164,8 +164,14 @@
         });
       });
     });
+
+    createFifthAlphas();
+    createEighthAlphas();
   }
 
+  function createFifthAlphas() {
+    codeToWordMaps.a35 = 'i5';
+  }
   function createEighthAlphas() {
     codeToWordMaps.a18 = 'a8';
     codeToWordMaps.n18 = 'na8';
@@ -185,7 +191,7 @@
     createVowelPosition();
     createConsnantPosition();
 
-    createEighthAlphas();
+    //createEighthAlphas();
     console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
   }
 
@@ -339,7 +345,8 @@
     getMongolCode: getMongolCode,
     alphaCodeExist: alphaCodeExist,
     setMonWord: setMonWord,
-    convertAlphaNameToCode: convertAlphaNameToCode
+    convertAlphaNameToCode: convertAlphaNameToCode,
+    alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9]
   };
 
   createWordsMap();

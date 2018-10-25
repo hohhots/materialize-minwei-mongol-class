@@ -87,8 +87,8 @@
         return temp;
       },
 
-      fourthAlphaExist: function (alphaName) {
-        var temp = this.convertVariantNameToCode(alphaName, 4);
+      alphaExist: function (alphaName, position) {
+        var temp = this.convertVariantNameToCode(alphaName, position);
         if (wordConfig.alphaCodeExist(temp)) {
           return true;
         }
@@ -348,6 +348,10 @@
           }
         }
         return variantPracticePosition[levelid][pagenum];
+      },
+
+      getAlphaPositions: function() {
+        return wordConfig.alphaPositions;
       }
     };
 

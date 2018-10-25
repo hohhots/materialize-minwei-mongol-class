@@ -22,6 +22,7 @@
     // variable for outside access
     self.bookJson = [];
     self.data = [];
+    self.alphaPositions = 0;
     self.langs = {};
     self.langs.practice = config.alphaLangs.practice;
     self.langs.introduction = config.alphaLangs.introduction;
@@ -60,19 +61,18 @@
       return util.convertVariantNameToCode(name, position);
     };
 
-    self.fourthClass = function (alphaName) {
+    self.alphaClass = function (alphaName, position) {
+      position = parseInt(position, 10);
       var cssClass = 'alphabetvariant-fonts-none';
 
-      if (fourthClasses[alphaName]) {
-        return 'alphabetvariant-fonts-end';
-      }
-      
-      if (util.fourthAlphaExist(alphaName)) {
-        cssClass = 'alphabetvariant-fonts-end';
-        if (!fourthClasses[alphaName]) {
-          fourthClasses[alphaName] = true;
+      if (util.alphaExist(alphaName, position)) {
+        var id = '';
+        if ((position > 3) && (position < 7)) {
+          id = '2';
         }
+        cssClass = 'alphabetvariant-fonts' + id;
       }
+
       return cssClass;
     };
 
@@ -85,6 +85,7 @@
 
       var order = self.bookJson.orderInList;
       self.data = self.subData.slice(order - 1, order);
+      self.alphaPositions = util.getAlphaPositions();
     };
 
     self.twoAlphasStyle = function () {
@@ -92,8 +93,5 @@
         return 'alphabetvariant-two';
       }
     };
-
-    var fourthClasses = {};
   };
-
 })();
