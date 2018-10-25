@@ -56,8 +56,8 @@
 
     // vowelName is like 'a' 'u2' 'ta' 'ji'
     // return ''
-    self.getVariantText = function (vowelName, position) {
-      return util.convertVariantNameToCode(vowelName, position);
+    self.getVariantText = function (name, position) {
+      return util.convertVariantNameToCode(name, position);
     };
 
     self.fourthClass = function (alphaName) {

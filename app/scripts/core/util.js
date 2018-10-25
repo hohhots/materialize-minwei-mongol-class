@@ -61,7 +61,7 @@
 
       getOriginAlphaName: function (alphaName) {
         var temp = wordConfig.getAlphaMapName(alphaName, 0);
-        
+
         if (temp) {
           alphaName = temp;
         }
@@ -77,9 +77,10 @@
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertVariantNameToCode: function (name, position) {
+        // first get mapped alpha, then get mapped alpha's code
         var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position), position);
 
-        if ((position == 4) && (!wordConfig.alphaCodeExist(temp))) {
+        if ((position == 8) && (!wordConfig.alphaCodeExist(temp))) {
           temp = '';
         }
 
