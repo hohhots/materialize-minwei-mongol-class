@@ -191,8 +191,12 @@
     createVowelPosition();
     createConsnantPosition();
 
-    //createEighthAlphas();
     console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
+  }
+
+  function getAlphaVariants(alphaName, variantPosition) {
+    console.log(alphaName, variantPosition);
+    
   }
 
   function setMonWord(str, div) {
@@ -346,7 +350,8 @@
     alphaCodeExist: alphaCodeExist,
     setMonWord: setMonWord,
     convertAlphaNameToCode: convertAlphaNameToCode,
-    alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    getAlphaVariants: getAlphaVariants
   };
 
   createWordsMap();

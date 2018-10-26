@@ -106,14 +106,13 @@
       },
 
       alphaAnswered: function (alpha) {
-        if (!!alpha.error || !!alpha.correct) {
+        if (Boolean(alpha.error) || Boolean(alpha.correct)) {
           return true;
         }
         return false;
       },
 
       allAlphaAnswered: function (answerAlphas) {
-        //console.log(answerAlphas);
         var self = this;
         var ans = true;
         $.each(answerAlphas, function (i, alpha) {
@@ -123,6 +122,10 @@
           }
         });
         return ans;
+      },
+
+      getAlphaVariants: function (alphaName, variantPosition) {
+        return wordConfig.getAlphaVariants(alphaName, variantPosition);
       },
 
       //for slide down and up animation,
@@ -332,10 +335,10 @@
         if(!p) {
           variantPracticePosition[levelid][pagenum] = 1;
         } else {
-          if (p === 3) {
+          if (p === 7) {
             variantPracticePosition[levelid][pagenum] = 1;
           } else {
-            variantPracticePosition[levelid][pagenum] = ++p;
+            variantPracticePosition[levelid][pagenum] = p + 3;
           }
         }
         return variantPracticePosition[levelid][pagenum];

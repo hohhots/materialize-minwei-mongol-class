@@ -28,14 +28,22 @@
       </div>
 
       <div class="variantpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.testAlphas" ng-class="$ctrl.realAlphaClass">
+        <div ng-repeat="alpha in $ctrl.originAlphas" ng-class="$ctrl.realAlphaClass">
           <div class="w3-margin variantpractice-view originpractice-blue">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div class="variant-font-head">
               <mon-word data-origintext="{{::$ctrl.getAlphaText(alpha.name)}}"></mon-word>
             </div>
           </div>
-          <div ng-class="$ctrl.getAnswerAlphaClass($index)" ng-click="$ctrl.selectAlphaClick(alpha)">
+
+          <div ng-repeat="variant in alpha.testVariants" ng-class="$ctrl.getAnswerAlphaClass($index)">
+            <span ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText(alpha.id - 1, $index)}}</span>
+            <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
+              <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
+            </div>
+          </div>
+
+          <!-- <div ng-class="$ctrl.getAnswerAlphaClass($index)" ng-click="$ctrl.selectAlphaClick(alpha)">
             <span ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText($index)}}</span>
             <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
               <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
@@ -48,7 +56,7 @@
                 <mon-word data-origintext="{{$ctrl.getAlphaFourthAnswerText(alpha.id)}}"></mon-word>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 

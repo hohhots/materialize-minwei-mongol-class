@@ -32,7 +32,7 @@
     //define self variables
     self.templateUrl = config.templateUrl.variantpractice;
     self.langs = {};
-    self.testAlphas = [];
+    self.originAlphas = [];
     self.realAlphaClass = '';
     self.correct = false;
     self.error = false;
@@ -176,7 +176,7 @@
         }
       }
 
-      if ((answerAlphas.length == self.testAlphas.length) &&
+      if ((answerAlphas.length == self.originAlphas.length) &&
         (answerFourthAlphas.length == testFourthAlphas.length)) {
         var all = $.merge($.merge([], answerAlphas), answerFourthAlphas);
         var tAlpha = answers[alpha.id - 1];
@@ -208,18 +208,16 @@
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
     };
 
-    self.getSelectText = function (testAlphaIndex) {
+    self.getSelectText = function (alphaIndex, positionIndex) {
       var text = '';
-      if (!util.alphaAnswered(answerAlphas[testAlphaIndex])) {
-        switch (variantPosition) {
-          case 1:
-            text = config.alphaLangs.top;
-            break;
-          case 2:
-            text = config.alphaLangs.middle;
-            break;
-          default:
-            text = config.alphaLangs.bottom;
+      if (!util.alphaAnswered(answerAlphas[alphaIndex].testVariants[positionIndex])) {
+        text = config.alphaLangs.top;
+
+        if (variantPosition > 3 && variantPosition < 7) {
+          text = config.alphaLangs.middle;
+        }
+        if (variantPosition > 6) {
+          text = config.alphaLangs.bottom;
         }
       }
       return text;
@@ -282,7 +280,7 @@
       //console.log(index);
       var alpha = answerAlphas[index];
       if (util.alphaAnswered(alpha)) {
-        return alpha.text;//util.convertVariantNameToCode(alpha.name, variantPosition);
+        return alpha.text;
       }
 
       return '';
@@ -316,20 +314,29 @@
     function setAnswerAlphas() {
       variantPosition = util.getVariantPracticePosition(self.levelid, self.pagenum);
       testOriginAlpha = self.subData[--self.alphaPosition];
-      self.testAlphas = testOriginAlpha.vowel;
-      setTestAlphasText();
-      answerAlphas = angular.copy(self.testAlphas);
+      self.originAlphas = testOriginAlpha.vowel;
+      setOriginAlphasText();
+      answerAlphas = angular.copy(self.originAlphas);
       self.realAlphaClass = sevenAlphaClass;
-      if (self.testAlphas.length == 2) {
+      if (self.originAlphas.length == 2) {
         self.realAlphaClass = twoAlphaClass;
       }
     }
 
-    function setTestAlphasText() {
-      $.each(self.testAlphas, function (index, val) {
-        val.text = util.convertVariantNameToCode(val.name, variantPosition);
+    function setOriginAlphasText() {
+      $.each(self.originAlphas, function (index, val) {
+        val.testVariants = [];
+        for (let i = 0; i < 3; i++) {
+          let code = util.convertVariantNameToCode(val.name, variantPosition + i);
+          if (code) {
+            let ob = {};
+            ob.position = variantPosition + i;
+            ob.variant = code;
+            val.testVariants.push(ob);
+          }
+        }
       });
-      //console.log(self.testAlphas);
+
       setFourthInAlphas();
     }
 
@@ -337,7 +344,7 @@
       if (variantPosition != 3) {
         return;
       }
-      $.each(self.testAlphas, function (index, val) {
+      $.each(self.originAlphas, function (index, val) {
         if (index < 2) {
           if (util.alphaExist(val.name)) {
             var alpha = angular.copy(val);
@@ -356,11 +363,9 @@
       } else {
         alpha.error = true;
       }
-      //console.log(testAlpha);
-      //console.log(alpha);
     }
 
-    function concatenateFourthAlphas(t) {//console.log(testFourthAlphas);
+    function concatenateFourthAlphas(t) {
       $.each(testFourthAlphas, function (key, val) {
         t.vowel.push(val);
       });
@@ -380,11 +385,11 @@
     }
 
     function playAudio() {
-      if (playedAudioId == self.testAlphas.length) {
+      if (playedAudioId == self.originAlphas.length) {
         $scope.$broadcast(config.events.stopPlayers, true);
         return;
       }
-      var name = self.testAlphas[playedAudioId].name;
+      var name = self.originAlphas[playedAudioId].name;
       var gender = util.getRandomGender();
       var dirName = testOriginAlpha.name.substr(0, 1);
       self.audio = {
