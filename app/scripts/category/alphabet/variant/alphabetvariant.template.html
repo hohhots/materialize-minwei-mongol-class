@@ -18,7 +18,7 @@
   <div ng-repeat="alpha in $ctrl.data" class="w3-row w3-grayscale-min w3-center">
     <div class="w3-light-grey alphabetvariant-content {{::$ctrl.twoAlphasStyle()}}">
       <div ng-repeat="vowel in alpha.vowel" ng-click="$ctrl.alphaClicked(alpha.name,alpha.vowel[0].name, vowel.id, vowel.name)"
-        class="alpha-col m1 l1 w3-col s3">
+        class="alphavariant-column alpha-col m1 l1 w3-col s3">
         <div class="w3-margin alphabetorigin-view">
           <div class="origin-font">
             <mon-word data-origintext="{{::$ctrl.getAlphaText(vowel.name)}}"></mon-word>

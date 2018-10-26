@@ -32,9 +32,17 @@
   justify-content: center;
 }
 
+.alphavariant-column:nth-of-type(4n - 3) {
+  clear: left;
+}
+
 @media (min-width:601px) {
   .alphabetvariant-content {
     width: 80% !important;
+  }
+
+  .alphavariant-column:nth-of-type(4n - 3) {
+    clear: none;
   }
 }
 
