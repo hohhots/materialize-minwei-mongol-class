@@ -1,9 +1,22 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "n11r17", "china": "太阳"},
+      { "word": "m51d57", "china": "木"},
+      { "word": "a21b24s77", "china": "草"},
+      { "word": "g41r44h17", "china": "小溪"},
+      { "word": "a21g74l27", "china": "云"},
+      { "word": "s11l14g17", "china": "树叉"},
+      { "word": "a51t54g17", "china": "烟"},
+      { "word": "a11r14s57", "china": "皮肤"},
+      { "word": "g21j34g27", "china": "头发"},
+      { "word": "n31d77", "china": "眼睛"},
+      { "word": "q31h37", "china": "耳朵"},
+      { "word": "a11m17", "china": "嘴巴"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]

@@ -1,9 +1,14 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "a11g54l17", "china": "山"},
+      { "word": "a51r54g57", "china": "向下"},
+      { "word": "g11j34g57", "china": "歪的"},
+      { "word": "h61d24g27", "china": "野外"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]

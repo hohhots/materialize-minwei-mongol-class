@@ -3,8 +3,18 @@
     "interactType": "wordBegin",
     "interactTitle": "单词",
     "words": [
-      { "word": "t21g22y24", "china": "好的"},
-      { "word": "h21j32y24", "china": "何时"}
+      { "word": "t21g24y28", "china": "好的"},
+      { "word": "h21j34y28", "china": "何时"},
+      { "word": "b11n14n17", "china": "好的"},
+      { "word": "h11n18", "china": "墙壁"},
+      { "word": "n21r28", "china": "名字"},
+      { "word": "a21n27", "china": "这个"},
+      { "word": "h41n37", "china": "绵羊"},
+      { "word": "n51g54s57", "china": "鸭子"},
+      { "word": "n71h27", "china": "孔"},
+      { "word": "q11s57", "china": "雪"},
+      { "word": "s11r17", "china": "月亮"},
+      { "word": "s11r18", "china": "月份"}
     ],
     "videoTitle": "单词",
     "practiceTitle": "单词练习"

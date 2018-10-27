@@ -203,7 +203,8 @@
     $.each(codeToWordMaps, function (key, value) {
       var re = new RegExp(key, "g");
       if (div) {
-        str = str.replace(re, String.fromCharCode(parseInt(unicodeMap[value], 16)));
+        // str = str.replace(re, String.fromCharCode(parseInt(unicodeMap[value], 16)));
+        str = str.replace(re, '<span>' + String.fromCharCode(parseInt(unicodeMap[value], 16)) + '</span>');
       } else {
         str = str.replace(re, value);
       }

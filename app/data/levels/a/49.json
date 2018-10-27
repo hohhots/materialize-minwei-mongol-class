@@ -5,8 +5,16 @@
     "words": [
       { "word": "t10", "china": "您"},
       { "word": "b30", "china": "我"},
-      { "word": "h21j32y24", "china": "何时"},
-      { "word": "a50d12l14", "china": "久"}
+      { "word": "h21j34y28", "china": "何时"},
+      { "word": "a51d14l18", "china": "久"},
+      { "word": "a11m37", "china": "生命"},
+      { "word": "a21h27", "china": "母亲"},
+      { "word": "a31m14g17", "china": "山羊"},
+      { "word": "a41d47", "china": "现在"},
+      { "word": "a51d57", "china": "星星"},
+      { "word": "a51s57", "china": "水"},
+      { "word": "a71d77", "china": "羽毛"},
+      { "word": "a71r28", "china": "种子"}
     ],
     "videoTitle": "单词",
     "practiceTitle": "单词练习"

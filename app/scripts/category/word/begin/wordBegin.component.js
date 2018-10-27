@@ -62,7 +62,7 @@
       });*/
     };
 
-    self.wordClick = function (word) {
+    self.wordClick = function (word) {console.log(word.word);
       $scope.$broadcast(config.events.playWordAnimation, word.word);
     };
 

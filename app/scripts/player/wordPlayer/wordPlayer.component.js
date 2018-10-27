@@ -132,10 +132,6 @@
 
       audioElem.onended = done;
 
-      audioElem.onerror = function () {
-        console.log('ddd');
-      };
-
       self.mediasUrl = { audios: wordAudios.word };
       $scope.$digest();
 

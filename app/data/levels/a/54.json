@@ -1,9 +1,12 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "a40", "china": "牙粉"},
+      { "word": "q40", "china": "十分,全"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]
