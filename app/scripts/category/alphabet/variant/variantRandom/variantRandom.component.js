@@ -45,10 +45,6 @@
       $scope.$broadcast(config.events.variantHideRandomAlpha);
     };
 
-    self.getAlphaClass = function (alpha) {
-      return 'originFont-' + alpha.name + '-' + variantPosition;
-    };
-
     self.alphaClick = function (alpha) {
       $scope.$emit(config.events.variantRandomAlphaSelected, alpha);
       $scope.$broadcast(config.events.variantHideRandomAlpha);
@@ -63,12 +59,10 @@
     var threeAlphaClass = 'w3-col s4';
     var fourAlphaClass = 'w3-col s3';
     var fiveAlphaClass = 'alpha5-col s1';
-    var variantPosition = 0;
 
     function init(tests) {
-      variantPosition = tests.variantPosition;//console.log(tests);
-      setAlphasRandom(angular.copy(tests.testOrigin.vowel));
-      self.realAlphaClass = fiveAlphaClass;//console.log(self.randomAlphas);
+      setAlphasRandom(tests);
+      self.realAlphaClass = fiveAlphaClass;
       switch (self.randomAlphas.length) {
         case 1:
           self.realAlphaClass = oneAlphaClass;
@@ -89,38 +83,22 @@
       }
     }
 
-    function setAlphasRandom(vowels) {
-      //console.log(angular.copy(vowels));
-      var len = vowels.length;
-      if (len == 0) {
+    function setAlphasRandom(tests) {
+      var len = tests.length;
+      if (len === 0) {
         return;
       }
       var random = Math.floor(Math.random() * len);
-      if (!includeTextInVowels(vowels[random].text)) {
-        self.randomAlphas.push(vowels.splice(random, 1)[0]);
-      } else {
-        vowels.splice(random, 1)[0];
+      if (self.randomAlphas.indexOf(tests[random]) === -1) {
+        self.randomAlphas.push(tests.splice(random, 1)[0]);
       }
-      setAlphasRandom(angular.copy(vowels));
-    }
 
-    function includeTextInVowels(text) {
-      var include = false;
-
-      $.each(self.randomAlphas, function (index, val) {
-        if (val.text == text) {
-          include = true;
-          return true;
-        }
-      });
-
-      return include;
+      setAlphasRandom(angular.copy(tests));
     }
 
     function displayRandomAlpha(event, tests) {
-      //console.log(tests);
       // Display as title
-      self.alphaIdToSelect = self.langs.selectAlpha + ' ' + tests.testAlpha.id;
+      self.alphaIdToSelect = self.langs.selectAlpha;
       if (self.randomAlphas.length == 0) {
         init(tests);
       } else {
@@ -133,7 +111,7 @@
 
     function hideRandomAlpha() {
       self.showVariantRandom = false;
-    };
+    }
 
     // add listener and hold on to deregister function
     var deregister = [];

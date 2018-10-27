@@ -36,10 +36,10 @@
             </div>
           </div>
 
-          <div ng-repeat="variant in alpha.testVariants" ng-class="$ctrl.getAnswerAlphaClass($index)">
-            <span ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText(alpha.id - 1, $index)}}</span>
-            <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
-              <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
+          <div ng-repeat="variant in alpha.testVariants" ng-class="$ctrl.getAnswerAlphaClass($index)" ng-click="$ctrl.selectAlphaClick(alpha.id - 1, $index)">
+            <span ng-hide="$ctrl.alphaAnswered(alpha.id - 1, $index)">{{::$ctrl.getSelectText(alpha.id - 1, $index)}}</span>
+            <div class="variant-font" ng-show="$ctrl.alphaAnswered(alpha.id - 1, $index)">
+              <mon-word data-origintext="{{$ctrl.getAlphaAnswerText(alpha.id - 1, $index)}}"></mon-word>
             </div>
           </div>
 

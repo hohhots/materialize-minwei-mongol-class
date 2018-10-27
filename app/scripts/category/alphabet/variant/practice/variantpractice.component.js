@@ -162,11 +162,10 @@
       }
     };
 
-    self.selectAlphaClick = function (alpha, fourth) {
-      //$scope.$broadcast(config.events.stopPlayers);
-      //console.log(answerFourthAlphas);
-      var answers = answerAlphas;
-      if (fourth) {
+    self.selectAlphaClick = function (alphaIndex, positionIndex) {
+      var answers = answerAlphas;console.log(answerAlphas);
+      testAlpha = {testAlphaIndex: alphaIndex, testVariantPosition: positionIndex};
+/*       if (fourth) {
         answers = answerFourthAlphas;
         if (alpha.id > 2) {
           return;
@@ -175,10 +174,10 @@
           return;
         }
       }
-
-      if ((answerAlphas.length == self.originAlphas.length) &&
+ 
+      if ((answers.length === self.originAlphas.length) &&
         (answerFourthAlphas.length == testFourthAlphas.length)) {
-        var all = $.merge($.merge([], answerAlphas), answerFourthAlphas);
+        var all = $.merge($.merge([], answers), answerFourthAlphas);
         var tAlpha = answers[alpha.id - 1];
         if (tAlpha && tAlpha.correct) {
           return;
@@ -194,23 +193,15 @@
       } else {
         testAlpha = getFourthTestAlpha(alpha);
       }
-
-      var tests = {};
-
-      var t = angular.copy(testOriginAlpha);
-      concatenateFourthAlphas(t);
-      tests = {
-        testOrigin: t,
-        testAlpha: testAlpha,
-        variantPosition: variantPosition
-      };
+*/
+      var tests = getAlphaVariantsCode(answers);
 
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
     };
 
     self.getSelectText = function (alphaIndex, positionIndex) {
       var text = '';
-      if (!util.alphaAnswered(answerAlphas[alphaIndex].testVariants[positionIndex])) {
+      if (!self.alphaAnswered(alphaIndex, positionIndex)) {
         text = config.alphaLangs.top;
 
         if (variantPosition > 3 && variantPosition < 7) {
@@ -227,8 +218,8 @@
       $state.reload();
     };
 
-    self.alphaAnswered = function (index) {
-      if (util.alphaAnswered(answerAlphas[index])) {
+    self.alphaAnswered = function (alphaIndex, positionIndex) {
+      if (util.alphaAnswered(answerAlphas[alphaIndex].testVariants[positionIndex])) {
         return true;
       }
       return false;
@@ -276,11 +267,10 @@
 
     // 'name' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaAnswerText = function (index) {
-      //console.log(index);
-      var alpha = answerAlphas[index];
+    self.getAlphaAnswerText = function (alphaIndex, positionIndex) {
+      var alpha = answerAlphas[alphaIndex].testVariants[positionIndex];
       if (util.alphaAnswered(alpha)) {
-        return alpha.text;
+        return alpha.variant;
       }
 
       return '';
@@ -304,6 +294,8 @@
     var testFourthAlphas = [];
     var answerAlphas = [];
     var answerFourthAlphas = [];
+    
+    // testAlpha = {testAlphaIndex:0, testVariantPosition:0};
     var testAlpha = {};
     var variantPosition = 0;
     var playedAudioId = 0;
@@ -326,10 +318,10 @@
     function setOriginAlphasText() {
       $.each(self.originAlphas, function (index, val) {
         val.testVariants = [];
-        for (let i = 0; i < 3; i++) {
-          let code = util.convertVariantNameToCode(val.name, variantPosition + i);
+        for (var i = 0; i < 3; i++) {
+          var code = util.convertVariantNameToCode(val.name, variantPosition + i);
           if (code) {
-            let ob = {};
+            var ob = {};
             ob.position = variantPosition + i;
             ob.variant = code;
             val.testVariants.push(ob);
@@ -410,6 +402,19 @@
       if (outScope) {
         $scope.$digest();
       }
+    }
+
+    function getAlphaVariantsCode(alphas) {
+      var uniqueCodes = [];
+      $.each(alphas, function (index, val) {
+        $.each(val.testVariants, function (inde, va) {
+          if (uniqueCodes.indexOf(va.variant) === -1) {
+            uniqueCodes.push(va.variant);
+          }
+        });
+      });
+
+      return uniqueCodes;
     }
 
     function randomAlphaSelected(event, alpha) {
