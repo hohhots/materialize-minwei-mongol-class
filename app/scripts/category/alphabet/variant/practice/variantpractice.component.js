@@ -76,78 +76,47 @@
     };
 
     self.allCorrect = function () {
-      if (testFourthAlphas.length == answerFourthAlphas.length) {
-        return util.allAnswerCorrect($.merge($.merge([], answerAlphas), answerFourthAlphas));
+      var allC = true;
+
+      if (!allVariantsAnswered()) {
+        allC = false;
       }
-      return false;
+
+      $.each(answerAlphas, function (index, value) {
+        $.each(value.testVariants, function (ind, val) {
+          if (val.variant !== val.answer) {
+            allC = false;
+            return false;
+          }
+        });
+      });
+
+      return allC;
+      
     };
 
     self.getAlphaClass = function (alpha) {
       return 'originFont-' + alpha.name;
     };
 
-    self.getAnswerAlphaClass = function (index) {
+    // (alphaIndex, positionIndex) {
+    //  if (answerAlphas[alphaIndex].testVariants[positionIndex].answer)
+    self.getAnswerAlphaClass = function (alphaIndex, positionIndex) {
       var css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position';
-      var alpha = answerAlphas[index];
-      if (util.alphaAnswered(alpha)) {
+      var alpha = answerAlphas[alphaIndex].testVariants[positionIndex];
+      if (alpha.answer) {
         css = 'variantview-view-value';
       }
 
       var stat = ' variantpractice-alpha-click';
-      if ((testFourthAlphas.length == answerFourthAlphas.length)
-        && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
-        if (alpha.correct) {
+      if (allVariantsAnswered()) {
+        if (alpha.variant === alpha.answer) {
           stat = ' originpractice-green';
-        }
-        if (alpha.error) {
+        } else {
           stat = ' originpractice-red variantpractice-alpha-click';
         }
       }
       return css + stat;
-    };
-
-    self.getAnswerFourthAlphaClass = function (alphaId) {
-      //console.log(testFourthAlphas);
-      var ans = self.alphaFourthAnswered(alphaId);
-      var css = 'variantpractice-position ';
-      if (ans) {
-        css = 'variantview-view-value ';
-      }
-
-      if (alphaId < 3) {
-        if (ans) {
-          css += ' variantpractice-alpha-click';
-        } else {
-          css += config.alphaCss.variantpracticeEmpty + ' variantpractice-alpha-click';
-        }
-        var alpha = answerFourthAlphas[alphaId - 1];
-        if (alpha) {
-          var stat = '';
-          if ((testFourthAlphas.length == answerFourthAlphas.length)
-            && util.allAlphaAnswered($.merge($.merge([], answerAlphas), answerFourthAlphas))) {
-
-            if (alpha.correct) {
-              stat = ' originpractice-green';
-            }
-            if (alpha.error) {
-              stat = ' originpractice-red variantpractice-alpha-click';
-            }
-          }
-          css += stat;
-        }
-        // Set css for 'we' alpha 3 position
-        if (testFourthAlphas.length == 1) {
-          if ((alphaId == 2) && (testFourthAlphas[0].text == 'w14')) {
-            css = config.alphaCss.variantpracticeEmpty + ' variantpractice-position variantpractice-none';
-          }
-        }
-      } else {
-        if ((alphaId == 3) || (alphaId == 4)) {
-          css += ' variantpractice-none';
-        }
-      }
-
-      return css;
     };
 
     self.getPlayerIconClass = function () {
@@ -163,37 +132,12 @@
     };
 
     self.selectAlphaClick = function (alphaIndex, positionIndex) {
+      if (self.allCorrect()) {
+        return;
+      }
       var answers = answerAlphas;console.log(answerAlphas);
       testAlpha = {testAlphaIndex: alphaIndex, testVariantPosition: positionIndex};
-/*       if (fourth) {
-        answers = answerFourthAlphas;
-        if (alpha.id > 2) {
-          return;
-        }
-        if ((alpha.id == 2) && (testFourthAlphas[0].text == 'w14')) {
-          return;
-        }
-      }
- 
-      if ((answers.length === self.originAlphas.length) &&
-        (answerFourthAlphas.length == testFourthAlphas.length)) {
-        var all = $.merge($.merge([], answers), answerFourthAlphas);
-        var tAlpha = answers[alpha.id - 1];
-        if (tAlpha && tAlpha.correct) {
-          return;
-        }
 
-        if (util.allAnswerCorrect(all)) {
-          return;
-        }
-      }
-
-      if (!fourth) {
-        testAlpha = alpha;
-      } else {
-        testAlpha = getFourthTestAlpha(alpha);
-      }
-*/
       var tests = getAlphaVariantsCode(answers);
 
       $scope.$broadcast(config.events.variantDisplayRandomAlpha, tests);
@@ -219,7 +163,7 @@
     };
 
     self.alphaAnswered = function (alphaIndex, positionIndex) {
-      if (util.alphaAnswered(answerAlphas[alphaIndex].testVariants[positionIndex])) {
+      if (answerAlphas[alphaIndex].testVariants[positionIndex].answer) {
         return true;
       }
       return false;
@@ -268,24 +212,7 @@
     // 'name' format is like 'a' 'e' 'ji' 'go'
     // return 'a10' 'e10' 'j10' 'g40'
     self.getAlphaAnswerText = function (alphaIndex, positionIndex) {
-      var alpha = answerAlphas[alphaIndex].testVariants[positionIndex];
-      if (util.alphaAnswered(alpha)) {
-        return alpha.variant;
-      }
-
-      return '';
-    };
-
-    self.getAlphaFourthAnswerText = function (alphaId) {
-      if (alphaId > 2) {
-        return '';
-      }
-      //console.log(alphaId);
-      var alpha = answerFourthAlphas[alphaId - 1];
-      if (alpha) {
-        return alpha.text;
-      }
-      return '';
+      return answerAlphas[alphaIndex].testVariants[positionIndex].answer;
     };
 
     var audioElem = null;
@@ -328,52 +255,6 @@
           }
         }
       });
-
-      setFourthInAlphas();
-    }
-
-    function setFourthInAlphas() {
-      if (variantPosition != 3) {
-        return;
-      }
-      $.each(self.originAlphas, function (index, val) {
-        if (index < 2) {
-          if (util.alphaExist(val.name)) {
-            var alpha = angular.copy(val);
-            alpha.text = alpha.text.replace(3, 4);
-            testFourthAlphas.push(alpha);
-          }
-        }
-      });
-    }
-
-    function setAnswerAlphaState(alpha) {
-      alpha.correct = false;
-      alpha.error = false;
-      if (alpha.text == testAlpha.text) {
-        alpha.correct = true;
-      } else {
-        alpha.error = true;
-      }
-    }
-
-    function concatenateFourthAlphas(t) {
-      $.each(testFourthAlphas, function (key, val) {
-        t.vowel.push(val);
-      });
-    }
-
-    function getFourthTestAlpha(alpha) {
-      //console.log(alpha);
-      var ta = alpha;
-      $.each(testFourthAlphas, function (index, val) {
-        if (val.id = alpha.id) {
-          ta = val;
-          return false;
-        }
-      });
-      //console.log(ta);
-      return ta;
     }
 
     function playAudio() {
@@ -417,17 +298,24 @@
       return uniqueCodes;
     }
 
+    function allVariantsAnswered() {
+      var allAnswered = true;
+
+      $.each(answerAlphas, function (index, value) {
+        $.each(value.testVariants, function (ind, val) {
+          if (!val.answer) {
+            allAnswered = false;
+            return false;
+          }
+        });
+      });
+
+      return allAnswered;
+    }
+
     function randomAlphaSelected(event, alpha) {
-      //console.log(answerFourthAlphas);
-      var t = angular.copy(alpha);
-      setAnswerAlphaState(t);
-      var index = testAlpha.id - 1;
-      if (testAlpha.text.indexOf('4') == 2) {
-        answerFourthAlphas[index] = t;
-      } else {
-        answerAlphas[index] = t;
-      }
-      //console.log(answerFourthAlphas);
+      var ans = answerAlphas[testAlpha.testAlphaIndex].testVariants[testAlpha.testVariantPosition];
+      ans.answer = alpha;
     }
 
     // add listener and hold on to deregister function

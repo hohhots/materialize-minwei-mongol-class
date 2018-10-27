@@ -28,7 +28,7 @@
       </div>
 
       <div class="variantpractice-alphas">
-        <div ng-repeat="alpha in $ctrl.originAlphas" ng-class="$ctrl.realAlphaClass">
+        <div ng-repeat="alpha in $ctrl.originAlphas" class="variantPractice-column" ng-class="$ctrl.realAlphaClass">
           <div class="w3-margin variantpractice-view originpractice-blue">
             <div class="originpractice-num">{{::($index + 1)}}</div>
             <div class="variant-font-head">
@@ -36,27 +36,13 @@
             </div>
           </div>
 
-          <div ng-repeat="variant in alpha.testVariants" ng-class="$ctrl.getAnswerAlphaClass($index)" ng-click="$ctrl.selectAlphaClick(alpha.id - 1, $index)">
+          <div ng-repeat="variant in alpha.testVariants" ng-class="$ctrl.getAnswerAlphaClass(alpha.id - 1, $index)" ng-click="$ctrl.selectAlphaClick(alpha.id - 1, $index)">
             <span ng-hide="$ctrl.alphaAnswered(alpha.id - 1, $index)">{{::$ctrl.getSelectText(alpha.id - 1, $index)}}</span>
             <div class="variant-font" ng-show="$ctrl.alphaAnswered(alpha.id - 1, $index)">
               <mon-word data-origintext="{{$ctrl.getAlphaAnswerText(alpha.id - 1, $index)}}"></mon-word>
             </div>
           </div>
 
-          <!-- <div ng-class="$ctrl.getAnswerAlphaClass($index)" ng-click="$ctrl.selectAlphaClick(alpha)">
-            <span ng-hide="$ctrl.alphaAnswered($index)">{{::$ctrl.getSelectText($index)}}</span>
-            <div class="variant-font" ng-show="$ctrl.alphaAnswered($index)">
-              <mon-word data-origintext="{{$ctrl.getAlphaAnswerText($index)}}"></mon-word>
-            </div>
-          </div>
-          <div ng-class="$ctrl.getAnswerFourthAlphaClass(alpha.id)" ng-show="$ctrl.hasFourthAlpha()" ng-click="$ctrl.selectAlphaClick(alpha, true)">
-            <div ng-show="$ctrl.alphaHasFourth(alpha.id)">
-              <span ng-hide="$ctrl.alphaFourthAnswered(alpha.id)">{{::$ctrl.getSelectText($index)}}</span>
-              <div class="variant-font" ng-show="$ctrl.alphaFourthAnswered(alpha.id)">
-                <mon-word data-origintext="{{$ctrl.getAlphaFourthAnswerText(alpha.id)}}"></mon-word>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
 
