@@ -1,6 +1,6 @@
 .wordime-board {
   padding: 8px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 1);
   text-align: center;
 }
@@ -10,9 +10,7 @@
   box-sizing: content-box;
   width: 36px;
   height: 200px;
-  border: 1px dashed rgba(100, 100, 100, 0.7);
   padding: 2px;
-  font-size: 34px;
 }
 
 .wordime-keyboard-container {
@@ -31,9 +29,8 @@
 }
 
 .wordime-button {
-  border: 1px solid #ffaf0f;
+  border: 1px solid gray;
   border-radius: 5px;
-  background: #f58400 url(img/button.png) 50% 50% repeat-x;
   cursor: pointer;
 }
 
@@ -74,7 +71,7 @@
 }
 
 .wordime-key-vowel {
-  background-color: rgba(50,50,50,0.8);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .wordime-key-vowel-disable {
