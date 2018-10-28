@@ -195,14 +195,7 @@
     }
 
     function resizeComponents(event) {
-      wordContainer.outerHeight(0);
-      wordimeButtonContainer.outerHeight(0);
-
-      wordContainer.outerHeight(wordImeBoard.height());
-      wordimeButtonContainer.outerHeight(wordImeBoard.height());
-
       $scope.$broadcast(config.events.setDimension);
-      //console.log(wordImeBoard.height());
     }
 
     function setInputFocus() {

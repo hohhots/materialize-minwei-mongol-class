@@ -56,14 +56,9 @@
     function setDimension(event) {
       self.showElement = true;
 
-      //self.containerStyle.position = "absolute";
       container.css('boxSizing', 'content-box');
       container.width(parentElem.css('height'));
       container.height(parentElem.css('Width'));
-
-      //self.inputStyle.position = "absolute";
-      //self.inputStyle.top = 0;
-      //self.inputStyle.left = 0;
 
       setInnerEvent();
 
@@ -82,17 +77,14 @@
     }
 
     function inputFocued(event) {
-      //console.log('focus');
       preventDefault(event);
     }
 
     function inputBlured(event) {
-      //console.log('blur');
       preventDefault(event);
     }
 
     function inputKeydown(event) {
-      //console.log('down');
 
       var code = util.getEventKeyCode(event); //to support both methods;
 
@@ -107,18 +99,13 @@
       if (code == 40) {
         nextAlpha();
       }
-
-      //console.log(code);
     }
 
     function inputKeypress(event) {
       preventDefault(event);
-      //console.log('press');
     }
 
     function inputKeyup(event) {
-      //preventDefault(event);
-      //console.log('up');
       originUnicode = input.val();
     }
 
@@ -129,7 +116,6 @@
       }
 
       var nextPosition = currentCaretPosition + 1;
-      //console.log(input[0].width + ' - ' + currentCaretPosition + ' - ' + input.val().length);
       if (nextPosition > input.val().length) {
         input.setCursorToTextEnd();
       } else {
@@ -145,7 +131,6 @@
       }
 
       var previousPosition = currentCaretPosition - 1;
-      //console.log(currentCaretPosition + ' - ' + input.val().length);
       if (previousPosition < 0) {
         input.selectRange(0);
       } else {
@@ -213,8 +198,6 @@
     }
 
     function backSpace() {
-      //console.log('back');
-      //input.focus();
       backAlphaUnicode();
 
       inputKeyup();

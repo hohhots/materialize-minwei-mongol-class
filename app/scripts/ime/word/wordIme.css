@@ -1,4 +1,7 @@
 .wordime-board {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: auto 50px;
   padding: 8px;
   background-color: rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 1);
@@ -6,30 +9,39 @@
 }
 
 .wordime-word-container {
+  margin: 0 auto;
   float: left;
   box-sizing: content-box;
   width: 36px;
-  height: 200px;
+  height: 100%;
   padding: 2px;
 }
 
 .wordime-keyboard-container {
   overflow: hidden;
   margin-left: 0 !important;
-  
 }
 
 .wordime-button-container {
-  display: table;
-  float: right;
-  width: 36px;
-  padding-left: 4px;
-  border-left: 1px dashed #999;
+  grid-column: 1/3;
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
   font-size: 1.1em;
 }
 
+.wordime-buttons {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  justify-items: center;
+  margin: auto;
+  width: 100%;
+}
+
 .wordime-button {
-  border: 1px solid gray;
+  width: 80%;
+  border: 1px solid #aaa;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -39,13 +51,22 @@
   color: rgb(49, 100, 7);
 }
 
-.wordime-table-cell {
-  display: table-cell;
-  vertical-align: middle;
+.wordime-button1 {
+  justify-self: right;
+  grid-column: 1/2;
+}
+
+.wordime-button2 {
+  grid-column: 2/3;
+}
+
+.wordime-button3 {
+  justify-self: left;
+  grid-column: 3/4;
 }
 
 .wordime-button-text {
-  line-height: 1.5em;
+  line-height: 2em;
   font-weight: bold;
 }
 
@@ -64,7 +85,7 @@
   height: 50px;
   border: 1px solid #666;
   border-radius: 5px;
-  background-color: rgba(100,100,100,0.5);
+  background-color: rgba(50,50,50,0.5);
   font-size: 2em;
   cursor: pointer;
   color: rgb(255,255,255);

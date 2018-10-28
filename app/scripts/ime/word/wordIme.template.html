@@ -6,26 +6,6 @@
         <mword-Input></mword-Input>
       </div>
 
-      <div class="wordime-button-container">
-        <span class="wordime-table-cell">
-          <div class="wordime-button" ng-click="$ctrl.backSpace()">
-            <span class="wordime-button-text">删除</span>
-          </div>
-          <br>
-          <br>
-          <div ng-hide="$ctrl.originAlphaSelected()">
-            <div class="wordime-button" ng-click="$ctrl.done()">
-              <span class="wordime-button-text">确定</span>
-            </div>
-            <br>
-            <br>
-          </div>
-          <div class="wordime-button" ng-click="$ctrl.cancel()">
-            <span class="wordime-button-text">取消</span>
-          </div>
-        </span>
-      </div>
-
       <div class="wordime-keyboard-container">
         <div ng-hide="$ctrl.originAlphaSelected()">
           <div ng-repeat="consonant in $ctrl.wordImeKeyConsonants" class="wordime-keys-wrapper w3-col s3">
@@ -84,6 +64,24 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="wordime-button-container">
+        <div class="wordime-buttons">
+
+          <span class="wordime-button wordime-button1" ng-click="$ctrl.backSpace()">
+            <span class="wordime-button-text">删除</span>
+          </span>
+
+          <span class="wordime-button wordime-button2" ng-hide="$ctrl.originAlphaSelected()" ng-click="$ctrl.done()">
+            <span class="wordime-button-text">确定</span>
+          </span>
+
+          <span class="wordime-button wordime-button3" ng-click="$ctrl.cancel()">
+            <span class="wordime-button-text">取消</span>
+          </span>
+
+        </div>
       </div>
 
     </div>
