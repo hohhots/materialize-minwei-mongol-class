@@ -38,11 +38,8 @@
 
     self.wordImeKeyOriVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
-    // Auto setted according to selectedOriginAlpha variable. 
-    self.alphaVariants = [];
-
     self.cancel = function () {
-      if (self.alphaVariants.length == 0) {
+      if (alphaVariants.length == 0) {
         closeIme();
       } else {
         closeVariantKeys();
@@ -55,7 +52,7 @@
 
     self.hasFourVariants = function () {
       var fourth = false;
-      if (self.alphaVariants.length == 5) {
+      if (alphaVariants.length == 5) {
         fourth = true;
       }
       return fourth;
@@ -63,7 +60,7 @@
 
     self.hasFourAlphaclass = function () {
       var cssClass = '';
-      if (self.alphaVariants.length == 5) {
+      if (alphaVariants.length == 5) {
         cssClass = 'w3-col s4';
       }
       return cssClass;
@@ -98,15 +95,13 @@
       // Consonant didn't selected and vowel is in origin form.
       if (!selectedConsonant) {
         selectedOriginAlpha = vowel;
-        //return;
       } else {
         selectedOriginAlpha = selectedConsonant.charAt(0) + vowel.charAt(1) + '0';
       }
 
-      self.alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);
+      alphaVariants = wordConfig.getAlphaAllVariants(selectedOriginAlpha);
 
       startWordIme();
-      //console.log(self.alphaVariants);
     };
 
     self.getVowelClass = function (vowel) {
@@ -117,9 +112,9 @@
       return cssClass;
     };
 
-    self.alphaClick = function (order) {
+    self.alphaClick = function (position) {
       // setInputFocus();
-      $scope.$broadcast(config.events.setImeAlpha, self.alphaVariants[order]);
+      $scope.$broadcast(config.events.setImeAlpha, self.getAlphaVariant(position));
       closeVariantKeys();
     };
 
@@ -128,10 +123,43 @@
       $scope.$broadcast(config.events.wordInputBackSpace);
     };
 
-    self.done = function() {
+    self.done = function () {
       //console.log('done');
 
       closeIme(true);
+    };
+
+    self.getAlphaVariant = function (position) {
+      var alpha = '';
+      $.each(alphaVariants, function (index, value) {
+        if (value.substring(2) === position.toString()) {
+          alpha = value;
+        }
+      });
+
+      return alpha;
+    }
+
+    self.variantExist = function (position) {
+      if (self.getAlphaVariant(position)) {
+        return true;
+      }
+      return false;
+    };
+
+    self.getVariantsNum = function (position) {
+      position = position * 3 - 2;
+      var num = 0;
+      for (var i = 0; i < 3; i++) {
+        if (self.getAlphaVariant(position + i)) {
+          ++num;
+        }
+      }
+      return num;
+    };
+
+    self.getVariantsClass = function (position) {
+      return 'wordime-variant-wrapper' + self.getVariantsNum(position);
     };
 
     // set value for self variables
@@ -144,11 +172,13 @@
     var selectedOriginAlpha = '';
     var keySelectedClass = 'wordime-key-selected';
     var disabledVowels = ['a30', 'a40', 'a60'];
+    // Auto setted according to selectedOriginAlpha variable. 
+    var alphaVariants = [];
 
     function closeIme(done) {
       self.showWordIme = false;
 
-      if (self.alphaVariants.length) {
+      if (alphaVariants.length) {
         closeVariantKeys();
       } else {
         selectedConsonant = '';
@@ -159,7 +189,7 @@
     function closeVariantKeys() {
       selectedConsonant = '';
       selectedOriginAlpha = '';
-      self.alphaVariants = [];
+      alphaVariants = [];
       setTimeout(function () {
         resizeComponents();
       }, 10);

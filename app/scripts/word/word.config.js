@@ -137,7 +137,7 @@
   var alphaVariantNamesMap6 = {};
 
   var alphaVariantNamesMap7 = $.extend({},alphaVariantNamesMap4);
-  var alphaVariantNamesMap8 = $.extend({},alphaVariantNamesMap4);
+  var alphaVariantNamesMap8 = {};
   var alphaVariantNamesMap9 = {};
 
   var fontPosition = [0, 1, 4, 7];
@@ -174,6 +174,7 @@
   }
   function createEighthAlphas() {
     codeToWordMaps.a18 = 'a8';
+    codeToWordMaps.a28 = 'a8';
     codeToWordMaps.n18 = 'na8';
     codeToWordMaps.n28 = 'na8';
     codeToWordMaps.m18 = 'ma8';
@@ -258,14 +259,18 @@
     return temp;
   }
 
-  //listalpha format is like 'a10' 'b20' 's30'
-  function getAlphaAllVariants(listalpha) {
-    var prefix = listalpha.substr(0, 2);
-    var lists = [listalpha, prefix + '1', prefix + '2', prefix + '3'];
-    if (codeToWordMaps[prefix + '4']) {
-      lists.push(prefix + '4');
+  //alpha format is like 'a10' 'b20' 's30'
+  function getAlphaAllVariants(alpha) {
+    var prefix = alpha.substr(0, 2);
+    var variants = [];
+
+    for (var i = 0; i < 10; i++) {
+      if (codeToWordMaps[prefix + i]) {
+        variants.push(prefix + i);
+      }
     }
-    return lists;
+
+    return variants;
   }
 
   // Convert a11 to e9da
@@ -279,7 +284,7 @@
 
     $.each(unicodeMap, function (k, v) {
       if (unicode.charCodeAt(0).toString(16) == v) {
-        positionCode = k;
+        //positionCode = k;
         $.each(codeToWordMaps, function (k1, v1) {
           if (k == v1) {
             code = k1;

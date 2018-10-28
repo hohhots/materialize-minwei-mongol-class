@@ -1,5 +1,5 @@
-<div id="wordIme" class="w3-modal word-player" ng-show="$ctrl.showWordIme">
-  <div class="w3-modal-content" style="max-width:500px">
+<div id="wordIme" class="w3-modal wordime-modal" ng-show="$ctrl.showWordIme">
+  <div class="w3-modal-content wordime-modal-content">
     <div class="wordime-board">
 
       <div class="wordime-word-container">
@@ -24,46 +24,21 @@
           </div>
         </div>
 
-        <div ng-show="$ctrl.originAlphaSelected()">
-          <div style="float:left;width:100px">
-            <div class="wordime-variant-wrapper" style="float:right">
-              <div ng-click="$ctrl.alphaClick(0)" class="wordime-key-variant">
-                <mon-word data-origintext="{{$ctrl.alphaVariants[0]}}"></mon-word>
-              </div>
-            </div>
+        <div class="wordime-variants-container" ng-show="$ctrl.originAlphaSelected()">
+          
+          <div ng-click="$ctrl.alphaClick(0)" class="wordime-key-variant" ng-show="$ctrl.variantExist(0)">
+            <mon-word data-origintext="{{$ctrl.getAlphaVariant(0)}}"></mon-word>
           </div>
-          <div class="w3-rest">
-            <div class="wordime-variant-wrapper">
-              <div ng-click="$ctrl.alphaClick(1)" class="wordime-key-variant">
-                <mon-word data-origintext="{{$ctrl.alphaVariants[1]}}"></mon-word>
-              </div>
-            </div>
-            <div class="wordime-variant-wrapper">
-              <div ng-click="$ctrl.alphaClick(2)" class="wordime-key-variant">
-                <mon-word data-origintext="{{$ctrl.alphaVariants[2]}}"></mon-word>
-              </div>
-            </div>
-            <div class="wordime-variant-wrapper">
-              <div class="wordime-two-alpha-wrapper">
-                <div ng-class="$ctrl.hasFourAlphaclass()">
-                  <div ng-click="$ctrl.alphaClick(3)" class="wordime-tail-alpha">
-                    <mon-word data-origintext="{{$ctrl.alphaVariants[3]}}"></mon-word>
-                  </div>
-                </div>
-                <div class="w3-col s4" ng-show="$ctrl.hasFourVariants()">
-                  <div style="width:36px;height:50px"></div>
-                </div>
-                <div class="w3-col s4" ng-show="$ctrl.hasFourVariants()">
-                  <div ng-click="$ctrl.alphaClick(4)" class="wordime-tail-alpha">
-                    <mon-word data-origintext="{{$ctrl.alphaVariants[4]}}"></mon-word>
-                  </div>
-                </div>
-                <br class="clear" ng-show="$ctrl.hasFourVariants()" />
-              </div>
-            </div>
-          </div>
-        </div>
 
+          <div class="wordime-variants">
+            <div ng-repeat="variant in [[1,2,3], [4,5,6], [7,8,9]]" ng-class="$ctrl.getVariantsClass($index + 1)">
+              <div ng-repeat="position in variant" ng-click="$ctrl.alphaClick(position)" class="wordime-key-variant"  ng-show="$ctrl.variantExist(position)">
+                <mon-word data-origintext="{{$ctrl.getAlphaVariant(position)}}"></mon-word>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <div class="wordime-button-container">
