@@ -1,9 +1,19 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "a11a37", "china": ""},
+      { "word": "a21a37", "china": ""},
+      { "word": "a41a37", "china": ""},
+      { "word": "a71a37", "china": ""},
+      { "word": "a11a77", "china": ""},
+      { "word": "a21a77", "china": ""},
+      { "word": "a31a77", "china": ""},
+      { "word": "a51w17", "china": ""},
+      { "word": "a51w14a37", "china": ""}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

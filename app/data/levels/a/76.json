@@ -1,9 +1,22 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "h11l14h57", "china": "热"},
+      { "word": "t11r34h57", "china": "播种"},
+      { "word": "m21d24h77", "china": "知道"},
+      { "word": "a21r34h77", "china": "寻找"},
+      { "word": "q31m24h77", "china": "装饰"},
+      { "word": "h41l14h37", "china": "远处"},
+      { "word": "q51l14l14h57", "china": "给予称号"},
+      { "word": "h41h34r14h57", "china": "损失"},
+      { "word": "q61m64h77", "china": "磕开"},
+      { "word": "a61n34d27", "china": "永久"},
+      { "word": "j61r34h77", "china": "错开"},
+      { "word": "a21b74g27", "china": "祖父"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

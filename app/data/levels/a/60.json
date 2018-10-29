@@ -1,9 +1,22 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "字母表",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "字母表练习"
+    "interactType": "wordBegin",
+    "interactTitle": "单词",
+    "words": [
+      { "word": "a11h17", "china": "哥哥"},
+      { "word": "a21g24q37", "china": "姐姐"},
+      { "word": "s31r24g27", "china": "桌子"},
+      { "word": "a11y14g17", "china": "碗"},
+      { "word": "h31t54g17", "china": "刀"},
+      { "word": "m31h17", "china": "肉"},
+      { "word": "b51d14g17", "china": "饭"},
+      { "word": "h41g44l17", "china": "饭"},
+      { "word": "a11m57", "china": "米"},
+      { "word": "n41g54g17", "china": "蔬菜"},
+      { "word": "a21g74d27", "china": "门"},
+      { "word": "n31r54g57", "china": "腰"}
+    ],
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]

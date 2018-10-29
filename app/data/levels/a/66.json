@@ -1,9 +1,23 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "h41n37", "china": "绵羊"},
+      { "word": "m31h17", "china": "肉"},
+      { "word": "b41a37", "china": "有"},
+      { "word": "a31d27", "china": "吃吧"},
+      { "word": "a31d24g24r24a37", "china": "吃吧"},
+      { "word": "a31d24y28", "china": "要吃"},
+      { "word": "a31d24n28", "china": "要吃"},
+      { "word": "n11a35j37", "china": "朋友"},
+      { "word": "h11a35r18", "china": "爱"},
+      { "word": "d11l14a37", "china": "海"},
+      { "word": "h41a35n18", "china": "后面"},
+      { "word": "q11a37", "china": "茶"},
+      { "word": "h71a34s57", "china": "肚脐"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

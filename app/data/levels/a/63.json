@@ -1,9 +1,22 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "g41w18", "china": "美"},
+      { "word": "t21a35m57", "china": "是"},
+      { "word": "t11a54l14a37", "china": "兔子"},
+      { "word": "t21a74h27", "china": "历史"},
+      { "word": "d11g54a57", "china": "歌"},
+      { "word": "h11a35q37", "china": "剪子"},
+      { "word": "n11a35j37", "china": "朋友"},
+      { "word": "h11a35r18", "china": "爱"},
+      { "word": "d11l14a37", "china": "海"},
+      { "word": "h41a35n18", "china": "后面"},
+      { "word": "q11a37", "china": "茶"},
+      { "word": "h71a34s57", "china": "肚脐"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]
