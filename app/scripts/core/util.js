@@ -48,15 +48,9 @@
 
       // a1 a; a2 a; a3 a; a4 a
       // be1 ba; be2 ba; be3 ba; be4 ba
-      convertAlphaName: function (alphaName, variantPosition) {
-        variantPosition = variantPosition || 0;
-
-        var temp = wordConfig.getAlphaMapName(alphaName, variantPosition);
-        if (temp) {
-          alphaName = temp;
-        }
-
-        return alphaName;
+      getAlphaMapName: function (alphaName) {
+        console.log(alphaName,  wordConfig.getAlphaMapName(alphaName));
+        return wordConfig.getAlphaMapName(alphaName);
       },
 
       // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -69,7 +63,7 @@
       // return 'a10' 'e10' 'j10' 'g40'
       convertVariantNameToCode: function (name, position) {
         // first get mapped alpha, then get mapped alpha's code
-        var temp = wordConfig.convertAlphaNameToCode(this.convertAlphaName(name, position), position);
+        var temp = wordConfig.convertAlphaNameToCode(this.getAlphaMapName(name, position), position);
 
         if ((position == 8) && (!wordConfig.alphaCodeExist(temp))) {
           temp = '';
@@ -122,10 +116,6 @@
           }
         });
         return ans;
-      },
-
-      getAlphaVariants: function (alphaName, variantPosition) {
-        return wordConfig.getAlphaVariants(alphaName, variantPosition);
       },
 
       //for slide down and up animation,

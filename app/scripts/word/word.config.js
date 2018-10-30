@@ -7,130 +7,130 @@
   var codeToWordMaps = {};
 
   var unicodeMap = {
-    a: 'e400', a1: 'e401', a4: 'e402', a7: 'e403', a8: 'e404',
-    e: 'e409', e1: 'e40a',
-    i: 'e413', i1: 'e414', i4: 'e415', i5: 'e416', i7: 'e417',
-    o: 'e41d', o1: 'e41e', o4: 'e41f', o7: 'e420',
-    u: 'e427', u1: 'e428',
+    a10: 'e400', a11: 'e401', a14: 'e402', a17: 'e403', a18: 'e404',
+    a20: 'e409', a21: 'e40a',
+    a30: 'e413', a31: 'e414', a34: 'e415', a35: 'e416', a37: 'e417',
+    a40: 'e41d', a41: 'e41e', a44: 'e41f', a47: 'e420',
+    a60: 'e427', a61: 'e428',
 
-    na: 'e432', na1: 'e433', na4: 'e434', na7: 'e435', na8: 'e436',
-    ni: 'e43b', ni1: 'e43c', ni4: 'e43d', ni7: 'e43e',
-    no: 'e445', no1: 'e446', no4: 'e447', no7: 'e448',
-    nu: 'e44f', nu1: 'e450',
+    n10: 'e432', n11: 'e433', n14: 'e434', n17: 'e435', n18: 'e436',
+    n30: 'e43b', n31: 'e43c', n34: 'e43d', n37: 'e43e',
+    n40: 'e445', n41: 'e446', n44: 'e447', n47: 'e448',
+    n60: 'e44f', n61: 'e450',
 
-    ba: 'e459', ba1: 'e45a', ba4: 'e45b', ba7: 'e45c',
-    bi: 'e463', bi1: 'e464', bi4: 'e465', bi7: 'e466',
-    bo: 'e46d', bo1: 'e46e', bo4: 'e46f', bo7: 'e470',
-    bu: 'e477', bu1: 'e478',
+    b10: 'e459', b11: 'e45a', b14: 'e45b', b17: 'e45c',
+    b30: 'e463', b31: 'e464', b34: 'e465', b37: 'e466',
+    b40: 'e46d', b41: 'e46e', b44: 'e46f', b47: 'e470',
+    b60: 'e477', b61: 'e478',
 
-    pa: 'e47b', pa1: 'e47c', pa4: 'e47d', pa7: 'e47e',
-    pi: 'e483', pi1: 'e484', pi4: 'e485', pi7: 'e486',
-    po: 'e48a', po1: 'e48b', po4: 'e48c', po7: 'e48d',
-    pu: 'e491', pu1: 'e492',
+    p10: 'e47b', p11: 'e47c', p14: 'e47d', p17: 'e47e',
+    p30: 'e483', p31: 'e484', p34: 'e485', p37: 'e486',
+    p40: 'e48a', p41: 'e48b', p44: 'e48c', p47: 'e48d',
+    p60: 'e491', p61: 'e492',
 
-    ha: 'e496', ha1: 'e497', ha4: 'e498', ha7: 'e499',
-    he: 'e49d', he1: 'e49e', he4: 'e49f', he7: 'e4a0',
-    hi: 'e4a3', hi1: 'e4a4', hi4: 'e4a5', hi7: 'e4a6',
-    ho: 'e4a9', ho1: 'e4aa', ho4: 'e4ab', ho7: 'e4ac',
-    hu: 'e4af', hu1: 'e4b0', hu4: 'e4b1', hu7: 'e4b2',
+    h10: 'e496', h11: 'e497', h14: 'e498', h17: 'e499',
+    h20: 'e49d', h21: 'e49e', h24: 'e49f', h27: 'e4a0',
+    h30: 'e4a3', h31: 'e4a4', h34: 'e4a5', h37: 'e4a6',
+    h40: 'e4a9', h41: 'e4aa', h44: 'e4ab', h47: 'e4ac',
+    h60: 'e4af', h61: 'e4b0', h64: 'e4b1', h67: 'e4b2',
 
-    ga: 'e4b5', ga1: 'e4b6', ga4: 'e4b7', ga7: 'e4b8',
-    go: 'e4bb', go1: 'e4bc', go4: 'e4bd', go7: 'e4be',
+    g10: 'e4b5', g11: 'e4b6', g14: 'e4b7', g17: 'e4b8',
+    g40: 'e4bb', g41: 'e4bc', g44: 'e4bd', g47: 'e4be',
 
-    ma: 'e4c1', ma1: 'e4c2', ma4: 'e4c3', ma7: 'e4c4', ma8: 'e4c5',
-    mi: 'e4c8', mi1: 'e4c9', mi4: 'e4ca', mi7: 'e4cb',
-    mo: 'e4ce', mo1: 'e4cf', mo4: 'e4d0', mo7: 'e4d1',
-    mu: 'e4d4', mu1: 'e4d5',
+    m10: 'e4c1', m11: 'e4c2', m14: 'e4c3', m17: 'e4c4', m18: 'e4c5',
+    m30: 'e4c8', m31: 'e4c9', m34: 'e4ca', m37: 'e4cb',
+    m40: 'e4ce', m41: 'e4cf', m44: 'e4d0', m47: 'e4d1',
+    m60: 'e4d4', m61: 'e4d5',
 
-    la: 'e4d8', la1: 'e4d9', la4: 'e4da', la7: 'e4db', la8: 'e4dc',
-    li: 'e4df', li1: 'e4e0', li4: 'e4e1', li7: 'e4e2',
-    lo: 'e4e5', lo1: 'e4e6', lo4: 'e4e7', lo7: 'e4e8',
-    lu: 'e4eb', lu1: 'e4ec',
+    l10: 'e4d8', l11: 'e4d9', l14: 'e4da', l17: 'e4db', l18: 'e4dc',
+    l30: 'e4df', l31: 'e4e0', l34: 'e4e1', l37: 'e4e2',
+    l40: 'e4e5', l41: 'e4e6', l44: 'e4e7', l47: 'e4e8',
+    l60: 'e4eb', l61: 'e4ec',
 
-    sa: 'e4ef', sa1: 'e4f0', sa4: 'e4f1', sa7: 'e4f2',
-    si: 'e4f5', si1: 'e4f6', si4: 'e4f7', si7: 'e4f8',
-    so: 'e4fb', so1: 'e4fc', so4: 'e4fd', so7: 'e4fe',
-    su: 'e501', su1: 'e502',
+    s10: 'e4ef', s11: 'e4f0', s14: 'e4f1', s17: 'e4f2',
+    s30: 'e4f5', s31: 'e4f6', s34: 'e4f7', s37: 'e4f8',
+    s40: 'e4fb', s41: 'e4fc', s44: 'e4fd', s47: 'e4fe',
+    s60: 'e501', s61: 'e502',
 
-    xa: 'e505', xa1: 'e506', xa4: 'e507', xa7: 'e508',
-    xi: 'e50b', xi1: 'e50c', xi4: 'e50d', xi7: 'e50e',
-    xo: 'e511', xo1: 'e512', xo4: 'e513', xo7: 'e514',
-    xu: 'e517', xu1: 'e518',
+    x10: 'e505', x11: 'e506', x14: 'e507', x17: 'e508',
+    x30: 'e50b', x31: 'e50c', x34: 'e50d', x37: 'e50e',
+    x40: 'e511', x41: 'e512', x44: 'e513', x47: 'e514',
+    x60: 'e517', x61: 'e518',
 
-    ta: 'e51b', ta1: 'e51c', ta4: 'e51d', ta7: 'e51e',
-    ti: 'e521', ti1: 'e522', ti4: 'e523', ti7: 'e524',
-    to: 'e527', to1: 'e528', to4: 'e529', to7: 'e52a',
-    tu: 'e52d', tu1: 'e52e',
+    t10: 'e51b', t11: 'e51c', t14: 'e51d', t17: 'e51e',
+    t30: 'e521', t31: 'e522', t34: 'e523', t37: 'e524',
+    t40: 'e527', t41: 'e528', t44: 'e529', t47: 'e52a',
+    t60: 'e52d', t61: 'e52e',
 
-    da: 'e531', di: 'e533', do: 'e535', du: 'e537',
+    d10: 'e531', d30: 'e533', d40: 'e535', d60: 'e537',
 
-    qa: 'e539', qa1: 'e53a', qa4: 'e53b', qa7: 'e53c',
-    qi: 'e53f', qi1: 'e540', qi4: 'e541', qi7: 'e542',
-    qo: 'e544', qo1: 'e545', qo4: 'e546', qo7: 'e547',
-    qu: 'e54a', qu1: 'e54b',
+    q10: 'e539', q11: 'e53a', q14: 'e53b', q17: 'e53c',
+    q30: 'e53f', q31: 'e540', q34: 'e541', q37: 'e542',
+    q40: 'e544', q41: 'e545', q44: 'e546', q47: 'e547',
+    q60: 'e54a', q61: 'e54b',
 
-    ja: 'e54e', ja1: 'e54f', ja4: 'e550', ja7: 'e551',
-    ji: 'e554', ji1: 'e555', ji4: 'e556', ji7: 'e557',
-    jo: 'e55a', jo1: 'e55b', jo4: 'e55c', jo7: 'e55d',
-    ju: 'e560', ju1: 'e561',
+    j10: 'e54e', j11: 'e54f', j14: 'e550', j17: 'e551',
+    j30: 'e554', j31: 'e555', j34: 'e556', j37: 'e557',
+    j40: 'e55a', j41: 'e55b', j44: 'e55c', j47: 'e55d',
+    j60: 'e560', j61: 'e561',
 
-    ya: 'e564', ya1: 'e565', ya4: 'e566', ya7: 'e567', ya8: 'e568',
-    yi: 'e56b', yi1: 'e56c', yi4: 'e56d', yi7: 'e56e',
-    yo: 'e571', yo1: 'e572', yo4: 'e573', yo7: 'e574',
-    yu: 'e577', yu1: 'e578',
+    y10: 'e564', y11: 'e565', y14: 'e566', y17: 'e567', y18: 'e568',
+    y30: 'e56b', y31: 'e56c', y34: 'e56d', y37: 'e56e',
+    y40: 'e571', y41: 'e572', y44: 'e573', y47: 'e574',
+    y60: 'e577', y61: 'e578',
 
-    ra: 'e57b', ra1: 'e57c', ra4: 'e57d', ra7: 'e57e', ra8: 'e57f',
-    ri: 'e582', ri1: 'e583', ri4: 'e584', ri7: 'e585',
-    ro: 'e588', ro1: 'e589', ro4: 'e58a', ro7: 'e58b',
-    ru: 'e58e', ru1: 'e58f',
+    r10: 'e57b', r11: 'e57c', r14: 'e57d', r17: 'e57e', r18: 'e57f',
+    r30: 'e582', r31: 'e583', r34: 'e584', r37: 'e585',
+    r40: 'e588', r41: 'e589', r44: 'e58a', r47: 'e58b',
+    r60: 'e58e', r61: 'e58f',
 
-    wa: 'e592', wa1: 'e593', wa4: 'e594', wa7: 'e595', wa8: 'e596',
-    we1: 'e599', we4: 'e59a', we7: 'e59b'
+    w10: 'e592', w11: 'e593', w14: 'e594', w17: 'e595', w18: 'e596',
+    w21: 'e599', w24: 'e59a', w27: 'e59b'
   };
 
   var alphaOriginNamesMap = {
-    o2: 'o', u2: 'u',
-    ne: 'na', no2: 'no', nu2: 'nu',
-    be: 'ba', bo2: 'bo', bu2: 'bu',
-    pe: 'pa', po2: 'po', pu2: 'pu',
-    ho2: 'ho', hu2: 'hu',
-    ge: 'he', gi: 'hi', go2: 'go', gu: 'hu', gu2: 'hu',
-    me: 'ma', mo2: 'mo', mu2: 'mu',
-    le: 'la', lo2: 'lo', lu2: 'lu',
-    se: 'sa', so2: 'so', su2: 'su',
-    xe: 'xa', xo2: 'xo', xu2: 'xu',
-    te: 'ta', to2: 'to', tu2: 'tu',
-    de: 'da', do2: 'do', du2: 'du',
-    qe: 'qa', qo2: 'qo', qu2: 'qu',
-    je: 'ja', jo2: 'jo', ju2: 'ju',
-    ye: 'ya', yo2: 'yo', yu2: 'yu',
-    re: 'ra', ro2: 'ro', ru2: 'ru',
-    we: 'wa'
+    a5: 'a4', a7: 'a6',
+    n2: 'n1', n5: 'n4', n7: 'n6',
+    b2: 'b1', b5: 'b4', b7: 'b6',
+    p2: 'p1', p5: 'p4', p7: 'p6',
+    h5: 'h4', h7: 'h6',
+    g2: 'h2', g3: 'h3', g5: 'g4', g6: 'h6', g7: 'h6',
+    m2: 'm1', m5: 'm4', m7: 'm6',
+    l2: 'l1', l5: 'l4', l7: 'l6',
+    s2: 's1', s5: 's4', s7: 's6',
+    x2: 'x1', x5: 'x4', x7: 'x6',
+    t2: 't1', t5: 't4', t7: 't6',
+    d2: 'd1', d5: 'd4', d7: 'd6',
+    q2: 'q1', q5: 'q4', q7: 'q6',
+    j2: 'j1', j5: 'j4', j7: 'j6',
+    y2: 'y1', y5: 'y4', y7: 'y6',
+    r2: 'r1', r5: 'r4', r7: 'r6',
+    w2: 'w1'
   };
 
   var alphaVariantNamesMap1 = $.extend({}, alphaOriginNamesMap, {
-    da: 'ta', de: 'ta', di: 'ti', do: 'to', do2: 'to', du: 'tu', du2: 'tu'
+    d1: 't1', d2: 't1', d3: 't3', d4: 't4', d5: 't4', d6: 't6', d7: 't6'
   });
-  delete alphaVariantNamesMap1.we;
+  delete alphaVariantNamesMap1.w2;
 
   var alphaVariantNamesMap2 = {};
   var alphaVariantNamesMap3 = {};
 
   var alphaVariantNamesMap4 = $.extend({}, alphaVariantNamesMap1, {
-    e: 'a', u: 'o', u2: 'o',
-    nu: 'no', nu2: 'no',
-    bu: 'bo', bu2: 'bo',
-    pu: 'po', pu2: 'po',
-    mu: 'mo', mu2: 'mo',
-    lu: 'lo', lu2: 'lo',
-    su: 'so', su2: 'so',
-    xu: 'xo', xu2: 'xo',
-    tu: 'to', tu2: 'to',
-    du: 'to', du2: 'to',
-    qu: 'qo', qu2: 'qo',
-    ju: 'jo', ju2: 'jo',
-    yu: 'yo', yu2: 'yo',
-    ru: 'ro', ru2: 'ro'
+    a2: 'a1', a5: 'a4', a6: 'a4', a7: 'a4',
+    n6: 'n4', n7: 'n4',
+    b6: 'b4', b7: 'b4',
+    p6: 'p4', p7: 'p4',
+    m6: 'm4', m7: 'm4',
+    l6: 'l4', l7: 'l4',
+    s6: 's4', s7: 's4',
+    x6: 'x4', x7: 'x4',
+    t6: 't4', t7: 't4',
+    d6: 't4', d7: 't4',
+    q6: 'q4', q7: 'q4',
+    j6: 'j4', j7: 'j4',
+    y6: 'y4', y7: 'y4',
+    r6: 'r4', r7: 'r4'
   });
 
   var alphaVariantNamesMap5 = {};
@@ -140,27 +140,27 @@
   var alphaVariantNamesMap8 = {};
   var alphaVariantNamesMap9 = {};
 
-  var fontPosition = [0, 1, 4, 7];
-  var vowels = ['a', 'e', 'i', 'o', 'o2', 'u', 'u2'];
+  var variantPosition = [0, 1, 4, 7];
+  var vowelPosition = [1, 2, 3, 4, 5, 6, 7];
   var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
   function createVowelPosition() {
-    $.each(vowels, function (index, vowel) {
-      $.each(fontPosition, function (index1, position) {
-        codeToWordMaps['a' + (index + 1) + position] = convertAlphas(vowel + position);
+    $.each(vowelPosition, function (voi, voPosition) {
+      $.each(variantPosition, function (vai, vaPosition) {
+        codeToWordMaps['a' + voPosition + vaPosition] = setAlphaMapName('a' + voPosition, vaPosition) + vaPosition;
       });
     });
   }
 
   function createConsnantPosition() {
-    $.each(vowels, function (index, vowel) {
-      $.each(consnants, function (index1, letter) {
-        // Letter 'w' has two alphas.
-        if ((letter == 'w') && ($.inArray(vowel, ['a', 'e']) == -1)) {
+    $.each(vowelPosition, function (voi, voPosition) {
+      $.each(consnants, function (ci, consnant) {
+        // consnant 'w' has two alphas.
+        if ((consnant === 'w') && ($.inArray(voPosition, [1, 2]) === -1)) {
           return;
         }
-        $.each(fontPosition, function (index2, position) {
-          codeToWordMaps[letter + (index + 1) + position] = convertAlphas(letter + vowel + position);
+        $.each(variantPosition, function (vai, vaPosition) {
+          codeToWordMaps[consnant + voPosition + vaPosition] = setAlphaMapName(consnant + voPosition, vaPosition) + vaPosition;
         });
       });
     });
@@ -170,22 +170,22 @@
   }
 
   function createFifthAlphas() {
-    codeToWordMaps.a35 = 'i5';
+    codeToWordMaps.a35 = 'a35';
   }
   function createEighthAlphas() {
-    codeToWordMaps.a18 = 'a8';
-    codeToWordMaps.a28 = 'a8';
-    codeToWordMaps.n18 = 'na8';
-    codeToWordMaps.n28 = 'na8';
-    codeToWordMaps.m18 = 'ma8';
-    codeToWordMaps.m28 = 'ma8';
-    codeToWordMaps.l18 = 'la8';
-    codeToWordMaps.l28 = 'la8';
-    codeToWordMaps.y18 = 'ya8';
-    codeToWordMaps.y28 = 'ya8';
-    codeToWordMaps.r18 = 'ra8';
-    codeToWordMaps.r28 = 'ra8';
-    codeToWordMaps.w18 = 'wa8';
+    codeToWordMaps.a18 = 'a18';
+    codeToWordMaps.a28 = 'a18';
+    codeToWordMaps.n18 = 'n18';
+    codeToWordMaps.n28 = 'n18';
+    codeToWordMaps.m18 = 'm18';
+    codeToWordMaps.m28 = 'm18';
+    codeToWordMaps.l18 = 'l18';
+    codeToWordMaps.l28 = 'l18';
+    codeToWordMaps.y18 = 'y18';
+    codeToWordMaps.y28 = 'y18';
+    codeToWordMaps.r18 = 'r18';
+    codeToWordMaps.r28 = 'r18';
+    codeToWordMaps.w18 = 'w18';
   }
 
   function createWordsMap() {
@@ -193,11 +193,6 @@
     createConsnantPosition();
 
     console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
-  }
-
-  function getAlphaVariants(alphaName, variantPosition) {
-    console.log(alphaName, variantPosition);
-    
   }
 
   function setMonWord(str, div) {
@@ -215,10 +210,12 @@
   }
 
   function getVowels() {
-    return vowels;
+    return vowelPosition;
   }
 
-  function getAlphaMapName(name, position) {
+  // origin a5 -> a4
+  function setAlphaMapName(name, position) {
+    position = position || 0;
     position = parseInt(position, 10);
     var temp = '';
 
@@ -256,6 +253,18 @@
       default:
     }
 
+    if (!temp) {
+      temp = name;
+    }
+
+    return temp;
+  }
+
+  function getAlphaMapName(alphaName) {
+    var temp = codeToWordMaps[alphaName];
+    if (!temp) {
+      temp = alphaName;
+    }
     return temp;
   }
 
@@ -304,7 +313,7 @@
   function convertAlphas(code) {
     var name = code.substring(0, code.length - 1);
     var position = code.substring(code.length - 1);
-    var temp = getAlphaMapName(name, position);
+    var temp = setAlphaMapName(name, position);
 
     if (temp) {
       temp += position;
@@ -348,7 +357,7 @@
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
-    getAlphaMapName: getAlphaMapName,
+    setAlphaMapName: setAlphaMapName,
     getVowels: getVowels,
     getAlphaAllVariants: getAlphaAllVariants,
     getUnicode: getUnicode,
@@ -357,7 +366,7 @@
     setMonWord: setMonWord,
     convertAlphaNameToCode: convertAlphaNameToCode,
     alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    getAlphaVariants: getAlphaVariants
+    getAlphaMapName: getAlphaMapName
   };
 
   createWordsMap();

@@ -50,8 +50,8 @@
       }
       dirName = originDirName.substr(0, 1);
       names.videos = {
-        webm: url + config.data.videos + '/' + dirName + '/' + util.convertAlphaName(alphaName) + config.dataTypes.videos[1],
-        ogv: url + config.data.videos + '/' + dirName + '/' + util.convertAlphaName(alphaName) + config.dataTypes.videos[0]
+        webm: url + config.data.videos + '/' + dirName + '/' + util.getAlphaMapName(alphaName) + config.dataTypes.videos[1],
+        ogv: url + config.data.videos + '/' + dirName + '/' + util.getAlphaMapName(alphaName) + config.dataTypes.videos[0]
       };
       $scope.$broadcast(config.events.playAlphaVideo, names);
     };
@@ -81,10 +81,10 @@
       }
     };
 
-    // 'vowelName' format is like 'a' 'e' 'ji' 'go'
+    // 'vowelName' format is like 'a1' 'n1' 'j1' 'g1'
     // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaText = function (vowelName) {
-      return util.convertOriginNameToCode(vowelName);
+    self.getAlphaText = function (alphaName) {
+      return util.getAlphaMapName(alphaName);
     };
 
     self.setModels = function (book, json) {

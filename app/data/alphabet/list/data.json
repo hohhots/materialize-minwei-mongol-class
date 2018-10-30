@@ -5,31 +5,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "a"
+        "name": "a10"
       },
       {
         "id": 2,
-        "name": "e"
+        "name": "a20"
       },
       {
         "id": 3,
-        "name": "i"
+        "name": "a30"
       },
       {
         "id": 4,
-        "name": "o"
+        "name": "a40"
       },
       {
         "id": 5,
-        "name": "o2"
+        "name": "a50"
       },
       {
         "id": 6,
-        "name": "u"
+        "name": "a60"
       },
       {
         "id": 7,
-        "name": "u2"
+        "name": "a70"
       }
     ]
   },
@@ -40,31 +40,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "na"
+        "name": "n10"
       },
       {
         "id": 2,
-        "name": "ne"
+        "name": "n20"
       },
       {
         "id": 3,
-        "name": "ni"
+        "name": "n30"
       },
       {
         "id": 4,
-        "name": "no"
+        "name": "n40"
       },
       {
         "id": 5,
-        "name": "no2"
+        "name": "n50"
       },
       {
         "id": 6,
-        "name": "nu"
+        "name": "n60"
       },
       {
         "id": 7,
-        "name": "nu2"
+        "name": "n70"
       }
     ]
   },
@@ -75,31 +75,31 @@
     "vowel":[
       {
         "id": 1,
-        "name": "ba"
+        "name": "b10"
       },
       {
         "id": 2,
-        "name": "be"
+        "name": "b20"
       },
       {
         "id": 3,
-        "name": "bi"
+        "name": "b30"
       },
       {
         "id": 4,
-        "name": "bo"
+        "name": "b40"
       },
       {
         "id": 5,
-        "name": "bo2"
+        "name": "b50"
       },
       {
         "id": 6,
-        "name": "bu"
+        "name": "b60"
       },
       {
         "id": 7,
-        "name": "bu2"
+        "name": "b70"
       }
     ]
   },
@@ -110,31 +110,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "pa"
+        "name": "p10"
       },
       {
         "id": 2,
-        "name": "pe"
+        "name": "p20"
       },
       {
         "id": 3,
-        "name": "pi"
+        "name": "p30"
       },
       {
         "id": 4,
-        "name": "po"
+        "name": "p40"
       },
       {
         "id": 5,
-        "name": "po2"
+        "name": "p50"
       },
       {
         "id": 6,
-        "name": "pu"
+        "name": "p60"
       },
       {
         "id": 7,
-        "name": "pu2"
+        "name": "p70"
       }
     ]
   },
@@ -145,31 +145,31 @@
     "vowel":[
       {
         "id": 1,
-        "name": "ha"
+        "name": "h10"
       },
       {
         "id": 2,
-        "name": "he"
+        "name": "h20"
       },
       {
         "id": 3,
-        "name": "hi"
+        "name": "h30"
       },
       {
         "id": 4,
-        "name": "ho"
+        "name": "h40"
       },
       {
         "id": 5,
-        "name": "ho2"
+        "name": "h50"
       },
       {
         "id": 6,
-        "name": "hu"
+        "name": "h60"
       },
       {
         "id": 7,
-        "name": "hu2"
+        "name": "h70"
       }
     ]
   },
@@ -180,31 +180,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "ga"
+        "name": "g10"
       },
       {
         "id": 2,
-        "name": "ge"
+        "name": "g20"
       },
       {
         "id": 3,
-        "name": "gi"
+        "name": "g30"
       },
       {
         "id": 4,
-        "name": "go"
+        "name": "g40"
       },
       {
         "id": 5,
-        "name": "go2"
+        "name": "g50"
       },
       {
         "id": 6,
-        "name": "gu"
+        "name": "g60"
       },
       {
         "id": 7,
-        "name": "gu2"
+        "name": "g70"
       }
     ]
   },
@@ -215,31 +215,31 @@
     "vowel":[
       {
         "id": 1,
-        "name": "ma"
+        "name": "m10"
       },
       {
         "id": 2,
-        "name": "me"
+        "name": "m20"
       },
       {
         "id": 3,
-        "name": "mi"
+        "name": "m30"
       },
       {
         "id": 4,
-        "name": "mo"
+        "name": "m40"
       },
       {
         "id": 5,
-        "name": "mo2"
+        "name": "m50"
       },
       {
         "id": 6,
-        "name": "mu"
+        "name": "m60"
       },
       {
         "id": 7,
-        "name": "mu2"
+        "name": "m70"
       }
     ]
   },
@@ -250,31 +250,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "la"
+        "name": "l10"
       },
       {
         "id": 2,
-        "name": "le"
+        "name": "l20"
       },
       {
         "id": 3,
-        "name": "li"
+        "name": "l30"
       },
       {
         "id": 4,
-        "name": "lo"
+        "name": "l40"
       },
       {
         "id": 5,
-        "name": "lo2"
+        "name": "l50"
       },
       {
         "id": 6,
-        "name": "lu"
+        "name": "l60"
       },
       {
         "id": 7,
-        "name": "lu2"
+        "name": "l70"
       }
     ]
   },
@@ -285,31 +285,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "sa"
+        "name": "s10"
       },
       {
         "id": 2,
-        "name": "se"
+        "name": "s20"
       },
       {
         "id": 3,
-        "name": "si"
+        "name": "s30"
       },
       {
         "id": 4,
-        "name": "so"
+        "name": "s40"
       },
       {
         "id": 5,
-        "name": "so2"
+        "name": "s50"
       },
       {
         "id": 6,
-        "name": "su"
+        "name": "s60"
       },
       {
         "id": 7,
-        "name": "su2"
+        "name": "s70"
       }
     ]
   },
@@ -320,31 +320,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "xa"
+        "name": "x10"
       },
       {
         "id": 2,
-        "name": "xe"
+        "name": "x20"
       },
       {
         "id": 3,
-        "name": "xi"
+        "name": "x30"
       },
       {
         "id": 4,
-        "name": "xo"
+        "name": "x40"
       },
       {
         "id": 5,
-        "name": "xo2"
+        "name": "x50"
       },
       {
         "id": 6,
-        "name": "xu"
+        "name": "x60"
       },
       {
         "id": 7,
-        "name": "xu2"
+        "name": "x70"
       }
     ]
   },
@@ -355,31 +355,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "ta"
+        "name": "t10"
       },
       {
         "id": 2,
-        "name": "te"
+        "name": "t20"
       },
       {
         "id": 3,
-        "name": "ti"
+        "name": "t30"
       },
       {
         "id": 4,
-        "name": "to"
+        "name": "t40"
       },
       {
         "id": 5,
-        "name": "to2"
+        "name": "t50"
       },
       {
         "id": 6,
-        "name": "tu"
+        "name": "t60"
       },
       {
         "id": 7,
-        "name": "tu2"
+        "name": "t70"
       }
     ]
   },
@@ -390,31 +390,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "da"
+        "name": "d10"
       },
       {
         "id": 2,
-        "name": "de"
+        "name": "d20"
       },
       {
         "id": 3,
-        "name": "di"
+        "name": "d30"
       },
       {
         "id": 4,
-        "name": "do"
+        "name": "d40"
       },
       {
         "id": 5,
-        "name": "do2"
+        "name": "d50"
       },
       {
         "id": 6,
-        "name": "du"
+        "name": "d60"
       },
       {
         "id": 7,
-        "name": "du2"
+        "name": "d70"
       }
     ]
   },
@@ -425,31 +425,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "qa"
+        "name": "q10"
       },
       {
         "id": 2,
-        "name": "qe"
+        "name": "q20"
       },
       {
         "id": 3,
-        "name": "qi"
+        "name": "q30"
       },
       {
         "id": 4,
-        "name": "qo"
+        "name": "q40"
       },
       {
         "id": 5,
-        "name": "qo2"
+        "name": "q50"
       },
       {
         "id": 6,
-        "name": "qu"
+        "name": "q60"
       },
       {
         "id": 7,
-        "name": "qu2"
+        "name": "q70"
       }
     ]
   },
@@ -460,31 +460,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "ja"
+        "name": "j10"
       },
       {
         "id": 2,
-        "name": "je"
+        "name": "j20"
       },
       {
         "id": 3,
-        "name": "ji"
+        "name": "j30"
       },
       {
         "id": 4,
-        "name": "jo"
+        "name": "j40"
       },
       {
         "id": 5,
-        "name": "jo2"
+        "name": "j50"
       },
       {
         "id": 6,
-        "name": "ju"
+        "name": "j60"
       },
       {
         "id": 7,
-        "name": "ju2"
+        "name": "j70"
       }
     ]
   },
@@ -495,31 +495,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "ya"
+        "name": "y10"
       },
       {
         "id": 2,
-        "name": "ye"
+        "name": "y20"
       },
       {
         "id": 3,
-        "name": "yi"
+        "name": "y30"
       },
       {
         "id": 4,
-        "name": "yo"
+        "name": "y40"
       },
       {
         "id": 5,
-        "name": "yo2"
+        "name": "y50"
       },
       {
         "id": 6,
-        "name": "yu"
+        "name": "y60"
       },
       {
         "id": 7,
-        "name": "yu2"
+        "name": "y70"
       }
     ]
   },
@@ -530,31 +530,31 @@
     "vowel": [
       {
         "id": 1,
-        "name": "ra"
+        "name": "r10"
       },
       {
         "id": 2,
-        "name": "re"
+        "name": "r20"
       },
       {
         "id": 3,
-        "name": "ri"
+        "name": "r30"
       },
       {
         "id": 4,
-        "name": "ro"
+        "name": "r40"
       },
       {
         "id": 5,
-        "name": "ro2"
+        "name": "r50"
       },
       {
         "id": 6,
-        "name": "ru"
+        "name": "r60"
       },
       {
         "id": 7,
-        "name": "ru2"
+        "name": "r70"
       }
     ]
   },
@@ -565,11 +565,11 @@
     "vowel": [
       {
         "id": 1,
-        "name": "wa"
+        "name": "w10"
       },
       {
         "id": 2,
-        "name": "we"
+        "name": "w20"
       }
     ]
   }
