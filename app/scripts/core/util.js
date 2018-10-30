@@ -49,7 +49,6 @@
       // a1 a; a2 a; a3 a; a4 a
       // be1 ba; be2 ba; be3 ba; be4 ba
       getAlphaMapName: function (alphaName) {
-        console.log(alphaName,  wordConfig.getAlphaMapName(alphaName));
         return wordConfig.getAlphaMapName(alphaName);
       },
 
