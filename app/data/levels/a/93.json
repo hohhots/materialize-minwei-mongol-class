@@ -1,9 +1,23 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "a11b57", "china": "父亲"},
+      { "word": "a11b54y18", "china": "要"},
+      { "word": "a11b54n18", "china": "要"},
+      { "word": "j51g14q14y18", "china": "游玩"},
+      { "word": "a11b14r34y18", "china": "攀爬"},
+      { "word": "y11b54y18", "china": "走吧"},
+      { "word": "a41a37", "china": "树林"},
+      { "word": "s31g54a37", "china": "树林"},
+      { "word": "t11a37", "china": "有"},
+      { "word": "j31g14s57", "china": "鱼"},
+      { "word": "a21n27", "china": "这个"},
+      { "word": "a51s57", "china": "水"},
+      { "word": "a71g24a37", "china": "没有"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]
