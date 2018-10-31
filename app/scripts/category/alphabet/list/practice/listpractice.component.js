@@ -94,7 +94,6 @@
     };
 
     self.selectAlphaClick = function (index) {
-      //$scope.$broadcast(config.events.stopPlayers);
       if (util.allAnswerCorrect(self.answerAlphas)) { return; }
       testAlpha = testAlphas[index];
       var tests = {
@@ -129,7 +128,6 @@
     var twoAlphaClass = 'w3-col s6 m6 l6';
 
     var setAnswerAlphas = function () {
-      //var position = Math.floor(Math.random() * (self.subData.length));self.subData.slice(order - 1, order)
       testOriginAlpha = self.subData[self.bookJson.orderInList - 1];
       testAlphas = testOriginAlpha.vowel;
       self.answerAlphas = angular.copy(testAlphas);
@@ -142,7 +140,7 @@
     var setAnswerAlphaState = function (alpha) {
       alpha.correct = false;
       alpha.error = false;
-      if (util.convertAlphaName(alpha.name) === util.convertAlphaName(testAlpha.name)) {
+      if (util.getAlphaMapName(alpha.name) === util.getAlphaMapName(testAlpha.name)) {
         alpha.correct = true;
       } else {
         alpha.error = true;

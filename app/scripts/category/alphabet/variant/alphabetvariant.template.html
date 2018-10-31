@@ -24,9 +24,9 @@
             <mon-word data-origintext="{{::$ctrl.getAlphaText(vowel.name)}}"></mon-word>
           </div>
         </div>
-        <div ng-repeat="num in $ctrl.alphaPositions">
-          <div class="origin-font {{::$ctrl.alphaClass(vowel.name, num)}}">
-            <mon-word data-origintext="{{::$ctrl.getVariantText(vowel.name, num)}}"></mon-word>
+        <div ng-repeat="position in $ctrl.alphaPositions">
+          <div class="origin-font {{::$ctrl.alphaClass(vowel.name, position)}}">
+            <mon-word data-origintext="{{::$ctrl.getVariantText(vowel.name, position)}}"></mon-word>
           </div>
         </div>
       </div>

@@ -262,9 +262,9 @@
 
   function getAlphaMapName(alphaName) {
     var temp = codeToWordMaps[alphaName];
-    if (!temp) {
+    /* if (!temp) {
       temp = alphaName;
-    }
+    } */
     return temp;
   }
 

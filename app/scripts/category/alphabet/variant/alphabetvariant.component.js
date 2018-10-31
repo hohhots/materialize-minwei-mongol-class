@@ -49,23 +49,23 @@
       $state.go(config.uiState.variantPractice.name, {levelid: self.levelid, pagenum: self.pagenum});
     };
 
-    // 'vowelName' format is like 'a' 'e' 'ji' 'go'
-    // return 'a10' 'e10' 'j10' 'g40'
+    // a50 -> a40
     self.getAlphaText = function (vowelName) {
-      return util.convertOriginNameToCode(vowelName);
+      return util.getAlphaMapName(vowelName);
     };
 
-    // vowelName is like 'a' 'u2' 'ta' 'ji'
     // return ''
     self.getVariantText = function (name, position) {
-      return util.convertVariantNameToCode(name, position);
+      name = name.substring(0, 2) + position;
+      return util.getAlphaMapName(name);
     };
 
     self.alphaClass = function (alphaName, position) {
       position = parseInt(position, 10);
+      alphaName = alphaName.substring(0, 2) + position;
       var cssClass = 'alphabetvariant-fonts-none';
 
-      if (util.alphaExist(alphaName, position)) {
+      if (util.alphaExist(alphaName)) {
         var id = '';
         if ((position > 3) && (position < 7)) {
           id = '2';

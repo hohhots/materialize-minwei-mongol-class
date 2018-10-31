@@ -55,7 +55,7 @@
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertOriginNameToCode: function (name) {
-        return wordConfig.convertAlphaNameToCode(this.convertAlphaName(name));
+        return wordConfig.convertAlphaNameToCode(this.getAlphaMapName(name));
       },
 
       // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -71,9 +71,8 @@
         return temp;
       },
 
-      alphaExist: function (alphaName, position) {
-        var temp = this.convertVariantNameToCode(alphaName, position);
-        if (wordConfig.alphaCodeExist(temp)) {
+      alphaExist: function (alphaName) {
+        if (wordConfig.getAlphaMapName(alphaName)) {
           return true;
         }
         return false;

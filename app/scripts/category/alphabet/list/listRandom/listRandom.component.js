@@ -74,7 +74,7 @@
       }
 
       var random = Math.floor(Math.random() * len);
-      var mapName = util.convertAlphaName(array[random].name);
+      var mapName = util.getAlphaMapName(array[random].name);
       if (randomValues.indexOf(mapName) === -1) {
         randomValues.push(mapName);
         self.randomAlphas.push(array.splice(random, 1)[0]);
