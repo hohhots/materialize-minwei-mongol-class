@@ -135,7 +135,7 @@
       if (self.allCorrect()) {
         return;
       }
-      var answers = answerAlphas;console.log(answerAlphas);
+      var answers = answerAlphas;
       testAlpha = {testAlphaIndex: alphaIndex, testVariantPosition: positionIndex};
 
       var tests = getAlphaVariantsCode(answers);
@@ -203,10 +203,9 @@
       return fourth;
     };
 
-    // 'name' format is like 'a' 'e' 'ji' 'go'
-    // return 'a10' 'e10' 'j10' 'g40'
-    self.getAlphaText = function (name) {
-      return util.convertOriginNameToCode(name);
+    // return a50 -> a40; a27 -> a17
+    self.getAlphaText = function (alphaName) {
+      return util.getAlphaMapName(alphaName);
     };
 
     // 'name' format is like 'a' 'e' 'ji' 'go'
@@ -246,7 +245,8 @@
       $.each(self.originAlphas, function (index, val) {
         val.testVariants = [];
         for (var i = 0; i < 3; i++) {
-          var code = util.convertVariantNameToCode(val.name, variantPosition + i);
+          var name = val.name.substring(0, 2) + (variantPosition + i);
+          var code = util.getAlphaMapName(name);
           if (code) {
             var ob = {};
             ob.position = variantPosition + i;
@@ -262,7 +262,7 @@
         $scope.$broadcast(config.events.stopPlayers, true);
         return;
       }
-      var name = self.originAlphas[playedAudioId].name;
+      var name = self.originAlphas[playedAudioId].name.substring(0, 2);
       var gender = util.getRandomGender();
       var dirName = testOriginAlpha.name.substr(0, 1);
       self.audio = {
