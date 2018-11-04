@@ -85,7 +85,12 @@
     r60: 'e58e', r61: 'e58f',
 
     w10: 'e592', w11: 'e593', w14: 'e594', w17: 'e595', w18: 'e596',
-    w21: 'e599', w24: 'e59a', w27: 'e59b'
+    w21: 'e599', w24: 'e59a', w27: 'e59b',
+
+    A01: 'e641', A02: 'e643', A03: 'e645', A04: 'e647', A05: 'e649',
+    A06: 'e64b', A07: 'e64d', A08: 'e64f', A09: 'e651', A10: 'e653',
+    A11: 'e655', A12: 'e657', A15: 'e659', A16: 'e65b', A17: 'e65d',
+    A18: 'e65e', A19: 'e660', A20: 'e661'
   };
 
   var alphaOriginNamesMap = {
@@ -144,6 +149,48 @@
   var vowelPosition = [1, 2, 3, 4, 5, 6, 7];
   var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
 
+  var fifth = {
+    a35: 'a35'
+  };
+
+  var eighth = {
+    a18: 'a18',
+    n18: 'n18',
+    n28: 'n18',
+    m18: 'm18',
+    m28: 'm18',
+    l18: 'l18',
+    l28: 'l18',
+    y18: 'y18',
+    y28: 'y18',
+    r18: 'r18',
+    r28: 'r18',
+    w18: 'w18'
+  };
+
+  var halfAlphas = {
+    A01: 'A01',
+    A02: 'A02',
+    A03: 'A03',
+    A04: 'A04',
+    A05: 'A05',
+    A06: 'A06',
+    A07: 'A07',
+    A08: 'A08',
+    A09: 'A09',
+    A10: 'A10',
+    A11: 'A11',
+    A12: 'A12',
+    A13: 'a14',
+    A14: 'a17',
+    A15: 'A15',
+    A16: 'A16',
+    A17: 'A17',
+    A18: 'A18',
+    A19: 'A19',
+    A20: 'A20'
+  };
+
   function createVowelPosition() {
     $.each(vowelPosition, function (voi, voPosition) {
       $.each(variantPosition, function (vai, vaPosition) {
@@ -165,27 +212,15 @@
       });
     });
 
-    createFifthAlphas();
-    createEighthAlphas();
+    addToWordMaps(fifth);
+    addToWordMaps(eighth);
+    addToWordMaps(halfAlphas);
   }
 
-  function createFifthAlphas() {
-    codeToWordMaps.a35 = 'a35';
-  }
-  function createEighthAlphas() {
-    codeToWordMaps.a18 = 'a18';
-    codeToWordMaps.a28 = 'a18';
-    codeToWordMaps.n18 = 'n18';
-    codeToWordMaps.n28 = 'n18';
-    codeToWordMaps.m18 = 'm18';
-    codeToWordMaps.m28 = 'm18';
-    codeToWordMaps.l18 = 'l18';
-    codeToWordMaps.l28 = 'l18';
-    codeToWordMaps.y18 = 'y18';
-    codeToWordMaps.y28 = 'y18';
-    codeToWordMaps.r18 = 'r18';
-    codeToWordMaps.r28 = 'r18';
-    codeToWordMaps.w18 = 'w18';
+  function addToWordMaps(alphas) {
+    $.each(alphas, function (i, v) {
+      codeToWordMaps[i] = v;
+    });
   }
 
   function createWordsMap() {
@@ -199,7 +234,6 @@
     $.each(codeToWordMaps, function (key, value) {
       var re = new RegExp(key, "g");
       if (div) {
-        // str = str.replace(re, String.fromCharCode(parseInt(unicodeMap[value], 16)));
         str = str.replace(re, '<span>' + String.fromCharCode(parseInt(unicodeMap[value], 16)) + '</span>');
       } else {
         str = str.replace(re, value);
@@ -354,6 +388,16 @@
     return code;
   }
 
+  function wordHasHalfAlphas(word) {
+    var has = false;
+
+    if (word.indexOf('A') > -1) {
+      has = true;
+    }
+
+    return has;
+  }
+
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
@@ -366,7 +410,8 @@
     setMonWord: setMonWord,
     convertAlphaNameToCode: convertAlphaNameToCode,
     alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    getAlphaMapName: getAlphaMapName
+    getAlphaMapName: getAlphaMapName,
+    wordHasHalfAlphas: wordHasHalfAlphas
   };
 
   createWordsMap();

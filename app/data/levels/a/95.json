@@ -1,9 +1,18 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "n21A01t27", "china": "通过"},
+      { "word": "s21t74A02", "china": "题目"},
+      { "word": "n11A01q37", "china": "叶子"},
+      { "word": "t41A01q37", "china": "扣子"},
+      { "word": "l11A02", "china": "一定"},
+      { "word": "h11A01q37", "china": "夹"},
+      { "word": "s11A01h17", "china": "筷子"},
+      { "word": "j11A01d54h57", "china": "乘机"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

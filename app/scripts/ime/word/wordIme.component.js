@@ -38,6 +38,8 @@
 
     self.wordImeKeyOriVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
 
+    self.wordImeKeyHalfs = ['A01', 'A03', 'A05', 'A07', 'A09', 'A11', 'A13', 'A15', 'A17', 'A19'];
+
     self.cancel = function () {
       if (alphaVariants.length == 0) {
         closeIme();
@@ -162,11 +164,21 @@
       return 'wordime-variant-wrapper' + self.getVariantsNum(position);
     };
 
+    self.testWordHasHalfs = function () {
+      var has = false;
+      if (wordConfig.wordHasHalfAlphas($scope.$parent.$ctrl.originWord)) {
+        if (!self.originAlphaSelected()) {
+          has = true;
+        }
+      }
+
+      return has;
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
     var wordimeButtonContainer;
-    var wordImeBoardInitHeight = 120;
     var selectedConsonant = '';
     // If has value, display variant keyboard
     var selectedOriginAlpha = '';

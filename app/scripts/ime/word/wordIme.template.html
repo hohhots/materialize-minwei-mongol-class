@@ -24,6 +24,14 @@
           </div>
         </div>
 
+        <div ng-hide="!$ctrl.testWordHasHalfs()">
+          <div ng-repeat="half in $ctrl.wordImeKeyHalfs" class="wordime-keys-wrapper alpha5-col s1">
+            <div class="wordime-key-vowel" ng-click="$ctrl.vowelClick(half)">
+              <mon-word data-origintext="{{::half}}"></mon-word>
+            </div>
+          </div>
+        </div>
+
         <div class="wordime-variants-container" ng-show="$ctrl.originAlphaSelected()">
           
           <div ng-click="$ctrl.alphaClick(0)" class="wordime-key-variant" ng-show="$ctrl.variantExist(0)">
