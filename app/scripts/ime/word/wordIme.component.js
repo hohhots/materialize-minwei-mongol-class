@@ -49,7 +49,10 @@
     };
 
     self.originAlphaSelected = function () {
-      return selectedOriginAlpha ? true : false;
+      var selectOVariants = selectedOriginAlpha ? true : false;
+      var selectHVariants = selectedHalfAlpha ? true : false;
+
+      return selectOVariants || selectHVariants;
     };
 
     self.hasFourVariants = function () {
@@ -120,14 +123,26 @@
       closeVariantKeys();
     };
 
+    self.halfClick = function (half) {
+      setInputFocus();
+      // Sure no other alpha selected.
+      if (selectedConsonant) {
+        return;
+      }
+
+      selectedHalfAlpha = half;
+
+      halfVariants = wordConfig.getHalfVariants(half);
+
+      startWordIme();
+    };
+
     self.backSpace = function () {
       //console.log('back');
       $scope.$broadcast(config.events.wordInputBackSpace);
     };
 
     self.done = function () {
-      //console.log('done');
-
       closeIme(true);
     };
 
@@ -175,6 +190,13 @@
       return has;
     };
 
+    self.halfAlphaSelected = function () {
+      if (selectedHalfAlpha) {
+        return true;
+      }
+      return false;
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
@@ -186,6 +208,9 @@
     var disabledVowels = ['a30', 'a40', 'a60'];
     // Auto setted according to selectedOriginAlpha variable. 
     var alphaVariants = [];
+
+    var selectedHalfAlpha = '';
+    var halfVariants = [];
 
     function closeIme(done) {
       self.showWordIme = false;

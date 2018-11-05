@@ -16,6 +16,7 @@
   cursor: vertical-text;
   font-family: 'hawang';
   font-size: 30px;
+  letter-spacing: -1px;
 }
 
 .wordinput-container-cell:focus {

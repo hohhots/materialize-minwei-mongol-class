@@ -201,7 +201,6 @@
       backAlphaUnicode();
 
       inputKeyup();
-      console.log(originUnicode);
     }
 
     function closeIme(event, done) {

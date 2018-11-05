@@ -316,6 +316,27 @@
     return variants;
   }
 
+  // half format is like 'A01' 'A13'
+  function getHalfVariants (half) {
+    var position;
+    var variants = [half];
+
+    if (half.indexOf('A0') === -1) {
+      position = half.substring(1);
+    } else {
+      position = half.substring(2);
+    }
+    position = parseInt(position, 10);
+
+    if ((position + 1) >= 10) {
+      variants.push('A' + (position + 1));
+    } else {
+      variants.push('A0' + (position + 1));
+    }
+
+    return variants;
+  }
+
   // Convert a11 to e9da
   function getUnicode(alpha) {
     return unicodeMap[codeToWordMaps[alpha]];
@@ -411,7 +432,8 @@
     convertAlphaNameToCode: convertAlphaNameToCode,
     alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     getAlphaMapName: getAlphaMapName,
-    wordHasHalfAlphas: wordHasHalfAlphas
+    wordHasHalfAlphas: wordHasHalfAlphas,
+    getHalfVariants: getHalfVariants
   };
 
   createWordsMap();

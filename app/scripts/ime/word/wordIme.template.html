@@ -7,6 +7,8 @@
       </div>
 
       <div class="wordime-keyboard-container">
+
+        <!-- consonant alphas display -->
         <div ng-hide="$ctrl.originAlphaSelected()">
           <div ng-repeat="consonant in $ctrl.wordImeKeyConsonants" class="wordime-keys-wrapper w3-col s3">
             <div ng-click="$ctrl.consonantClick(consonant)" class="wordime-key-consonant" ng-class="$ctrl.getConsonantClass(consonant)">
@@ -16,6 +18,7 @@
           <br class="clear" />
         </div>
 
+        <!-- vowel alphas display -->
         <div ng-hide="$ctrl.originAlphaSelected()">
           <div ng-repeat="vowel in $ctrl.wordImeKeyOriVowels" class="wordime-keys-wrapper alpha5-col s1">
             <div ng-click="$ctrl.vowelClick(vowel)" ng-class="$ctrl.getVowelClass(vowel)">
@@ -24,29 +27,45 @@
           </div>
         </div>
 
+        <!-- half alphas display-->
         <div ng-hide="!$ctrl.testWordHasHalfs()">
           <div ng-repeat="half in $ctrl.wordImeKeyHalfs" class="wordime-keys-wrapper alpha5-col s1">
-            <div class="wordime-key-vowel" ng-click="$ctrl.vowelClick(half)">
+            <div class="wordime-key-vowel" ng-click="$ctrl.halfClick(half)">
               <mon-word data-origintext="{{::half}}"></mon-word>
             </div>
           </div>
         </div>
+        
 
         <div class="wordime-variants-container" ng-show="$ctrl.originAlphaSelected()">
-          
+         
+          <!-- alphas origin display -->
           <div ng-click="$ctrl.alphaClick(0)" class="wordime-key-variant" ng-show="$ctrl.variantExist(0)">
             <mon-word data-origintext="{{$ctrl.getAlphaVariant(0)}}"></mon-word>
           </div>
 
+          <!-- alphas variants display -->
           <div class="wordime-variants">
             <div ng-repeat="variant in [[1,2,3], [4,5,6], [7,8,9]]" ng-class="$ctrl.getVariantsClass($index + 1)">
-              <div ng-repeat="position in variant" ng-click="$ctrl.alphaClick(position)" class="wordime-key-variant"  ng-show="$ctrl.variantExist(position)">
+              <div ng-repeat="position in variant" ng-click="$ctrl.alphaClick(position)" class="wordime-key-variant" ng-show="$ctrl.variantExist(position)">
                 <mon-word data-origintext="{{$ctrl.getAlphaVariant(position)}}"></mon-word>
               </div>
             </div>
           </div>
 
         </div>
+
+        <!-- half alphas variants display -->
+        <div class="wordime-variants-container" ng-show="$ctrl.halfAlphaSelected()">
+
+          <div class="wordime-variants">
+            <div ng-repeat="position in [1,2]" ng-click="$ctrl.halfdddClick(position)" class="wordime-key-variant">
+              <mon-word data-origintext="{{$ctrl.getHalfVariant(position)}}"></mon-word>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="wordime-button-container">
