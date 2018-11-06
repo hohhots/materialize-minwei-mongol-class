@@ -59,7 +59,7 @@
         <div class="wordime-variants-container" ng-show="$ctrl.halfAlphaSelected()">
 
           <div class="wordime-variants">
-            <div ng-repeat="position in [1,2]" ng-click="$ctrl.halfdddClick(position)" class="wordime-key-variant">
+            <div ng-repeat="position in [0,1]" ng-click="$ctrl.halfdddClick(position)" class="wordime-key-variant">
               <mon-word data-origintext="{{$ctrl.getHalfVariant(position)}}"></mon-word>
             </div>
           </div>

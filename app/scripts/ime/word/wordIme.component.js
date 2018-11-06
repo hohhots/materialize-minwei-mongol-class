@@ -40,14 +40,6 @@
 
     self.wordImeKeyHalfs = ['A01', 'A03', 'A05', 'A07', 'A09', 'A11', 'A13', 'A15', 'A17', 'A19'];
 
-    self.cancel = function () {
-      if (alphaVariants.length == 0) {
-        closeIme();
-      } else {
-        closeVariantKeys();
-      }
-    };
-
     self.originAlphaSelected = function () {
       var selectOVariants = selectedOriginAlpha ? true : false;
       var selectHVariants = selectedHalfAlpha ? true : false;
@@ -197,6 +189,18 @@
       return false;
     };
 
+    self.getHalfVariant = function (position) {
+      return halfVariants[position];
+    };
+
+    self.cancel = function () {
+      if ((alphaVariants.length === 0) && (halfVariants.length === 0)) {
+        closeIme();
+      } else {
+        closeVariantKeys();
+      }
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
@@ -225,8 +229,13 @@
 
     function closeVariantKeys() {
       selectedConsonant = '';
+
       selectedOriginAlpha = '';
       alphaVariants = [];
+
+      selectedHalfAlpha = '';
+      halfVariants = [];
+
       setTimeout(function () {
         resizeComponents();
       }, 10);
