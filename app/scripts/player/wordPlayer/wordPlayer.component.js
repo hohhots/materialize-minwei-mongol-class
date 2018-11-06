@@ -102,10 +102,7 @@
     }
 
     function playWordAudio(outsideScope) {
-      /**if (!self.showWordPlayer) {
-        audioElem.pause();
-        return;
-      }**/
+
       if (playingIndex == playWord.length) {
         playWholeAudio();
         return;
@@ -125,6 +122,7 @@
 
       audioElem.load();
       audioElem.play();
+
     }
 
     function playWholeAudio() {
@@ -138,6 +136,7 @@
       audioElem.load();
       audioElem.play();
 
+      // because has no whole word audio.
       setTimeout(done, 2000);
 
       function done() {

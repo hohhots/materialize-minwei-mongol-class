@@ -193,6 +193,13 @@
       return halfVariants[position];
     };
 
+    self.halfVariantClick = function (position) {
+      console.log(position);
+      // setInputFocus();
+      $scope.$broadcast(config.events.setImeAlpha, self.getHalfVariant(position));
+      closeVariantKeys();
+    };
+
     self.cancel = function () {
       if ((alphaVariants.length === 0) && (halfVariants.length === 0)) {
         closeIme();

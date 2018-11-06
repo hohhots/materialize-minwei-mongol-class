@@ -39,10 +39,10 @@
       },
 
       getRandomGender: function () {
-        var gender = config.gender['man'];
-        if (Math.random() >= 0.5) {
-          gender = config.gender['woman'];
-        }
+        var gender = config.gender['woman'];
+        /* if (Math.random() >= 0.5) {
+          gender = config.gender['man'];
+        } */
         return gender;
       },
 

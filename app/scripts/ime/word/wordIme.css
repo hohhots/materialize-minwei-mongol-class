@@ -105,6 +105,11 @@
   grid-template-columns: 70px auto;
 }
 
+.wordime-half-variants-container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
 .wordime-variants {
   border-left: 1px dashed rgba(50,50,50,.9);
 }
