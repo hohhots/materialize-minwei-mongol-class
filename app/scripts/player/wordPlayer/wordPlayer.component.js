@@ -18,11 +18,10 @@
       'Config',
       'wordConfig',
       'Util',
-      'Json',
       controller]
   });
 
-  function controller($scope, $element, $interval, config, wordConfig, util, json) {
+  function controller($scope, $element, $interval, config, wordConfig, util) {
     var self = this;
 
     //define self variables
@@ -160,6 +159,9 @@
         var f = val.substr(0, 1);
         if ($.inArray(f, vowels) == -1) {
           name = f + name;
+        }
+        if (val.indexOf('A') !== -1) {
+          name = util.getHalfAlphaAudioName(val);
         }
 
         var audios = {

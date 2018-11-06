@@ -337,6 +337,29 @@
     return variants;
   }
 
+  function getHalfFirstVariant (half) {
+    var name;
+    var position;
+
+    if (half.indexOf('A0') === -1) {
+      position = half.substring(1);
+    } else {
+      position = half.substring(2);
+    }
+    position = parseInt(position, 10);
+
+    if ((position % 2) == 0) {
+      --position;
+    }
+    if (position >= 10) {
+      name = 'A' + position;
+    } else {
+      name = 'A0' + position;
+    }
+
+    return name;
+  }
+
   // Convert a11 to e9da
   function getUnicode(alpha) {
     return unicodeMap[codeToWordMaps[alpha]];
@@ -433,7 +456,8 @@
     alphaPositions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     getAlphaMapName: getAlphaMapName,
     wordHasHalfAlphas: wordHasHalfAlphas,
-    getHalfVariants: getHalfVariants
+    getHalfVariants: getHalfVariants,
+    getHalfFirstVariant: getHalfFirstVariant
   };
 
   createWordsMap();

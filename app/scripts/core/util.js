@@ -52,6 +52,10 @@
         return wordConfig.getAlphaMapName(alphaName);
       },
 
+      getHalfAlphaAudioName: function (half) {
+        return wordConfig.getHalfFirstVariant(half);
+      },
+
       // 'name' format is like 'a' 'e' 'ji' 'go'
       // return 'a10' 'e10' 'j10' 'g40'
       convertOriginNameToCode: function (name) {
