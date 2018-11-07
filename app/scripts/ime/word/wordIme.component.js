@@ -171,17 +171,6 @@
       return 'wordime-variant-wrapper' + self.getVariantsNum(position);
     };
 
-    self.testWordHasHalfs = function () {
-      var has = false;
-      if (wordConfig.wordHasHalfAlphas($scope.$parent.$ctrl.originWord)) {
-        if (!self.originAlphaSelected()) {
-          has = true;
-        }
-      }
-
-      return has;
-    };
-
     self.halfAlphaSelected = function () {
       if (selectedHalfAlpha) {
         return true;
@@ -208,6 +197,81 @@
       }
     };
 
+    self.displayHalfAlphas = function () {
+      var display = false;
+
+      if (displayedBoards[4] && testWordHasHalfs() && !variantsDisplayed()) {
+        display = true;
+      }
+      return display;
+    };
+
+    self.setHalfAlphasClass = function () {
+      var clas = 'wordime-hide';
+      if (self.displayHalfAlphas()) {
+        clas = '';
+      }
+      return clas;
+    }
+
+    self.toggleHalfAlphas = function () {
+      displayedBoards = {4: true};
+    };
+
+    self.toggleConsnantAlphas = function () {
+      displayedBoards = {1: true, 2: true};
+    };
+
+    self.displayConsnantAlphas = function () {
+      var display = false;
+
+      if (displayedBoards[2] && !variantsDisplayed()) {
+        display = true;
+      }
+      return display;
+    };
+
+    self.displayVowelAlphas= function () {
+      var display = false;
+
+      if (displayedBoards[1] && !variantsDisplayed()) {
+        display = true;
+      }
+      return display;
+    };
+
+    self.getConsnantAlphasClass = function () {
+      var clas = 'wordime-hide';
+      if (self.displayConsnantAlphas()) {
+        clas = '';
+      }
+      return clas;
+    };
+
+    self.getVowelAlphasClass = function () {
+      var clas = 'wordime-hide';
+      if (self.displayVowelAlphas()) {
+        clas = '';
+      }
+      return clas;
+    };
+
+    self.getConsnantButtonClass = function () {
+      var clas = 'wordime-hide';
+      if (!self.displayConsnantAlphas() && !selectedOriginAlpha) {
+        clas = 'wordime-button';
+      }
+      return clas;
+    };
+
+    self.getHalfButtonClass = function () {
+      var clas = 'wordime-hide';
+      if (!self.displayHalfAlphas() && !selectedOriginAlpha) {
+        clas = 'wordime-button';
+      }
+      return clas;
+    };
+
     // set value for self variables
     var wordImeBoard;
     var wordContainer;
@@ -222,6 +286,29 @@
 
     var selectedHalfAlpha = '';
     var halfVariants = [];
+
+    // 1=vowel, 2=consnant, 3=foreignh; 4=half
+    var displayedBoards = {1: true, 2: true};
+
+    function variantsDisplayed() {
+      var displayed = false;
+
+      if (alphaVariants.length || halfVariants.length) {
+        displayed = true;
+      }
+      return displayed;
+    };
+
+    function testWordHasHalfs() {
+      var has = false;
+      if (wordConfig.wordHasHalfAlphas($scope.$parent.$ctrl.originWord)) {
+        if (!self.originAlphaSelected()) {
+          has = true;
+        }
+      }
+
+      return has;
+    };
 
     function closeIme(done) {
       self.showWordIme = false;

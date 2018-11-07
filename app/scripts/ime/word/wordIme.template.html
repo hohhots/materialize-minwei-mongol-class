@@ -9,7 +9,7 @@
       <div class="wordime-keyboard-container">
 
         <!-- consonant alphas display -->
-        <div ng-hide="$ctrl.originAlphaSelected()">
+        <div ng-class="$ctrl.getConsnantAlphasClass()">
           <div ng-repeat="consonant in $ctrl.wordImeKeyConsonants" class="wordime-keys-wrapper w3-col s3">
             <div ng-click="$ctrl.consonantClick(consonant)" class="wordime-key-consonant" ng-class="$ctrl.getConsonantClass(consonant)">
               <mon-word data-origintext="{{::consonant}}"></mon-word>
@@ -19,7 +19,7 @@
         </div>
 
         <!-- vowel alphas display -->
-        <div ng-hide="$ctrl.originAlphaSelected()">
+        <div ng-class="$ctrl.getVowelAlphasClass()">
           <div ng-repeat="vowel in $ctrl.wordImeKeyOriVowels" class="wordime-keys-wrapper alpha5-col s1">
             <div ng-click="$ctrl.vowelClick(vowel)" ng-class="$ctrl.getVowelClass(vowel)">
               <mon-word data-origintext="{{::vowel}}"></mon-word>
@@ -28,8 +28,8 @@
         </div>
 
         <!-- half alphas display-->
-        <div ng-hide="!$ctrl.testWordHasHalfs()">
-          <div ng-repeat="half in $ctrl.wordImeKeyHalfs" class="wordime-keys-wrapper alpha5-col s1">
+        <div ng-class="$ctrl.setHalfAlphasClass()">
+          <div ng-repeat="half in $ctrl.wordImeKeyHalfs" class="wordime-half-keys-wrapper alpha5-col s1">
             <div class="wordime-key-vowel" ng-click="$ctrl.halfClick(half)">
               <mon-word data-origintext="{{::half}}"></mon-word>
             </div>
@@ -75,15 +75,15 @@
     <div class="wordime-button-container">
       <div class="wordime-buttons">
 
-        <span class="wordime-button" ng-click="$ctrl.backSpace()">
+        <span ng-class="$ctrl.getConsnantButtonClass()" ng-click="$ctrl.toggleConsnantAlphas()">
           <span class="wordime-button-text">辅音</span>
         </span>
 
-        <span class="wordime-button" ng-hide="$ctrl.originAlphaSelected()" ng-click="$ctrl.done()">
+        <span ng-class="$ctrl.getHalfButtonClass()" ng-show="!$ctrl.displayHalfAlphas()" ng-click="$ctrl.toggleHalfAlphas()">
           <span class="wordime-button-text">半音</span>
         </span>
 
-        <span class="wordime-button" ng-click="$ctrl.cancel()">
+        <span class="wordime-button ng-hide" ng-click="$ctrl.toggleForeignAlphas()">
           <span class="wordime-button-text">借词</span>
         </span>
 

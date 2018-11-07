@@ -61,11 +61,15 @@
 
 .wordime-button-text {
   line-height: 2em;
-  font-weight: bold;
   color: white;
 }
 
 .wordime-keys-wrapper {
+  padding: 3px 5px;
+}
+
+.wordime-half-keys-wrapper {
+  margin: 30px auto;
   padding: 3px 5px;
 }
 
@@ -145,6 +149,12 @@
 .clear {
   clear:both;
   line-height:0;
+}
+
+.wordime-hide {
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 @media (min-width:601px) {
