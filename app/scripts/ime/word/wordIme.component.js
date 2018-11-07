@@ -266,7 +266,7 @@
 
     self.getHalfButtonClass = function () {
       var clas = 'wordime-hide';
-      if (!self.displayHalfAlphas() && !selectedOriginAlpha) {
+      if (testWordHasHalfs() && !self.displayHalfAlphas() && !selectedOriginAlpha) {
         clas = 'wordime-button';
       }
       return clas;
