@@ -11,6 +11,11 @@
   color: rgba(255, 255, 255, 1);
 }
 
+.wordplayer-title {
+  margin: 30px auto;
+  font-size: 2em;
+}
+
 .word-player {
   z-index: 1000;
   background-color: rgba(100,100,100,.9);
