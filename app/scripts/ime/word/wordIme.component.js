@@ -183,8 +183,8 @@
     };
 
     self.halfVariantClick = function (position) {
-      console.log(position);
       // setInputFocus();
+      self.toggleConsnantAlphas();
       $scope.$broadcast(config.events.setImeAlpha, self.getHalfVariant(position));
       closeVariantKeys();
     };
