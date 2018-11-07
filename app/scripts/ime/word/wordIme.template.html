@@ -70,24 +70,42 @@
 
       </div>
 
-      <div class="wordime-button-container">
-        <div class="wordime-buttons">
+    </div>
 
-          <span class="wordime-button wordime-button1" ng-click="$ctrl.backSpace()">
-            <span class="wordime-button-text">删除</span>
-          </span>
+    <div class="wordime-button-container">
+      <div class="wordime-buttons">
 
-          <span class="wordime-button wordime-button2" ng-hide="$ctrl.originAlphaSelected()" ng-click="$ctrl.done()">
-            <span class="wordime-button-text">确定</span>
-          </span>
+        <span class="wordime-button" ng-click="$ctrl.backSpace()">
+          <span class="wordime-button-text">辅音</span>
+        </span>
 
-          <span class="wordime-button wordime-button3" ng-click="$ctrl.cancel()">
-            <span class="wordime-button-text">取消</span>
-          </span>
+        <span class="wordime-button" ng-hide="$ctrl.originAlphaSelected()" ng-click="$ctrl.done()">
+          <span class="wordime-button-text">半音</span>
+        </span>
 
-        </div>
+        <span class="wordime-button" ng-click="$ctrl.cancel()">
+          <span class="wordime-button-text">借词</span>
+        </span>
+
       </div>
+    </div>
 
+    <div class="wordime-button-container">
+      <div class="wordime-buttons">
+
+        <span class="wordime-button" ng-click="$ctrl.backSpace()">
+          <span class="wordime-button-text">删除</span>
+        </span>
+
+        <span class="wordime-button" ng-hide="$ctrl.originAlphaSelected()" ng-click="$ctrl.done()">
+          <span class="wordime-button-text">确定</span>
+        </span>
+
+        <span class="wordime-button" ng-click="$ctrl.cancel()">
+          <span class="wordime-button-text">取消</span>
+        </span>
+
+      </div>
     </div>
   </div>
 </div>
