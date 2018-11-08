@@ -247,11 +247,11 @@
     };
 
     self.getConsnantAlphasClass = function () {
-      var clas = 'wordime-hide';
+      var clas = ' wordime-hide';
       if (self.displayConsnantAlphas()) {
         clas = '';
       }
-      return clas;
+      return 'wordime-alphas-container' + clas;
     };
 
     self.getVowelAlphasClass = function () {

@@ -31,6 +31,12 @@
   margin-left: 0 !important;
 }
 
+.wordime-alphas-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
 .wordime-button-container {
   width: 100%;
   height: 100%;
@@ -66,6 +72,7 @@
 
 .wordime-keys-wrapper {
   padding: 3px 5px;
+  width: 25%;
 }
 
 .wordime-half-keys-wrapper {
