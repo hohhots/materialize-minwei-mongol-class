@@ -18,6 +18,16 @@
           <br class="clear" />
         </div>
 
+        <!-- foreign alphas display -->
+        <div ng-class="$ctrl.getConsnantAlphasClass()">
+          <div ng-repeat="consonant in $ctrl.wordImeKeyForeigns" class="wordime-keys-wrapper w3-col s3">
+            <div ng-click="$ctrl.consonantClick(consonant)" class="wordime-key-consonant" ng-class="$ctrl.getConsonantClass(consonant)">
+              <mon-word data-origintext="{{::consonant}}"></mon-word>
+            </div>
+          </div>
+          <br class="clear" />
+        </div>
+
         <!-- vowel alphas display -->
         <div ng-class="$ctrl.getVowelAlphasClass()">
           <div ng-repeat="vowel in $ctrl.wordImeKeyOriVowels" class="wordime-keys-wrapper alpha5-col s1">

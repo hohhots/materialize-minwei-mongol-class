@@ -89,7 +89,7 @@
     self.vowelClick = function (vowel) {
       setInputFocus();
       // Alpha w just has two alpha.
-      if ((selectedConsonant == 'w10') && disabledVowels.includes(vowel)) {
+      if (isVowelDisabled(vowel)) {
         return;
       }
 
@@ -107,9 +107,11 @@
 
     self.getVowelClass = function (vowel) {
       var cssClass = 'wordime-key-vowel';
-      if ((selectedConsonant == 'w10') && disabledVowels.includes(vowel)) {
+
+      if (isVowelDisabled(vowel)) {
         cssClass = 'wordime-key-vowel-disable';
       }
+
       return cssClass;
     };
 
@@ -284,7 +286,8 @@
     // If has value, display variant keyboard
     var selectedOriginAlpha = '';
     var keySelectedClass = 'wordime-key-selected';
-    var disabledVowels = ['a30', 'a40', 'a60'];
+    var disabledWVowels = ['a30', 'a40', 'a60'];
+    var disabledLVowels = ['a20', 'a30', 'a40', 'a60'];
     // Auto setted according to selectedOriginAlpha variable. 
     var alphaVariants = [];
 
@@ -293,6 +296,17 @@
 
     // 1=vowel, 2=consnant, 3=foreignh; 4=half
     var displayedBoards = {1: true, 2: true};
+
+    // some consnant has only a few vowels.
+    function isVowelDisabled(vowel) {
+      if ((selectedConsonant === 'w10') && disabledWVowels.includes(vowel)) {
+        return true;
+      }
+      if ((selectedConsonant === 'L10') && disabledLVowels.includes(vowel)) {
+        return true;
+      }
+      return false;
+    };
 
     function variantsDisplayed() {
       var displayed = false;
