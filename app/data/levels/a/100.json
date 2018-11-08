@@ -1,9 +1,17 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "s70", "china": "奶"},
+      { "word": "t11a37", "china": "有"},
+      { "word": "q11a37", "china": "茶"},
+      { "word": "a11b54n18", "china": "要"},
+      { "word": "n31g27", "china": "一"},
+      { "word": "n11A15h57", "china": "暖壶"},
+      { "word": "a11b54y18", "china": "要"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

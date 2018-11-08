@@ -1,9 +1,16 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "q11A04", "china": "表,时间"},
+      { "word": "t51A04", "china": "旗帜"},
+      { "word": "m11A03t14h57", "china": "夸奖"},
+      { "word": "b71j34A06", "china": "舞蹈"},
+      { "word": "a61A05q34h27", "china": "给吧"},
+      { "word": "h11g14A08", "china": "半"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

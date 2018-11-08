@@ -1,9 +1,15 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "j61A01l24A20", "china": "商议"},
+      { "word": "s31h34A10", "china": "糖"},
+      { "word": "h11r34A14", "china": "可是"},
+      { "word": "s21A19b34A06", "china": "配件"},
+      { "word": "d71A19h34g74A10", "china": "钥匙"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

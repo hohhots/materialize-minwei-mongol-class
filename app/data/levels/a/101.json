@@ -1,9 +1,16 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "j10", "china": "是"},
+      { "word": "m21d24l28", "china": "知道了"},
+      { "word": "h41g44l17", "china": "饭"},
+      { "word": "s31r14A03s14A14", "china": "烤的"},
+      { "word": "m31h17", "china": "肉"},
+      { "word": "s70", "china": "奶"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

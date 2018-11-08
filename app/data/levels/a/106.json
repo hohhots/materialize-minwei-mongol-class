@@ -1,9 +1,15 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "a11m17", "china": "嘴"},
+      { "word": "n11A18", "china": "党"},
+      { "word": "h61A20", "china": "脚"},
+      { "word": "s11A16", "china": "仓库"},
+      { "word": "h11n54j14a37", "china": "满意了"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

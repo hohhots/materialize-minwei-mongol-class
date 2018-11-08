@@ -1,9 +1,16 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "a11A09q37", "china": "擦"},
+      { "word": "j31b14A10", "china": "风"},
+      { "word": "m11g14A11l14h57", "china": "猜测"},
+      { "word": "s51r54A03q34A12", "china": "学生们"},
+      { "word": "s31A13j37", "china": "外表"},
+      { "word": "h11q34A14", "china": "奇怪"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

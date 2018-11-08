@@ -1,9 +1,15 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "t10", "china": "你"},
+      { "word": "h11m34g17", "china": "在哪里"},
+      { "word": "a11j34A19l14d14A04", "china": "工作"},
+      { "word": "y21h27", "china": "大"},
+      { "word": "s51A09g14g54l37", "china": "学校"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

@@ -1,9 +1,17 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "t61A02", "china": "中央"},
+      { "word": "h21r24A06", "china": "事情"},
+      { "word": "g11A09q57", "china": "出去"},
+      { "word": "a51l54A08", "china": "国家"},
+      { "word": "n21r34A11q14a37", "china": "命名了"},
+      { "word": "a11A01q14g17", "china": "要吧"},
+      { "word": "h71A09q24h27", "china": "去吧"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]

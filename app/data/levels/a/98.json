@@ -1,9 +1,16 @@
 [
   {
-    "interactType": "alphaList",
-    "interactTitle": "元音字母",
-    "orderInList": 1,
-    "videoTitle": "字母表",
-    "practiceTitle": "元音字母练习"
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "t11A15s17", "china": "账单"},
+      { "word": "h71s24l24A16", "china": "理想"},
+      { "word": "h21A17j34y28", "china": "尺度"},
+      { "word": "d71r34A18", "china": "规则"},
+      { "word": "m11A19q34A14", "china": "牧民"},
+      { "word": "g21r24A20", "china": "光线"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
   }
 ]
