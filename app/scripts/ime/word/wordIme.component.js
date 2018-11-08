@@ -228,38 +228,32 @@
       displayedBoards = {1: true, 2: true};
     };
 
-    self.displayConsnantAlphas = function () {
-      var display = false;
-
-      if (displayedBoards[2] && !variantsDisplayed()) {
-        display = true;
-      }
-      return display;
+    self.toggleForeignAlphas = function () {
+      displayedBoards = {1: true, 3: true};
     };
 
     self.displayVowelAlphas= function () {
-      var display = false;
+      return getAlphasDisplayState(1);
+    };
 
-      if (displayedBoards[1] && !variantsDisplayed()) {
-        display = true;
-      }
-      return display;
+    self.displayConsnantAlphas = function () {
+      return getAlphasDisplayState(2);
+    };
+
+    self.displayForeignAlphas = function () {
+      return getAlphasDisplayState(3);
     };
 
     self.getConsnantAlphasClass = function () {
-      var clas = ' wordime-hide';
-      if (self.displayConsnantAlphas()) {
-        clas = '';
-      }
-      return 'wordime-alphas-container' + clas;
+      return getAlphasClasses(self.displayConsnantAlphas());
+    };
+
+    self.getForeignAlphasClass = function () {
+      return getAlphasClasses(self.displayForeignAlphas());
     };
 
     self.getVowelAlphasClass = function () {
-      var clas = 'wordime-hide';
-      if (self.displayVowelAlphas()) {
-        clas = '';
-      }
-      return clas;
+      return getAlphasClasses(self.displayVowelAlphas());
     };
 
     self.getConsnantButtonClass = function () {
@@ -273,6 +267,14 @@
     self.getHalfButtonClass = function () {
       var clas = 'wordime-hide';
       if (testWordHasHalfs() && !self.displayHalfAlphas() && !selectedOriginAlpha) {
+        clas = 'wordime-button';
+      }
+      return clas;
+    };
+
+    self.getForeignButtonClass = function () {
+      var clas = 'wordime-hide';
+      if (testWordHasForeigns() && !self.displayForeignAlphas() && !selectedOriginAlpha) {
         clas = 'wordime-button';
       }
       return clas;
@@ -294,8 +296,26 @@
     var selectedHalfAlpha = '';
     var halfVariants = [];
 
-    // 1=vowel, 2=consnant, 3=foreignh; 4=half
+    // 1=vowel, 2=consnant, 3=foreign; 4=half
     var displayedBoards = {1: true, 2: true};
+
+    // alphasNum 1=vowel, 2=consnant, 3=foreign; 4=half
+    function getAlphasDisplayState(alphasNum) {
+      var display = false;
+
+      if (displayedBoards[alphasNum] && !variantsDisplayed()) {
+        display = true;
+      }
+      return display;
+    }
+
+    function getAlphasClasses (alphaDisplayState) {
+      var clas = ' wordime-hide';
+      if (alphaDisplayState) {
+        clas = '';
+      }
+      return 'wordime-alphas-container' + clas;
+    }
 
     // some consnant has only a few vowels.
     function isVowelDisabled(vowel) {
@@ -306,7 +326,7 @@
         return true;
       }
       return false;
-    };
+    }
 
     function variantsDisplayed() {
       var displayed = false;
@@ -315,7 +335,7 @@
         displayed = true;
       }
       return displayed;
-    };
+    }
 
     function testWordHasHalfs() {
       var has = false;
@@ -326,7 +346,18 @@
       }
 
       return has;
-    };
+    }
+
+    function testWordHasForeigns() {
+      var has = false;
+      if (wordConfig.wordHasForeignAlphas($scope.$parent.$ctrl.originWord)) {
+        if (!self.originAlphaSelected()) {
+          has = true;
+        }
+      }
+
+      return has;
+    }
 
     function closeIme(done) {
       self.showWordIme = false;
@@ -334,7 +365,9 @@
       if (alphaVariants.length) {
         closeVariantKeys();
       } else {
-        selectedConsonant = '';
+        // selectedConsonant = '';
+        closeVariantKeys();
+        //displayedBoards = {1: true, 2: true};
         $scope.$broadcast(config.events.closeIme, done);
       }
     }
@@ -347,6 +380,8 @@
 
       selectedHalfAlpha = '';
       halfVariants = [];
+
+      displayedBoards = {1: true, 2: true};
 
       setTimeout(function () {
         resizeComponents();

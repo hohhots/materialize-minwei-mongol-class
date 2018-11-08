@@ -187,6 +187,7 @@
   var variantPosition = [0, 1, 4, 7];
   var vowelPosition = [1, 2, 3, 4, 5, 6, 7];
   var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w', 'f', 'k', 'z', 'c', 'H', 'L'];
+  var foreigns = ['e', 'f', 'k', 'z', 'c', 'H', 'L'];
 
   var fifth = {
     a35: 'a35'
@@ -488,6 +489,18 @@
     return has;
   }
 
+  function wordHasForeignAlphas(word) {
+    var has = false;
+
+    $.each(foreigns, function (i, v) {
+      if (word.indexOf(v) > -1) {
+        has = true;
+      }
+    });
+
+    return has;
+  }
+
   var config = {
     wordContainerCellClass: wordContainerCellClass,
     template: "scripts/word/word.template.html",
@@ -503,7 +516,8 @@
     getAlphaMapName: getAlphaMapName,
     wordHasHalfAlphas: wordHasHalfAlphas,
     getHalfVariants: getHalfVariants,
-    getHalfFirstVariant: getHalfFirstVariant
+    getHalfFirstVariant: getHalfFirstVariant,
+    wordHasForeignAlphas: wordHasForeignAlphas
   };
 
   createWordsMap();

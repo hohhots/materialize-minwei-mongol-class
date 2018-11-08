@@ -34,7 +34,7 @@
 .wordime-alphas-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .wordime-button-container {
@@ -75,9 +75,14 @@
   width: 25%;
 }
 
-.wordime-half-keys-wrapper {
+.wordime-half-keys-wrapper,
+.wordime-foreign-keys-wrapper {
   margin: 30px auto;
   padding: 3px 5px;
+}
+
+.wordime-foreign-keys-wrapper {
+  width: 33%;
 }
 
 .wordime-key-consonant,
@@ -87,7 +92,7 @@
 .wordime-key-vowel-disable {
   margin: auto;
   width: 40px;
-  height: 60px;
+  height: 70px;
   border: 1px solid #333;
   border-radius: 5px;
   background-color: rgba(50,50,50,0.5);
