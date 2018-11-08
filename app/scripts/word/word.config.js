@@ -144,7 +144,12 @@
     j2: 'j1', j5: 'j4', j7: 'j6',
     y2: 'y1', y5: 'y4', y7: 'y6',
     r2: 'r1', r5: 'r4', r7: 'r6',
-    w2: 'w1'
+    w2: 'w1',
+    f5: 'f4', f7: 'f6',
+    k5: 'k4', k7: 'k6',
+    z5: 'z4', z7: 'z6',
+    c5: 'c4', c7: 'c6',
+    H5: 'H4', H7: 'H6'
   };
 
   var alphaVariantNamesMap1 = $.extend({}, alphaOriginNamesMap, {
@@ -181,7 +186,7 @@
 
   var variantPosition = [0, 1, 4, 7];
   var vowelPosition = [1, 2, 3, 4, 5, 6, 7];
-  var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w'];
+  var consnants = ['n', 'b', 'p', 'h', 'g', 'm', 'l', 's', 'x', 't', 'd', 'q', 'j', 'y', 'r', 'w', 'f', 'k', 'z', 'c', 'H', 'L'];
 
   var fifth = {
     a35: 'a35'
@@ -199,7 +204,10 @@
     y28: 'y18',
     r18: 'r18',
     r28: 'r18',
-    w18: 'w18'
+    w18: 'w18',
+    k28: 'k28',
+    z28: 'z28',
+    c28: 'c28'
   };
 
   var halfAlphas = {
@@ -236,6 +244,10 @@
   function createConsnantPosition() {
     $.each(vowelPosition, function (voi, voPosition) {
       $.each(consnants, function (ci, consnant) {
+        // foreign 'L' has one alphas.
+        if ((consnant === 'L') && ($.inArray(voPosition, [1]) === -1)) {
+          return;
+        }
         // consnant 'w' has two alphas.
         if ((consnant === 'w') && ($.inArray(voPosition, [1, 2]) === -1)) {
           return;

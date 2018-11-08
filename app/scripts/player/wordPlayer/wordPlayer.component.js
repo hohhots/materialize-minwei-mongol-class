@@ -136,7 +136,7 @@
       audioElem.play();
 
       // because has no whole word audio.
-      setTimeout(done, 2000);
+      //setTimeout(done, 2000);
 
       function done() {
         audioDone = true;

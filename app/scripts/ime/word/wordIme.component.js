@@ -34,6 +34,10 @@
     self.wordImeKeyConsonants = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
       'x10', 't10', 'd10', 'q10', 'j10', 'y10', 'r10', 'w10'];
 
+    self.wordImeKeyForeigns = ['f10', 'k10', 'z10', 'c10', 'H10', 'L10'];
+
+    self.wordImeKeySingleForeigns = ['e10', 'e11', 'e12', 'e13'];
+
     self.wordImeKeyVowels = ['a11', 'a21', 'a31', 'a41', 'a61'];
 
     self.wordImeKeyOriVowels = ['a10', 'a20', 'a30', 'a40', 'a60'];
