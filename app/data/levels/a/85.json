@@ -1,3 +1,15 @@
 [
-  {}
+  {
+    "interactType": "wordBegin",
+    "interactTitle": "复合元音",
+    "words": [
+      { "word": "x11f17", "china": "沙发"},
+      { "word": "k11l37", "china": "钾"},
+      { "word": "f31z34k28", "china": "物理"},
+      { "word": "k41f27", "china": "咖啡"},
+      { "word": "c51a57", "china": "醋"}
+    ],
+    "videoTitle": "复合元音",
+    "practiceTitle": "复合元音练习"
+  }
 ]

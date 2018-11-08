@@ -36,7 +36,7 @@
 
     self.wordImeKeyForeigns = ['f10', 'k10', 'z10', 'c10', 'H10', 'L10'];
 
-    self.wordImeKeySingleForeigns = ['e10', 'e11', 'e12', 'e13'];
+    self.wordImeKeyFSingles = ['e10', 'e11', 'e12', 'e13', 'e14'];
 
     self.wordImeKeyVowels = ['a11', 'a21', 'a31', 'a41', 'a61'];
 
@@ -121,6 +121,19 @@
       closeVariantKeys();
     };
 
+    self.halfVariantClick = function (position) {
+      // setInputFocus();
+      self.toggleConsnantAlphas();
+      $scope.$broadcast(config.events.setImeAlpha, self.getHalfVariant(position));
+      closeVariantKeys();
+    };
+
+    self.fsingleClick = function (fsingle) {
+      self.toggleConsnantAlphas();
+      $scope.$broadcast(config.events.setImeAlpha, fsingle);
+      closeVariantKeys();
+    };
+
     self.halfClick = function (half) {
       setInputFocus();
       // Sure no other alpha selected.
@@ -186,13 +199,6 @@
 
     self.getHalfVariant = function (position) {
       return halfVariants[position];
-    };
-
-    self.halfVariantClick = function (position) {
-      // setInputFocus();
-      self.toggleConsnantAlphas();
-      $scope.$broadcast(config.events.setImeAlpha, self.getHalfVariant(position));
-      closeVariantKeys();
     };
 
     self.cancel = function () {

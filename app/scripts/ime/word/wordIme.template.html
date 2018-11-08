@@ -36,6 +36,15 @@
           </div>
         </div>
 
+        <!-- foreign single alphas display -->
+        <div ng-class="$ctrl.getForeignAlphasClass()">
+          <div ng-repeat="foreign in $ctrl.wordImeKeyFSingles" class="wordime-keys-wrapper alpha5-col s1">
+            <div ng-click="$ctrl.fsingleClick(foreign)" class="wordime-key-vowel">
+              <mon-word data-origintext="{{::foreign}}"></mon-word>
+            </div>
+          </div>
+        </div>
+
         <!-- half alphas display-->
         <div ng-class="$ctrl.setHalfAlphasClass()">
           <div ng-repeat="half in $ctrl.wordImeKeyHalfs" class="wordime-half-keys-wrapper alpha5-col s1">

@@ -119,7 +119,7 @@
 
     L10: 'e633', L11: 'e634', L14: 'e635', L17: 'e636',
 
-    e10: 'e639', e11: 'e63b', e12: 'e63d', e13: 'e63f',
+    e10: 'e639', e11: 'e63b', e13: 'e63d', e14: 'e63f',
 
     A01: 'e641', A02: 'e643', A03: 'e645', A04: 'e647', A05: 'e649',
     A06: 'e64b', A07: 'e64d', A08: 'e64f', A09: 'e651', A10: 'e653',
@@ -234,6 +234,14 @@
     A20: 'A20'
   };
 
+  var foreignSingle = {
+    e10: 'e10',
+    e11: 'e11',
+    e12: 'x30',
+    e13: 'e13',
+    e14: 'e14'
+  };
+
   function createVowelPosition() {
     $.each(vowelPosition, function (voi, voPosition) {
       $.each(variantPosition, function (vai, vaPosition) {
@@ -262,6 +270,7 @@
     addToWordMaps(fifth);
     addToWordMaps(eighth);
     addToWordMaps(halfAlphas);
+    addToWordMaps(foreignSingle);
   }
 
   function addToWordMaps(alphas) {
