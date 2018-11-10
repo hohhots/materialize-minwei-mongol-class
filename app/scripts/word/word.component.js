@@ -63,8 +63,8 @@
           if ($element.closest('div:hidden').length == 0) {
             //console.log('after word dimension');
             self.containerStyle.position = "absolute";
-            self.containerStyle.width = getParentHeight();
-            self.containerStyle.height = getParentWidth();
+            self.containerStyle.width = parentElem.clientHeight + 'px';
+            self.containerStyle.height = parentElem.clientWidth + 'px';
 
             self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext, true));
           }
@@ -82,14 +82,6 @@
         $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, $element.parent(), wordConfig.getVowels()]);
         $interval.cancel(dd);
       }, 30);
-    }
-
-    function getParentWidth() {
-      return parentElem.clientWidth + 'px';
-    }
-
-    function getParentHeight() {
-      return parentElem.clientHeight + 'px';
     }
 
     // add listener and hold on to deregister function
