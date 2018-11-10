@@ -1,8 +1,9 @@
 .wordplayer-word-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 36px;
+  margin: auto;
+  padding: 8px 10px;
+  width: 70px;
   height: 350px;
+  line-height: 2em;
   font-size: 2em;
 }
 

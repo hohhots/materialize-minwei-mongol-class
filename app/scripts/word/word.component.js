@@ -63,26 +63,34 @@
           if ($element.closest('div:hidden').length == 0) {
             //console.log('after word dimension');
             self.containerStyle.position = "absolute";
-            self.containerStyle.width = parentElem[0].clientHeight + 'px';
-            self.containerStyle.height = parentElem[0].clientWidth + 'px';
+            self.containerStyle.width = getParentHeight();
+            self.containerStyle.height = getParentWidth();
 
             self.monText = $sce.trustAsHtml(wordConfig.setMonWord(self.origintext, true));
           }
         } else {
-          parentElem = $element.parent();
+          parentElem = $element.find('.word-outerContainer')[0];
         }
 
       }, 20);
-    };
+    }
 
     //must called after rendering, so use $interval for call this function.
     function getWordSpan() {
       var dd = $interval(function () {
         textSpansArray = $element.find(wordConfig.wordContainerCellClass).children();
-        $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, parentElem, wordConfig.getVowels()]);
+        $scope.$emit(config.events.setWordAnimationElement, [textArray, textSpansArray, $element.parent(), wordConfig.getVowels()]);
         $interval.cancel(dd);
       }, 30);
-    };
+    }
+
+    function getParentWidth() {
+      return parentElem.clientWidth + 'px';
+    }
+
+    function getParentHeight() {
+      return parentElem.clientHeight + 'px';
+    }
 
     // add listener and hold on to deregister function
     var deregister = [];
