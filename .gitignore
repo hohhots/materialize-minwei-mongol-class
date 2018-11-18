@@ -11,6 +11,7 @@ dist
 # files
 app.yaml
 *.pyc
+*.log
 *~
 #*
 *#
