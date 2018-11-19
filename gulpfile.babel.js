@@ -33,13 +33,33 @@ import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
+import htmlbuild from 'gulp-htmlbuild';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+const mainJs = 'main.js';
+const mainCss = 'main.css';
+
+// Replace js and css block with one file
+gulp.task('htmlblocks', () => 
+  gulp.src(['./app/index.html'])
+  .pipe(htmlbuild({
+    // build js with preprocessor
+    js: htmlbuild.preprocess.js(block => {
+      block.end('scripts/main.js');
+    }),
+    css: htmlbuild.preprocess.css(block => {
+      block.end('styles/main.css');
+    })
+  }))
+  .pipe($.newer('.tmp'))
+  .pipe(gulp.dest('.tmp'))
+);
+
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src(['app/scripts/**/*.js','!node_modules/**'])
+  gulp.src(['app/scripts/**/*.js', '!node_modules/**'])
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
@@ -82,13 +102,19 @@ gulp.task('styles', () => {
     'bb >= 10'
   ];
 
+  gulp.src([
+    'bower_components/components-font-awesome/fonts/**'
+  ])
+    .pipe(gulp.dest('.dist/styles/fonts'));
+
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/**/*.scss',
-    'app/styles/**/*.css'
+    'bower_components/components-font-awesome/css/font-awesome.min.css',
+    'app/styles/**/*.css',
+    'app/scripts/**/*.css'
   ])
+    .pipe($.concat('main.css'))
     .pipe($.newer('.tmp/styles'))
-    .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10
     }).on('error', $.sass.logError))
@@ -97,34 +123,94 @@ gulp.task('styles', () => {
     // Concatenate and minify styles
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
-    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('dist/styles'))
     .pipe(gulp.dest('.tmp/styles'));
+});
+
+gulp.task('prescripts', () => {
+  gulp.src([
+    './app/bower_components/jquery/dist/jquery.min.js',
+    './app/bower_components/angular/angular.min.js',
+    './app/bower_components/angular-resource/angular-resource.min.js',
+    './app/bower_components/angular-ui-router/release/angular-ui-router.min.js'
+  ])
+  .pipe($.concat('vender.min.js'))
+  .pipe($.newer('.tmp/scripts'))
+  .pipe($.size({title: 'scripts'}))
+  .pipe(gulp.dest('.tmp/scripts'));
+
+  return gulp.src([
+    './app/scripts/app.js',
+    './app/scripts/rootController.js',
+
+    './app/scripts/core/config.js',
+    './app/scripts/core/json.js',
+    './app/scripts/core/anchorScroll.js',
+    './app/scripts/core/util.js',
+
+    './app/scripts/header/subjectsDropDown/subjectsdropdown.component.js',
+    './app/scripts/header/mobileDropDown/mobiledropdown.component.js',
+    './app/scripts/root/root.component.js',
+    './app/scripts/header/header.component.js',
+    './app/scripts/home/home.component.js',
+    './app/scripts/levelshome/levelshome.component.js',
+    './app/scripts/levelshome/levels/levels.component.js',
+    './app/scripts/levelshome/levels/books/books.component.js',
+    './app/scripts/category/category.component.js',
+    './app/scripts/category/alphabet/origin/alphabetorigin.component.js',
+    './app/scripts/category/alphabet/origin/practice/originpractice.component.js',
+    './app/scripts/category/alphabet/origin/originRandom/originRandom.component.js',
+    './app/scripts/category/alphabet/list/alphabetlist.component.js',
+    './app/scripts/category/alphabet/list/practice/listpractice.component.js',
+    './app/scripts/category/alphabet/list/listRandom/listRandom.component.js',
+    './app/scripts/category/alphabet/variant/alphabetvariant.component.js',
+    './app/scripts/category/alphabet/variant/practice/variantpractice.component.js',
+    './app/scripts/category/alphabet/variant/variantRandom/variantRandom.component.js',
+    './app/scripts/category/word/begin/wordBegin.component.js',
+    './app/scripts/category/word/begin/practice/wordbeginpractice.component.js',
+    './app/scripts/category/ebook/begin/ebookBegin.component.js',
+    './app/scripts/subject/subject.component.js',
+    './app/scripts/class/class.component.js',
+    './app/scripts/lesson/lesson.component.js',
+    './app/scripts/footer/footer.component.js',
+    './app/scripts/player/player.module.js',
+    './app/scripts/player/simplePlayer/simplePlayer.component.js',
+    './app/scripts/filter/filter.module.js',
+    './app/scripts/filter/alphaOriginFilter/alphaOriginFilter.component.js',
+    './app/scripts/word/word.module.js',
+    './app/scripts/word/word.component.js',
+    './app/scripts/word/word.config.js',
+    './app/scripts/player/wordPlayer/wordPlayer.component.js',
+    './app/scripts/word/input/mwordInput.component.js',
+    './app/scripts/ime/ime.module.js',
+    './app/scripts/ime/word/wordIme.component.js',
+    './app/scripts/player/audioPlayer/audioPlayer.service.js'
+  ])
+  .pipe($.concat('app.min.js'))
+  .pipe($.newer('.tmp/scripts'))
+  .pipe($.babel())
+  .pipe(gulp.dest('.tmp/scripts'))
+  .pipe($.uglify())
+  // Output files
+  .pipe($.size({title: 'scripts'}))
+  .pipe(gulp.dest('.tmp/scripts'));
+
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
-gulp.task('scripts', () =>
-    gulp.src([
-      // Note: Since we are not using useref in the scripts build pipeline,
-      //       you need to explicitly list your scripts here in the right order
-      //       to be correctly concatenated
-      './app/scripts/main.js'
-      // Other scripts
+gulp.task('scripts', ['prescripts'],() => {
+    return gulp.src([
+      '.tmp/scripts/vender.min.js',
+      '.tmp/scripts/app.min.js'
     ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({preserveComments: 'some'}))
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
-      .pipe(gulp.dest('.tmp/scripts'))
+    .pipe($.concat('main.js'))
+    .pipe($.size({title: 'scripts'}))
+    .pipe($.newer('.tmp/scripts'))
+    .pipe(gulp.dest('./dist/scripts'))
+    .pipe(gulp.dest('.tmp/scripts'));
+  }
 );
 
 // Scan your HTML for assets & optimize them
@@ -153,7 +239,7 @@ gulp.task('html', () => {
 });
 
 // Clean output directory
-gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
+gulp.task('clean', () => del(['.tmp/*', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
 gulp.task('serve', ['scripts', 'styles'], () => {
@@ -194,10 +280,11 @@ gulp.task('serve:dist', ['default'], () =>
 );
 
 // Build production files, the default task
-gulp.task('default', ['clean'], cb =>
+gulp.task('default', ['clean', 'htmlblocks'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    // ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['scripts'],
     'generate-service-worker',
     cb
   )
