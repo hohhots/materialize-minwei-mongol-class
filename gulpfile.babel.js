@@ -81,24 +81,36 @@ gulp.task('lint', () =>
 );
 
 // Optimize images
-gulp.task('images', ['audios','videos'], () =>
+gulp.task('images', ['audios','videos'], () =>{
+
+  // css images move to styles directory
   gulp.src([
-    'app/**/*.{png,gif,jpg,jpeg}',
-    '!app/bower_components/**/*'
+    'app/scripts/levelshome/images/grassland.jpeg'
   ])
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe($.size({title: 'images'}))
-    .pipe(gulp.dest('dist'))
-);
+  .pipe($.cache($.imagemin({
+    progressive: true,
+    interlaced: true
+  })))
+  .pipe($.size({title: 'css images'}))
+  .pipe(gulp.dest('dist/styles/images'));
+  
+  return gulp.src([
+        'app/**/*.{png,gif,jpg,jpeg}',
+        '!app/node_modules/**/*'
+      ])
+      .pipe($.cache($.imagemin({
+        progressive: true,
+        interlaced: true
+      })))
+      .pipe($.size({title: 'images'}))
+      .pipe(gulp.dest('dist'));
+});
 
 // copy audios
 gulp.task('audios', () =>
   gulp.src([
     'app/**/*.{ogg,mp3}',
-    '!app/bower_components/**/*'
+    '!app/node_modules/**/*'
   ])
     .pipe($.size({title: 'audio'}))
     .pipe(gulp.dest('dist'))
@@ -108,7 +120,7 @@ gulp.task('audios', () =>
 gulp.task('videos', () =>
   gulp.src([
     'app/**/*.{ogv,webm}',
-    '!app/bower_components/**/*'
+    '!app/node_modules/**/*'
   ])
     .pipe($.size({title: 'video'}))
     .pipe(gulp.dest('dist'))
@@ -117,7 +129,7 @@ gulp.task('videos', () =>
 gulp.task('jsons', function () {
     return gulp.src([
       'app/**/*.json',
-      '!app/bower_components/**/*'
+      '!app/node_modules/**/*'
     ])
     .pipe(jsonminify())
     .pipe(gulp.dest('dist'));
@@ -127,7 +139,8 @@ gulp.task('jsons', function () {
 gulp.task('copy', () =>
   gulp.src([
     'app/*',
-    '!app/index.html'
+    '!app/index.html',
+    '!app/node_modules'
   ], {
     dot: true
   })
@@ -150,13 +163,14 @@ gulp.task('styles', () => {
   ];
 
   gulp.src([
-    'bower_components/components-font-awesome/fonts/**'
+    'node_modules/font-awesome/fonts/*',
+    'app/scripts/fonts/*'
   ])
-    .pipe(gulp.dest('.dist/styles/fonts'));
+  .pipe(gulp.dest('dist/fonts'));
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'bower_components/components-font-awesome/css/font-awesome.min.css',
+    'node_modules/font-awesome/css/font-awesome.min.css',
     'app/styles/**/*.css',
     'app/scripts/**/*.css'
   ])
@@ -175,10 +189,10 @@ gulp.task('styles', () => {
 
 gulp.task('prescripts', () => {
   gulp.src([
-    'app/bower_components/jquery/dist/jquery.min.js',
-    'app/bower_components/angular/angular.min.js',
-    'app/bower_components/angular-resource/angular-resource.min.js',
-    'app/bower_components/angular-ui-router/release/angular-ui-router.min.js'
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/angular/angular.min.js',
+    'node_modules/angular-resource/angular-resource.min.js',
+    'node_modules/angular-ui-router/release/angular-ui-router.min.js'
   ])
   .pipe($.concat('vender.min.js'))
   .pipe($.newer('.tmp/scripts'))
@@ -236,7 +250,7 @@ gulp.task('prescripts', () => {
   .pipe($.newer('.tmp/scripts'))
   .pipe($.babel())
   .pipe(gulp.dest('.tmp/scripts'))
-  .pipe($.uglify())
+  //.pipe($.uglify())
   // Output files
   .pipe($.size({title: 'app scripts'}))
   .pipe(gulp.dest('.tmp/scripts'));
@@ -264,7 +278,7 @@ gulp.task('html', () => {
   return gulp.src([
     'app/**/*.html',
     '!app/index.html',
-    '!app/bower_components/**/*'
+    '!app/node_modules/**/*'
   ])
     .pipe($.useref({
       searchPath: '{app}',
@@ -272,7 +286,7 @@ gulp.task('html', () => {
     }))
 
     // Minify any HTML
-    .pipe($.if('*.html', $.htmlmin({
+    .pipe($.htmlmin({
       removeComments: true,
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -282,7 +296,7 @@ gulp.task('html', () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
       removeOptionalTags: true
-    })))
+    }))
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
     .pipe(gulp.dest('dist'));
