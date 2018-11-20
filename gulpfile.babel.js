@@ -34,6 +34,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 import htmlbuild from 'gulp-htmlbuild';
+import jsonminify from 'gulp-jsonminify';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -112,6 +113,15 @@ gulp.task('videos', () =>
     .pipe($.size({title: 'video'}))
     .pipe(gulp.dest('dist'))
 );
+ 
+gulp.task('jsons', function () {
+    return gulp.src([
+      'app/**/*.json',
+      '!app/bower_components/**/*'
+    ])
+    .pipe(jsonminify())
+    .pipe(gulp.dest('dist'));
+});
 
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
@@ -324,7 +334,7 @@ gulp.task('default', ['clean', 'htmlblocks'], cb =>
   runSequence(
     'styles',
     // ['lint', 'html', 'scripts', 'images', 'copy'],
-    ['scripts', 'html', 'images', 'copy'],
+    ['scripts', 'html', 'images', 'jsons', 'copy'],
     'generate-service-worker',
     cb
   )
