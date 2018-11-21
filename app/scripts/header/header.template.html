@@ -2,21 +2,7 @@
   <nav class="mainNav" ng-mouseenter="$ctrl.navMouseEnter()" ng-mouseleave="$ctrl.navMouseLeave()">
     <div class="mainNavContent">
       <div class="mainNavContentLeft">
-        <a href="index.html" class="register" ng-style="$ctrl.phoneMenu.style">首页</a>
-      </div>
-      <div class="mainNavContentCenter">
         <a ng-href="{{$ctrl.getUrl()}}" class="appLogo" ng-style="$ctrl.logo.style"><i class="fa fa-graduation-cap" aria-hidden="true" style="color:#61c305"></i>随心蒙古语</a>
-      </div>
-      <div class="mainNavContentRight">
-        <div class="subjectWrapper">
-          <a href="javascript:void(0)" class="subjectsDropDown" ng-style="$ctrl.subjects.style" ng-click="$ctrl.subjectsClicked($event)">蒙语科目<i class="fa" ng-class="{'fa-caret-down': $ctrl.subjectsIconClass, 'fa-caret-up': !$ctrl.subjectsIconClass}"  aria-hidden="true"></i></a>
-          <div class="mainDropDownDiv">
-            <subjects-dropdown></subjects-dropdown>
-          </div>
-        </div>
-        <div class="phoneMenuIconWrapper">
-          <a href="javascript:void(0)" class="phoneMenuIconA" ng-style="$ctrl.phoneMenu.style" ng-click="$ctrl.navBarsIconClick($event)"><i class="fa fa-lg"  ng-class="{'fa-bars': $ctrl.phoneIconClass, 'fa-times': !$ctrl.phoneIconClass}" aria-hidden="true"></i></a>
-        </div>
       </div>
     </div>
   </nav>

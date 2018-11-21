@@ -48,6 +48,20 @@
       self.monDetailShow = !self.monDetailShow;
     };
 
+    self.getBtnClass = function (levelid) {
+      if (self.getUrl(levelid)) {
+        return 'btn2';
+      }
+      return 'dbtn';
+    };
+
+    self.getUrl = function (levelid) {
+      if (levelid === 'a') {
+        return '#!/root/level/' + levelid;
+      }
+      return '';
+    };
+
     var background = $('body').css('background');
 
     var restoreBackground = function () {

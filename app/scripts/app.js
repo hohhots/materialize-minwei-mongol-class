@@ -7,7 +7,6 @@
     'app.header',
     'app.home',
     'app.category',
-    'app.subject',
     'app.class',
     'app.lesson',
     'app.footer',

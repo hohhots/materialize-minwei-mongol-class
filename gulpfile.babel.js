@@ -187,7 +187,7 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task('prescripts', () => {
+gulp.task('prescriptsvender', () => 
   gulp.src([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/angular/angular.min.js',
@@ -197,80 +197,75 @@ gulp.task('prescripts', () => {
   .pipe($.concat('vender.min.js'))
   .pipe($.newer('.tmp/scripts'))
   .pipe($.size({title: 'vender scripts'}))
-  .pipe(gulp.dest('.tmp/scripts'));
-
-  return gulp.src([
-    'app/scripts/app.js',
-    'app/scripts/rootController.js',
-
-    'app/scripts/core/config.js',
-    'app/scripts/core/json.js',
-    'app/scripts/core/anchorScroll.js',
-    'app/scripts/core/util.js',
-
-    'app/scripts/header/subjectsDropDown/subjectsdropdown.component.js',
-    'app/scripts/header/mobileDropDown/mobiledropdown.component.js',
-    'app/scripts/root/root.component.js',
-    'app/scripts/header/header.component.js',
-    'app/scripts/home/home.component.js',
-    'app/scripts/levelshome/levelshome.component.js',
-    'app/scripts/levelshome/levels/levels.component.js',
-    'app/scripts/levelshome/levels/books/books.component.js',
-    'app/scripts/category/category.component.js',
-    'app/scripts/category/alphabet/origin/alphabetorigin.component.js',
-    'app/scripts/category/alphabet/origin/practice/originpractice.component.js',
-    'app/scripts/category/alphabet/origin/originRandom/originRandom.component.js',
-    'app/scripts/category/alphabet/list/alphabetlist.component.js',
-    'app/scripts/category/alphabet/list/practice/listpractice.component.js',
-    'app/scripts/category/alphabet/list/listRandom/listRandom.component.js',
-    'app/scripts/category/alphabet/variant/alphabetvariant.component.js',
-    'app/scripts/category/alphabet/variant/practice/variantpractice.component.js',
-    'app/scripts/category/alphabet/variant/variantRandom/variantRandom.component.js',
-    'app/scripts/category/word/begin/wordBegin.component.js',
-    'app/scripts/category/word/begin/practice/wordbeginpractice.component.js',
-    'app/scripts/category/ebook/begin/ebookBegin.component.js',
-    'app/scripts/subject/subject.component.js',
-    'app/scripts/class/class.component.js',
-    'app/scripts/lesson/lesson.component.js',
-    'app/scripts/footer/footer.component.js',
-    'app/scripts/player/player.module.js',
-    'app/scripts/player/simplePlayer/simplePlayer.component.js',
-    'app/scripts/filter/filter.module.js',
-    'app/scripts/filter/alphaOriginFilter/alphaOriginFilter.component.js',
-    'app/scripts/word/word.module.js',
-    'app/scripts/word/word.component.js',
-    'app/scripts/word/word.config.js',
-    'app/scripts/player/wordPlayer/wordPlayer.component.js',
-    'app/scripts/word/input/mwordInput.component.js',
-    'app/scripts/ime/ime.module.js',
-    'app/scripts/ime/word/wordIme.component.js',
-    'app/scripts/player/audioPlayer/audioPlayer.service.js'
-  ])
-  .pipe($.concat('app.min.js'))
-  .pipe($.newer('.tmp/scripts'))
-  .pipe($.babel())
   .pipe(gulp.dest('.tmp/scripts'))
-  //.pipe($.uglify())
-  // Output files
-  .pipe($.size({title: 'app scripts'}))
-  .pipe(gulp.dest('.tmp/scripts'));
+);
 
-});
+gulp.task('prescripts', ['prescriptsvender'], () => 
+  gulp.src([
+      // modules first
+      'app/scripts/word/word.module.js',
+      'app/scripts/root/root.component.js',
+      'app/scripts/player/player.module.js',
+      'app/scripts/lesson/lesson.component.js',
+      'app/scripts/ime/ime.module.js',
+      'app/scripts/home/home.component.js',
+      'app/scripts/header/header.component.js',
+      'app/scripts/footer/footer.component.js',
+      'app/scripts/filter/filter.module.js',
+      'app/scripts/core/util.js',
+      'app/scripts/core/json.js',
+      'app/scripts/core/config.js',
+      'app/scripts/class/class.component.js',
+      'app/scripts/category/category.component.js',
+      'app/scripts/rootController.js',
+      'app/scripts/core/anchorScroll.js',
+      'app/scripts/levelshome/levelshome.component.js',
+      'app/scripts/levelshome/levels/levels.component.js',
+      'app/scripts/levelshome/levels/books/books.component.js' ,
+      'app/scripts/category/alphabet/origin/alphabetorigin.component.js',
+      'app/scripts/category/alphabet/origin/practice/originpractice.component.js',
+      'app/scripts/category/alphabet/origin/originRandom/originRandom.component.js',
+      'app/scripts/category/alphabet/list/alphabetlist.component.js',
+      'app/scripts/category/alphabet/list/practice/listpractice.component.js',
+      'app/scripts/category/alphabet/list/listRandom/listRandom.component.js',
+      'app/scripts/category/alphabet/variant/alphabetvariant.component.js',
+      'app/scripts/category/alphabet/variant/practice/variantpractice.component.js',
+      'app/scripts/category/alphabet/variant/variantRandom/variantRandom.component.js',
+      'app/scripts/category/word/begin/wordBegin.component.js',
+      'app/scripts/category/word/begin/practice/wordbeginpractice.component.js',
+      'app/scripts/category/ebook/begin/ebookBegin.component.js',
+      'app/scripts/player/simplePlayer/simplePlayer.component.js',
+      'app/scripts/filter/alphaOriginFilter/alphaOriginFilter.component.js',
+      'app/scripts/word/word.component.js',
+      'app/scripts/word/word.config.js',
+      'app/scripts/player/wordPlayer/wordPlayer.component.js',
+      'app/scripts/word/input/mwordInput.component.js',
+      'app/scripts/ime/word/wordIme.component.js',
+      'app/scripts/player/audioPlayer/audioPlayer.service.js',
+      'app/scripts/app.js'
+  ])
+    .pipe($.babel())
+    .pipe($.uglify())
+    .pipe($.concat('app.min.js'))
+    // Output files
+    //.pipe($.newer('.tmp/scripts'))
+    .pipe($.size({title: 'app scripts'}))
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(gulp.dest('dist/scripts'))
+);
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
-gulp.task('scripts', ['prescripts'],() => {
-    return gulp.src([
+gulp.task('scripts', ['prescripts'],() => 
+    gulp.src([
       '.tmp/scripts/vender.min.js',
       '.tmp/scripts/app.min.js'
     ])
     .pipe($.concat('main.js'))
-    .pipe($.newer('.tmp/scripts'))
+    .pipe($.newer('dist/scripts'))
     .pipe($.size({title: 'main scripts'}))
     .pipe(gulp.dest('dist/scripts'))
-    .pipe(gulp.dest('.tmp/scripts'));
-  }
 );
 
 // Scan your HTML for assets & optimize them

@@ -10,7 +10,8 @@ h1,h2,h3,p  {
 }
 
 .btn,
-.btn2 {
+.btn2,
+.dbtn {
   display: inline-block;
   margin: .5em 0;
   padding: 0.3em 1.3em;
@@ -29,6 +30,10 @@ h1,h2,h3,p  {
 .btn2:hover {
   background: #333;
   color: #fff;
+}
+
+.dbtn {
+  color: #999;
 }
 
 .card-content br,

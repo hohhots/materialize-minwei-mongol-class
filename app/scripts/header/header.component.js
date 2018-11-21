@@ -4,9 +4,7 @@
   // Define the `header` module
   var app = angular.module('app.header', [
     'core.config',
-    'core.util',
-    'app.subjectsDropdown',
-    'app.mobiledropdown'
+    'core.util'
   ]);
 
   // Register `headerList` component, along with its associated controller and template
