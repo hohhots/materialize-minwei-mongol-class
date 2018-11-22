@@ -187,27 +187,19 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task('prescriptsvender', () => 
-  gulp.src([
-    'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/angular/angular.min.js',
-    'node_modules/angular-resource/angular-resource.min.js',
-    'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-    'app/scripts/core/config.js',
-  ])
-  .pipe($.uglify({mangle: false}))
-  .pipe($.concat('vender.min.js'))
-  // Output files
-  .pipe($.newer('.tmp/scripts'))
-  .pipe($.size({title: 'vender scripts'}))
-  .pipe(gulp.dest('.tmp/scripts'))
-);
-
-gulp.task('prescripts', ['prescriptsvender'], () => 
-  gulp.src([
+// Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
+// to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
+// `.babelrc` file.
+gulp.task('scripts', () => 
+    gulp.src([
       // modules first
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/angular/angular.min.js',
+      'node_modules/angular-resource/angular-resource.min.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.min.js',
       'app/scripts/app.js',
       'app/scripts/rootController.js',
+      'app/scripts/core/config.js',
       'app/scripts/core/json.js',
       'app/scripts/core/anchorScroll.js',
       'app/scripts/core/util.js',
@@ -245,24 +237,8 @@ gulp.task('prescripts', ['prescriptsvender'], () =>
       'app/scripts/ime/ime.module.js',
       'app/scripts/ime/word/wordIme.component.js',
       'app/scripts/player/audioPlayer/audioPlayer.service.js'
-  ])
-    .pipe($.babel())
-    .pipe($.uglify())
-    .pipe($.concat('app.min.js'))
-    // Output files
-    .pipe($.newer('.tmp/scripts'))
-    .pipe($.size({title: 'app scripts'}))
-    .pipe(gulp.dest('.tmp/scripts'))
-);
-
-// Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
-// to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
-// `.babelrc` file.
-gulp.task('scripts', ['prescripts'], () => 
-    gulp.src([
-      '.tmp/scripts/vender.min.js',
-      '.tmp/scripts/app.min.js'
     ])
+    .pipe($.uglify({mangle: false}))
     .pipe($.concat('main.js'))
     .pipe($.newer('dist/scripts'))
     .pipe($.size({title: 'main scripts'}))
