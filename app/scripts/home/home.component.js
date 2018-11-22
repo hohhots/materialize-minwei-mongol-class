@@ -5,7 +5,6 @@
   var app = angular.module('app.home', [
     'core.config',
     'core.json',
-    'core.util',
-    'core.anchorScroll'
+    'core.util'
   ]);
 })();

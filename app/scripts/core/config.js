@@ -1,6 +1,6 @@
 'use strict';
 
-(function ($location) {
+(function () {
 
   //set global file cache for $.ajax().
   $.ajaxSetup({

@@ -192,9 +192,12 @@ gulp.task('prescriptsvender', () =>
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/angular/angular.min.js',
     'node_modules/angular-resource/angular-resource.min.js',
-    'node_modules/angular-ui-router/release/angular-ui-router.min.js'
+    'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+    'app/scripts/core/config.js',
   ])
+  .pipe($.uglify({mangle: false}))
   .pipe($.concat('vender.min.js'))
+  // Output files
   .pipe($.newer('.tmp/scripts'))
   .pipe($.size({title: 'vender scripts'}))
   .pipe(gulp.dest('.tmp/scripts'))
@@ -203,25 +206,18 @@ gulp.task('prescriptsvender', () =>
 gulp.task('prescripts', ['prescriptsvender'], () => 
   gulp.src([
       // modules first
-      'app/scripts/word/word.module.js',
-      'app/scripts/root/root.component.js',
-      'app/scripts/player/player.module.js',
-      'app/scripts/lesson/lesson.component.js',
-      'app/scripts/ime/ime.module.js',
-      'app/scripts/home/home.component.js',
-      'app/scripts/header/header.component.js',
-      'app/scripts/footer/footer.component.js',
-      'app/scripts/filter/filter.module.js',
-      'app/scripts/core/util.js',
-      'app/scripts/core/json.js',
-      'app/scripts/core/config.js',
-      'app/scripts/class/class.component.js',
-      'app/scripts/category/category.component.js',
+      'app/scripts/app.js',
       'app/scripts/rootController.js',
+      'app/scripts/core/json.js',
       'app/scripts/core/anchorScroll.js',
+      'app/scripts/core/util.js',
+      'app/scripts/root/root.component.js',
+      'app/scripts/header/header.component.js',
+      'app/scripts/home/home.component.js',
       'app/scripts/levelshome/levelshome.component.js',
       'app/scripts/levelshome/levels/levels.component.js',
       'app/scripts/levelshome/levels/books/books.component.js' ,
+      'app/scripts/category/category.component.js',
       'app/scripts/category/alphabet/origin/alphabetorigin.component.js',
       'app/scripts/category/alphabet/origin/practice/originpractice.component.js',
       'app/scripts/category/alphabet/origin/originRandom/originRandom.component.js',
@@ -234,30 +230,35 @@ gulp.task('prescripts', ['prescriptsvender'], () =>
       'app/scripts/category/word/begin/wordBegin.component.js',
       'app/scripts/category/word/begin/practice/wordbeginpractice.component.js',
       'app/scripts/category/ebook/begin/ebookBegin.component.js',
+      'app/scripts/class/class.component.js',
+      'app/scripts/lesson/lesson.component.js',
+      'app/scripts/footer/footer.component.js',
+      'app/scripts/player/player.module.js',
       'app/scripts/player/simplePlayer/simplePlayer.component.js',
+      'app/scripts/filter/filter.module.js',
       'app/scripts/filter/alphaOriginFilter/alphaOriginFilter.component.js',
+      'app/scripts/word/word.module.js',
       'app/scripts/word/word.component.js',
       'app/scripts/word/word.config.js',
       'app/scripts/player/wordPlayer/wordPlayer.component.js',
       'app/scripts/word/input/mwordInput.component.js',
+      'app/scripts/ime/ime.module.js',
       'app/scripts/ime/word/wordIme.component.js',
-      'app/scripts/player/audioPlayer/audioPlayer.service.js',
-      'app/scripts/app.js'
+      'app/scripts/player/audioPlayer/audioPlayer.service.js'
   ])
     .pipe($.babel())
     .pipe($.uglify())
     .pipe($.concat('app.min.js'))
     // Output files
-    //.pipe($.newer('.tmp/scripts'))
+    .pipe($.newer('.tmp/scripts'))
     .pipe($.size({title: 'app scripts'}))
     .pipe(gulp.dest('.tmp/scripts'))
-    .pipe(gulp.dest('dist/scripts'))
 );
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
-gulp.task('scripts', ['prescripts'],() => 
+gulp.task('scripts', ['prescripts'], () => 
     gulp.src([
       '.tmp/scripts/vender.min.js',
       '.tmp/scripts/app.min.js'
