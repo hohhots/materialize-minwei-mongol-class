@@ -1,7 +1,5 @@
 #!/bin/bash
 
-max=111
-for i in `seq 2 $max`
-do
-    ffmpeg -i $i.wav -acodec libmp3lame $i.mp3
+for i in *.wav ; do
+    ffmpeg -i "$i" -codec:a libmp3lame -qscale:a 2 "${i/.wav}".mp3
 done

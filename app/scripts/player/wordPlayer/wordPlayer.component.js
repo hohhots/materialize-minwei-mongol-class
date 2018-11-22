@@ -30,6 +30,7 @@
     self.pageLang = {};
     self.showWordPlayer = false;
     self.word = '';
+    self.close = 0;
 
     // ser value for self variables
     self.pageLang.close = config.subject.close;
@@ -136,7 +137,8 @@
       audioElem.play();
 
       // because has no whole word audio.
-      setTimeout(done, 2000);
+      self.close = setInterval(done, 2000);
+      // setTimeout(done, 2000);
 
       function done() {
         audioDone = true;
@@ -297,6 +299,11 @@
     };
 
     function setClosePlayer() {
+      if (self.close) {
+        clearInterval(self.close);
+        self.close = 0;
+      }
+      
       if ((animationDone.length == (playWord.length - 1)) && audioDone) {
         self.closePlayer();
       }
