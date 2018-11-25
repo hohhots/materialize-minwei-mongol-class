@@ -153,7 +153,7 @@
         $scope.$broadcast(config.events.stopPlayers, true);
         return;
       }
-      var name = testAlphas[playedAudioId].name;
+      var name = getAlphaAudioName();
       var gender = util.getRandomGender();
       self.audio = {
         mpeg: url + config.data.audios + '/' + dirName + '/' + name + gender + config.dataTypes.audios[1],
@@ -179,6 +179,10 @@
       setAnswerAlphaState(alpha);
       self.answerAlphas[testAlpha.id - 1] = angular.copy(alpha);
     };
+
+    function getAlphaAudioName() {
+      return testAlphas[playedAudioId].name.substring(0, 2);
+    }
 
     // add listener and hold on to deregister function
     var deregister = [];
