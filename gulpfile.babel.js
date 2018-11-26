@@ -35,6 +35,9 @@ import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 import htmlbuild from 'gulp-htmlbuild';
 import jsonminify from 'gulp-jsonminify';
+import rev from 'gulp-rev';
+import jsonfile from 'jsonfile';
+import replace from 'gulp-replace';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -48,10 +51,10 @@ gulp.task('htmlblocks', () =>
   .pipe(htmlbuild({
     // build js with preprocessor
     js: htmlbuild.preprocess.js(block => {
-      block.end('scripts/main.js');
+      block.end('scripts/' + mainJs);
     }),
     css: htmlbuild.preprocess.css(block => {
-      block.end('styles/main.css');
+      block.end('styles/' + mainCss);
     })
   }))
   .pipe($.newer('.tmp'))
@@ -68,9 +71,24 @@ gulp.task('htmlblocks', () =>
     removeOptionalTags: true
   }))
   // Output files
-  .pipe($.size({title: 'html', showFiles: true}))
+  .pipe($.size({title: 'index.html', showFiles: true}))
   .pipe(gulp.dest('dist'))
 );
+
+gulp.task('rename', ['htmlblocks'], () => {
+  const file = 'dist/rev-manifest.json';
+  const js = new RegExp(mainJs,"g");
+  const css = new RegExp(mainCss,"g");
+  
+  return jsonfile.readFile(file, function (err, obj) {
+    if (err) console.error(err)
+    gulp.src(['dist/index.html'])
+    .pipe(replace(js, obj[mainJs]))
+    .pipe(replace(css, obj[mainCss]))
+    .pipe(gulp.dest('dist'));
+  })
+
+});
 
 // Lint JavaScript
 gulp.task('lint', () =>
@@ -174,7 +192,7 @@ gulp.task('styles', () => {
     'app/styles/**/*.css',
     'app/scripts/**/*.css'
   ])
-    .pipe($.concat('main.css'))
+    .pipe($.concat(mainCss))
     .pipe($.newer('.tmp/styles'))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.sass({
@@ -184,7 +202,12 @@ gulp.task('styles', () => {
     // Concatenate and minify styles
     .pipe($.cssnano())
     .pipe($.size({title: 'main styles'}))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(rev())
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(rev.manifest('dist/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(gulp.dest(''));
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -239,10 +262,15 @@ gulp.task('scripts', () =>
       'app/scripts/player/audioPlayer/audioPlayer.service.js'
     ])
     .pipe($.uglify({mangle: false}))
-    .pipe($.concat('main.js'))
+    .pipe($.concat(mainJs))
     .pipe($.newer('dist/scripts'))
     .pipe($.size({title: 'main scripts'}))
+    .pipe(rev())
     .pipe(gulp.dest('dist/scripts'))
+    .pipe(rev.manifest('dist/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(gulp.dest(''))
 );
 
 // Scan your HTML for assets & optimize them
@@ -316,11 +344,22 @@ gulp.task('serve:dist', ['default'], () =>
 );
 
 // Build production files, the default task
-gulp.task('default', ['clean', 'htmlblocks'], cb =>
+gulp.task('default', ['clean', 'scripts'], cb =>
   runSequence(
     'styles',
     // ['lint', 'html', 'scripts', 'images', 'copy'],
-    ['scripts', 'html', 'images', 'jsons', 'copy'],
+    ['html', 'images', 'jsons', 'rename', 'copy'],
+    'generate-service-worker',
+    cb
+  )
+);
+
+// just text files without media files.
+gulp.task('text', ['scripts'], cb =>
+  runSequence(
+    'styles',
+    // ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['html', 'jsons', 'rename', 'copy'],
     'generate-service-worker',
     cb
   )
