@@ -13,110 +13,132 @@
     a40: 'e41d', a41: 'e41e', a44: 'e41f', a47: 'e420',
     a60: 'e427', a61: 'e428',
 
+    n00: 'e431',
     n10: 'e432', n11: 'e433', n14: 'e434', n17: 'e435', n18: 'e436',
     n30: 'e43b', n31: 'e43c', n34: 'e43d', n37: 'e43e',
     n40: 'e445', n41: 'e446', n44: 'e447', n47: 'e448',
     n60: 'e44f', n61: 'e450',
 
+    b00: 'e45a',
     b10: 'e459', b11: 'e45a', b14: 'e45b', b17: 'e45c',
     b30: 'e463', b31: 'e464', b34: 'e465', b37: 'e466',
     b40: 'e46d', b41: 'e46e', b44: 'e46f', b47: 'e470',
     b60: 'e477', b61: 'e478',
 
+    p00: 'e47c',
     p10: 'e47b', p11: 'e47c', p14: 'e47d', p17: 'e47e',
     p30: 'e483', p31: 'e484', p34: 'e485', p37: 'e486',
     p40: 'e48a', p41: 'e48b', p44: 'e48c', p47: 'e48d',
     p60: 'e491', p61: 'e492',
 
+    h00: 'e495',
     h10: 'e496', h11: 'e497', h14: 'e498', h17: 'e499',
     h20: 'e49d', h21: 'e49e', h24: 'e49f', h27: 'e4a0',
     h30: 'e4a3', h31: 'e4a4', h34: 'e4a5', h37: 'e4a6',
     h40: 'e4a9', h41: 'e4aa', h44: 'e4ab', h47: 'e4ac',
     h60: 'e4af', h61: 'e4b0', h64: 'e4b1', h67: 'e4b2',
 
+    g00: 'e4b4',
     g10: 'e4b5', g11: 'e4b6', g14: 'e4b7', g17: 'e4b8',
     g40: 'e4bb', g41: 'e4bc', g44: 'e4bd', g47: 'e4be',
 
+    m00: 'e4c0',
     m10: 'e4c1', m11: 'e4c2', m14: 'e4c3', m17: 'e4c4', m18: 'e4c5',
     m30: 'e4c8', m31: 'e4c9', m34: 'e4ca', m37: 'e4cb',
     m40: 'e4ce', m41: 'e4cf', m44: 'e4d0', m47: 'e4d1',
     m60: 'e4d4', m61: 'e4d5',
 
+    l00: 'e4d7',
     l10: 'e4d8', l11: 'e4d9', l14: 'e4da', l17: 'e4db', l18: 'e4dc',
     l30: 'e4df', l31: 'e4e0', l34: 'e4e1', l37: 'e4e2',
     l40: 'e4e5', l41: 'e4e6', l44: 'e4e7', l47: 'e4e8',
     l60: 'e4eb', l61: 'e4ec',
 
+    s00: 'e4ee',
     s10: 'e4ef', s11: 'e4f0', s14: 'e4f1', s17: 'e4f2',
     s30: 'e4f5', s31: 'e4f6', s34: 'e4f7', s37: 'e4f8',
     s40: 'e4fb', s41: 'e4fc', s44: 'e4fd', s47: 'e4fe',
     s60: 'e501', s61: 'e502',
 
+    x00: 'e504',
     x10: 'e505', x11: 'e506', x14: 'e507', x17: 'e508',
     x30: 'e50b', x31: 'e50c', x34: 'e50d', x37: 'e50e',
     x40: 'e511', x41: 'e512', x44: 'e513', x47: 'e514',
     x60: 'e517', x61: 'e518',
 
+    t00: 'e51a',
     t10: 'e51b', t11: 'e51c', t14: 'e51d', t17: 'e51e',
     t30: 'e521', t31: 'e522', t34: 'e523', t37: 'e524',
     t40: 'e527', t41: 'e528', t44: 'e529', t47: 'e52a',
     t60: 'e52d', t61: 'e52e',
 
+    d00: 'e530',
     d10: 'e531', d30: 'e533', d40: 'e535', d60: 'e537',
 
+    q00: 'e538',
     q10: 'e539', q11: 'e53a', q14: 'e53b', q17: 'e53c',
     q30: 'e53f', q31: 'e540', q34: 'e541', q37: 'e542',
     q40: 'e544', q41: 'e545', q44: 'e546', q47: 'e547',
     q60: 'e54a', q61: 'e54b',
 
+    j00: 'e54d',
     j10: 'e54e', j11: 'e54f', j14: 'e550', j17: 'e551',
     j30: 'e554', j31: 'e555', j34: 'e556', j37: 'e557',
     j40: 'e55a', j41: 'e55b', j44: 'e55c', j47: 'e55d',
     j60: 'e560', j61: 'e561',
 
+    y00: 'e563',
     y10: 'e564', y11: 'e565', y14: 'e566', y17: 'e567', y18: 'e568',
     y30: 'e56b', y31: 'e56c', y34: 'e56d', y37: 'e56e',
     y40: 'e571', y41: 'e572', y44: 'e573', y47: 'e574',
     y60: 'e577', y61: 'e578',
 
+    r00: 'e57a',
     r10: 'e57b', r11: 'e57c', r14: 'e57d', r17: 'e57e', r18: 'e57f',
     r30: 'e582', r31: 'e583', r34: 'e584', r37: 'e585',
     r40: 'e588', r41: 'e589', r44: 'e58a', r47: 'e58b',
     r60: 'e58e', r61: 'e58f',
 
+    w00: 'e591',
     w10: 'e592', w11: 'e593', w14: 'e594', w17: 'e595', w18: 'e596',
     w21: 'e599', w24: 'e59a', w27: 'e59b',
 
+    f00: 'e59f',
     f10: 'e59e', f11: 'e59f', f14: 'e5a0', f17: 'e5a1',
     f20: 'e5b5', f21: 'e5b6', f24: 'e5b7', f27: 'e5b8',
     f30: 'e5a4', f31: 'e5a5', f34: 'e5a6', f37: 'e5a7',
     f40: 'e5aa', f41: 'e5ab', f44: 'e5ac', f47: 'e5ad',
     f60: 'e5b0', f61: 'e5b1', f64: 'e5b2', f67: 'e5b3',
 
+    k00: 'e5bc',
     k10: 'e5bb', k11: 'e5bc', k14: 'e5bd', k17: 'e5be',
     k20: 'e5c0', k21: 'e5c1', k24: 'e5c2', k27: 'e5c3', k28: 'e5c4',
     k30: 'e5c6', k31: 'e5c7', k34: 'e5c8', k37: 'e5c9',
     k40: 'e5cc', k41: 'e5cd', k44: 'e5ce', k47: 'e5cf',
     k60: 'e5d2', k61: 'e5d3', k64: 'e5d4', k67: 'e5d5',
 
+    z00: 'e5f5',
     z10: 'e5f6', z11: 'e5f7', z14: 'e5f8', z17: 'e5f9',
     z20: 'e5fc', z21: 'e5fd', z24: 'e5fe', z27: 'e5ff', z28: 'e600',
     z30: 'e603', z31: 'e604', z34: 'e605', z37: 'e606',
     z40: 'e609', z41: 'e60a', z44: 'e60b', z47: 'e60c',
     z60: 'e60f', z61: 'e610', z64: 'e611', z67: 'e612',
 
+    c00: 'e5d7',
     c10: 'e5d8', c11: 'e5d9', c14: 'e5da', c17: 'e5db',
     c20: 'e5de', c21: 'e5df', c24: 'e5e0', c27: 'e5e1', c28: 'e5e2',
     c30: 'e5e4', c31: 'e5e5', c34: 'e5e6', c37: 'e5e7',
     c40: 'e5ea', c41: 'e5eb', c44: 'e5ec', c47: 'e5ed',
     c60: 'e5f0', c61: 'e5f1', c64: 'e5f2', c67: 'e5f3',
 
+    H00: 'e614',
     H10: 'e615', H11: 'e616', H14: 'e617', H17: 'e618',
     H20: 'e61b', H21: 'e61c', H24: 'e61d', H27: 'e61e',
     H30: 'e621', H31: 'e622', H34: 'e623', H37: 'e624',
     H40: 'e627', H41: 'e628', H44: 'e629', H47: 'e62a',
     H60: 'e62d', H61: 'e62e', H64: 'e62f', H67: 'e630',
 
+    L00: 'e632',
     L10: 'e633', L11: 'e634', L14: 'e635', L17: 'e636',
 
     e10: 'e639', e11: 'e63b', e13: 'e63d', e14: 'e63f',
@@ -250,7 +272,16 @@
     });
   }
 
+  function createConsnantHeadPosition() {
+    $.each(consnants, function (ci, consnant) {
+      var cons = consnant + '00';
+      codeToWordMaps[consnant + 0 + 0] = consnant + '00';
+    });
+  }
+
   function createConsnantPosition() {
+    createConsnantHeadPosition();
+    
     $.each(vowelPosition, function (voi, voPosition) {
       $.each(consnants, function (ci, consnant) {
         // foreign 'L' has one alphas.
@@ -283,7 +314,7 @@
     createVowelPosition();
     createConsnantPosition();
 
-    // console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
+    console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
   }
 
   function setMonWord(str, div) {

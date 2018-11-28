@@ -31,10 +31,10 @@
     self.showWordIme = false;
     self.word = '';
 
-    self.wordImeKeyConsonants = ['n10', 'b10', 'p10', 'h10', 'g10', 'm10', 'l10', 's10',
-      'x10', 't10', 'd10', 'q10', 'j10', 'y10', 'r10', 'w10'];
+    self.wordImeKeyConsonants = ['n00', 'b00', 'p00', 'h00', 'g00', 'm00', 'l00', 's00',
+      'x00', 't00', 'd00', 'q00', 'j00', 'y00', 'r00', 'w00'];
 
-    self.wordImeKeyForeigns = ['f10', 'k10', 'z10', 'c10', 'H10', 'L10'];
+    self.wordImeKeyForeigns = ['f00', 'k00', 'z00', 'c00', 'H00', 'L00'];
 
     self.wordImeKeyFSingles = ['e10', 'e11', 'e12', 'e13', 'e14'];
 
