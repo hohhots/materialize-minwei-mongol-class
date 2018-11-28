@@ -8,6 +8,7 @@
 
 .wordinput-container-cell,
 .wordinput-container-cell:focus {
+  box-sizing: border-box;
   border: 0;
   width: 100%;
   height: 100%;
