@@ -1,19 +1,23 @@
 [
   {
     "interactType": "wordBegin",
-    "interactTitle": "复合元音",
+    "interactTitle": "单词",
     "words": [
-      { "word": "a11a37", "china": ""},
-      { "word": "a21a37", "china": ""},
-      { "word": "a41a37", "china": ""},
-      { "word": "a71a37", "china": ""},
-      { "word": "a11a77", "china": ""},
-      { "word": "a21a77", "china": ""},
-      { "word": "a31a77", "china": ""},
-      { "word": "a51w17", "china": ""},
-      { "word": "a51w14a37", "china": ""}
+      { "word": "d11h34y18", "china": "鸡"},
+      { "word": "h71h27", "china": "蓝"},
+      { "word": "s31r18", "china": "黄"},
+      { "word": "x11t57", "china": "梯子"},
+      { "word": "s71m28", "china": "庙"},
+      { "word": "s51m57", "china": "子弹"},
+      { "word": "h51r54g57", "china": "手指"},
+      { "word": "q31s57", "china": "血液"},
+      { "word": "j31r54h27", "china": "心脏"},
+      { "word": "y11s57", "china": "骨"},
+      { "word": "q21g24j37", "china": "胸"},
+      { "word": "m71r77", "china": "肩膀"},
+      { "word": "g51y18", "china": "大腿"}
     ],
-    "videoTitle": "复合元音",
-    "practiceTitle": "复合元音练习"
+    "videoTitle": "单词",
+    "practiceTitle": "单词练习"
   }
 ]

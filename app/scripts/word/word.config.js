@@ -314,7 +314,7 @@
     createVowelPosition();
     createConsnantPosition();
 
-    console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
+    // console.log(codeToWordMaps, Object.keys(codeToWordMaps).length);
   }
 
   function setMonWord(str, div) {

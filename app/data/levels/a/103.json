@@ -3,13 +3,12 @@
     "interactType": "wordBegin",
     "interactTitle": "复合元音",
     "words": [
-      { "word": "a11b17", "china": "狩猎"},
-      { "word": "n11m54A10", "china": "秋天"},
-      { "word": "s51l17", "china": "松的"},
-      { "word": "b41A19b14A20", "china": "假如"},
-      { "word": "a21n27", "china": "这个"},
-      { "word": "a21b74A20", "china": "冬天"},
-      { "word": "n71s24A10", "china": "沉重的"}
+      { "word": "j10", "china": "是"},
+      { "word": "m21d24l28", "china": "知道了"},
+      { "word": "h41g44l17", "china": "饭"},
+      { "word": "s31r14A03s14A14", "china": "烤的"},
+      { "word": "m31h17", "china": "肉"},
+      { "word": "s70", "china": "奶"}
     ],
     "videoTitle": "复合元音",
     "practiceTitle": "复合元音练习"

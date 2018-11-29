@@ -1,18 +1,3 @@
 [
-  {
-    "interactType": "wordBegin",
-    "interactTitle": "复合元音",
-    "words": [
-      { "word": "a21n27", "china": "这个"},
-      { "word": "a11g54l17", "china": "山"},
-      { "word": "a51s57", "china": "水"},
-      { "word": "a71g24a37", "china": "没有"},
-      { "word": "a21g74l27", "china": "云"},
-      { "word": "t11a37", "china": "有"},
-      { "word": "b11a35n18", "china": "有"},
-      { "word": "t21a35m57", "china": "是的"}
-    ],
-    "videoTitle": "复合元音",
-    "practiceTitle": "复合元音练习"
-  }
+  {}
 ]

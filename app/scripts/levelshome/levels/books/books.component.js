@@ -100,6 +100,25 @@
       }
     };
 
+    self.playVideo = function () {
+      var names = {};
+      var url = self.parent.getBookPath() + '/' + config.data.videos + '/' + self.fileName;console.log(url);
+      names.videos = {
+        ogv: url + config.dataTypes.videos[0],
+        webm: url + config.dataTypes.videos[1]
+      };
+      names.name = "动画";
+      $scope.$broadcast(config.events.playIntroductionVideo, names);
+    };
+
+    self.hasVideo = function () {
+      if(self.bookJson.video){
+        return !0;
+      } else {
+        return !!0;
+      }
+    };
+
     var audioElem;
     var audioPlaying = false;
     // classroom data directory url
