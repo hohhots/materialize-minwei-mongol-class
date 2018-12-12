@@ -259,7 +259,8 @@ gulp.task('scripts', () =>
       'app/scripts/word/input/mwordInput.component.js',
       'app/scripts/ime/ime.module.js',
       'app/scripts/ime/word/wordIme.component.js',
-      'app/scripts/player/audioPlayer/audioPlayer.service.js'
+      'app/scripts/player/audioPlayer/audioPlayer.service.js',
+      'app/scripts/serviceworker.js'
     ])
     .pipe($.uglify({mangle: false}))
     .pipe($.concat(mainJs))

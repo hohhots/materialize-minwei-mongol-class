@@ -156,21 +156,8 @@
   <script type="text/javascript" src="scripts/ime/ime.module.js"></script>
   <script type="text/javascript" src="scripts/ime/word/wordIme.component.js"></script>
   <script type="text/javascript" src="scripts/player/audioPlayer/audioPlayer.service.js"></script>  
+  <script type="text/javascript" src="scripts/serviceworker.js"></script>
   <!-- endbuild -->
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
-          // Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function (err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  </script>
 
 </body>
 
