@@ -354,17 +354,6 @@ gulp.task('default', ['clean', 'scripts'], cb =>
   )
 );
 
-// just text files without media files.
-gulp.task('text', ['scripts'], cb =>
-  runSequence(
-    'styles',
-    // ['lint', 'html', 'scripts', 'images', 'copy'],
-    ['html', 'jsons', 'rename', 'copy'],
-    'generate-service-worker',
-    cb
-  )
-);
-
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
@@ -390,6 +379,7 @@ gulp.task('copy-sw-scripts', () => {
 // live reload to work as expected when serving from the 'app' directory.
 gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
   const rootDir = 'dist';
+  //const rootDir = '';
   const filepath = path.join(rootDir, 'service-worker.js');
 
   return swPrecache.write(filepath, {
@@ -402,10 +392,11 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
     ],
     staticFileGlobs: [
       // Add/remove glob patterns to match your directory setup.
-      `${rootDir}/images/**/*`,
-      `${rootDir}/scripts/**/*.js`,
-      `${rootDir}/styles/**/*.css`,
-      `${rootDir}/*.{html,json}`
+      // `${rootDir}/images/**/*`,
+      // `${rootDir}/scripts/**/*.js`,
+      // `${rootDir}/styles/**/*.css`,
+      // `${rootDir}/*.{html,json}`
+      `${rootDir}/**/*.{html,js,json,png,gif,jpg,mp3,ogg,webm,ogv}`,
     ],
     // Translates a static file path to the relative URL that it's served from.
     // This is '/' rather than path.sep because the paths returned from
