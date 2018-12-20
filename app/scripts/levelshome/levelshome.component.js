@@ -37,7 +37,7 @@
 
       util.setCurrentBackgroundColor();
       
-      $('body').css('background', '#3f3f3f');
+      $('body').css('background', '#516473');
     };
 
     self.showAppDetail = function () {
