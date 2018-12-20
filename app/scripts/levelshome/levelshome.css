@@ -77,7 +77,7 @@ h1,h2,h3,p  {
   margin-top: 2em;
   margin-bottom: 1em;
   padding: 1.5em;
-  background: #fff;
+  background: #ccc;
   color: #333;
   width: 80%;
 }
@@ -135,7 +135,7 @@ h1,h2,h3,p  {
 
 #section-b li {
   margin-bottom: 1em;
-  background: #fff;
+  background: #ccc;
   color: #333;
   width: 80%;
 }

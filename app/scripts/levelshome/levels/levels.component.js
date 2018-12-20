@@ -33,7 +33,7 @@
     self.firstPage = true;
     self.endPage = false;
 
-    self.headerStyle = {backgroundColor: '#336699'};
+    self.headerStyle = {backgroundColor: '#516473'};
 
     self.$onInit = function () {
       if (redirect()) {
@@ -53,7 +53,7 @@
       }
       
       util.setCurrentBackgroundColor();
-      $('body').css('background', '#3f3f3f');
+      $('body').css('background', '#516473');
       
       //util.scrollToTop();
     };
