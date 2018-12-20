@@ -397,7 +397,7 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
       // `${rootDir}/scripts/**/*.js`,
       // `${rootDir}/styles/**/*.css`,
       // `${rootDir}/*.{html,json}`
-      `${rootDir}/**/*.{html,js,json,png,gif,jpg,mp3,ogg,webm,ogv}`,
+      `${rootDir}/**/*.{html,js,woff,woff2}`,
     ],
     // Translates a static file path to the relative URL that it's served from.
     // This is '/' rather than path.sep because the paths returned from
