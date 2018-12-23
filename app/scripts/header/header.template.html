@@ -2,12 +2,12 @@
   <nav class="mainNav" ng-mouseenter="$ctrl.navMouseEnter()" ng-mouseleave="$ctrl.navMouseLeave()">
     <div class="mainNavContent">
       <div class="mainNavContentLeft">
-        <a ng-href="{{$ctrl.getUrl()}}" class="appLogo" ng-style="$ctrl.logo.style"><i class="fa fa-graduation-cap" aria-hidden="true" style="color:#61c305"></i>随心蒙古语</a>
+        <a  title="返回“随心蒙古语”首页" ng-href="{{$ctrl.getUrl()}}" class="appLogo" ng-style="$ctrl.logo.style"><i class="fa fa-graduation-cap" aria-hidden="true" style="color:#61c305"></i>随心蒙古语</a>
+      </div>
+
+      <div class="mainNavContentRight" title="返回“内蒙古自治区民族事务委员会”首页">
+        <a href="http://www.nmgmzw.gov.cn/" class="appLogo">&lt; 首页</a>
       </div>
     </div>
   </nav>
-
-  <div class="phoneDropDown">
-    <mobile-dropdown></mobile-dropdown>
-  </div>
 </div>

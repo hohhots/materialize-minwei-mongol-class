@@ -1,8 +1,9 @@
 <header id="levels-showcase" class="levels-grid" ng-style="{{$ctrl.headerStyle}}">
   <div class="content-wrap">
-    <h2>{{$ctrl.langs.introduction.title}}</h2>
-    <p>{{$ctrl.langs.introduction.text}}</p>
-
+    <div ng-hide="!$ctrl.isFirstPage()">
+      <h2>{{$ctrl.langs.introduction.title}}</h2>
+      <p>{{$ctrl.langs.introduction.text}}</p>
+    </div>
     <div class="level-btn-container" ng-hide="$ctrl.selectPages">
       <a class="level-btn" ui-sref="root.levels.books({pagenum: $ctrl.pageNum - 1})" ng-hide="$ctrl.firstPage" title="{{::$ctrl.langs.previousPage}}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>

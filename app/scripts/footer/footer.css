@@ -47,7 +47,7 @@
 .footerMainLink {
   position: relative !important;
   flex-grow: 1 !important;
-  column-count: 2 !important;
+  column-count: 1 !important;
 }
 
 .footerMainLinkUl {
@@ -124,7 +124,7 @@
   }
 
   .footerMainLink {
-    column-count: 3 !important;
+    column-count: 1 !important;
   }
 
   .footerBottomBlock {

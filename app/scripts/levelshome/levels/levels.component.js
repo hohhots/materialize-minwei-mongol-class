@@ -33,7 +33,7 @@
     self.firstPage = true;
     self.endPage = false;
 
-    self.headerStyle = {backgroundColor: '#516473'};
+    self.headerStyle = {backgroundColor: '#314453'};
 
     self.$onInit = function () {
       if (redirect()) {
@@ -52,7 +52,7 @@
         $http.get(json.data, { cache: true }).then(setBook);
       }
       
-      util.setCurrentBackgroundColor();
+      //util.setCurrentBackgroundColor();
       $('body').css('background', '#516473');
       
       //util.scrollToTop();
@@ -79,7 +79,7 @@
 
     self.setPageNum = function(pagenum) {
       self.pageNum = pagenum;
-      isFirstPage();
+      self.isFirstPage();
     };
 
     self.getBookPath = function() {
@@ -110,6 +110,13 @@
       }
     };
 
+    self.isFirstPage = function() {
+      self.firstPage = (self.pageNum === 1);
+      self.endPage = (self.pageNum === self.pagesName.length);
+
+      return self.firstPage;
+    };
+
     var redirect = function() {
       var url = $location.path();
 
@@ -136,11 +143,6 @@
       return false;
     };
 
-    var isFirstPage = function() {
-      self.firstPage = (self.pageNum === 1);
-      self.endPage = (self.pageNum === self.pagesName.length);
-    };
-
     var setIntroduction = function(resp) {
       // console.log(resp.data);
       setLevelIntroduction(resp.data);
@@ -161,7 +163,7 @@
       util.setBookPath(self.levelid, self.bookPath);
       util.setBookPagesName(self.levelid, self.pagesName);
       
-      isFirstPage();
+      self.isFirstPage();
     };
 
     var setLevelIntroduction = function(data) {
